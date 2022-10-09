@@ -2,13 +2,50 @@ const fs = require('fs-extra');
 
 const categories = ['masterminds', 'schemes', 'villains', 'henchmen', 'heroes'];
 
-const villainsCount = 1;
-const henchmenCount = 1;
-const heroesCount = 3;
+const playerCount = 4;
+
+let villainsCount = 1;
+let henchmenCount = 1;
+let heroesCount = 3;
+let bystandersCount = 1;
+switch (playerCount) {
+    case 2: {
+        villainsCount = 2;
+        henchmenCount = 1;
+        heroesCount = 5;
+        bystandersCount = 2;
+        break;
+    }
+    case 3: {
+        villainsCount = 3;
+        henchmenCount = 1;
+        heroesCount = 5;
+        bystandersCount = 8;
+        break;
+    }
+    case 4: {
+        villainsCount = 3;
+        henchmenCount = 2;
+        heroesCount = 5;
+        bystandersCount = 8;
+        break;
+    }
+    case 5: {
+        villainsCount = 4;
+        henchmenCount = 2;
+        heroesCount = 6;
+        bystandersCount = 12;
+        break;
+    }
+    default: {
+        // Use default values, aka solo game
+        break;
+    }
+}
+
 
 let rawdata = fs.readFileSync('legendary.json');
 const legendaryBase = JSON.parse(rawdata);
-
 
 let games = '';
 if (fs.existsSync('games.json')) {
@@ -83,7 +120,6 @@ function drawRandomMultiple(category, nameInGame, countToDraw) {
     game = { ...game, ...choicesForGame };
 }
 
-
 let masterminds = legendaryBase.masterminds;
 let schemes = legendaryBase.schemes;
 let heroes = legendaryBase.heroes;
@@ -96,6 +132,8 @@ drawRandomUnique(schemes, 'scheme');
 drawRandomMultiple(villains, 'villain', villainsCount);
 drawRandomMultiple(henchmen, 'henchman', henchmenCount);
 drawRandomMultiple(heroes, 'hero', heroesCount);
+
+game = { ...game, ...{ 'bystanders': bystandersCount } };
 
 console.log(game);
 
