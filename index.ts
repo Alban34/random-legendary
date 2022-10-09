@@ -3,20 +3,22 @@ const fs = require('fs-extra');
 let rawdata = fs.readFileSync('legendary.json');
 const legendaryBase = JSON.parse(rawdata);
 
+const categories = ['masterminds', 'schemes'];
+
 let games = '';
 if (fs.existsSync('games.json')) {
     rawdata = fs.readFileSync('games.json');
     games = JSON.parse(rawdata);
 
-    legendaryBase.masterminds.forEach(mastermind => {
-        const mastermindInGames = games.masterminds.filter(m => m.name === mastermind.name);
-        if (mastermindInGames && mastermindInGames.length === 1) {
-            mastermind.count = mastermindInGames[0].count;
-        }
+    categories.forEach(category => {
+        legendaryBase[category].forEach(baseValue => {
+            const saveCatValue = games[category].filter(m => m.name === baseValue.name);
+            if (saveCatValue && saveCatValue.length === 1) {
+                baseValue.count = saveCatValue[0].count;
+            }
+        });
     });
 }
-
-let masterminds = legendaryBase.masterminds;
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
@@ -36,19 +38,36 @@ function filterList(element, countToKeep) {
     return element.count === countToKeep;
 }
 
-const valueToFilter = masterminds[0].count;
+function drawRandomUnique(category, nameInGame) {
 
-const filteredMasterminds = masterminds.filter((mastermind) => filterList(mastermind, valueToFilter));
+    category = category.sort(sortLists);
 
-const game = {
-    mastermind: filteredMasterminds[getRandomInt(filteredMasterminds.length)]
-};
+    const valueToFilter = category[0].count;
+
+    const filteredMasterminds = category.filter((mastermind) => filterList(mastermind, valueToFilter));
+
+    let choice = {};
+    choice[nameInGame] = filteredMasterminds[getRandomInt(filteredMasterminds.length)];
+
+    game = {...game, ...choice};
+
+    category[category.indexOf(game[nameInGame])].count++;
+}
+
+
+let masterminds = legendaryBase.masterminds;
+let schemes = legendaryBase.schemes;
+let game = {};
+
+drawRandomUnique(masterminds, "mastermind");
+drawRandomUnique(schemes, "scheme");
+
 console.log(game);
 
-masterminds[masterminds.indexOf(game.mastermind)].count++;
 
 const gamesToSave = {
-    masterminds: masterminds
+    masterminds: masterminds,
+    schemes: schemes
 };
 const data = JSON.stringify(gamesToSave);
 fs.writeFileSync('games.json', data);
