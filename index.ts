@@ -2,8 +2,9 @@ const fs = require('fs-extra');
 
 const categories = ['masterminds', 'schemes', 'villains', 'henchmen', 'heroes'];
 
-const villainCount = 1;
-const heroesCount = 5;
+const villainsCount = 1;
+const henchmenCount = 1;
+const heroesCount = 3;
 
 let rawdata = fs.readFileSync('legendary.json');
 const legendaryBase = JSON.parse(rawdata);
@@ -23,7 +24,7 @@ if (fs.existsSync('games.json')) {
                         baseValue.count = saveCatValue[0].count;
                     }
                 } else {
-                    console.warn(`Unsaved category "${category}"`)
+                    console.warn(`Unsaved category "${category}"`);
                 }
             });
         } else {
@@ -72,30 +73,38 @@ function drawRandomUnique(category, nameInGame) {
 
 function drawRandomMultiple(category, nameInGame, countToDraw) {
     let choices = [];
-    for (let i=0;i<countToDraw;i++) {
-        choices.push(drawRandom(category, nameInGame));
+    for (let i = 0; i < countToDraw; i++) {
+        choices.push(drawRandom(category, nameInGame)[nameInGame]);
     }
 
-    game = { ...game, ...choices };
+    let choicesForGame = {};
+    choicesForGame[nameInGame] = choices;
+
+    game = { ...game, ...choicesForGame };
 }
 
 
 let masterminds = legendaryBase.masterminds;
 let schemes = legendaryBase.schemes;
 let heroes = legendaryBase.heroes;
+let villains = legendaryBase.villains;
+let henchmen = legendaryBase.henchmen;
 let game = {};
 
 drawRandomUnique(masterminds, 'mastermind');
 drawRandomUnique(schemes, 'scheme');
+drawRandomMultiple(villains, 'villain', villainsCount);
+drawRandomMultiple(henchmen, 'henchman', henchmenCount);
 drawRandomMultiple(heroes, 'hero', heroesCount);
 
 console.log(game);
 
-
 const gamesToSave = {
-    masterminds: masterminds,
-    schemes: schemes,
-    heroes: heroes
+    masterminds,
+    schemes,
+    heroes,
+    villains,
+    henchmen
 };
 const data = JSON.stringify(gamesToSave);
 fs.writeFileSync('games.json', data);
