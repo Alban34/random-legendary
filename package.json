@@ -1,0 +1,22 @@
+{
+  "name": "random-legendary",
+  "version": "1.0.0",
+  "description": "Fan made randomizer for Legendary Marvel",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alban34/random-legendary.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Alban34/random-legendary/issues"
+  },
+  "homepage": "https://github.com/Alban34/random-legendary#readme",
+  "dependencies": {
+    "fs-extra": "^10.1.0"
+  }
+}
