@@ -1,88 +1,628 @@
 {
-    "masterminds": [
-        {
-            "name": "Apocalypse",
-            "count": 0
-        },
-        {
-            "name": "Belasco",
-            "count": 0
-        },
-        {
-            "name": "Dr. Doom",
-            "count": 0
-        },
-        {
-            "name": "Dormammu",
-            "count": 0
-        },
-        {
-            "name": "Emma Frost, The White Queen",
-            "count": 0
-        },
-        {
-            "name": "Fin Fang Foom",
-            "count": 0
-        },
-        {
-            "name": "Hela",
-            "count": 0
-        },
-        {
-            "name": "Kingpin",
-            "count": 0
-        },
-        {
-            "name": "Loki",
-            "count": 0
-        },
-        {
-            "name": "Magneto",
-            "count": 0
-        },
-        {
-            "name": "Malekith",
-            "count": 0
-        },
-        {
-            "name": "Mephisto",
-            "count": 0
-        },
-        {
-            "name": "Morgan Le Fay",
-            "count": 0
-        },
-        {
-            "name": "Mr. Sinister",
-            "count": 0
-        },
-        {
-            "name": "Nightmare",
-            "count": 0
-        },
-        {
-            "name": "Pagliacci",
-            "count": 0
-        },
-        {
-            "name": "Red Skull",
-            "count": 0
-        },
-        {
-            "name": "Stryfe",
-            "count": 0
-        },
-        {
-            "name": "Supreme Intelligence",
-            "count": 0
-        },
-        {
-            "name": "Thanos",
-            "count": 0
-        },
-        {
-            "name": "Ultron",
-            "count": 0
-        }
-    ]
+  "masterminds": [
+    {
+      "name": "Apocalypse",
+      "count": 0
+    },
+    {
+      "name": "Belasco",
+      "count": 0
+    },
+    {
+      "name": "Dr. Doom",
+      "count": 0
+    },
+    {
+      "name": "Dormammu",
+      "count": 0
+    },
+    {
+      "name": "Emma Frost, The White Queen",
+      "count": 0
+    },
+    {
+      "name": "Fin Fang Foom",
+      "count": 0
+    },
+    {
+      "name": "Hela",
+      "count": 0
+    },
+    {
+      "name": "Kingpin",
+      "count": 0
+    },
+    {
+      "name": "Loki",
+      "count": 0
+    },
+    {
+      "name": "Magneto",
+      "count": 0
+    },
+    {
+      "name": "Malekith",
+      "count": 0
+    },
+    {
+      "name": "Mephisto",
+      "count": 0
+    },
+    {
+      "name": "Morgan Le Fay",
+      "count": 0
+    },
+    {
+      "name": "Mr. Sinister",
+      "count": 0
+    },
+    {
+      "name": "Nightmare",
+      "count": 0
+    },
+    {
+      "name": "Pagliacci",
+      "count": 0
+    },
+    {
+      "name": "Red Skull",
+      "count": 0
+    },
+    {
+      "name": "Stryfe",
+      "count": 0
+    },
+    {
+      "name": "Supreme Intelligence",
+      "count": 0
+    },
+    {
+      "name": "Thanos",
+      "count": 0
+    },
+    {
+      "name": "Ultron",
+      "count": 0
+    }
+  ],
+  "schemes": [
+    {
+      "name": "Age of Ultron",
+      "count": 0
+    },
+    {
+      "name": "Asgardian Test of Worth",
+      "count": 0
+    },
+    {
+      "name": "Capture Baby Hope",
+      "count": 0
+    },
+    {
+      "name": "Claim Souls for Demons",
+      "count": 0
+    },
+    {
+      "name": "Clash of the Monsters Unleashed",
+      "count": 0
+    },
+    {
+      "name": "Crash the Moon into the Sun",
+      "count": 0
+    },
+    {
+      "name": "Cursed Pages of the Darklord Tome",
+      "count": 0
+    },
+    {
+      "name": "Detonate the Helicarrier",
+      "count": 0
+    },
+    {
+      "name": "Divide and Conquer",
+      "count": 0
+    },
+    {
+      "name": "Duels of Science and Magic",
+      "count": 0
+    },
+    {
+      "name": "Forge the Infinity Gauntlet",
+      "count": 0
+    },
+    {
+      "name": "Hypnotize Every Human",
+      "count": 0
+    },
+    {
+      "name": "Intergalactic Kree Nega-Bomb",
+      "count": 0
+    },
+    {
+      "name": "Massive Earthquake Generator",
+      "count": 0
+    },
+    {
+      "name": "Midtown Bank Robbery",
+      "count": 0
+    },
+    {
+      "name": "Negative Zone Prison Breakout",
+      "count": 0
+    },
+    {
+      "name": "Organized Crime Wave",
+      "count": 0
+    },
+    {
+      "name": "Portals to Dark Dimension",
+      "count": 0
+    },
+    {
+      "name": "Pull earth into Medieval Times",
+      "count": 0
+    },
+    {
+      "name": "Ragnarok, Twilight of the Gods",
+      "count": 0
+    },
+    {
+      "name": "Replace Earth's Leaders with Killbots",
+      "count": 0
+    },
+    {
+      "name": "Save Humanity",
+      "count": 0
+    },
+    {
+      "name": "Secret Invasion of the Skrull Shapeshifters",
+      "count": 0
+    },
+    {
+      "name": "Steal all Oxygen on Earth",
+      "count": 0
+    },
+    {
+      "name": "Steal the Weaponized Plutonium",
+      "count": 0
+    },
+    {
+      "name": "Super Hero Civil War",
+      "count": 0
+    },
+    {
+      "name": "Superhuman Baseball Game",
+      "count": 0
+    },
+    {
+      "name": "The Dark World of Svartalfheim",
+      "count": 0
+    },
+    {
+      "name": "The Demon Bear Saga",
+      "count": 0
+    },
+    {
+      "name": "The Kree-Skull War",
+      "count": 0
+    },
+    {
+      "name": "The Legacy Virus",
+      "count": 0
+    },
+    {
+      "name": "Transform Citizens Into Demons",
+      "count": 0
+    },
+    {
+      "name": "Transform Commuters into Giant Ants",
+      "count": 0
+    },
+    {
+      "name": "Trap Heroes in the Microverse",
+      "count": 0
+    },
+    {
+      "name": "Trapped in the Insane Asylum",
+      "count": 0
+    },
+    {
+      "name": "Unite the Shards",
+      "count": 0
+    },
+    {
+      "name": "Unleash the Power of the Cosmic Cube",
+      "count": 0
+    },
+    {
+      "name": "War for the Dream Dimension",
+      "count": 0
+    },
+    {
+      "name": "War of the Frost Giants",
+      "count": 0
+    },
+    {
+      "name": "X-Cutioner's Song",
+      "count": 0
+    }
+  ],
+  "vilains": [
+    {
+      "name": "Brotherhood",
+      "count": 0
+    },
+    {
+      "name": "Dark Council",
+      "count": 0
+    },
+    {
+      "name": "Demons of Limbo",
+      "count": 0
+    },
+    {
+      "name": "Emissaries of Evil",
+      "count": 0
+    },
+    {
+      "name": "Enemies of Asgard",
+      "count": 0
+    },
+    {
+      "name": "Fear Lords",
+      "count": 0
+    },
+    {
+      "name": "Four Horsemen",
+      "count": 0
+    },
+    {
+      "name": "Hellions",
+      "count": 0
+    },
+    {
+      "name": "HYDRA",
+      "count": 0
+    },
+    {
+      "name": "Infinity Gems",
+      "count": 0
+    },
+    {
+      "name": "Kree Starforce",
+      "count": 0
+    },
+    {
+      "name": "Lords of the Netherworld",
+      "count": 0
+    },
+    {
+      "name": "Marauders",
+      "count": 0
+    },
+    {
+      "name": "Masters of Evil",
+      "count": 0
+    },
+    {
+      "name": "MLF",
+      "count": 0
+    },
+    {
+      "name": "Monsters Unleashed",
+      "count": 0
+    },
+    {
+      "name": "Omens of Ragnarok",
+      "count": 0
+    },
+    {
+      "name": "Queen's Vengeance",
+      "count": 0
+    },
+    {
+      "name": "Radiation",
+      "count": 0
+    },
+    {
+      "name": "Skrulls",
+      "count": 0
+    },
+    {
+      "name": "Spider-Foes",
+      "count": 0
+    },
+    {
+      "name": "Streets of New York",
+      "count": 0
+    },
+    {
+      "name": "Ultron's Legacy",
+      "count": 0
+    },
+    {
+      "name": "Underworld",
+      "count": 0
+    },
+    {
+      "name": "Wrecking Crew",
+      "count": 0
+    }
+  ],
+  "henchmen": [
+    {
+      "name": "Doombot Legion",
+      "count": 0
+    },
+    {
+      "name": "Hand Ninjas",
+      "count": 0
+    },
+    {
+      "name": "Maggia Goons",
+      "count": 0
+    },
+    {
+      "name": "Phalanx",
+      "count": 0
+    },
+    {
+      "name": "Savage Land Mutates",
+      "count": 0
+    },
+    {
+      "name": "Sentinel",
+      "count": 0
+    }
+  ],
+  "heroes": [
+    {
+      "name": "Angel",
+      "count": 0
+    },
+    {
+      "name": "Ant-Man",
+      "count": 0
+    },
+    {
+      "name": "Beta Ray Bill",
+      "count": 0
+    },
+    {
+      "name": "Bishop",
+      "count": 0
+    },
+    {
+      "name": "Black Knight",
+      "count": 0
+    },
+    {
+      "name": "Black Widow",
+      "count": 0
+    },
+    {
+      "name": "Blade",
+      "count": 0
+    },
+    {
+      "name": "Cable",
+      "count": 0
+    },
+    {
+      "name": "Captain America",
+      "count": 0
+    },
+    {
+      "name": "Clea",
+      "count": 0
+    },
+    {
+      "name": "Colossus",
+      "count": 0
+    },
+    {
+      "name": "Cyclops",
+      "count": 0
+    },
+    {
+      "name": "Daredevil",
+      "count": 0
+    },
+    {
+      "name": "Deadpool",
+      "count": 0
+    },
+    {
+      "name": "Doctor Strange",
+      "count": 0
+    },
+    {
+      "name": "Doctor Voodoo",
+      "count": 0
+    },
+    {
+      "name": "Domino",
+      "count": 0
+    },
+    {
+      "name": "Drax",
+      "count": 0
+    },
+    {
+      "name": "Elektra",
+      "count": 0
+    },
+    {
+      "name": "Emma Frost",
+      "count": 0
+    },
+    {
+      "name": "Forge",
+      "count": 0
+    },
+    {
+      "name": "Gambit",
+      "count": 0
+    },
+    {
+      "name": "Gamora",
+      "count": 0
+    },
+    {
+      "name": "Ghost Rider",
+      "count": 0
+    },
+    {
+      "name": "Groot",
+      "count": 0
+    },
+    {
+      "name": "Gwenpool",
+      "count": 0
+    },
+    {
+      "name": "Hawkeye",
+      "count": 0
+    },
+    {
+      "name": "Hulk",
+      "count": 0
+    },
+    {
+      "name": "Iceman",
+      "count": 0
+    },
+    {
+      "name": "Iron Fist",
+      "count": 0
+    },
+    {
+      "name": "Iron Man",
+      "count": 0
+    },
+    {
+      "name": "Jean Grey",
+      "count": 0
+    },
+    {
+      "name": "Jocasta",
+      "count": 0
+    },
+    {
+      "name": "Karma",
+      "count": 0
+    },
+    {
+      "name": "Lady Sif",
+      "count": 0
+    },
+    {
+      "name": "Mirage",
+      "count": 0
+    },
+    {
+      "name": "MS. Marvel",
+      "count": 0
+    },
+    {
+      "name": "Nick Fury",
+      "count": 0
+    },
+    {
+      "name": "Nightcrawler",
+      "count": 0
+    },
+    {
+      "name": "Nova",
+      "count": 0
+    },
+    {
+      "name": "Professor X",
+      "count": 0
+    },
+    {
+      "name": "Punisher",
+      "count": 0
+    },
+    {
+      "name": "Rogue",
+      "count": 0
+    },
+    {
+      "name": "Rocket Raccoon",
+      "count": 0
+    },
+    {
+      "name": "Spider-Man",
+      "count": 0
+    },
+    {
+      "name": "Star-Lord",
+      "count": 0
+    },
+    {
+      "name": "Storm",
+      "count": 0
+    },
+    {
+      "name": "Sunspot",
+      "count": 0
+    },
+    {
+      "name": "The Ancient One",
+      "count": 0
+    },
+    {
+      "name": "The Vishanti",
+      "count": 0
+    },
+    {
+      "name": "The Warriors Three",
+      "count": 0
+    },
+    {
+      "name": "Thor",
+      "count": 0
+    },
+    {
+      "name": "Thor (Heroes of Asgard)",
+      "count": 0
+    },
+    {
+      "name": "Totally Awesome Hulk",
+      "count": 0
+    },
+    {
+      "name": "Valkyrie",
+      "count": 0
+    },
+    {
+      "name": "Viv Vision",
+      "count": 0
+    },
+    {
+      "name": "Warlock",
+      "count": 0
+    },
+    {
+      "name": "Wasp",
+      "count": 0
+    },
+    {
+      "name": "Wolfsbane",
+      "count": 0
+    },
+    {
+      "name": "Wolverine",
+      "count": 0
+    },
+    {
+      "name": "Wolverine (X-Force)",
+      "count": 0
+    },
+    {
+      "name": "Wonder Man",
+      "count": 0
+    }
+  ]
 }
