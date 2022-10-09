@@ -1,9 +1,13 @@
 const fs = require('fs-extra');
 
+const categories = ['masterminds', 'schemes', 'villains', 'henchmen', 'heroes'];
+
+const villainCount = 1;
+const heroesCount = 5;
+
 let rawdata = fs.readFileSync('legendary.json');
 const legendaryBase = JSON.parse(rawdata);
 
-const categories = ['masterminds', 'schemes'];
 
 let games = '';
 if (fs.existsSync('games.json')) {
@@ -11,12 +15,20 @@ if (fs.existsSync('games.json')) {
     games = JSON.parse(rawdata);
 
     categories.forEach(category => {
-        legendaryBase[category].forEach(baseValue => {
-            const saveCatValue = games[category].filter(m => m.name === baseValue.name);
-            if (saveCatValue && saveCatValue.length === 1) {
-                baseValue.count = saveCatValue[0].count;
-            }
-        });
+        if (legendaryBase[category]) {
+            legendaryBase[category].forEach(baseValue => {
+                if (games[category]) {
+                    const saveCatValue = games[category].filter(m => m.name === baseValue.name);
+                    if (saveCatValue && saveCatValue.length === 1) {
+                        baseValue.count = saveCatValue[0].count;
+                    }
+                } else {
+                    console.warn(`Unsaved category "${category}"`)
+                }
+            });
+        } else {
+            console.error(`Unknown category "${category}"`);
+        }
     });
 }
 
@@ -38,36 +50,52 @@ function filterList(element, countToKeep) {
     return element.count === countToKeep;
 }
 
-function drawRandomUnique(category, nameInGame) {
-
+function drawRandom(category, nameInGame) {
     category = category.sort(sortLists);
 
     const valueToFilter = category[0].count;
 
-    const filteredMasterminds = category.filter((mastermind) => filterList(mastermind, valueToFilter));
+    const filteredMasterminds = category.filter((value) => filterList(value, valueToFilter));
 
-    let choice = {};
-    choice[nameInGame] = filteredMasterminds[getRandomInt(filteredMasterminds.length)];
+    let choiceForGame = {};
+    const choice = filteredMasterminds[getRandomInt(filteredMasterminds.length)];
+    choiceForGame[nameInGame] = choice;
 
-    game = {...game, ...choice};
+    choice.count++;
 
-    category[category.indexOf(game[nameInGame])].count++;
+    return choiceForGame;
+}
+
+function drawRandomUnique(category, nameInGame) {
+    game = { ...game, ...drawRandom(category, nameInGame) };
+}
+
+function drawRandomMultiple(category, nameInGame, countToDraw) {
+    let choices = [];
+    for (let i=0;i<countToDraw;i++) {
+        choices.push(drawRandom(category, nameInGame));
+    }
+
+    game = { ...game, ...choices };
 }
 
 
 let masterminds = legendaryBase.masterminds;
 let schemes = legendaryBase.schemes;
+let heroes = legendaryBase.heroes;
 let game = {};
 
-drawRandomUnique(masterminds, "mastermind");
-drawRandomUnique(schemes, "scheme");
+drawRandomUnique(masterminds, 'mastermind');
+drawRandomUnique(schemes, 'scheme');
+drawRandomMultiple(heroes, 'hero', heroesCount);
 
 console.log(game);
 
 
 const gamesToSave = {
     masterminds: masterminds,
-    schemes: schemes
+    schemes: schemes,
+    heroes: heroes
 };
 const data = JSON.stringify(gamesToSave);
 fs.writeFileSync('games.json', data);
