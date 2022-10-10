@@ -1,8 +1,10 @@
+import { CardDrawer } from './card-drawer';
+
 const fs = require('fs-extra');
 
-const categories = ['masterminds', 'schemes', 'villains', 'henchmen', 'heroes'];
+const categories: string[] = ['masterminds', 'schemes', 'villains', 'henchmen', 'heroes'];
 
-const playerCount = 4;
+const playerCount: number = 4;
 
 let villainsCount = 1;
 let henchmenCount = 1;
@@ -70,55 +72,6 @@ if (fs.existsSync('games.json')) {
     });
 }
 
-function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
-}
-
-function sortLists(a, b) {
-    if (a.count === b.count) {
-        return 0;
-    }
-    if (a.count > b.count) {
-        return 1;
-    }
-    return -1;
-}
-
-function filterList(element, countToKeep) {
-    return element.count === countToKeep;
-}
-
-function drawRandom(category, nameInGame) {
-    category = category.sort(sortLists);
-
-    const valueToFilter = category[0].count;
-
-    const filteredMasterminds = category.filter((value) => filterList(value, valueToFilter));
-
-    let choiceForGame = {};
-    const choice = filteredMasterminds[getRandomInt(filteredMasterminds.length)];
-    choiceForGame[nameInGame] = choice;
-
-    choice.count++;
-
-    return choiceForGame;
-}
-
-function drawRandomUnique(category, nameInGame) {
-    game = { ...game, ...drawRandom(category, nameInGame) };
-}
-
-function drawRandomMultiple(category, nameInGame, countToDraw) {
-    let choices = [];
-    for (let i = 0; i < countToDraw; i++) {
-        choices.push(drawRandom(category, nameInGame)[nameInGame]);
-    }
-
-    let choicesForGame = {};
-    choicesForGame[nameInGame] = choices;
-
-    game = { ...game, ...choicesForGame };
-}
 
 let masterminds = legendaryBase.masterminds;
 let schemes = legendaryBase.schemes;
@@ -127,13 +80,16 @@ let villains = legendaryBase.villains;
 let henchmen = legendaryBase.henchmen;
 let game = {};
 
-drawRandomUnique(masterminds, 'mastermind');
-drawRandomUnique(schemes, 'scheme');
-drawRandomMultiple(villains, 'villain', villainsCount);
-drawRandomMultiple(henchmen, 'henchman', henchmenCount);
-drawRandomMultiple(heroes, 'hero', heroesCount);
+const cardDrawer = new CardDrawer();
 
-game = { ...game, ...{ 'bystanders': bystandersCount } };
+game = {
+    ...game, ...cardDrawer.drawRandomUnique(masterminds, 'mastermind'),
+    ...cardDrawer.drawRandomUnique(schemes, 'scheme'),
+    ...cardDrawer.drawRandomMultiple(villains, 'villain', villainsCount),
+    ...cardDrawer.drawRandomMultiple(henchmen, 'henchman', henchmenCount),
+    ...cardDrawer.drawRandomMultiple(heroes, 'hero', heroesCount),
+    ...{ 'bystanders': bystandersCount }
+};
 
 console.log(game);
 
