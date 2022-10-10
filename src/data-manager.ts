@@ -4,12 +4,12 @@ const CATEGORIES = ['masterminds', 'schemes', 'villains', 'henchmen', 'heroes'];
 export class DataManager {
 
     public loadData() {
-        let rawData = fs.readFileSync('legendary.json');
+        let rawData = fs.readFileSync('./assets/legendary.json');
         const legendaryBase = JSON.parse(rawData);
 
         let games = '';
-        if (fs.existsSync('games.json')) {
-            rawData = fs.readFileSync('games.json');
+        if (fs.existsSync('./games.json')) {
+            rawData = fs.readFileSync('./games.json');
             games = JSON.parse(rawData);
 
             CATEGORIES.forEach(category => {

@@ -4,7 +4,7 @@
   "description": "Fan made randomizer for Legendary Marvel",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node ./index.ts",
+    "start": "ts-node ./src/index.ts",
     "test": "jest --coverage=true",
     "test:watch": "jest --watch"
   },
@@ -19,7 +19,8 @@
   },
   "homepage": "https://github.com/Alban34/random-legendary#readme",
   "dependencies": {
-    "fs-extra": "^10.1.0"
+    "fs-extra": "^10.1.0",
+    "inquirer": "^8.2.4"
   },
   "devDependencies": {
     "jest": "^29.1.2",
