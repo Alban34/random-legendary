@@ -73,32 +73,27 @@ if (fs.existsSync('games.json')) {
 }
 
 
-let masterminds = legendaryBase.masterminds;
-let schemes = legendaryBase.schemes;
-let heroes = legendaryBase.heroes;
-let villains = legendaryBase.villains;
-let henchmen = legendaryBase.henchmen;
 let game = {};
 
 const cardDrawer = new CardDrawer();
 
 game = {
-    ...game, ...cardDrawer.drawRandomUnique(masterminds, 'mastermind'),
-    ...cardDrawer.drawRandomUnique(schemes, 'scheme'),
-    ...cardDrawer.drawRandomMultiple(villains, 'villain', villainsCount),
-    ...cardDrawer.drawRandomMultiple(henchmen, 'henchman', henchmenCount),
-    ...cardDrawer.drawRandomMultiple(heroes, 'hero', heroesCount),
+    ...game, ...cardDrawer.drawRandomUnique(legendaryBase.masterminds, 'mastermind'),
+    ...cardDrawer.drawRandomUnique(legendaryBase.schemes, 'scheme'),
+    ...cardDrawer.drawRandomMultiple(legendaryBase.villains, 'villain', villainsCount),
+    ...cardDrawer.drawRandomMultiple(legendaryBase.henchmen, 'henchman', henchmenCount),
+    ...cardDrawer.drawRandomMultiple(legendaryBase.heroes, 'hero', heroesCount),
     ...{ 'bystanders': bystandersCount }
 };
 
 console.log(game);
 
 const gamesToSave = {
-    masterminds,
-    schemes,
-    heroes,
-    villains,
-    henchmen
+    "masterminds": legendaryBase.masterminds,
+    "schemes": legendaryBase.schemes,
+    "villains": legendaryBase.villains,
+    "henchmen": legendaryBase.henchmen,
+    "heroes": legendaryBase.heroes
 };
 const data = JSON.stringify(gamesToSave);
 fs.writeFileSync('games.json', data);
