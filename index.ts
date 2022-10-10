@@ -1,8 +1,5 @@
 import { CardDrawer } from './card-drawer';
-
-const fs = require('fs-extra');
-
-const categories: string[] = ['masterminds', 'schemes', 'villains', 'henchmen', 'heroes'];
+import { DataManager } from './data-manager';
 
 const playerCount: number = 4;
 
@@ -45,37 +42,12 @@ switch (playerCount) {
     }
 }
 
-
-let rawdata = fs.readFileSync('legendary.json');
-const legendaryBase = JSON.parse(rawdata);
-
-let games = '';
-if (fs.existsSync('games.json')) {
-    rawdata = fs.readFileSync('games.json');
-    games = JSON.parse(rawdata);
-
-    categories.forEach(category => {
-        if (legendaryBase[category]) {
-            legendaryBase[category].forEach(baseValue => {
-                if (games[category]) {
-                    const saveCatValue = games[category].filter(m => m.name === baseValue.name);
-                    if (saveCatValue && saveCatValue.length === 1) {
-                        baseValue.count = saveCatValue[0].count;
-                    }
-                } else {
-                    console.warn(`Unsaved category "${category}"`);
-                }
-            });
-        } else {
-            console.error(`Unknown category "${category}"`);
-        }
-    });
-}
-
-
 let game = {};
 
 const cardDrawer = new CardDrawer();
+const dataManager = new DataManager();
+
+const legendaryBase = dataManager.loadData();
 
 game = {
     ...game, ...cardDrawer.drawRandomUnique(legendaryBase.masterminds, 'mastermind'),
@@ -88,12 +60,4 @@ game = {
 
 console.log(game);
 
-const gamesToSave = {
-    "masterminds": legendaryBase.masterminds,
-    "schemes": legendaryBase.schemes,
-    "villains": legendaryBase.villains,
-    "henchmen": legendaryBase.henchmen,
-    "heroes": legendaryBase.heroes
-};
-const data = JSON.stringify(gamesToSave);
-fs.writeFileSync('games.json', data);
+dataManager.saveData(legendaryBase);
