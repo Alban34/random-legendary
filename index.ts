@@ -1,6 +1,7 @@
 import { CardDrawer } from './card-drawer';
 import { DataManager } from './data-manager';
 import { PlayerConfig } from './player-config';
+import { GameViewer } from './game-viewer';
 
 const playerCount: number = 1;
 
@@ -21,6 +22,7 @@ game = {
     ...{ 'bystanders': playerConfig.bystandersCount }
 };
 
-console.log(game);
-
 dataManager.saveData(legendaryBase);
+
+const gameViewer = new GameViewer();
+console.log(gameViewer.buildView(playerCount, game));
