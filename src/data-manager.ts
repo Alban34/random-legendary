@@ -7,27 +7,9 @@ export class DataManager {
         let rawData = fs.readFileSync('./assets/legendary.json');
         const legendaryBase = JSON.parse(rawData);
 
-        let games = '';
         if (fs.existsSync('./games.json')) {
             rawData = fs.readFileSync('./games.json');
-            games = JSON.parse(rawData);
-
-            CATEGORIES.forEach(category => {
-                if (legendaryBase[category]) {
-                    legendaryBase[category].forEach(baseValue => {
-                        if (games[category]) {
-                            const saveCatValue = games[category].filter(m => m.name === baseValue.name);
-                            if (saveCatValue && saveCatValue.length === 1) {
-                                baseValue.count = saveCatValue[0].count;
-                            }
-                        } else {
-                            console.warn(`Unsaved category "${category}"`);
-                        }
-                    });
-                } else {
-                    console.error(`Unknown category "${category}"`);
-                }
-            });
+            this.mergeGameDataIntoBase(legendaryBase, JSON.parse(rawData));
         }
 
         return legendaryBase;
@@ -44,5 +26,24 @@ export class DataManager {
         const data = JSON.stringify(gamesToSave);
         fs.writeFileSync('games.json', data);
 
+    }
+
+    private mergeGameDataIntoBase(legendaryBase, games) {
+        CATEGORIES.forEach(category => {
+            if (legendaryBase[category]) {
+                legendaryBase[category].forEach(baseValue => {
+                    if (games[category]) {
+                        const saveCatValue = games[category].filter(m => m.name === baseValue.name);
+                        if (saveCatValue && saveCatValue.length === 1) {
+                            baseValue.count = saveCatValue[0].count;
+                        }
+                    } else {
+                        console.warn(`Unsaved category "${category}"`);
+                    }
+                });
+            } else {
+                console.error(`Unknown category "${category}"`);
+            }
+        });
     }
 }
