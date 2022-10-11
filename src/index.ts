@@ -44,9 +44,10 @@ inquirer.prompt(questions)
         }
     });
 
+const dataManager = new DataManager();
+
 const startGame = (playerCount: number) => {
 
-    const dataManager = new DataManager();
     const playerConfig = new PlayerConfig(playerCount);
     const gameBuilder = new GameBuilder();
     const legendaryBase = dataManager.loadData();
@@ -60,6 +61,6 @@ const startGame = (playerCount: number) => {
 };
 
 const recordScore = (gameId: string, score: number) => {
-    console.log(`Congratulation for scoring ${score} on game with id ${gameId}`);
+    console.log(`Congratulation for scoring ${score} on game with id '${gameId}'.\nYour score has been saved in scores.json file.`);
+    dataManager.saveScore(gameId, score);
 }
-

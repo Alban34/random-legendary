@@ -1,3 +1,5 @@
+import { Scores } from './model/scores.interface';
+
 const fs = require('fs-extra');
 const CATEGORIES = ['masterminds', 'schemes', 'villains', 'henchmen', 'heroes'];
 
@@ -15,7 +17,7 @@ export class DataManager {
         return legendaryBase;
     }
 
-    public saveData(legendaryBase) {
+    public saveData(legendaryBase): void {
         const gamesToSave = {
             "masterminds": legendaryBase.masterminds,
             "schemes": legendaryBase.schemes,
@@ -25,6 +27,17 @@ export class DataManager {
         };
         const data = JSON.stringify(gamesToSave);
         fs.writeFileSync('games.json', data);
+    }
+
+    public saveScore(gameId: string, score: number): void {
+        let scores: Scores = {};
+        if (fs.existsSync('./scores.json')) {
+            const rawData = fs.readFileSync('./scores.json');
+            scores = JSON.parse(rawData);
+        }
+        scores[gameId] = { score };
+        const data = JSON.stringify(scores);
+        fs.writeFileSync('scores.json', data);
     }
 
     private mergeGameDataIntoBase(legendaryBase, games) {
