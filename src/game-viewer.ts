@@ -1,15 +1,17 @@
+import { Game } from './model/game.interface';
+
 export class GameViewer {
-    public buildView(playerCount, game): string {
+    public buildView(playerCount, game: Game): string {
         return `*** Legendary Marvel Randomizer ***
 Number of players: ${playerCount}
 --
 Mastermind: ${this.displayCard(game.mastermind)}
 Scheme: ${this.displayCard(game.scheme)}
 --
-Villains: ${this.getMultipleToDisplay(game.villain)}
-Henchmen: ${this.getMultipleToDisplay(game.henchman)}
+Villains: ${this.getMultipleToDisplay(game.villains)}
+Henchmen: ${this.getMultipleToDisplay(game.henchmen)}
 --
-Heroes: ${this.getMultipleToDisplay(game.hero)}
+Heroes: ${this.getMultipleToDisplay(game.heroes)}
 Bystanders: ${game.bystanders}
 `;
     }

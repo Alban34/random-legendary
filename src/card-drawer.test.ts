@@ -12,12 +12,11 @@ describe('car-drawer', () => {
             { 'name': 'card3', 'count': 0 }
         ];
 
-        const randomCard = cardDrawer.drawRandomUnique(cardList, 'test');
+        const randomCard = cardDrawer.drawRandomUnique(cardList);
 
         expect(randomCard).toBeDefined();
-        expect(randomCard['test']).toBeDefined();
-        expect(randomCard['test'].count).toBe(1);
-        expect(cardList.indexOf(randomCard['test'])).not.toBe(-1);
+        expect(randomCard.count).toBe(1);
+        expect(cardList.indexOf(randomCard)).not.toBe(-1);
     });
 
     test('should draw a random card that has been used less than the others', () => {
@@ -29,12 +28,11 @@ describe('car-drawer', () => {
             { 'name': 'card3', 'count': 1 }
         ];
 
-        const randomCard = cardDrawer.drawRandomUnique(cardList, 'test');
+        const randomCard = cardDrawer.drawRandomUnique(cardList);
 
         expect(randomCard).toBeDefined();
-        expect(randomCard['test']).toBeDefined();
-        expect(randomCard['test'].name).toBe('card2');
-        expect(randomCard['test'].count).toBe(1);
+        expect(randomCard.name).toBe('card2');
+        expect(randomCard.count).toBe(1);
     });
 
     test('should draw 3 random cards at a time', () => {
@@ -49,11 +47,10 @@ describe('car-drawer', () => {
             { 'name': 'card6', 'count': 0 },
         ];
 
-        const randomCards = cardDrawer.drawRandomMultiple(cardList, 'test', 3);
+        const randomCards = cardDrawer.drawRandomMultiple(cardList,  3);
 
         expect(randomCards).toBeDefined();
-        expect(randomCards['test']).toBeDefined();
-        expect(randomCards['test'].length).toBe(3);
+        expect(randomCards.length).toBe(3);
     });
 
     test('should draw 3 random cards at a time among the less used ones', () => {
@@ -68,14 +65,13 @@ describe('car-drawer', () => {
             { 'name': 'card6', 'count': 0 },
         ];
 
-        const randomCards = cardDrawer.drawRandomMultiple(cardList, 'test', 3);
+        const randomCards = cardDrawer.drawRandomMultiple(cardList, 3);
 
         expect(randomCards).toBeDefined();
-        expect(randomCards['test']).toBeDefined();
-        expect(randomCards['test'].length).toBe(3);
+        expect(randomCards.length).toBe(3);
 
         const result = [];
-        randomCards['test'].forEach(card => result.push(card.name));
+        randomCards.forEach(card => result.push(card.name));
         result.sort();
         expect(JSON.stringify(result)).toBe(JSON.stringify(['card1', 'card4', 'card6']));
     });
@@ -92,14 +88,13 @@ describe('car-drawer', () => {
             { 'name': 'card6', 'count': 0 },
         ];
 
-        const randomCards = cardDrawer.drawRandomMultipleForce(cardList, 'test', 3, ['card3']);
+        const randomCards = cardDrawer.drawRandomMultipleForce(cardList, 3, ['card3']);
 
         expect(randomCards).toBeDefined();
-        expect(randomCards['test']).toBeDefined();
-        expect(randomCards['test'].length).toBe(3);
+        expect(randomCards.length).toBe(3);
 
         const result = [];
-        randomCards['test'].forEach(card => result.push(card.name));
+        randomCards.forEach(card => result.push(card.name));
         expect(result.indexOf('card3')).not.toBe(-1);
     });
 

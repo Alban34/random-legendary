@@ -1,4 +1,4 @@
-import { CardInterface } from './model/card.interface';
+import { Card } from './model/card.interface';
 
 export class CardDrawer {
 
@@ -7,8 +7,8 @@ export class CardDrawer {
      * @param cardList
      * @param nameInGame
      */
-    public drawRandomUnique(cardList: CardInterface[], nameInGame: string) {
-        return this.drawRandom(cardList, nameInGame);
+    public drawRandomUnique(cardList: Card[]) {
+        return this.drawRandom(cardList);
     }
 
     /**
@@ -17,16 +17,13 @@ export class CardDrawer {
      * @param nameInGame
      * @param countToDraw
      */
-    public drawRandomMultiple(cardList: CardInterface[], nameInGame: string, countToDraw: number) {
+    public drawRandomMultiple(cardList: Card[], countToDraw: number): Card[] {
         let choices = [];
         for (let i = 0; i < countToDraw; i++) {
-            choices.push(this.drawRandom(cardList, nameInGame)[nameInGame]);
+            choices.push(this.drawRandom(cardList));
         }
 
-        let choicesForGame = {};
-        choicesForGame[nameInGame] = choices;
-
-        return choicesForGame;
+        return choices;
     }
 
     /**
@@ -36,41 +33,36 @@ export class CardDrawer {
      * @param countToDraw
      * @param alwaysSelected
      */
-    public drawRandomMultipleForce(cardList: CardInterface[], nameInGame: string, countToDraw: number, alwaysSelected: string[]) {
+    public drawRandomMultipleForce(cardList: Card[], countToDraw: number, alwaysSelected: string[]): Card[] {
         const randomCount = countToDraw - alwaysSelected.length;
 
         let choices = cardList.filter(value => alwaysSelected.indexOf(value.name) > -1);
         for (let i = 0; i < randomCount; i++) {
-            choices.push(this.drawRandom(cardList, nameInGame)[nameInGame]);
+            choices.push(this.drawRandom(cardList));
         }
 
-        let choicesForGame = {};
-        choicesForGame[nameInGame] = choices;
-
-        return choicesForGame;
+        return choices;
     }
 
     private getRandomInt(max: number) {
         return Math.floor(Math.random() * max);
     }
 
-    private filterList(element: CardInterface, countToKeep: number) {
+    private filterList(element: Card, countToKeep: number) {
         return element.count === countToKeep;
     }
 
-    private drawRandom(cardList: CardInterface[], nameInGame: string) {
+    private drawRandom(cardList: Card[]): Card {
         const lowestCount = cardList.reduce((prev, curr) => {
             return prev.count < curr.count ? prev : curr;
         }).count;
 
         const filteredCardList = cardList.filter((value) => this.filterList(value, lowestCount));
 
-        let choiceForGame = {};
         const choice = filteredCardList[this.getRandomInt(filteredCardList.length)];
-        choiceForGame[nameInGame] = choice;
 
         choice.count++;
 
-        return choiceForGame;
+        return choice;
     }
 }

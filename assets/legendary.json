@@ -10,7 +10,9 @@
     },
     {
       "name": "Dr. Doom",
-      "count": 0
+      "count": 0,
+      "alwaysLead": "Doombot Legion",
+      "alwaysLeadCategory": "henchmen"
     },
     {
       "name": "Dormammu",
