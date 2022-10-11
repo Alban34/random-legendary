@@ -3,33 +3,36 @@ import { GameBuilder } from './game-builder';
 import { PlayerConfig } from './player-config';
 
 describe('GameBuilder', () => {
-    test('should build a game with a villain always lead mastermind', () => {
-        const cardList = {
-            masterminds: [{
-                name: 'm1',
-                count: 0,
-                alwaysLead: 'v1',
-                alwaysLeadCategory: 'villains'
-            }],
-            villains: [
-                { name: 'v1', count: 10 },
-                { name: 'v2', count: 0 }
-            ],
-            schemes: [
-                { name: 's1', count: 0 }
-            ],
-            henchmen: [
-                { name: 'hm1', count: 10 },
-                { name: 'hm2', count: 0 }
-            ],
-            heroes: [
-                { name: 'h1', count: 10 },
-                { name: 'h2', count: 0 },
-                { name: 'h3', count: 0 }
-            ]
-        };
 
-        const gameBuilder = new GameBuilder();
+    const gameBuilder = new GameBuilder();
+
+    const cardList = {
+        masterminds: [{
+            name: 'm1',
+            count: 0
+        }],
+        villains: [
+            { name: 'v1', count: 10 },
+            { name: 'v2', count: 0 }
+        ],
+        schemes: [
+            { name: 's1', count: 0 }
+        ],
+        henchmen: [
+            { name: 'hm1', count: 10 },
+            { name: 'hm2', count: 0 }
+        ],
+        heroes: [
+            { name: 'h1', count: 0 },
+            { name: 'h2', count: 0 },
+            { name: 'h3', count: 0 }
+        ]
+    };
+
+    test('should build a game with a villain always lead mastermind', () => {
+        cardList.masterminds[0]['alwaysLead'] = 'v1';
+        cardList.masterminds[0]['alwaysLeadCategory'] = 'villains';
+
         const game = gameBuilder.buildGame(cardList, new PlayerConfig(1));
 
         expect(game.mastermind.name).toBe('m1');
@@ -38,32 +41,9 @@ describe('GameBuilder', () => {
     });
 
     test('should build a game with an henchmen always lead mastermind', () => {
-        const cardList = {
-            masterminds: [{
-                name: 'm1',
-                count: 0,
-                alwaysLead: 'hm1',
-                alwaysLeadCategory: 'henchmen'
-            }],
-            villains: [
-                { name: 'v1', count: 10 },
-                { name: 'v2', count: 0 }
-            ],
-            schemes: [
-                { name: 's1', count: 0 }
-            ],
-            henchmen: [
-                { name: 'hm1', count: 10 },
-                { name: 'hm2', count: 0 }
-            ],
-            heroes: [
-                { name: 'h1', count: 10 },
-                { name: 'h2', count: 0 },
-                { name: 'h3', count: 0 }
-            ]
-        };
+        cardList.masterminds[0]['alwaysLead'] = 'hm1';
+        cardList.masterminds[0]['alwaysLeadCategory'] = 'henchmen';
 
-        const gameBuilder = new GameBuilder();
         const game = gameBuilder.buildGame(cardList, new PlayerConfig(1));
 
         expect(game.mastermind.name).toBe('m1');
