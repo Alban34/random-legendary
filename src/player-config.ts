@@ -5,24 +5,28 @@ export class PlayerConfig {
     private readonly _heroesCount: number;
     private readonly _bystandersCount: number;
 
-    public get villainsCount() {
+    public get villainsCount(): number {
         return this._villainsCount;
     }
 
-    public get henchmenCount() {
+    public get henchmenCount(): number {
         return this._henchmenCount;
     }
 
-    public get heroesCount() {
+    public get heroesCount(): number {
         return this._heroesCount;
     }
 
-    public get bystandersCount() {
+    public get bystandersCount(): number {
         return this._bystandersCount;
     }
 
-    constructor(playerCount: number) {
-        switch (playerCount) {
+    public get playerCount(): number {
+        return this._playerCount;
+    }
+
+    constructor(private _playerCount: number) {
+        switch (_playerCount) {
             case 2: {
                 this._villainsCount = 2;
                 this._henchmenCount = 1;

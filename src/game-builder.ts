@@ -1,26 +1,29 @@
 import { CardDrawer } from './card-drawer';
 import { Game } from './model/game.interface';
 import { MastermindCard } from './model/mastermind.card';
+import { PlayerConfig } from './player-config';
 
 export class GameBuilder {
 
     private cardDrawer = new CardDrawer();
 
-    public buildGame(legendaryBase, playerConfig): Game {
+    public buildGame(legendaryBase, playerConfig: PlayerConfig): Game {
 
         let alwaysLeadVillains = [];
         let alwaysLeadHenchmen = [];
 
         const mastermind = this.cardDrawer.drawRandomUnique(legendaryBase.masterminds) as MastermindCard;
-        switch (mastermind.alwaysLeadCategory) {
-            case 'villains':
-                alwaysLeadVillains.push(mastermind.alwaysLead);
-                break;
-            case 'henchmen':
-                alwaysLeadHenchmen.push(mastermind.alwaysLead);
-                break;
-            default:
-                console.error(`Category ${mastermind.alwaysLeadCategory} is not supported`);
+        if (playerConfig.playerCount > 1) {
+            switch (mastermind.alwaysLeadCategory) {
+                case 'villains':
+                    alwaysLeadVillains.push(mastermind.alwaysLead);
+                    break;
+                case 'henchmen':
+                    alwaysLeadHenchmen.push(mastermind.alwaysLead);
+                    break;
+                default:
+                    console.error(`Category ${mastermind.alwaysLeadCategory} is not supported`);
+            }
         }
 
         return {

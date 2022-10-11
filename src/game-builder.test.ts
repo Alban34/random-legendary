@@ -33,7 +33,7 @@ describe('GameBuilder', () => {
         cardList.masterminds[0]['alwaysLead'] = 'v1';
         cardList.masterminds[0]['alwaysLeadCategory'] = 'villains';
 
-        const game = gameBuilder.buildGame(cardList, new PlayerConfig(1));
+        const game = gameBuilder.buildGame(cardList, new PlayerConfig(2));
 
         expect(game.mastermind.name).toBe('m1');
         expect(game.villains[0].name).toBe('v1');
@@ -44,10 +44,22 @@ describe('GameBuilder', () => {
         cardList.masterminds[0]['alwaysLead'] = 'hm1';
         cardList.masterminds[0]['alwaysLeadCategory'] = 'henchmen';
 
-        const game = gameBuilder.buildGame(cardList, new PlayerConfig(1));
+        const game = gameBuilder.buildGame(cardList, new PlayerConfig(2));
 
         expect(game.mastermind.name).toBe('m1');
         expect(game.villains[0].name).toBe('v2');
         expect(game.henchmen[0].name).toBe('hm1');
+    });
+
+    test('should not take always lead into account for solo games', () => {
+        cardList.masterminds[0]['alwaysLead'] = 'v1';
+        cardList.masterminds[0]['alwaysLeadCategory'] = 'villains';
+
+        const game = gameBuilder.buildGame(cardList, new PlayerConfig(1));
+
+        expect(game.mastermind.name).toBe('m1');
+        expect(game.villains[0].name).toBe('v2');
+        expect(game.henchmen[0].name).toBe('hm2');
+
     });
 });
