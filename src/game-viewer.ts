@@ -4,6 +4,7 @@ export class GameViewer {
     public buildView(playerCount, game: Game): string {
         return `*** Legendary Marvel Randomizer ***
 Number of players: ${playerCount}
+Game ID: ${game.gameId}
 --
 Mastermind: ${this.displayCard(game.mastermind)}
 Scheme: ${this.displayCard(game.scheme)}

@@ -25,7 +25,6 @@ export class DataManager {
         };
         const data = JSON.stringify(gamesToSave);
         fs.writeFileSync('games.json', data);
-
     }
 
     private mergeGameDataIntoBase(legendaryBase, games) {
@@ -36,6 +35,7 @@ export class DataManager {
                         const saveCatValue = games[category].filter(m => m.name === baseValue.name);
                         if (saveCatValue && saveCatValue.length === 1) {
                             baseValue.count = saveCatValue[0].count;
+                            baseValue.gameId = saveCatValue[0].gameId;
                         }
                     } else {
                         console.warn(`Unsaved category "${category}"`);

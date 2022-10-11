@@ -2,6 +2,8 @@ import { CardDrawer } from './card-drawer';
 import { Game } from './model/game.interface';
 import { MastermindCard } from './model/mastermind.card';
 import { PlayerConfig } from './player-config';
+import { v4 as uuidv4 } from 'uuid';
+import { Card } from './model/card.interface';
 
 export class GameBuilder {
 
@@ -9,6 +11,7 @@ export class GameBuilder {
 
     public buildGame(legendaryBase, playerConfig: PlayerConfig): Game {
 
+        const gameId = uuidv4();
         let alwaysLeadVillains = [];
         let alwaysLeadHenchmen = [];
 
@@ -26,13 +29,33 @@ export class GameBuilder {
             }
         }
 
+        const scheme = this.cardDrawer.drawRandomUnique(legendaryBase.schemes);
+        const villains = this.cardDrawer.drawRandomMultipleForce(legendaryBase.villains, playerConfig.villainsCount, alwaysLeadVillains);
+        const henchmen = this.cardDrawer.drawRandomMultipleForce(legendaryBase.henchmen, playerConfig.henchmenCount, alwaysLeadHenchmen);
+        const heroes = this.cardDrawer.drawRandomMultiple(legendaryBase.heroes, playerConfig.heroesCount);
+
+        this.addGameIdToCard(mastermind, gameId);
+        this.addGameIdToCard(scheme, gameId);
+        villains.forEach(villain => this.addGameIdToCard(villain, gameId));
+        henchmen.forEach(henchman => this.addGameIdToCard(henchman, gameId));
+        heroes.forEach(hero => this.addGameIdToCard(hero, gameId));
+
         return {
+            gameId: gameId,
             mastermind,
-            scheme: this.cardDrawer.drawRandomUnique(legendaryBase.schemes),
-            villains: this.cardDrawer.drawRandomMultipleForce(legendaryBase.villains, playerConfig.villainsCount, alwaysLeadVillains),
-            henchmen: this.cardDrawer.drawRandomMultipleForce(legendaryBase.henchmen, playerConfig.henchmenCount, alwaysLeadHenchmen),
-            heroes: this.cardDrawer.drawRandomMultiple(legendaryBase.heroes, playerConfig.heroesCount),
+            scheme,
+            villains,
+            henchmen,
+            heroes,
             bystanders: playerConfig.bystandersCount
         };
     }
+
+    private addGameIdToCard(card: Card, gameId: string) {
+        if (!card.gameId) {
+            card.gameId = [];
+        }
+        card.gameId.push(gameId);
+    }
+
 }
