@@ -44,7 +44,7 @@ describe('GameManager', () => {
 
     test('should extract the cards of a given game', () => {
         const gameManager = new GameManager();
-        const game = gameManager.getCards(cardList, 'game1');
+        const game = gameManager.getCardsOfGame(cardList, 'game1');
         expect(game.mastermind.name).toBe('m3');
         expect(game.scheme.name).toBe('s1');
         expect(game.villains.length).toBe(1);
@@ -54,5 +54,16 @@ describe('GameManager', () => {
         expect(game.heroes.length).toBe(2);
         expect(game.heroes[0].name).toBe('h1');
         expect(game.heroes[1].name).toBe('h2');
+    });
+
+    test('should load only the games without a scoring already registered', () => {
+        const gameManager = new GameManager();
+        gameManager['dataManager'].loadScores = () => {
+            return { 'game2': { score: 10 } };
+        };
+
+        const games = gameManager.loadRegisteredGameWithNoScore(cardList);
+        expect(games).toContain('game1');
+        expect(games).toContain('game3');
     });
 });

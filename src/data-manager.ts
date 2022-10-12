@@ -29,12 +29,17 @@ export class DataManager {
         fs.writeFileSync('games.json', data);
     }
 
-    public saveScore(gameId: string, score: number): void {
+    public loadScores(): Scores {
         let scores: Scores = {};
         if (fs.existsSync('./scores.json')) {
             const rawData = fs.readFileSync('./scores.json');
             scores = JSON.parse(rawData);
         }
+        return scores;
+    }
+
+    public saveScore(gameId: string, score: number): void {
+        const scores = this.loadScores();
         scores[gameId] = { score };
         const data = JSON.stringify(scores);
         fs.writeFileSync('scores.json', data);

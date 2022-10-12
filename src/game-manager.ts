@@ -1,14 +1,23 @@
 import { Game } from './model/game.interface';
 import { Card } from './model/card.interface';
+import { DataManager } from './data-manager';
 
 export class GameManager {
+
+    private dataManager = new DataManager();
 
     public loadRegisteredGame(cardList): string[] {
         const gameIds = cardList.masterminds.flatMap(mastermind => mastermind.gameId);
         return gameIds.filter(gameId => gameId);
     }
 
-    public getCards(cardList, gameId: string): Game {
+    public loadRegisteredGameWithNoScore(cardList): string[] {
+        const allGames = this.loadRegisteredGame(cardList);
+        const scores = this.dataManager.loadScores();
+        return allGames.filter(game => !scores[game] || !scores[game].score);
+    }
+
+    public getCardsOfGame(cardList, gameId: string): Game {
 
         const mastermind = this.getCardsOfGivenCategory(cardList.masterminds, gameId)[0];
         const scheme = this.getCardsOfGivenCategory(cardList.schemes, gameId)[0];
@@ -28,9 +37,9 @@ export class GameManager {
     }
 
     private getCardsOfGivenCategory(catGardList: Card[], gameId: string): Card[] {
-        return catGardList.filter(s => {
-            if (s.gameId) {
-                return s.gameId.indexOf(gameId) > -1;
+        return catGardList.filter(card => {
+            if (card.gameId) {
+                return card.gameId.indexOf(gameId) > -1;
             }
             return false;
         });

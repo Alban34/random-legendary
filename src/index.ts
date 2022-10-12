@@ -9,29 +9,22 @@ const inquirer = require('inquirer');
 const dataManager = new DataManager();
 const legendaryBase = dataManager.loadData();
 const gameManager = new GameManager();
-const availableGamesForScore = gameManager.loadRegisteredGame(legendaryBase);
-
-const buildInitialQuestion = () => {
-    const choices = ['Start a new game'];
-    if (availableGamesForScore.length > 0) {
-        choices.push('Enter a game score');
-    }
-    return choices;
-};
+const availableGamesForScore = gameManager.loadRegisteredGameWithNoScore(legendaryBase);
 
 const questions = [
     {
         name: 'option',
         type: 'list',
-        choices: () => buildInitialQuestion(),
-        default: 0
+        choices: ['Start a new game', 'Enter a game score'],
+        default: 0,
+        when: () => availableGamesForScore.length > 0
     },
     {
         name: 'playerCount',
         type: 'number',
         default: 1,
-        message: 'How many players will participate to this game?',
-        when: (answer => answer.option === 'Start a new game')
+        message: 'How many players will participate to the game?',
+        when: (answer => answer.option === 'Start a new game' || !answer.option)
     },
     {
         name: 'gameId',
@@ -43,7 +36,7 @@ const questions = [
     {
         name: 'score',
         type: 'number',
-        message: 'What is your score?',
+        message: 'What is your score? (enter -1 if you lost)',
         when: (answer => answer.gameId)
     }
 
@@ -73,6 +66,10 @@ const startGame = (playerCount: number) => {
 };
 
 const recordScore = (gameId: string, score: number) => {
-    console.log(`Congratulation for scoring ${score} on game with id '${gameId}'.\nYour score has been saved in scores.json file.`);
+    let intro = `Congratulation for scoring ${score} on game with id '${gameId}'.`;
+    if (score < 0) {
+        intro = `Sorry to hear you lost the game with id '${gameId}'.`;
+    }
+    console.log(`${intro}\nYour score has been saved in scores.json file.`);
     dataManager.saveScore(gameId, score);
 };
