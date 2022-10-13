@@ -32,6 +32,9 @@ So far, the cards that are randomly chosen come from:
 - New Mutants
 - Ant-man
 - Heroes of Asgard
+- Civil War
+- Secret War vol1
+- Paint the Town Red
 
 ## What's next?
 This is a very early version of the randomizer that addresses only my personal needs (with only my personally owned extensions).

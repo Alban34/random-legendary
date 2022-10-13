@@ -2,629 +2,971 @@
   "masterminds": [
     {
       "name": "Apocalypse",
-      "count": 0
+      "extension": "Dark City"
     },
     {
-      "name": "Belasco",
-      "count": 0
+      "name": "Authoritarian Iron Man",
+      "extension": "Civil War"
     },
     {
-      "name": "Dr. Doom",
-      "count": 0,
-      "alwaysLead": "Doombot Legion",
-      "alwaysLeadCategory": "henchmen"
+      "name": "Baron Helmut Zemo",
+      "extension": "Civil War"
+    },
+    {
+      "name": "Belasco, Demon Lord of Limbo",
+      "extension": "The New Mutants"
+    },
+    {
+      "name": "Carnage",
+      "extension": "Paint the Town Red"
     },
     {
       "name": "Dormammu",
-      "count": 0
+      "extension": "Doctor Strange and the Shadows of Nightmare"
+    },
+    {
+      "name": "Dr. Doom",
+      "extension": "Core Set"
     },
     {
       "name": "Emma Frost, The White Queen",
-      "count": 0
+      "extension": "The New Mutants"
     },
     {
       "name": "Fin Fang Foom",
-      "count": 0
+      "extension": "Champions"
     },
     {
-      "name": "Hela",
-      "count": 0
+      "name": "Hela, Goddess of Death",
+      "extension": "Heroes of Asgard"
     },
     {
       "name": "Kingpin",
-      "count": 0
+      "extension": "Dark City"
     },
     {
       "name": "Loki",
-      "count": 0
+      "extension": "Core Set"
+    },
+    {
+      "name": "Madelyne Pryor, Goblin Queen",
+      "extension": "Civil War"
     },
     {
       "name": "Magneto",
-      "count": 0
+      "extension": "Core Set"
     },
     {
-      "name": "Malekith",
-      "count": 0
+      "name": "Malekith the Accursed",
+      "extension": "Heroes of Asgard"
+    },
+    {
+      "name": "Maria Hill, Director of S.H.I.E.L.D.",
+      "extension": "Civil War"
     },
     {
       "name": "Mephisto",
-      "count": 0
+      "extension": "Dark City"
+    },
+    {
+      "name": "Misty Knight",
+      "extension": "Civil War"
     },
     {
       "name": "Morgan Le Fay",
-      "count": 0
+      "extension": "Ant-Man"
     },
     {
       "name": "Mr. Sinister",
-      "count": 0
+      "extension": "Dark City"
+    },
+    {
+      "name": "Mysterio",
+      "extension": "Paint the Town Red"
     },
     {
       "name": "Nightmare",
-      "count": 0
+      "extension": "Doctor Strange and the Shadows of Nightmare"
+    },
+    {
+      "name": "Nimrod, Super Sentinel",
+      "extension": "Civil War"
     },
     {
       "name": "Pagliacci",
-      "count": 0
+      "extension": "Champions"
+    },
+    {
+      "name": "Ragnarok",
+      "extension": "Civil War"
     },
     {
       "name": "Red Skull",
-      "count": 0
+      "extension": "Core Set"
     },
     {
       "name": "Stryfe",
-      "count": 0
+      "extension": "Dark City"
     },
     {
-      "name": "Supreme Intelligence",
-      "count": 0
+      "name": "Supreme Intelligence of the Kree",
+      "extension": "Guardians of the Galaxy"
     },
     {
       "name": "Thanos",
-      "count": 0
+      "extension": "Guardians of the Galaxy"
     },
     {
       "name": "Ultron",
-      "count": 0
+      "extension": "Ant-Man"
+    },
+    {
+      "name": "Wasteland Hulk",
+      "extension": "Civil War"
+    },
+    {
+      "name": "Zombie Green Goblin",
+      "extension": "Civil War"
     }
   ],
   "schemes": [
     {
       "name": "Age of Ultron",
-      "count": 0
+      "extension": "Ant-Man"
     },
     {
       "name": "Asgardian Test of Worth",
-      "count": 0
+      "extension": "Heroes of Asgard"
+    },
+    {
+      "name": "Avengers vs. X-Men",
+      "extension": "Civil War"
+    },
+    {
+      "name": "Build An Army of Annihilation",
+      "extension": "Civil War"
     },
     {
       "name": "Capture Baby Hope",
-      "count": 0
+      "extension": "Dark City"
     },
     {
       "name": "Claim Souls for Demons",
-      "count": 0
+      "extension": "Doctor Strange and the Shadows of Nightmare"
     },
     {
       "name": "Clash of the Monsters Unleashed",
-      "count": 0
+      "extension": "Champions"
+    },
+    {
+      "name": "Corrupt the Next Generation of Heroes",
+      "extension": "Civil War"
     },
     {
       "name": "Crash the Moon into the Sun",
-      "count": 0
+      "extension": "The New Mutants"
     },
     {
-      "name": "Cursed Pages of the Darklord Tome",
-      "count": 0
+      "name": "Crush Them with My Bare hands",
+      "extension": "Civil War"
+    },
+    {
+      "name": "Cursed Pages of the Darkhold Tome",
+      "extension": "Doctor Strange and the Shadows of Nightmare"
+    },
+    {
+      "name": "Dark Alliance",
+      "extension": "Civil War"
+    },
+    {
+      "name": "Dark Reign of H.A.M.M.E.R. Officers",
+      "extension": "Civil War"
     },
     {
       "name": "Detonate the Helicarrier",
-      "count": 0
+      "extension": "Dark City"
     },
     {
       "name": "Divide and Conquer",
-      "count": 0
+      "extension": "Champions"
     },
     {
       "name": "Duels of Science and Magic",
-      "count": 0
+      "extension": "Doctor Strange and the Shadows of Nightmare"
+    },
+    {
+      "name": "Epic Super Hero Civil War",
+      "extension": "Civil War"
     },
     {
       "name": "Forge the Infinity Gauntlet",
-      "count": 0
+      "extension": "Guardians of the Galaxy"
+    },
+    {
+      "name": "Fragmented Realities",
+      "extension": "Civil War"
     },
     {
       "name": "Hypnotize Every Human",
-      "count": 0
+      "extension": "Champions"
+    },
+    {
+      "name": "Imprison Unregistered Superhumans",
+      "extension": "Civil War"
     },
     {
       "name": "Intergalactic Kree Nega-Bomb",
-      "count": 0
+      "extension": "Guardians of the Galaxy"
+    },
+    {
+      "name": "Invade the Daily Bugle News HQ",
+      "extension": "Paint the Town Red"
     },
     {
       "name": "Massive Earthquake Generator",
-      "count": 0
+      "extension": "Dark City"
+    },
+    {
+      "name": "Master of Tyrants",
+      "extension": "Civil War"
     },
     {
       "name": "Midtown Bank Robbery",
-      "count": 0
+      "extension": "Core Set"
     },
     {
       "name": "Negative Zone Prison Breakout",
-      "count": 0
+      "extension": "Core Set"
     },
     {
-      "name": "Organized Crime Wave",
-      "count": 0
+      "name": "Nitro the Supervillain Threatens Crowds",
+      "extension": "Civil War"
     },
     {
-      "name": "Portals to Dark Dimension",
-      "count": 0
+      "name": "Organized Crimewave",
+      "extension": "Dark City"
     },
     {
-      "name": "Pull earth into Medieval Times",
-      "count": 0
+      "name": "Pan-Dimensional Plague",
+      "extension": "Civil War"
+    },
+    {
+      "name": "Portals to the Dark Dimension",
+      "extension": "Core Set"
+    },
+    {
+      "name": "Predict Future Crime",
+      "extension": "Civil War"
+    },
+    {
+      "name": "Pull Earth Into Medieval Times",
+      "extension": "Ant-Man"
     },
     {
       "name": "Ragnarok, Twilight of the Gods",
-      "count": 0
+      "extension": "Heroes of Asgard"
     },
     {
       "name": "Replace Earth's Leaders with Killbots",
-      "count": 0
+      "extension": "Core Set"
+    },
+    {
+      "name": "Reveal Heroes' Secret Identities",
+      "extension": "Civil War"
     },
     {
       "name": "Save Humanity",
-      "count": 0
+      "extension": "Dark City"
     },
     {
       "name": "Secret Invasion of the Skrull Shapeshifters",
-      "count": 0
+      "extension": "Core Set"
     },
     {
-      "name": "Steal all Oxygen on Earth",
-      "count": 0
+      "name": "Smash Two Dimensions Together",
+      "extension": "Civil War"
+    },
+    {
+      "name": "Splice Humans with Spider DNA",
+      "extension": "Paint the Town Red"
+    },
+    {
+      "name": "Steal All Oxygen on Earth",
+      "extension": "Champions"
     },
     {
       "name": "Steal the Weaponized Plutonium",
-      "count": 0
+      "extension": "Dark City"
     },
     {
       "name": "Super Hero Civil War",
-      "count": 0
+      "extension": "Core Set"
     },
     {
       "name": "Superhuman Baseball Game",
-      "count": 0
+      "extension": "The New Mutants"
+    },
+    {
+      "name": "The Clone Saga",
+      "extension": "Paint the Town Red"
     },
     {
       "name": "The Dark World of Svartalfheim",
-      "count": 0
+      "extension": "Heroes of Asgard"
     },
     {
       "name": "The Demon Bear Saga",
-      "count": 0
+      "extension": "The New Mutants"
     },
     {
-      "name": "The Kree-Skull War",
-      "count": 0
+      "name": "The Kree-Skrull War",
+      "extension": "Guardians of the Galaxy"
     },
     {
       "name": "The Legacy Virus",
-      "count": 0
+      "extension": "Core Set"
     },
     {
-      "name": "Transform Citizens Into Demons",
-      "count": 0
+      "name": "Transform Citizens into Demons",
+      "extension": "Dark City"
     },
     {
-      "name": "Transform Commuters into Giant Ants",
-      "count": 0
+      "name": "Transform Commuters Into Giant Ants",
+      "extension": "Ant-Man"
     },
     {
-      "name": "Trap Heroes in the Microverse",
-      "count": 0
+      "name": "Trap Heroes In The Microverse",
+      "extension": "Ant-Man"
     },
     {
       "name": "Trapped in the Insane Asylum",
-      "count": 0
+      "extension": "The New Mutants"
     },
     {
       "name": "Unite the Shards",
-      "count": 0
+      "extension": "Guardians of the Galaxy"
+    },
+    {
+      "name": "United States Split by Civil War",
+      "extension": "Civil War"
     },
     {
       "name": "Unleash the Power of the Cosmic Cube",
-      "count": 0
+      "extension": "Core Set"
     },
     {
       "name": "War for the Dream Dimension",
-      "count": 0
+      "extension": "Doctor Strange and the Shadows of Nightmare"
     },
     {
       "name": "War of the Frost Giants",
-      "count": 0
+      "extension": "Heroes of Asgard"
+    },
+    {
+      "name": "Weave a Web of Lies",
+      "extension": "Paint the Town Red"
     },
     {
       "name": "X-Cutioner's Song",
-      "count": 0
+      "extension": "Dark City"
     }
   ],
   "villains": [
     {
       "name": "Brotherhood",
-      "count": 0
+      "extension": "Core Set"
+    },
+    {
+      "name": "CSA Special Marshals",
+      "extension": "Civil War"
     },
     {
       "name": "Dark Council",
-      "count": 0
+      "extension": "Heroes of Asgard"
     },
     {
       "name": "Demons of Limbo",
-      "count": 0
+      "extension": "The New Mutants"
+    },
+    {
+      "name": "Domain of Apocalypse",
+      "extension": "Civil War"
     },
     {
       "name": "Emissaries of Evil",
-      "count": 0
+      "extension": "Dark City"
     },
     {
       "name": "Enemies of Asgard",
-      "count": 0
+      "extension": "Core Set"
     },
     {
       "name": "Fear Lords",
-      "count": 0
+      "extension": "Doctor Strange and the Shadows of Nightmare"
     },
     {
       "name": "Four Horsemen",
-      "count": 0
+      "extension": "Dark City"
+    },
+    {
+      "name": "Great Lake Avengers",
+      "extension": "Civil War"
     },
     {
       "name": "Hellions",
-      "count": 0
+      "extension": "The New Mutants"
+    },
+    {
+      "name": "Heroes for Hire",
+      "extension": "Civil War"
     },
     {
       "name": "HYDRA",
-      "count": 0
+      "extension": "Core Set"
     },
     {
       "name": "Infinity Gems",
-      "count": 0
+      "extension": "Guardians of the Galaxy"
     },
     {
       "name": "Kree Starforce",
-      "count": 0
+      "extension": "Guardians of the Galaxy"
+    },
+    {
+      "name": "Limbo",
+      "extension": "Civil War"
     },
     {
       "name": "Lords of the Netherworld",
-      "count": 0
+      "extension": "Doctor Strange and the Shadows of Nightmare"
+    },
+    {
+      "name": "Manhattan (Earth-1610)",
+      "extension": "Civil War"
     },
     {
       "name": "Marauders",
-      "count": 0
+      "extension": "Dark City"
     },
     {
       "name": "Masters of Evil",
-      "count": 0
+      "extension": "Core Set"
+    },
+    {
+      "name": "Maximum Carnage",
+      "extension": "Paint the Town Red"
     },
     {
       "name": "MLF",
-      "count": 0
+      "extension": "Dark City"
     },
     {
       "name": "Monsters Unleashed",
-      "count": 0
+      "extension": "Champions"
     },
     {
       "name": "Omens of Ragnarok",
-      "count": 0
+      "extension": "Heroes of Asgard"
     },
     {
       "name": "Queen's Vengeance",
-      "count": 0
+      "extension": "Ant-Man"
     },
     {
       "name": "Radiation",
-      "count": 0
+      "extension": "Core Set"
+    },
+    {
+      "name": "Registration Enforcers",
+      "extension": "Civil War"
+    },
+    {
+      "name": "S.H.I.E.L.D. Elite",
+      "extension": "Civil War"
+    },
+    {
+      "name": "Sentinel Territories",
+      "extension": "Civil War"
+    },
+    {
+      "name": "Sinister Six",
+      "extension": "Paint the Town Red"
     },
     {
       "name": "Skrulls",
-      "count": 0
+      "extension": "Core Set"
     },
     {
-      "name": "Spider-Foes",
-      "count": 0
+      "name": "Spider Foes",
+      "extension": "Core Set"
     },
     {
       "name": "Streets of New York",
-      "count": 0
+      "extension": "Dark City"
     },
     {
-      "name": "Ultron's Legacy",
-      "count": 0
+      "name": "Superhuman Registration Act",
+      "extension": "Civil War"
+    },
+    {
+      "name": "The Deadlands",
+      "extension": "Civil War"
+    },
+    {
+      "name": "Thunderbolts",
+      "extension": "Civil War"
+    },
+    {
+      "name": "Ultron’s Legacy",
+      "extension": "Ant-Man"
     },
     {
       "name": "Underworld",
-      "count": 0
+      "extension": "Dark City"
+    },
+    {
+      "name": "Wasteland",
+      "extension": "Civil War"
     },
     {
       "name": "Wrecking Crew",
-      "count": 0
+      "extension": "Champions"
     }
   ],
   "henchmen": [
     {
+      "name": "Cape-killers",
+      "extension": "Civil War"
+    },
+    {
       "name": "Doombot Legion",
-      "count": 0
+      "extension": "Core Set"
+    },
+    {
+      "name": "Ghost Racers",
+      "extension": "Civil War"
     },
     {
       "name": "Hand Ninjas",
-      "count": 0
+      "extension": "Core Set"
+    },
+    {
+      "name": "M.O.D.O.K.s",
+      "extension": "Civil War"
     },
     {
       "name": "Maggia Goons",
-      "count": 0
+      "extension": "Dark City"
+    },
+    {
+      "name": "Mandroids",
+      "extension": "Civil War"
     },
     {
       "name": "Phalanx",
-      "count": 0
+      "extension": "Dark City"
     },
     {
       "name": "Savage Land Mutates",
-      "count": 0
+      "extension": "Core Set"
     },
     {
-      "name": "Sentinel",
-      "count": 0
+      "name": "Sentinels",
+      "extension": "Core Set"
+    },
+    {
+      "name": "Thor Corps",
+      "extension": "Civil War"
     }
   ],
   "heroes": [
     {
       "name": "Angel",
-      "count": 0
+      "extension": "Dark City"
     },
     {
       "name": "Ant-Man",
-      "count": 0
+      "extension": "Ant-Man"
+    },
+    {
+      "name": "Apocalyptic Kitty Pryde",
+      "extension": "Civil War"
     },
     {
       "name": "Beta Ray Bill",
-      "count": 0
+      "extension": "Heroes of Asgard"
     },
     {
       "name": "Bishop",
-      "count": 0
+      "extension": "Dark City"
+    },
+    {
+      "name": "Black Bolt",
+      "extension": "Civil War"
+    },
+    {
+      "name": "Black Cat",
+      "extension": "Paint the Town Red"
     },
     {
       "name": "Black Knight",
-      "count": 0
+      "extension": "Ant-Man"
+    },
+    {
+      "name": "Black Panther",
+      "extension": "Civil War"
     },
     {
       "name": "Black Widow",
-      "count": 0
+      "extension": "Core Set"
     },
     {
       "name": "Blade",
-      "count": 0
+      "extension": "Dark City"
     },
     {
       "name": "Cable",
-      "count": 0
+      "extension": "Dark City"
     },
     {
       "name": "Captain America",
-      "count": 0
+      "extension": "Core Set"
+    },
+    {
+      "name": "Captain America, Secret Avenger",
+      "extension": "Civil War"
+    },
+    {
+      "name": "Captain Marvel",
+      "extension": "Civil War"
     },
     {
       "name": "Clea",
-      "count": 0
+      "extension": "Doctor Strange and the Shadows of Nightmare"
+    },
+    {
+      "name": "Cloak & Dagger",
+      "extension": "Civil War"
     },
     {
       "name": "Colossus",
-      "count": 0
+      "extension": "Dark City"
     },
     {
       "name": "Cyclops",
-      "count": 0
+      "extension": "Core Set"
     },
     {
       "name": "Daredevil",
-      "count": 0
+      "extension": "Civil War"
+    },
+    {
+      "name": "Daredevil",
+      "extension": "Dark City"
     },
     {
       "name": "Deadpool",
-      "count": 0
+      "extension": "Core Set"
     },
     {
       "name": "Doctor Strange",
-      "count": 0
+      "extension": "Doctor Strange and the Shadows of Nightmare"
     },
     {
       "name": "Doctor Voodoo",
-      "count": 0
+      "extension": "Doctor Strange and the Shadows of Nightmare"
     },
     {
       "name": "Domino",
-      "count": 0
+      "extension": "Dark City"
     },
     {
-      "name": "Drax",
-      "count": 0
+      "name": "Dr. Strange",
+      "extension": "Civil War"
+    },
+    {
+      "name": "Drax the Destroyer",
+      "extension": "Guardians of the Galaxy"
     },
     {
       "name": "Elektra",
-      "count": 0
+      "extension": "Dark City"
     },
     {
       "name": "Emma Frost",
-      "count": 0
+      "extension": "Core Set"
+    },
+    {
+      "name": "Falcon",
+      "extension": "Civil War"
     },
     {
       "name": "Forge",
-      "count": 0
+      "extension": "Dark City"
     },
     {
       "name": "Gambit",
-      "count": 0
+      "extension": "Core Set"
     },
     {
       "name": "Gamora",
-      "count": 0
+      "extension": "Guardians of the Galaxy"
     },
     {
       "name": "Ghost Rider",
-      "count": 0
+      "extension": "Dark City"
+    },
+    {
+      "name": "Goliath",
+      "extension": "Civil War"
     },
     {
       "name": "Groot",
-      "count": 0
+      "extension": "Guardians of the Galaxy"
     },
     {
       "name": "Gwenpool",
-      "count": 0
+      "extension": "Champions"
     },
     {
       "name": "Hawkeye",
-      "count": 0
+      "extension": "Core Set"
+    },
+    {
+      "name": "Hercules",
+      "extension": "Civil War"
     },
     {
       "name": "Hulk",
-      "count": 0
+      "extension": "Core Set"
+    },
+    {
+      "name": "Hulkling",
+      "extension": "Civil War"
     },
     {
       "name": "Iceman",
-      "count": 0
+      "extension": "Dark City"
     },
     {
       "name": "Iron Fist",
-      "count": 0
+      "extension": "Dark City"
     },
     {
       "name": "Iron Man",
-      "count": 0
+      "extension": "Core Set"
     },
     {
       "name": "Jean Grey",
-      "count": 0
+      "extension": "Dark City"
     },
     {
       "name": "Jocasta",
-      "count": 0
+      "extension": "Ant-Man"
     },
     {
       "name": "Karma",
-      "count": 0
+      "extension": "The New Mutants"
     },
     {
       "name": "Lady Sif",
-      "count": 0
+      "extension": "Heroes of Asgard"
+    },
+    {
+      "name": "Lady Thor",
+      "extension": "Civil War"
+    },
+    {
+      "name": "Luke Cage",
+      "extension": "Civil War"
+    },
+    {
+      "name": "Magik",
+      "extension": "Civil War"
+    },
+    {
+      "name": "Maximus",
+      "extension": "Civil War"
     },
     {
       "name": "Mirage",
-      "count": 0
+      "extension": "The New Mutants"
     },
     {
-      "name": "MS. Marvel",
-      "count": 0
+      "name": "Moon Knight",
+      "extension": "Paint the Town Red"
+    },
+    {
+      "name": "Ms. Marvel",
+      "extension": "Champions"
+    },
+    {
+      "name": "Namor",
+      "extension": "Civil War"
     },
     {
       "name": "Nick Fury",
-      "count": 0
+      "extension": "Core Set"
     },
     {
       "name": "Nightcrawler",
-      "count": 0
+      "extension": "Dark City"
     },
     {
       "name": "Nova",
-      "count": 0
+      "extension": "Champions"
+    },
+    {
+      "name": "Old Man Logan",
+      "extension": "Civil War"
+    },
+    {
+      "name": "Patriot",
+      "extension": "Civil War"
+    },
+    {
+      "name": "Peter Parker",
+      "extension": "Civil War"
     },
     {
       "name": "Professor X",
-      "count": 0
+      "extension": "Dark City"
+    },
+    {
+      "name": "Proxima Midnight",
+      "extension": "Civil War"
     },
     {
       "name": "Punisher",
-      "count": 0
-    },
-    {
-      "name": "Rogue",
-      "count": 0
+      "extension": "Dark City"
     },
     {
       "name": "Rocket Raccoon",
-      "count": 0
+      "extension": "Guardians of the Galaxy"
+    },
+    {
+      "name": "Rogue",
+      "extension": "Core Set"
+    },
+    {
+      "name": "Scarlet Spider",
+      "extension": "Paint the Town Red"
+    },
+    {
+      "name": "Speedball",
+      "extension": "Civil War"
     },
     {
       "name": "Spider-Man",
-      "count": 0
+      "extension": "Core Set"
+    },
+    {
+      "name": "Spider-Woman",
+      "extension": "Paint the Town Red"
     },
     {
       "name": "Star-Lord",
-      "count": 0
+      "extension": "Guardians of the Galaxy"
+    },
+    {
+      "name": "Stature",
+      "extension": "Civil War"
     },
     {
       "name": "Storm",
-      "count": 0
+      "extension": "Core Set"
+    },
+    {
+      "name": "Storm & Black Panther",
+      "extension": "Civil War"
     },
     {
       "name": "Sunspot",
-      "count": 0
+      "extension": "The New Mutants"
+    },
+    {
+      "name": "Superior Iron Man",
+      "extension": "Civil War"
+    },
+    {
+      "name": "Symbiote Spider-Man",
+      "extension": "Paint the Town Red"
+    },
+    {
+      "name": "Thanos",
+      "extension": "Civil War"
     },
     {
       "name": "The Ancient One",
-      "count": 0
+      "extension": "Doctor Strange and the Shadows of Nightmare"
     },
     {
       "name": "The Vishanti",
-      "count": 0
+      "extension": "Doctor Strange and the Shadows of Nightmare"
     },
     {
       "name": "The Warriors Three",
-      "count": 0
+      "extension": "Heroes of Asgard"
     },
     {
       "name": "Thor",
-      "count": 0
+      "extension": "Heroes of Asgard"
     },
     {
-      "name": "Thor (Heroes of Asgard)",
-      "count": 0
+      "name": "Thor",
+      "extension": "Core Set"
+    },
+    {
+      "name": "Tigra",
+      "extension": "Civil War"
     },
     {
       "name": "Totally Awesome Hulk",
-      "count": 0
+      "extension": "Champions"
+    },
+    {
+      "name": "Ultimate Spider-Man",
+      "extension": "Civil War"
     },
     {
       "name": "Valkyrie",
-      "count": 0
+      "extension": "Heroes of Asgard"
+    },
+    {
+      "name": "Vision",
+      "extension": "Civil War"
     },
     {
       "name": "Viv Vision",
-      "count": 0
+      "extension": "Champions"
     },
     {
       "name": "Warlock",
-      "count": 0
+      "extension": "The New Mutants"
     },
     {
       "name": "Wasp",
-      "count": 0
+      "extension": "Ant-Man"
+    },
+    {
+      "name": "Wiccan",
+      "extension": "Civil War"
     },
     {
       "name": "Wolfsbane",
-      "count": 0
+      "extension": "The New Mutants"
     },
     {
       "name": "Wolverine",
-      "count": 0
+      "extension": "Dark City"
     },
     {
-      "name": "Wolverine (X-Force)",
-      "count": 0
+      "name": "Wolverine",
+      "extension": "Core Set"
     },
     {
       "name": "Wonder Man",
-      "count": 0
+      "extension": "Ant-Man"
     }
   ]
 }
