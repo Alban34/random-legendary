@@ -5,7 +5,6 @@ export class CardDrawer {
     /**
      * Draw randomly a single card from the given card list
      * @param cardList
-     * @param nameInGame
      */
     public drawRandomUnique(cardList: Card[]) {
         return this.drawRandom(cardList);
@@ -14,7 +13,6 @@ export class CardDrawer {
     /**
      * Draw randomly multiple cards from a give card list
      * @param cardList
-     * @param nameInGame
      * @param countToDraw
      */
     public drawRandomMultiple(cardList: Card[], countToDraw: number): Card[] {
@@ -29,7 +27,6 @@ export class CardDrawer {
     /**
      * Draw randomly multiple cards from a give card list but always select some of them without triggering the randomization
      * @param cardList
-     * @param nameInGame
      * @param countToDraw
      * @param alwaysSelected
      */
@@ -54,13 +51,18 @@ export class CardDrawer {
 
     private drawRandom(cardList: Card[]): Card {
         const lowestCount = cardList.reduce((prev, curr) => {
+            if (!prev.count) {
+                return prev;
+            }
             return prev.count < curr.count ? prev : curr;
         }).count;
 
         const filteredCardList = cardList.filter((value) => this.filterList(value, lowestCount));
-
         const choice = filteredCardList[this.getRandomInt(filteredCardList.length)];
 
+        if (!choice.count) {
+            choice.count = 0;
+        }
         choice.count++;
 
         return choice;

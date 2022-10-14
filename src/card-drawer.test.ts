@@ -7,9 +7,9 @@ describe('car-drawer', () => {
         const cardDrawer = new CardDrawer();
 
         const cardList = [
-            { 'name': 'card1', 'count': 0 },
-            { 'name': 'card2', 'count': 0 },
-            { 'name': 'card3', 'count': 0 }
+            { 'name': 'card1' },
+            { 'name': 'card2' },
+            { 'name': 'card3' }
         ];
 
         const randomCard = cardDrawer.drawRandomUnique(cardList);
@@ -24,7 +24,7 @@ describe('car-drawer', () => {
 
         const cardList = [
             { 'name': 'card1', 'count': 1 },
-            { 'name': 'card2', 'count': 0 },
+            { 'name': 'card2' },
             { 'name': 'card3', 'count': 1 }
         ];
 
@@ -39,12 +39,12 @@ describe('car-drawer', () => {
         const cardDrawer = new CardDrawer();
 
         const cardList = [
-            { 'name': 'card1', 'count': 0 },
-            { 'name': 'card2', 'count': 0 },
-            { 'name': 'card3', 'count': 0 },
-            { 'name': 'card4', 'count': 0 },
-            { 'name': 'card5', 'count': 0 },
-            { 'name': 'card6', 'count': 0 },
+            { 'name': 'card1' },
+            { 'name': 'card2' },
+            { 'name': 'card3' },
+            { 'name': 'card4' },
+            { 'name': 'card5' },
+            { 'name': 'card6' },
         ];
 
         const randomCards = cardDrawer.drawRandomMultiple(cardList,  3);
@@ -57,12 +57,12 @@ describe('car-drawer', () => {
         const cardDrawer = new CardDrawer();
 
         const cardList = [
-            { 'name': 'card1', 'count': 0 },
+            { 'name': 'card1' },
             { 'name': 'card2', 'count': 1 },
             { 'name': 'card3', 'count': 1 },
-            { 'name': 'card4', 'count': 0 },
+            { 'name': 'card4' },
             { 'name': 'card5', 'count': 1 },
-            { 'name': 'card6', 'count': 0 },
+            { 'name': 'card6' },
         ];
 
         const randomCards = cardDrawer.drawRandomMultiple(cardList, 3);
@@ -80,12 +80,12 @@ describe('car-drawer', () => {
         const cardDrawer = new CardDrawer();
 
         const cardList = [
-            { 'name': 'card1', 'count': 0 },
+            { 'name': 'card1' },
             { 'name': 'card2', 'count': 1 },
             { 'name': 'card3', 'count': 1 },
-            { 'name': 'card4', 'count': 0 },
+            { 'name': 'card4' },
             { 'name': 'card5', 'count': 1 },
-            { 'name': 'card6', 'count': 0 },
+            { 'name': 'card6' },
         ];
 
         const randomCards = cardDrawer.drawRandomMultipleForce(cardList, 3, ['card3']);
