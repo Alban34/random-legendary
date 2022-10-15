@@ -1,17 +1,17 @@
 import { Scores } from './model/scores.interface';
+import fs from 'fs-extra';
 
-const fs = require('fs-extra');
 const CATEGORIES = ['masterminds', 'schemes', 'villains', 'henchmen', 'heroes'];
 
 export class DataManager {
 
     public loadData() {
         let rawData = fs.readFileSync('./assets/legendary.json');
-        const legendaryBase = JSON.parse(rawData);
+        const legendaryBase = JSON.parse(rawData.toString());
 
         if (fs.existsSync('./games.json')) {
             rawData = fs.readFileSync('./games.json');
-            this.mergeGameDataIntoBase(legendaryBase, JSON.parse(rawData));
+            this.mergeGameDataIntoBase(legendaryBase, JSON.parse(rawData.toString()));
         }
 
         return legendaryBase;
@@ -33,7 +33,7 @@ export class DataManager {
         let scores: Scores = {};
         if (fs.existsSync('./scores.json')) {
             const rawData = fs.readFileSync('./scores.json');
-            scores = JSON.parse(rawData);
+            scores = JSON.parse(rawData.toString());
         }
         return scores;
     }
