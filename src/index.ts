@@ -5,13 +5,12 @@ import { GameBuilder } from './game-builder';
 import { GameManager } from './game-manager';
 import { CardManager } from './card-manager';
 import { CardViewer } from './card-viewer';
-
-const inquirer = require('inquirer');
+import inquirer from 'inquirer';
 
 const dataManager = new DataManager();
 const legendaryBase = dataManager.loadData();
 const gameManager = new GameManager();
-const availableGamesForScore = gameManager.loadRegisteredGameWithNoScore(legendaryBase);
+const availableGamesForScore = () => gameManager.loadRegisteredGameWithNoScore(legendaryBase);
 const cardManager = new CardManager();
 
 let selectedExtensions = cardManager.getAvailableExtensions(legendaryBase);
@@ -20,9 +19,8 @@ const questions = [
     {
         name: 'option',
         type: 'list',
-        choices: ['Start a new game', 'Enter a game score', 'Select your extensions', 'Show all available cards', 'Show my cards (from selected extensions)', 'Quit'],
-        default: 0,
-        when: () => availableGamesForScore.length > 0
+        choices: () => getInitialChoices(),
+        default: 0
     },
     {
         name: 'playerCount',
@@ -34,7 +32,7 @@ const questions = [
     {
         name: 'gameId',
         type: 'list',
-        choices: availableGamesForScore,
+        choices: () => availableGamesForScore(),
         message: 'Which is the id of the game you played?',
         when: (answer => answer.option === 'Enter a game score')
     },
@@ -79,6 +77,15 @@ const init = () => {
             }
         });
 };
+
+const getInitialChoices = () => {
+    const choices = ['Start a new game'];
+    if (availableGamesForScore().length > 0) {
+        choices.push('Enter a game score');
+    }
+    choices.push(...['Select your extensions', 'Show all available cards', 'Show my cards (from selected extensions)', 'Quit']);
+    return choices;
+}
 
 const showAllCards = () => {
     const cardViewer = new CardViewer();
