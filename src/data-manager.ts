@@ -64,4 +64,17 @@ export class DataManager {
             }
         });
     }
+
+    public loadExtensions(): string[] {
+        if (fs.existsSync('./extensions.json')) {
+            const rawData = fs.readFileSync('./extensions.json');
+            return JSON.parse(rawData.toString());
+        }
+        return [];
+    }
+
+    public saveExtensions(extensions: string[]): void {
+        const data = JSON.stringify(extensions);
+        fs.writeFileSync('extensions.json', data);
+    }
 }

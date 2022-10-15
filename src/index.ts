@@ -13,7 +13,10 @@ const gameManager = new GameManager();
 const availableGamesForScore = () => gameManager.loadRegisteredGameWithNoScore(legendaryBase);
 const cardManager = new CardManager();
 
-let selectedExtensions = cardManager.getAvailableExtensions(legendaryBase);
+let selectedExtensions = dataManager.loadExtensions();
+if (selectedExtensions.length === 0) {
+    selectedExtensions = cardManager.getAvailableExtensions(legendaryBase);
+}
 
 const questions = [
     {
@@ -70,6 +73,7 @@ const init = () => {
             }
             if (answer.extensions) {
                 selectedExtensions = answer.extensions;
+                dataManager.saveExtensions(selectedExtensions);
             }
 
             if (answer.option !== 'Quit') {
