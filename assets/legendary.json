@@ -50,7 +50,7 @@
     },
     {
       "name": "Madelyne Pryor, Goblin Queen",
-      "extension": "Civil War"
+      "extension": "Secret Wars, Volume 1"
     },
     {
       "name": "Magneto",
@@ -90,7 +90,7 @@
     },
     {
       "name": "Nimrod, Super Sentinel",
-      "extension": "Civil War"
+      "extension": "Secret Wars, Volume 1"
     },
     {
       "name": "Pagliacci",
@@ -122,11 +122,11 @@
     },
     {
       "name": "Wasteland Hulk",
-      "extension": "Civil War"
+      "extension": "Secret Wars, Volume 1"
     },
     {
       "name": "Zombie Green Goblin",
-      "extension": "Civil War"
+      "extension": "Secret Wars, Volume 1"
     }
   ],
   "schemes": [
@@ -144,7 +144,7 @@
     },
     {
       "name": "Build An Army of Annihilation",
-      "extension": "Civil War"
+      "extension": "Secret Wars, Volume 1"
     },
     {
       "name": "Capture Baby Hope",
@@ -160,7 +160,7 @@
     },
     {
       "name": "Corrupt the Next Generation of Heroes",
-      "extension": "Civil War"
+      "extension": "Secret Wars, Volume 1"
     },
     {
       "name": "Crash the Moon into the Sun",
@@ -168,7 +168,7 @@
     },
     {
       "name": "Crush Them with My Bare hands",
-      "extension": "Civil War"
+      "extension": "Secret Wars, Volume 1"
     },
     {
       "name": "Cursed Pages of the Darkhold Tome",
@@ -176,7 +176,7 @@
     },
     {
       "name": "Dark Alliance",
-      "extension": "Civil War"
+      "extension": "Secret Wars, Volume 1"
     },
     {
       "name": "Dark Reign of H.A.M.M.E.R. Officers",
@@ -204,7 +204,7 @@
     },
     {
       "name": "Fragmented Realities",
-      "extension": "Civil War"
+      "extension": "Secret Wars, Volume 1"
     },
     {
       "name": "Hypnotize Every Human",
@@ -228,7 +228,7 @@
     },
     {
       "name": "Master of Tyrants",
-      "extension": "Civil War"
+      "extension": "Secret Wars, Volume 1"
     },
     {
       "name": "Midtown Bank Robbery",
@@ -248,7 +248,7 @@
     },
     {
       "name": "Pan-Dimensional Plague",
-      "extension": "Civil War"
+      "extension": "Secret Wars, Volume 1"
     },
     {
       "name": "Portals to the Dark Dimension",
@@ -284,7 +284,7 @@
     },
     {
       "name": "Smash Two Dimensions Together",
-      "extension": "Civil War"
+      "extension": "Secret Wars, Volume 1"
     },
     {
       "name": "Splice Humans with Spider DNA",
@@ -390,7 +390,7 @@
     },
     {
       "name": "Domain of Apocalypse",
-      "extension": "Civil War"
+      "extension": "Secret Wars, Volume 1"
     },
     {
       "name": "Emissaries of Evil",
@@ -434,7 +434,7 @@
     },
     {
       "name": "Limbo",
-      "extension": "Civil War"
+      "extension": "Secret Wars, Volume 1"
     },
     {
       "name": "Lords of the Netherworld",
@@ -442,7 +442,7 @@
     },
     {
       "name": "Manhattan (Earth-1610)",
-      "extension": "Civil War"
+      "extension": "Secret Wars, Volume 1"
     },
     {
       "name": "Marauders",
@@ -486,7 +486,7 @@
     },
     {
       "name": "Sentinel Territories",
-      "extension": "Civil War"
+      "extension": "Secret Wars, Volume 1"
     },
     {
       "name": "Sinister Six",
@@ -510,7 +510,7 @@
     },
     {
       "name": "The Deadlands",
-      "extension": "Civil War"
+      "extension": "Secret Wars, Volume 1"
     },
     {
       "name": "Thunderbolts",
@@ -526,7 +526,7 @@
     },
     {
       "name": "Wasteland",
-      "extension": "Civil War"
+      "extension": "Secret Wars, Volume 1"
     },
     {
       "name": "Wrecking Crew",
@@ -544,7 +544,7 @@
     },
     {
       "name": "Ghost Racers",
-      "extension": "Civil War"
+      "extension": "Secret Wars, Volume 1"
     },
     {
       "name": "Hand Ninjas",
@@ -552,7 +552,7 @@
     },
     {
       "name": "M.O.D.O.K.s",
-      "extension": "Civil War"
+      "extension": "Secret Wars, Volume 1"
     },
     {
       "name": "Maggia Goons",
@@ -576,7 +576,7 @@
     },
     {
       "name": "Thor Corps",
-      "extension": "Civil War"
+      "extension": "Secret Wars, Volume 1"
     }
   ],
   "heroes": [
@@ -590,7 +590,7 @@
     },
     {
       "name": "Apocalyptic Kitty Pryde",
-      "extension": "Civil War"
+      "extension": "Secret Wars, Volume 1"
     },
     {
       "name": "Beta Ray Bill",
@@ -602,7 +602,7 @@
     },
     {
       "name": "Black Bolt",
-      "extension": "Civil War"
+      "extension": "Secret Wars, Volume 1"
     },
     {
       "name": "Black Cat",
@@ -614,7 +614,7 @@
     },
     {
       "name": "Black Panther",
-      "extension": "Civil War"
+      "extension": "Secret Wars, Volume 1"
     },
     {
       "name": "Black Widow",
@@ -638,7 +638,7 @@
     },
     {
       "name": "Captain Marvel",
-      "extension": "Civil War"
+      "extension": "Secret Wars, Volume 1"
     },
     {
       "name": "Clea",
@@ -671,6 +671,10 @@
     {
       "name": "Doctor Strange",
       "extension": "Doctor Strange and the Shadows of Nightmare"
+    },
+    {
+      "name": "Doctor Strange (Illuminati)",
+      "extension": "Secret Wars, Volume 1"
     },
     {
       "name": "Doctor Voodoo",
@@ -774,7 +778,7 @@
     },
     {
       "name": "Lady Thor",
-      "extension": "Civil War"
+      "extension": "Secret Wars, Volume 1"
     },
     {
       "name": "Luke Cage",
@@ -782,11 +786,11 @@
     },
     {
       "name": "Magik",
-      "extension": "Civil War"
+      "extension": "Secret Wars, Volume 1"
     },
     {
       "name": "Maximus",
-      "extension": "Civil War"
+      "extension": "Secret Wars, Volume 1"
     },
     {
       "name": "Mirage",
@@ -802,7 +806,7 @@
     },
     {
       "name": "Namor",
-      "extension": "Civil War"
+      "extension": "Secret Wars, Volume 1"
     },
     {
       "name": "Nick Fury",
@@ -818,7 +822,7 @@
     },
     {
       "name": "Old Man Logan",
-      "extension": "Civil War"
+      "extension": "Secret Wars, Volume 1"
     },
     {
       "name": "Patriot",
@@ -834,7 +838,7 @@
     },
     {
       "name": "Proxima Midnight",
-      "extension": "Civil War"
+      "extension": "Secret Wars, Volume 1"
     },
     {
       "name": "Punisher",
@@ -886,7 +890,7 @@
     },
     {
       "name": "Superior Iron Man",
-      "extension": "Civil War"
+      "extension": "Secret Wars, Volume 1"
     },
     {
       "name": "Symbiote Spider-Man",
@@ -894,7 +898,7 @@
     },
     {
       "name": "Thanos",
-      "extension": "Civil War"
+      "extension": "Secret Wars, Volume 1"
     },
     {
       "name": "The Ancient One",
@@ -926,7 +930,7 @@
     },
     {
       "name": "Ultimate Spider-Man",
-      "extension": "Civil War"
+      "extension": "Secret Wars, Volume 1"
     },
     {
       "name": "Valkyrie",
