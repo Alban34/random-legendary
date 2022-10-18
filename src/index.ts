@@ -1,4 +1,4 @@
-import { PlayerConfig } from './player-config';
+import { PlayerConfig } from './game/player-config';
 import { GameViewer } from './game-viewer';
 import { GameBuilder, GameManager, GameDataManager } from './game/game.module';
 import { CardManager, CardLoader } from './card/card.module';

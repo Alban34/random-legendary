@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-import { PlayerConfig } from '../player-config';
+import { PlayerConfig } from './player-config';
 import { Game } from './model/game';
 import { Card, CardDrawer, MastermindCard } from '../card/card.module';
 

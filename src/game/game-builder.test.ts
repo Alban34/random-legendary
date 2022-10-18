@@ -1,6 +1,6 @@
 import { describe, expect, test, beforeEach } from '@jest/globals';
 import { GameBuilder } from './game-builder';
-import { PlayerConfig } from '../player-config';
+import { PlayerConfig } from './player-config';
 
 describe('GameBuilder', () => {
 
