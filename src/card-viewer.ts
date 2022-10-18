@@ -1,5 +1,8 @@
-import { Card } from './model/card.interface';
+import { Card } from './card/model/card';
 
+/**
+ * @deprecated will be replaced by an HTML view
+ */
 export class CardViewer {
 
     public getDisplayableCards(cardList): string {

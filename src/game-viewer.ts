@@ -1,5 +1,8 @@
-import { Game } from './model/game.interface';
+import { Game } from './game/model/game';
 
+/**
+ * @deprecated will be replaced by an HTML view
+ */
 export class GameViewer {
     public buildView(playerCount, game: Game): string {
         return `*** Legendary Marvel Randomizer ***

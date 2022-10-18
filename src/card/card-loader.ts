@@ -1,9 +1,8 @@
-import { Scores } from './model/scores.interface';
 import fs from 'fs-extra';
 
 const CATEGORIES = ['masterminds', 'schemes', 'villains', 'henchmen', 'heroes'];
 
-export class DataManager {
+export class CardLoader {
 
     public loadData() {
         let rawData = fs.readFileSync('./assets/legendary.json');
@@ -15,34 +14,6 @@ export class DataManager {
         }
 
         return legendaryBase;
-    }
-
-    public saveData(legendaryBase): void {
-        const gamesToSave = {
-            "masterminds": legendaryBase.masterminds,
-            "schemes": legendaryBase.schemes,
-            "villains": legendaryBase.villains,
-            "henchmen": legendaryBase.henchmen,
-            "heroes": legendaryBase.heroes
-        };
-        const data = JSON.stringify(gamesToSave);
-        fs.writeFileSync('games.json', data);
-    }
-
-    public loadScores(): Scores {
-        let scores: Scores = {};
-        if (fs.existsSync('./scores.json')) {
-            const rawData = fs.readFileSync('./scores.json');
-            scores = JSON.parse(rawData.toString());
-        }
-        return scores;
-    }
-
-    public saveScore(gameId: string, score: number): void {
-        const scores = this.loadScores();
-        scores[gameId] = { score };
-        const data = JSON.stringify(scores);
-        fs.writeFileSync('scores.json', data);
     }
 
     private mergeGameDataIntoBase(legendaryBase, games) {
@@ -77,4 +48,5 @@ export class DataManager {
         const data = JSON.stringify(extensions);
         fs.writeFileSync('extensions.json', data);
     }
+
 }

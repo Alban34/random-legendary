@@ -1,19 +1,18 @@
-import { DataManager } from './data-manager';
 import { PlayerConfig } from './player-config';
 import { GameViewer } from './game-viewer';
-import { GameBuilder } from './game-builder';
-import { GameManager } from './game-manager';
-import { CardManager } from './card-manager';
+import { GameBuilder, GameManager, GameDataManager } from './game/game.module';
+import { CardManager, CardLoader } from './card/card.module';
 import { CardViewer } from './card-viewer';
 import inquirer from 'inquirer';
 
-const dataManager = new DataManager();
-const legendaryBase = dataManager.loadData();
+const dataManager = new GameDataManager();
+const cardLoader = new CardLoader();
+const legendaryBase = cardLoader.loadData();
 const gameManager = new GameManager();
 const availableGamesForScore = () => gameManager.loadRegisteredGameWithNoScore(legendaryBase);
 const cardManager = new CardManager();
 
-let selectedExtensions = dataManager.loadExtensions();
+let selectedExtensions = cardLoader.loadExtensions();
 if (selectedExtensions.length === 0) {
     selectedExtensions = cardManager.getAvailableExtensions(legendaryBase);
 }
@@ -73,7 +72,7 @@ const init = () => {
             }
             if (answer.extensions) {
                 selectedExtensions = answer.extensions;
-                dataManager.saveExtensions(selectedExtensions);
+                cardLoader.saveExtensions(selectedExtensions);
             }
 
             if (answer.option !== 'Quit') {

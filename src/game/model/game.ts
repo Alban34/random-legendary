@@ -1,5 +1,4 @@
-import { MastermindCard } from './mastermind.card';
-import { Card } from './card.interface';
+import { MastermindCard, Card } from '../../card/card.module';
 
 export interface Game {
     gameId: string;

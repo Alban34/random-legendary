@@ -1,4 +1,4 @@
-import { Card } from './card.interface';
+import { Card } from './card';
 
 export interface MastermindCard extends Card {
     alwaysLead?: string;

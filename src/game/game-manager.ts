@@ -1,10 +1,9 @@
-import { Game } from './model/game.interface';
-import { Card } from './model/card.interface';
-import { DataManager } from './data-manager';
+import { Game, GameDataManager } from './game.module';
+import { Card } from '../card/model/card';
 
 export class GameManager {
 
-    private dataManager = new DataManager();
+    private dataManager = new GameDataManager();
 
     public loadRegisteredGame(cardList): string[] {
         const gameIds = cardList.masterminds.flatMap(mastermind => mastermind.gameId);

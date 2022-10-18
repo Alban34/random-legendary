@@ -1,15 +1,15 @@
 import { describe, expect, test } from '@jest/globals';
-import { DataManager } from './data-manager';
+import { CardLoader } from './card-loader';
 
-describe('data-manager', () => {
+describe('card-loader', () => {
+    const cardLoader = new CardLoader();
+
     test('should merge game count into the base data', () => {
-        const dataManager = new DataManager();
-
         const baseCardList = {
             'masterminds': [
-                { 'name': 'card1'},
-                { 'name': 'card2'},
-                { 'name': 'card3'}
+                { 'name': 'card1' },
+                { 'name': 'card2' },
+                { 'name': 'card3' }
             ],
             'schemes': [],
             'villains': [],
@@ -24,19 +24,17 @@ describe('data-manager', () => {
             ]
         };
 
-        dataManager['mergeGameDataIntoBase'](baseCardList, gameCardList);
+        cardLoader['mergeGameDataIntoBase'](baseCardList, gameCardList);
 
         expect(baseCardList.masterminds[1]['count']).toBe(2);
     });
 
     test('should merge game ids into the base data', () => {
-        const dataManager = new DataManager();
-
         const baseCardList = {
             'masterminds': [
-                { 'name': 'card1'},
-                { 'name': 'card2'},
-                { 'name': 'card3'}
+                { 'name': 'card1' },
+                { 'name': 'card2' },
+                { 'name': 'card3' }
             ],
             'schemes': [],
             'villains': [],
@@ -51,7 +49,7 @@ describe('data-manager', () => {
             ]
         };
 
-        dataManager['mergeGameDataIntoBase'](baseCardList, gameCardList);
+        cardLoader['mergeGameDataIntoBase'](baseCardList, gameCardList);
 
         const mergedGameIds = baseCardList.masterminds[1]['gameId'];
         expect(mergedGameIds.length).toBe(2);

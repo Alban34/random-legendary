@@ -1,4 +1,4 @@
-import { Card } from './model/card.interface';
+import { Card } from './model/card';
 
 export class CardDrawer {
 
