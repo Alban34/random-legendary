@@ -1,9 +1,6 @@
-import { Card } from './card/model/card';
+import { Card } from '../../card/model/card';
 
-/**
- * @deprecated will be replaced by an HTML view
- */
-export class CardViewer {
+export class CardConsoleViewer {
 
     public getDisplayableCards(cardList): string {
         let cardsView = this.buildCategoryView('Masterminds', cardList.masterminds);

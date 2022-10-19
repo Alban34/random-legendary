@@ -1,9 +1,6 @@
-import { Game } from './game/model/game';
+import { Game } from '../../game/model/game';
 
-/**
- * @deprecated will be replaced by an HTML view
- */
-export class GameViewer {
+export class GameConsoleViewer {
     public buildView(playerCount, game: Game): string {
         return `*** Legendary Marvel Randomizer ***
 Number of players: ${playerCount}
