@@ -4,7 +4,8 @@
   "description": "Fan made randomizer for Legendary Marvel",
   "main": "index.js",
   "scripts": {
-    "start": "ts-node ./src/index.ts",
+    "start:console": "ts-node ./src/index.ts",
+    "start:web": "ts-node ./src/server.ts",
     "test": "jest --coverage=true",
     "test:watch": "jest --watch"
   },
