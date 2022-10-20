@@ -38,12 +38,16 @@ export class SetupWebViewer {
 
         const availableExtensionsAsWeb = allExtensions.map(ext => {
             return `
-                <input type='checkbox' id='${ext}' checked='${selectedExtensions.indexOf(ext) > -1}'>
-                <label for='${ext}'>${ext}</label>
+                <div class="input-group mb-2">
+                  <div class="input-group-text">
+                    <input class="form-check-input mt-0" type="checkbox" id="${ext}" checked="${selectedExtensions.indexOf(ext) > -1}">
+                    <label style="margin-left: 10px" for="${ext}">${ext}</label>
+                  </div>
+                </div>
             `;
         });
         let webContent = availableExtensionsAsWeb.join('');
-        webContent += `<button>Cancel</button><button>Save</button>`;
+        webContent += `<button class="btn btn-secondary">Cancel</button><button class="btn btn-primary">Save</button>`;
         return webContent;
     }
 }

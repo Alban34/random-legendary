@@ -12,7 +12,7 @@ http.createServer((request, response) => {
             setHTMLResponse(setupWebViewer.showExtensions(), response);
             break;
         case '/styles.css':
-            setFileResponse('./assets/styles.css', response);
+            setFileResponse('./node_modules/bootstrap/dist/css/bootstrap.css', response);
             break;
         default:
             response.writeHead(404);
