@@ -12,9 +12,11 @@ To use it, you will need nodejs.
 Once the project is cloned, just run `npm install` to install required dependencies.
 
 ### Run the randomizer
-Once the dependencies are installed, run `npm run start`.
-You will be prompted for the number of player to attend this game.
-If you play solo, the advanced solo rules from the Dark City extension will be applied.
+Once the dependencies are installed you have 2 options:
+- run `npm run start:console` to have a command line user interface
+- run `npm run start:web` to connect to http://localhost:9615 with your web browser to have a web user interface
+
+If you play solo, only the advanced solo rules from the Dark City extension will be applied for now.
 
 ### Files
 This app works based on 3 files:
@@ -44,6 +46,7 @@ I may also:
 - display a history of the games with the most used cards and the best scores
 - create an executable app for ease of use
 - add the group of heroes (x-force, guardians of the galaxy...)
+- implement the core solo rules
 
 ## Disclaimer
 This software is not affiliated to Upper Deck nor Marvel. 

@@ -13,8 +13,8 @@
     "type": "git",
     "url": "git+https://github.com/Alban34/random-legendary.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Alban Fayard",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Alban34/random-legendary/issues"
   },
