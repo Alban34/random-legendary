@@ -1,5 +1,5 @@
 import { describe, expect, test } from '@jest/globals';
-import { CardConsoleViewer } from './card-viewer';
+import { CardConsoleViewer } from './card-console-viewer';
 
 describe('CardViewer', () => {
 
