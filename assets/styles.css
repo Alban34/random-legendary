@@ -16,3 +16,8 @@ a {
     width: 48%;
     margin-top: 10px;
 }
+
+h1 a {
+    float: right;
+    font-size: medium;
+}

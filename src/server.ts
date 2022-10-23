@@ -70,7 +70,7 @@ const setHTMLResponse = (content: string, response) => {
             <title>Legendary Marvel randomizer</title>
         </head>
             <body>
-                <h1>Legendary Marvel Randomizer</h1>
+                <h1>Legendary Marvel Randomizer<a href="/">(back)</a></h1>
                 ${content}
             </body>
         </html>`);
