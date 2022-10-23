@@ -44,8 +44,9 @@ export class SetupWebViewer {
                     <input class="form-check-input mt-0" 
                            type="checkbox" 
                            id="${ext}" 
-                           name="${index}"
-                           checked="${selectedExtensions.indexOf(ext) > -1}">
+                           name="ext"
+                           value="${ext}"
+                           ${selectedExtensions.indexOf(ext) !== -1 ? 'checked' : ''}>
                     <label style="margin-left: 10px" for="${ext}">${ext}</label>
                   </div>
                 </div>

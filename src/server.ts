@@ -1,6 +1,7 @@
 import http from 'http';
 import fs from 'fs-extra';
 import { SetupWebViewer } from './viewer/web/setup-web-viewer';
+import { CardLoader } from './card/card-loader';
 
 http.createServer((request, response) => {
     const setupWebViewer = new SetupWebViewer();
@@ -18,8 +19,13 @@ http.createServer((request, response) => {
             const chunks = [];
             request.on('data', chunk => chunks.push(chunk));
             request.on('end', () => {
-                const data = Buffer.concat(chunks);
-                console.log('Data: ', data.toString());
+                const data = Buffer.concat(chunks).toString()
+                    .replace(/&/g, '')
+                    .replace(/(%2C)/g, ',')
+                    .replace(/\+/g, ' ');
+                const idsToSave = data.split('ext=');
+                const cardLoader = new CardLoader();
+                cardLoader.saveExtensions(idsToSave);
             });
             setHTMLResponse(setupWebViewer.showUI(), response);
             break;
