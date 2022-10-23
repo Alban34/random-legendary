@@ -3,6 +3,7 @@ import { ALL_CARDS } from '../../card/base-cards';
 import { CardManager } from '../../card/card-manager';
 import { CardLoader } from '../../card/card-loader';
 import { CardWebViewer } from './card-web-viewer';
+import { CardConsoleViewer } from '../console/card-console-viewer';
 
 export class SetupWebViewer {
 
@@ -18,7 +19,7 @@ export class SetupWebViewer {
         this.choices.push(...[
             { label: 'Select your extensions', path: '/showExtensions' },
             { label: 'Show all available cards', path: '/showAllCards' },
-            { label: 'Show my cards (from selected extensions)', path: '' }]);
+            { label: 'Show my cards (from selected extensions)', path: '/showMyCards' }]);
     }
 
     public showUI(): string {
@@ -67,6 +68,14 @@ export class SetupWebViewer {
      */
     public showCards(all = true): string {
         const cardViewer = new CardWebViewer();
-        return cardViewer.getDisplayableCards(ALL_CARDS);
+
+        if (all) {
+            return cardViewer.getDisplayableCards(ALL_CARDS);
+        }
+
+        const cardManager = new CardManager();
+        const cardLoader = new CardLoader();
+        const cardList = cardManager.filterAllCards(ALL_CARDS, cardLoader.loadExtensions());
+        return cardViewer.getDisplayableCards(cardList)
     }
 }

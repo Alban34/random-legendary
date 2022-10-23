@@ -12,6 +12,9 @@ http.createServer((request, response) => {
         case '/showAllCards':
             setHTMLResponse(setupWebViewer.showCards(), response);
             break;
+        case '/showMyCards':
+            setHTMLResponse(setupWebViewer.showCards(false), response);
+            break;
         case '/showExtensions':
             setHTMLResponse(setupWebViewer.showExtensions(), response);
             break;
@@ -23,7 +26,8 @@ http.createServer((request, response) => {
                     .replace(/&/g, '')
                     .replace(/(%2C)/g, ',')
                     .replace(/\+/g, ' ');
-                const idsToSave = data.split('ext=');
+                const idsToSave = data.split('ext=')
+                    .filter(value => value !== '');
                 const cardLoader = new CardLoader();
                 cardLoader.saveExtensions(idsToSave);
             });
