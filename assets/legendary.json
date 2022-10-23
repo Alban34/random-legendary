@@ -1,4 +1,4 @@
-export const ALL_CARDS = {
+{
   "masterminds": [
     {
       "name": "Apocalypse",
@@ -267,11 +267,11 @@ export const ALL_CARDS = {
       "extension": "Heroes of Asgard"
     },
     {
-      "name": "Replace Earth's Leaders with Killbots",
+      "name": "Replace Earth\"s Leaders with Killbots",
       "extension": "Core Set"
     },
     {
-      "name": "Reveal Heroes' Secret Identities",
+      "name": "Reveal Heroes\" Secret Identities",
       "extension": "Civil War"
     },
     {
@@ -367,7 +367,7 @@ export const ALL_CARDS = {
       "extension": "Paint the Town Red"
     },
     {
-      "name": "X-Cutioner's Song",
+      "name": "X-Cutioner\"s Song",
       "extension": "Dark City"
     }
   ],
@@ -469,7 +469,7 @@ export const ALL_CARDS = {
       "extension": "Heroes of Asgard"
     },
     {
-      "name": "Queen's Vengeance",
+      "name": "Queen\"s Vengeance",
       "extension": "Ant-Man"
     },
     {
@@ -973,4 +973,4 @@ export const ALL_CARDS = {
       "extension": "Ant-Man"
     }
   ]
-};
+}

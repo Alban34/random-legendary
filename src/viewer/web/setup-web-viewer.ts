@@ -1,35 +1,31 @@
 import { GameManager } from '../../game/game-manager';
-import { ALL_CARDS } from '../../card/base-cards';
 import { CardManager } from '../../card/card-manager';
 import { CardLoader } from '../../card/card-loader';
 import { CardWebViewer } from './card-web-viewer';
 import { PlayerConfig } from '../../game/player-config';
 import { GameBuilder } from '../../game/game-builder';
-import { GameConsoleViewer } from '../console/game-console-viewer';
 import { GameDataManager } from '../../game/game-data-manager';
 import { GameWebViewer } from './game-web-viewer';
 
 export class SetupWebViewer {
 
-    private choices;
     private cardManager = new CardManager();
     private cardLoader = new CardLoader();
     private dataManager = new GameDataManager();
 
-    constructor() {
-        this.choices = [];
+    public showUI(): string {
+        const choices = [];
         const gameManager = new GameManager();
-        const availableGamesForScore = gameManager.loadRegisteredGameWithNoScore(ALL_CARDS);
+        const availableGamesForScore = gameManager.loadRegisteredGameWithNoScore(this.cardLoader.loadData());
+        console.log(availableGamesForScore);
         if (availableGamesForScore.length > 0) {
-            this.choices.push({ label: 'Enter a game score', path: '/enterScore' });
+            choices.push({ label: 'Enter a game score', path: '/enterScore' });
         }
-        this.choices.push(...[
+        choices.push(...[
             { label: 'Select your extensions', path: '/showExtensions' },
             { label: 'Show all available cards', path: '/showAllCards' },
             { label: 'Show my cards (from selected extensions)', path: '/showMyCards' }]);
-    }
 
-    public showUI(): string {
         let webChoices = `
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -45,16 +41,13 @@ export class SetupWebViewer {
                     </ul>
                 </div>`;
 
-        this.choices.forEach(choice => webChoices += `<a href="${choice.path}">${choice.label}</a>`);
+        choices.forEach(choice => webChoices += `<a href="${choice.path}">${choice.label}</a>`);
         return webChoices;
     }
 
     public showExtensions(): string {
-
-        const cardLoader = new CardLoader();
-        const cardManager = new CardManager();
-        const allExtensions = cardManager.getAvailableExtensions(ALL_CARDS);
-        let selectedExtensions = cardLoader.loadExtensions();
+        const allExtensions = this.cardManager.getAvailableExtensions(this.cardLoader.loadData());
+        let selectedExtensions = this.cardLoader.loadExtensions();
         if (selectedExtensions.length === 0) {
             selectedExtensions = allExtensions;
         }
@@ -90,11 +83,12 @@ export class SetupWebViewer {
     public showCards(all = true): string {
         const cardViewer = new CardWebViewer();
 
+        const allCardList = this.cardLoader.loadData();
         if (all) {
-            return cardViewer.getDisplayableCards(ALL_CARDS);
+            return cardViewer.getDisplayableCards(allCardList);
         }
 
-        const cardList = this.cardManager.filterAllCards(ALL_CARDS, this.cardLoader.loadExtensions());
+        const cardList = this.cardManager.filterAllCards(allCardList, this.cardLoader.loadExtensions());
         return cardViewer.getDisplayableCards(cardList);
     }
 
@@ -103,10 +97,11 @@ export class SetupWebViewer {
         const playerConfig = new PlayerConfig(playerCount);
         const gameBuilder = new GameBuilder();
 
-        const cardList = this.cardManager.filterAllCards(ALL_CARDS, this.cardLoader.loadExtensions());
+        const allCardList = this.cardLoader.loadData();
+        const cardList = this.cardManager.filterAllCards(allCardList, this.cardLoader.loadExtensions());
         const game = gameBuilder.buildGame(cardList, playerConfig);
 
-        this.dataManager.saveData(ALL_CARDS);
+        this.dataManager.saveData(allCardList);
 
         const gameViewer = new GameWebViewer();
         return gameViewer.buildView(playerCount, game);
