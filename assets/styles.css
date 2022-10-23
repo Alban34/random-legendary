@@ -2,6 +2,10 @@ body {
     padding: 15px;
 }
 
+a {
+    display: block;
+}
+
 .card {
     width: 300px;
     float: left;

@@ -3,18 +3,17 @@ import { ALL_CARDS } from '../../card/base-cards';
 import { CardManager } from '../../card/card-manager';
 import { CardLoader } from '../../card/card-loader';
 import { CardWebViewer } from './card-web-viewer';
-import { CardConsoleViewer } from '../console/card-console-viewer';
 
 export class SetupWebViewer {
 
     private choices;
 
     constructor() {
-        this.choices = [{ label: 'Start a new game', path: '' }];
+        this.choices = [{ label: 'Start a new game', path: '/newGame' }];
         const gameManager = new GameManager();
         const availableGamesForScore = gameManager.loadRegisteredGameWithNoScore(ALL_CARDS);
         if (availableGamesForScore.length > 0) {
-            this.choices.push({ label: 'Enter a game score', path: '' });
+            this.choices.push({ label: 'Enter a game score', path: '/enterScore' });
         }
         this.choices.push(...[
             { label: 'Select your extensions', path: '/showExtensions' },

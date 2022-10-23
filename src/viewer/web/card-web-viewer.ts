@@ -19,7 +19,7 @@ export class CardWebViewer {
         let categoryView = `
         <div class="card ${style}">
             <div class="card-header">
-                ${categoryName}
+                ${categoryName} (${cards.length})
             </div>
             <ul class="list-group list-group-flush">`;
 
