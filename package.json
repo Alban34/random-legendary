@@ -6,6 +6,7 @@
   "scripts": {
     "start:console": "ts-node ./src/index.ts",
     "start:web": "ts-node ./src/server.ts",
+    "start": "npm run start:web",
     "test": "jest --coverage=true",
     "test:watch": "jest --watch"
   },
