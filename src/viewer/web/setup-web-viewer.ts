@@ -2,6 +2,7 @@ import { GameManager } from '../../game/game-manager';
 import { ALL_CARDS } from '../../card/base-cards';
 import { CardManager } from '../../card/card-manager';
 import { CardLoader } from '../../card/card-loader';
+import { CardWebViewer } from './card-web-viewer';
 
 export class SetupWebViewer {
 
@@ -16,7 +17,7 @@ export class SetupWebViewer {
         }
         this.choices.push(...[
             { label: 'Select your extensions', path: '/showExtensions' },
-            { label: 'Show all available cards', path: '' },
+            { label: 'Show all available cards', path: '/showAllCards' },
             { label: 'Show my cards (from selected extensions)', path: '' }]);
     }
 
@@ -36,18 +37,35 @@ export class SetupWebViewer {
             selectedExtensions = allExtensions;
         }
 
-        const availableExtensionsAsWeb = allExtensions.map(ext => {
+        const availableExtensionsAsWeb = allExtensions.map((ext, index) => {
             return `
                 <div class="input-group mb-2">
                   <div class="input-group-text">
-                    <input class="form-check-input mt-0" type="checkbox" id="${ext}" checked="${selectedExtensions.indexOf(ext) > -1}">
+                    <input class="form-check-input mt-0" 
+                           type="checkbox" 
+                           id="${ext}" 
+                           name="${index}"
+                           checked="${selectedExtensions.indexOf(ext) > -1}">
                     <label style="margin-left: 10px" for="${ext}">${ext}</label>
                   </div>
                 </div>
             `;
         });
-        let webContent = availableExtensionsAsWeb.join('');
-        webContent += `<button class="btn btn-secondary">Cancel</button><button class="btn btn-primary">Save</button>`;
-        return webContent;
+        return `
+            <form action="/saveExtensions" method="post">
+                ${availableExtensionsAsWeb.join('')}
+                <button class="btn btn-secondary">Cancel</button>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </form>
+        `;
+    }
+
+    /**
+     * Show known cards
+     * @param all if true (default) show all cards known by the app. Otherwise, show only the cards of the user own extensions.
+     */
+    public showCards(all = true): string {
+        const cardViewer = new CardWebViewer();
+        return cardViewer.getDisplayableCards(ALL_CARDS);
     }
 }

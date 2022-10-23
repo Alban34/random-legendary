@@ -1,0 +1,9 @@
+body {
+    padding: 15px;
+}
+
+.card {
+    width: 300px;
+    float: left;
+    margin-right: 10px;
+}

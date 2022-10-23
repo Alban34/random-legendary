@@ -41,9 +41,9 @@ This is a very early version of the randomizer that addresses only my personal n
 I will add more extensions in the future (as I acquired them ;)).
 I may also:
 - set up the "Always lead" constraints of the Masterminds (implemented but information is not fully set in card reference file).
-- let the user choose the extensions to be played
 - display a history of the games with the most used cards and the best scores
 - create an executable app for ease of use
+- add the group of heroes (x-force, guardians of the galaxy...)
 
 ## Disclaimer
 This software is not affiliated to Upper Deck nor Marvel. 

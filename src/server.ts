@@ -8,10 +8,25 @@ http.createServer((request, response) => {
         case '/':
             setHTMLResponse(setupWebViewer.showUI(), response);
             break;
+        case '/showAllCards':
+            setHTMLResponse(setupWebViewer.showCards(), response);
+            break;
         case '/showExtensions':
             setHTMLResponse(setupWebViewer.showExtensions(), response);
             break;
+        case '/saveExtensions':
+            const chunks = [];
+            request.on('data', chunk => chunks.push(chunk));
+            request.on('end', () => {
+                const data = Buffer.concat(chunks);
+                console.log('Data: ', data.toString());
+            });
+            setHTMLResponse(setupWebViewer.showUI(), response);
+            break;
         case '/styles.css':
+            setFileResponse('./assets/styles.css', response);
+            break;
+        case '/bootstrap.css':
             setFileResponse('./node_modules/bootstrap/dist/css/bootstrap.css', response);
             break;
         default:
@@ -25,6 +40,7 @@ const setHTMLResponse = (content: string, response) => {
     response.write(`
         <html lang="">
         <head>
+            <link rel="stylesheet" href="/bootstrap.css">
             <link rel="stylesheet" href="/styles.css">
             <title>Legendary Marvel randomizer</title>
         </head>
