@@ -12,9 +12,11 @@ a {
     margin-right: 10px;
 }
 
-.new-game .card {
+.new-game .card,
+.scores .card {
     width: 48%;
     margin-top: 10px;
+    float: unset;
 }
 
 h1 a {

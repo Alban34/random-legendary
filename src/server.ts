@@ -2,10 +2,14 @@ import http from 'http';
 import fs from 'fs-extra';
 import { SetupWebViewer } from './viewer/web/setup-web-viewer';
 import { CardLoader } from './card/card-loader';
+import { ScoreInputParser } from './viewer/web/score-input-parser';
+import { GameDataManager } from './game/game-data-manager';
 
 http.createServer((request, response) => {
     const setupWebViewer = new SetupWebViewer();
     const url = request.url.split('?')[0];
+    let chunks = [];
+
     switch (url) {
         case '/':
             setHTMLResponse(setupWebViewer.showUI(), response);
@@ -13,6 +17,9 @@ http.createServer((request, response) => {
         case '/newGame':
             const playerCount = parseInt(request.url.substring(request.url.lastIndexOf('=') + 1));
             setHTMLResponse(setupWebViewer.startGame(playerCount), response);
+            break;
+        case'/enterScore':
+            setHTMLResponse(setupWebViewer.showAvailableGameForScore(), response);
             break;
         case '/showAllCards':
             setHTMLResponse(setupWebViewer.showCards(), response);
@@ -24,7 +31,6 @@ http.createServer((request, response) => {
             setHTMLResponse(setupWebViewer.showExtensions(), response);
             break;
         case '/saveExtensions':
-            const chunks = [];
             request.on('data', chunk => chunks.push(chunk));
             request.on('end', () => {
                 const data = Buffer.concat(chunks).toString()
@@ -35,6 +41,19 @@ http.createServer((request, response) => {
                     .filter(value => value !== '');
                 const cardLoader = new CardLoader();
                 cardLoader.saveExtensions(idsToSave);
+            });
+            setHTMLResponse(setupWebViewer.showUI(), response);
+            break;
+        case '/saveScores':
+            request.on('data', chunk => chunks.push(chunk));
+            request.on('end', () => {
+                const data = Buffer.concat(chunks).toString();
+                const parser = new ScoreInputParser();
+                const scores = parser.parseInput(data);
+                const gameDataManager = new GameDataManager();
+                for (const gameId in scores) {
+                    gameDataManager.saveScore(gameId, scores[gameId].score);
+                }
             });
             setHTMLResponse(setupWebViewer.showUI(), response);
             break;

@@ -12,12 +12,11 @@ export class SetupWebViewer {
     private cardManager = new CardManager();
     private cardLoader = new CardLoader();
     private dataManager = new GameDataManager();
+    private gameManager = new GameManager();
 
     public showUI(): string {
         const choices = [];
-        const gameManager = new GameManager();
-        const availableGamesForScore = gameManager.loadRegisteredGameWithNoScore(this.cardLoader.loadData());
-        console.log(availableGamesForScore);
+        const availableGamesForScore = this.gameManager.loadRegisteredGameWithNoScore(this.cardLoader.loadData());
         if (availableGamesForScore.length > 0) {
             choices.push({ label: 'Enter a game score', path: '/enterScore' });
         }
@@ -70,7 +69,6 @@ export class SetupWebViewer {
         return `
             <form action="/saveExtensions" method="post">
                 ${availableExtensionsAsWeb.join('')}
-                <button class="btn btn-secondary">Cancel</button>
                 <button type="submit" class="btn btn-primary">Save</button>
             </form>
         `;
@@ -107,4 +105,38 @@ export class SetupWebViewer {
         return gameViewer.buildView(playerCount, game);
     }
 
+    public showAvailableGameForScore(): string {
+        const allCardList = this.cardLoader.loadData();
+        const allAvailableGamesForScore = this.gameManager.loadRegisteredGameWithNoScore(allCardList);
+
+        let webView = `
+                <form action="/saveScores" method="post" class="scores">`;
+        allAvailableGamesForScore.forEach(value => {
+            webView += `
+                    <div class="card">
+                        <div class="card-header">
+                            Game ID: ${value}
+                        </div>
+                        <div class="card-body">
+                            <div>
+                                Score: <input name="${value}:score" type="number">
+                            </div>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" 
+                                    type="checkbox" 
+                                    role="switch" 
+                                    id="${value}:won" 
+                                    name="${value}:won" 
+                                    checked>
+                                <label class="form-check-label" for="${value}:won">Game won</label>
+                            </div>
+                        </div>
+                    </div>
+            `;
+        });
+        webView += `
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </form>`;
+        return webView;
+    }
 }
