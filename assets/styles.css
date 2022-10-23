@@ -11,3 +11,8 @@ a {
     float: left;
     margin-right: 10px;
 }
+
+.new-game .card {
+    width: 48%;
+    margin-top: 10px;
+}

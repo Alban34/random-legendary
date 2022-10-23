@@ -3,10 +3,18 @@ import { ALL_CARDS } from '../../card/base-cards';
 import { CardManager } from '../../card/card-manager';
 import { CardLoader } from '../../card/card-loader';
 import { CardWebViewer } from './card-web-viewer';
+import { PlayerConfig } from '../../game/player-config';
+import { GameBuilder } from '../../game/game-builder';
+import { GameConsoleViewer } from '../console/game-console-viewer';
+import { GameDataManager } from '../../game/game-data-manager';
+import { GameWebViewer } from './game-web-viewer';
 
 export class SetupWebViewer {
 
     private choices;
+    private cardManager = new CardManager();
+    private cardLoader = new CardLoader();
+    private dataManager = new GameDataManager();
 
     constructor() {
         this.choices = [{ label: 'Start a new game', path: '/newGame' }];
@@ -72,9 +80,22 @@ export class SetupWebViewer {
             return cardViewer.getDisplayableCards(ALL_CARDS);
         }
 
-        const cardManager = new CardManager();
-        const cardLoader = new CardLoader();
-        const cardList = cardManager.filterAllCards(ALL_CARDS, cardLoader.loadExtensions());
+        const cardList = this.cardManager.filterAllCards(ALL_CARDS, this.cardLoader.loadExtensions());
         return cardViewer.getDisplayableCards(cardList)
     }
+
+    public startGame(playerCount: number): string {
+
+        const playerConfig = new PlayerConfig(playerCount);
+        const gameBuilder = new GameBuilder();
+
+        const cardList = this.cardManager.filterAllCards(ALL_CARDS, this.cardLoader.loadExtensions());
+        const game = gameBuilder.buildGame(cardList, playerConfig);
+
+        this.dataManager.saveData(ALL_CARDS);
+
+        const gameViewer = new GameWebViewer();
+        return gameViewer.buildView(playerCount, game);
+    }
+
 }

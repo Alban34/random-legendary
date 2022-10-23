@@ -9,6 +9,9 @@ http.createServer((request, response) => {
         case '/':
             setHTMLResponse(setupWebViewer.showUI(), response);
             break;
+        case '/newGame':
+            setHTMLResponse(setupWebViewer.startGame(2), response);
+            break;
         case '/showAllCards':
             setHTMLResponse(setupWebViewer.showCards(), response);
             break;
