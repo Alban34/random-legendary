@@ -4,7 +4,6 @@ export class GameWebViewer {
     public buildView(playerCount, game: Game): string {
 
         return `
-            <h1>Legendary Marvel Randomizer</h1>
             <div class="new-game">
                 <div class="card">
                     <div class="card-header bg-info">

@@ -57,7 +57,10 @@ const setHTMLResponse = (content: string, response) => {
             <link rel="stylesheet" href="/styles.css">
             <title>Legendary Marvel randomizer</title>
         </head>
-            <body>${content}</body>
+            <body>
+                <h1>Legendary Marvel Randomizer</h1>
+                ${content}
+            </body>
         </html>`);
     response.end();
 };
