@@ -8,6 +8,8 @@ import express from 'express';
 const setupWebViewer = new SetupWebViewer();
 const app = express();
 
+app.disable("x-powered-by");
+
 app.listen(3000, () => {
     console.log('Starting Legendary Marvel randomizer on: http://localhost:3000');
 });
