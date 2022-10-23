@@ -1,82 +1,92 @@
-import http from 'http';
 import fs from 'fs-extra';
 import { SetupWebViewer } from './viewer/web/setup-web-viewer';
 import { CardLoader } from './card/card-loader';
 import { ScoreInputParser } from './viewer/web/score-input-parser';
 import { GameDataManager } from './game/game-data-manager';
+import express from 'express';
 
-http.createServer((request, response) => {
-    const setupWebViewer = new SetupWebViewer();
-    const url = request.url.split('?')[0];
-    let chunks = [];
+const setupWebViewer = new SetupWebViewer();
+const app = express();
 
-    switch (url) {
-        case '/':
-            setHTMLResponse(setupWebViewer.showUI(), response);
-            break;
-        case '/newGame':
-            const playerCount = parseInt(request.url.substring(request.url.lastIndexOf('=') + 1));
-            setHTMLResponse(setupWebViewer.startGame(playerCount), response);
-            break;
-        case'/enterScore':
-            setHTMLResponse(setupWebViewer.showAvailableGameForScore(), response);
-            break;
-        case '/showAllCards':
-            setHTMLResponse(setupWebViewer.showCards(), response);
-            break;
-        case '/showMyCards':
-            setHTMLResponse(setupWebViewer.showCards(false), response);
-            break;
-        case '/showExtensions':
-            setHTMLResponse(setupWebViewer.showExtensions(), response);
-            break;
-        case '/saveExtensions':
-            request.on('data', chunk => chunks.push(chunk));
-            request.on('end', () => {
-                const data = Buffer.concat(chunks).toString()
-                    .replace(/&/g, '')
-                    .replace(/(%2C)/g, ',')
-                    .replace(/\+/g, ' ');
-                const idsToSave = data.split('ext=')
-                    .filter(value => value !== '');
-                const cardLoader = new CardLoader();
-                cardLoader.saveExtensions(idsToSave);
-            });
-            setHTMLResponse(setupWebViewer.showUI(), response);
-            break;
-        case '/saveScores':
-            request.on('data', chunk => chunks.push(chunk));
-            request.on('end', () => {
-                const data = Buffer.concat(chunks).toString();
-                const parser = new ScoreInputParser();
-                const scores = parser.parseInput(data);
-                const gameDataManager = new GameDataManager();
-                for (const gameId in scores) {
-                    gameDataManager.saveScore(gameId, scores[gameId].score);
-                }
-            });
-            setHTMLResponse(setupWebViewer.showUI(), response);
-            break;
-        case '/styles.css':
-            setFileResponse('./assets/styles.css', response);
-            break;
-        case '/bootstrap.css':
-            setFileResponse('./node_modules/bootstrap/dist/css/bootstrap.min.css', response);
-            break;
-        case '/bootstrap.min.css.map':
-            setFileResponse('./node_modules/bootstrap/dist/css/bootstrap.min.css.map', response);
-            break;
-        case '/bootstrap.js':
-            setFileResponse('./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js', response);
-            break;
-        case '/bootstrap.bundle.min.js.map':
-            setFileResponse('./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js.map', response);
-            break;
-        default:
-            response.writeHead(404);
-            response.end();
-    }
-}).listen(9615);
+app.listen(3000, () => {
+    console.log('Starting Legendary Marvel randomizer on: http://localhost:3000');
+});
+
+app.get('/', (req, res) => {
+    setHTMLResponse(setupWebViewer.showUI(), res);
+});
+
+app.get('/styles.css', (req, res) => {
+    setFileResponse('./assets/styles.css', res);
+});
+
+app.get('/bootstrap.css', (req, res) => {
+    setFileResponse('./node_modules/bootstrap/dist/css/bootstrap.min.css', res);
+});
+
+app.get('/bootstrap.min.css.map', (req, res) => {
+    setFileResponse('./node_modules/bootstrap/dist/css/bootstrap.min.css.map', res);
+});
+
+app.get('/bootstrap.js', (req, res) => {
+    setFileResponse('./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js', res);
+});
+
+app.get('/bootstrap.bundle.min.js.map', (req, res) => {
+    setFileResponse('./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js.map', res);
+});
+
+app.get('/newGame', (req, res) => {
+    const playerCount = parseInt(req.url.substring(req.url.lastIndexOf('=') + 1));
+    setHTMLResponse(setupWebViewer.startGame(playerCount), res);
+});
+
+app.get('/enterScore', (req, res) => {
+    setHTMLResponse(setupWebViewer.showAvailableGameForScore(), res);
+});
+
+app.get('/showAllCards', (req, res) => {
+    setHTMLResponse(setupWebViewer.showCards(), res);
+});
+
+app.get('/showMyCards', (req, res) => {
+    setHTMLResponse(setupWebViewer.showCards(false), res);
+});
+
+app.get('/showExtensions', (req, res) => {
+    setHTMLResponse(setupWebViewer.showExtensions(), res);
+});
+
+let chunks = [];
+app.post('/saveExtensions', (req, res) => {
+    req.on('data', chunk => chunks.push(chunk));
+    req.on('end', () => {
+        const data = Buffer.concat(chunks).toString()
+            .replace(/&/g, '')
+            .replace(/(%2C)/g, ',')
+            .replace(/\+/g, ' ');
+        const idsToSave = data.split('ext=')
+            .filter(value => value !== '');
+        const cardLoader = new CardLoader();
+        cardLoader.saveExtensions(idsToSave);
+    });
+    res.redirect('/');
+});
+
+app.post('/saveScores', (req, res) => {
+    req.on('data', chunk => chunks.push(chunk));
+    req.on('end', () => {
+        const data = Buffer.concat(chunks).toString();
+        const parser = new ScoreInputParser();
+        const scores = parser.parseInput(data);
+        const gameDataManager = new GameDataManager();
+        for (const gameId in scores) {
+            gameDataManager.saveScore(gameId, scores[gameId].score);
+        }
+    });
+    res.redirect('/');
+});
+
 
 const setHTMLResponse = (content: string, response) => {
     response.writeHead(200, { 'Content-Type': 'text/html' });
