@@ -5,12 +5,14 @@ import { CardLoader } from './card/card-loader';
 
 http.createServer((request, response) => {
     const setupWebViewer = new SetupWebViewer();
-    switch (request.url) {
+    const url = request.url.split('?')[0];
+    switch (url) {
         case '/':
             setHTMLResponse(setupWebViewer.showUI(), response);
             break;
         case '/newGame':
-            setHTMLResponse(setupWebViewer.startGame(2), response);
+            const playerCount = parseInt(request.url.substring(request.url.lastIndexOf('=') + 1));
+            setHTMLResponse(setupWebViewer.startGame(playerCount), response);
             break;
         case '/showAllCards':
             setHTMLResponse(setupWebViewer.showCards(), response);
@@ -40,7 +42,16 @@ http.createServer((request, response) => {
             setFileResponse('./assets/styles.css', response);
             break;
         case '/bootstrap.css':
-            setFileResponse('./node_modules/bootstrap/dist/css/bootstrap.css', response);
+            setFileResponse('./node_modules/bootstrap/dist/css/bootstrap.min.css', response);
+            break;
+        case '/bootstrap.min.css.map':
+            setFileResponse('./node_modules/bootstrap/dist/css/bootstrap.min.css.map', response);
+            break;
+        case '/bootstrap.js':
+            setFileResponse('./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js', response);
+            break;
+        case '/bootstrap.bundle.min.js.map':
+            setFileResponse('./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js.map', response);
             break;
         default:
             response.writeHead(404);
@@ -53,6 +64,7 @@ const setHTMLResponse = (content: string, response) => {
     response.write(`
         <html lang="">
         <head>
+            <script src="/bootstrap.js"></script>
             <link rel="stylesheet" href="/bootstrap.css">
             <link rel="stylesheet" href="/styles.css">
             <title>Legendary Marvel randomizer</title>

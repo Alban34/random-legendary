@@ -17,7 +17,7 @@ export class SetupWebViewer {
     private dataManager = new GameDataManager();
 
     constructor() {
-        this.choices = [{ label: 'Start a new game', path: '/newGame' }];
+        this.choices = [];
         const gameManager = new GameManager();
         const availableGamesForScore = gameManager.loadRegisteredGameWithNoScore(ALL_CARDS);
         if (availableGamesForScore.length > 0) {
@@ -30,7 +30,21 @@ export class SetupWebViewer {
     }
 
     public showUI(): string {
-        let webChoices: string = '';
+        let webChoices = `
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Start new game
+                    </button>
+                    <ul class="dropdown-menu" style="">
+                        <li><a class="dropdown-item" href="/newGame?playerCount=1">Solo</a></li>
+                        <li><a class="dropdown-item" href="/newGame?playerCount=1">Advanced Solo</a></li>
+                        <li><a class="dropdown-item" href="/newGame?playerCount=2">2 players</a></li>
+                        <li><a class="dropdown-item" href="/newGame?playerCount=3">3 players</a></li>
+                        <li><a class="dropdown-item" href="/newGame?playerCount=4">4 players</a></li>
+                        <li><a class="dropdown-item" href="/newGame?playerCount=5">5 players</a></li>
+                    </ul>
+                </div>`;
+
         this.choices.forEach(choice => webChoices += `<a href="${choice.path}">${choice.label}</a>`);
         return webChoices;
     }
@@ -45,7 +59,7 @@ export class SetupWebViewer {
             selectedExtensions = allExtensions;
         }
 
-        const availableExtensionsAsWeb = allExtensions.map((ext, index) => {
+        const availableExtensionsAsWeb = allExtensions.map((ext) => {
             return `
                 <div class="input-group mb-2">
                   <div class="input-group-text">
@@ -81,7 +95,7 @@ export class SetupWebViewer {
         }
 
         const cardList = this.cardManager.filterAllCards(ALL_CARDS, this.cardLoader.loadExtensions());
-        return cardViewer.getDisplayableCards(cardList)
+        return cardViewer.getDisplayableCards(cardList);
     }
 
     public startGame(playerCount: number): string {
