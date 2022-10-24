@@ -517,7 +517,7 @@
       "extension": "Civil War"
     },
     {
-      "name": "Ultron’s Legacy",
+      "name": "Ultron's Legacy",
       "extension": "Ant-Man"
     },
     {
@@ -582,395 +582,687 @@
   "heroes": [
     {
       "name": "Angel",
-      "extension": "Dark City"
+      "extension": "Dark City",
+      "teams": [
+        "X-Men"
+      ]
     },
     {
       "name": "Ant-Man",
-      "extension": "Ant-Man"
+      "extension": "Ant-Man",
+      "teams": [
+        "The Avengers"
+      ]
     },
     {
       "name": "Apocalyptic Kitty Pryde",
-      "extension": "Secret Wars, Volume 1"
+      "extension": "Secret Wars, Volume 1",
+      "teams": [
+        "X-Men"
+      ]
     },
     {
       "name": "Beta Ray Bill",
-      "extension": "Heroes of Asgard"
+      "extension": "Heroes of Asgard",
+      "teams": [
+        "Heroes of Asgard"
+      ]
     },
     {
       "name": "Bishop",
-      "extension": "Dark City"
+      "extension": "Dark City",
+      "teams": [
+        "X-Men"
+      ]
     },
     {
       "name": "Black Bolt",
-      "extension": "Secret Wars, Volume 1"
+      "extension": "Secret Wars, Volume 1",
+      "teams": [
+        "Illuminati"
+      ]
     },
     {
       "name": "Black Cat",
-      "extension": "Paint the Town Red"
+      "extension": "Paint the Town Red",
+      "teams": [
+        "Spider Friends"
+      ]
     },
     {
       "name": "Black Knight",
-      "extension": "Ant-Man"
+      "extension": "Ant-Man",
+      "teams": [
+        "The Avengers"
+      ]
     },
     {
       "name": "Black Panther",
-      "extension": "Secret Wars, Volume 1"
+      "extension": "Secret Wars, Volume 1",
+      "teams": [
+        "Illuminati"
+      ]
     },
     {
       "name": "Black Widow",
-      "extension": "Core Set"
+      "extension": "Core Set",
+      "teams": [
+        "The Avengers"
+      ]
     },
     {
       "name": "Blade",
-      "extension": "Dark City"
+      "extension": "Dark City",
+      "teams": [
+        "Marvel Knights"
+      ]
     },
     {
       "name": "Cable",
-      "extension": "Dark City"
+      "extension": "Dark City",
+      "teams": [
+        "X-Force"
+      ]
     },
     {
       "name": "Captain America",
-      "extension": "Core Set"
+      "extension": "Core Set",
+      "teams": [
+        "The Avengers"
+      ]
     },
     {
       "name": "Captain America, Secret Avenger",
-      "extension": "Civil War"
+      "extension": "Civil War",
+      "teams": [
+        "The Avengers"
+      ]
     },
     {
       "name": "Captain Marvel",
-      "extension": "Secret Wars, Volume 1"
+      "extension": "Secret Wars, Volume 1",
+      "teams": [
+        "The Avengers"
+      ]
     },
     {
       "name": "Clea",
-      "extension": "Doctor Strange and the Shadows of Nightmare"
+      "extension": "Doctor Strange and the Shadows of Nightmare",
+      "teams": [
+        "Marvel Knights"
+      ]
     },
     {
       "name": "Cloak & Dagger",
-      "extension": "Civil War"
+      "extension": "Civil War",
+      "teams": [
+        "The Avengers",
+        "Marvel Knights"
+      ]
     },
     {
       "name": "Colossus",
-      "extension": "Dark City"
+      "extension": "Dark City",
+      "teams": [
+        "X-Force"
+      ]
     },
     {
       "name": "Cyclops",
-      "extension": "Core Set"
+      "extension": "Core Set",
+      "teams": [
+        "X-Men"
+      ]
     },
     {
       "name": "Daredevil",
-      "extension": "Civil War"
+      "extension": "Dark City",
+      "teams": [
+        "Marvel Knights"
+      ]
     },
     {
       "name": "Daredevil",
-      "extension": "Dark City"
+      "extension": "Civil War",
+      "teams": [
+        "The Avengers",
+        "Marvel Knights"
+      ]
     },
     {
       "name": "Deadpool",
-      "extension": "Core Set"
+      "extension": "Core Set",
+      "teams": [
+        ""
+      ]
     },
     {
       "name": "Doctor Strange",
-      "extension": "Doctor Strange and the Shadows of Nightmare"
-    },
-    {
-      "name": "Doctor Strange (Illuminati)",
-      "extension": "Secret Wars, Volume 1"
+      "extension": "Doctor Strange and the Shadows of Nightmare",
+      "teams": [
+        "The Avengers"
+      ]
     },
     {
       "name": "Doctor Voodoo",
-      "extension": "Doctor Strange and the Shadows of Nightmare"
+      "extension": "Doctor Strange and the Shadows of Nightmare",
+      "teams": [
+        "The Avengers"
+      ]
     },
     {
       "name": "Domino",
-      "extension": "Dark City"
+      "extension": "Dark City",
+      "teams": [
+        "X-Force"
+      ]
     },
     {
       "name": "Dr. Strange",
-      "extension": "Civil War"
+      "extension": "Secret Wars, Volume 1",
+      "teams": [
+        "Illuminati"
+      ]
     },
     {
       "name": "Drax the Destroyer",
-      "extension": "Guardians of the Galaxy"
+      "extension": "Guardians of the Galaxy",
+      "teams": [
+        "Guardians of the Galaxy"
+      ]
     },
     {
       "name": "Elektra",
-      "extension": "Dark City"
+      "extension": "Dark City",
+      "teams": [
+        "Marvel Knights"
+      ]
     },
     {
       "name": "Emma Frost",
-      "extension": "Core Set"
+      "extension": "Core Set",
+      "teams": [
+        "X-Men"
+      ]
     },
     {
       "name": "Falcon",
-      "extension": "Civil War"
+      "extension": "Civil War",
+      "teams": [
+        "The Avengers"
+      ]
     },
     {
       "name": "Forge",
-      "extension": "Dark City"
+      "extension": "Dark City",
+      "teams": [
+        "X-Force"
+      ]
     },
     {
       "name": "Gambit",
-      "extension": "Core Set"
+      "extension": "Core Set",
+      "teams": [
+        "X-Men"
+      ]
     },
     {
       "name": "Gamora",
-      "extension": "Guardians of the Galaxy"
+      "extension": "Guardians of the Galaxy",
+      "teams": [
+        "Guardians of the Galaxy"
+      ]
     },
     {
       "name": "Ghost Rider",
-      "extension": "Dark City"
+      "extension": "Dark City",
+      "teams": [
+        "Marvel Knights"
+      ]
     },
     {
       "name": "Goliath",
-      "extension": "Civil War"
+      "extension": "Civil War",
+      "teams": [
+        "The Avengers"
+      ]
     },
     {
       "name": "Groot",
-      "extension": "Guardians of the Galaxy"
+      "extension": "Guardians of the Galaxy",
+      "teams": [
+        "Guardians of the Galaxy"
+      ]
     },
     {
       "name": "Gwenpool",
-      "extension": "Champions"
+      "extension": "Champions",
+      "teams": [
+        "Champions"
+      ]
     },
     {
       "name": "Hawkeye",
-      "extension": "Core Set"
+      "extension": "Core Set",
+      "teams": [
+        "The Avengers"
+      ]
     },
     {
       "name": "Hercules",
-      "extension": "Civil War"
+      "extension": "Civil War",
+      "teams": [
+        "The Avengers"
+      ]
     },
     {
       "name": "Hulk",
-      "extension": "Core Set"
+      "extension": "Core Set",
+      "teams": [
+        "The Avengers"
+      ]
     },
     {
       "name": "Hulkling",
-      "extension": "Civil War"
+      "extension": "Civil War",
+      "teams": [
+        "The Avengers"
+      ]
     },
     {
       "name": "Iceman",
-      "extension": "Dark City"
+      "extension": "Dark City",
+      "teams": [
+        "X-Men"
+      ]
     },
     {
       "name": "Iron Fist",
-      "extension": "Dark City"
+      "extension": "Dark City",
+      "teams": [
+        "Marvel Knights"
+      ]
     },
     {
       "name": "Iron Man",
-      "extension": "Core Set"
+      "extension": "Core Set",
+      "teams": [
+        "The Avengers"
+      ]
     },
     {
       "name": "Jean Grey",
-      "extension": "Dark City"
+      "extension": "Dark City",
+      "teams": [
+        "X-Men"
+      ]
     },
     {
       "name": "Jocasta",
-      "extension": "Ant-Man"
+      "extension": "Ant-Man",
+      "teams": [
+        "The Avengers"
+      ]
     },
     {
       "name": "Karma",
-      "extension": "The New Mutants"
+      "extension": "The New Mutants",
+      "teams": [
+        "X-Men"
+      ]
     },
     {
       "name": "Lady Sif",
-      "extension": "Heroes of Asgard"
+      "extension": "Heroes of Asgard",
+      "teams": [
+        "Heroes of Asgard"
+      ]
     },
     {
       "name": "Lady Thor",
-      "extension": "Secret Wars, Volume 1"
+      "extension": "Secret Wars, Volume 1",
+      "teams": [
+        "The Avengers"
+      ]
     },
     {
       "name": "Luke Cage",
-      "extension": "Civil War"
+      "extension": "Civil War",
+      "teams": [
+        "The Avengers",
+        "Marvel Knights"
+      ]
     },
     {
       "name": "Magik",
-      "extension": "Secret Wars, Volume 1"
+      "extension": "Secret Wars, Volume 1",
+      "teams": [
+        "X-Men"
+      ]
     },
     {
       "name": "Maximus",
-      "extension": "Secret Wars, Volume 1"
+      "extension": "Secret Wars, Volume 1",
+      "teams": [
+        "Cabal"
+      ]
     },
     {
       "name": "Mirage",
-      "extension": "The New Mutants"
+      "extension": "The New Mutants",
+      "teams": [
+        "X-Men"
+      ]
     },
     {
       "name": "Moon Knight",
-      "extension": "Paint the Town Red"
+      "extension": "Paint the Town Red",
+      "teams": [
+        "Marvel Knights"
+      ]
     },
     {
       "name": "Ms. Marvel",
-      "extension": "Champions"
+      "extension": "Champions",
+      "teams": [
+        "Champions"
+      ]
     },
     {
       "name": "Namor",
-      "extension": "Secret Wars, Volume 1"
+      "extension": "Secret Wars, Volume 1",
+      "teams": [
+        "Cabal"
+      ]
     },
     {
       "name": "Nick Fury",
-      "extension": "Core Set"
+      "extension": "Core Set",
+      "teams": [
+        "S.H.I.E.L.D."
+      ]
     },
     {
       "name": "Nightcrawler",
-      "extension": "Dark City"
+      "extension": "Dark City",
+      "teams": [
+        "X-Men"
+      ]
     },
     {
       "name": "Nova",
-      "extension": "Champions"
+      "extension": "Champions",
+      "teams": [
+        "Champions"
+      ]
     },
     {
       "name": "Old Man Logan",
-      "extension": "Secret Wars, Volume 1"
+      "extension": "Secret Wars, Volume 1",
+      "teams": [
+        "X-Men"
+      ]
     },
     {
       "name": "Patriot",
-      "extension": "Civil War"
+      "extension": "Civil War",
+      "teams": [
+        "The Avengers"
+      ]
     },
     {
       "name": "Peter Parker",
-      "extension": "Civil War"
+      "extension": "Civil War",
+      "teams": [
+        "The Avengers",
+        "Spider Friends"
+      ]
     },
     {
       "name": "Professor X",
-      "extension": "Dark City"
+      "extension": "Dark City",
+      "teams": [
+        "X-Men"
+      ]
     },
     {
       "name": "Proxima Midnight",
-      "extension": "Secret Wars, Volume 1"
+      "extension": "Secret Wars, Volume 1",
+      "teams": [
+        "Cabal"
+      ]
     },
     {
       "name": "Punisher",
-      "extension": "Dark City"
+      "extension": "Dark City",
+      "teams": [
+        "Marvel Knights"
+      ]
     },
     {
       "name": "Rocket Raccoon",
-      "extension": "Guardians of the Galaxy"
+      "extension": "Guardians of the Galaxy",
+      "teams": [
+        "Guardians of the Galaxy"
+      ]
     },
     {
       "name": "Rogue",
-      "extension": "Core Set"
+      "extension": "Core Set",
+      "teams": [
+        "X-Men"
+      ]
     },
     {
       "name": "Scarlet Spider",
-      "extension": "Paint the Town Red"
+      "extension": "Paint the Town Red",
+      "teams": [
+        "Spider Friends"
+      ]
     },
     {
       "name": "Speedball",
-      "extension": "Civil War"
+      "extension": "Civil War",
+      "teams": [
+        "New Warriors"
+      ]
     },
     {
       "name": "Spider-Man",
-      "extension": "Core Set"
+      "extension": "Core Set",
+      "teams": [
+        "Spider Friends"
+      ]
     },
     {
       "name": "Spider-Woman",
-      "extension": "Paint the Town Red"
+      "extension": "Paint the Town Red",
+      "teams": [
+        "Spider Friends"
+      ]
     },
     {
       "name": "Star-Lord",
-      "extension": "Guardians of the Galaxy"
+      "extension": "Guardians of the Galaxy",
+      "teams": [
+        "Guardians of the Galaxy"
+      ]
     },
     {
       "name": "Stature",
-      "extension": "Civil War"
+      "extension": "Civil War",
+      "teams": [
+        "The Avengers"
+      ]
     },
     {
       "name": "Storm",
-      "extension": "Core Set"
+      "extension": "Core Set",
+      "teams": [
+        "X-Men"
+      ]
     },
     {
       "name": "Storm & Black Panther",
-      "extension": "Civil War"
+      "extension": "Civil War",
+      "teams": [
+        "The Avengers",
+        "X-Men"
+      ]
     },
     {
       "name": "Sunspot",
-      "extension": "The New Mutants"
+      "extension": "The New Mutants",
+      "teams": [
+        "X-Men"
+      ]
     },
     {
       "name": "Superior Iron Man",
-      "extension": "Secret Wars, Volume 1"
+      "extension": "Secret Wars, Volume 1",
+      "teams": [
+        "Illuminati"
+      ]
     },
     {
       "name": "Symbiote Spider-Man",
-      "extension": "Paint the Town Red"
+      "extension": "Paint the Town Red",
+      "teams": [
+        "Spider Friends"
+      ]
     },
     {
       "name": "Thanos",
-      "extension": "Secret Wars, Volume 1"
+      "extension": "Secret Wars, Volume 1",
+      "teams": [
+        "Cabal"
+      ]
     },
     {
       "name": "The Ancient One",
-      "extension": "Doctor Strange and the Shadows of Nightmare"
+      "extension": "Doctor Strange and the Shadows of Nightmare",
+      "teams": [
+        ""
+      ]
     },
     {
       "name": "The Vishanti",
-      "extension": "Doctor Strange and the Shadows of Nightmare"
+      "extension": "Doctor Strange and the Shadows of Nightmare",
+      "teams": [
+        ""
+      ]
     },
     {
       "name": "The Warriors Three",
-      "extension": "Heroes of Asgard"
+      "extension": "Heroes of Asgard",
+      "teams": [
+        "Heroes of Asgard"
+      ]
     },
     {
       "name": "Thor",
-      "extension": "Heroes of Asgard"
+      "extension": "Heroes of Asgard",
+      "teams": [
+        "Heroes of Asgard"
+      ]
     },
     {
       "name": "Thor",
-      "extension": "Core Set"
+      "extension": "Core Set",
+      "teams": [
+        "The Avengers"
+      ]
     },
     {
       "name": "Tigra",
-      "extension": "Civil War"
+      "extension": "Civil War",
+      "teams": [
+        "The Avengers"
+      ]
     },
     {
       "name": "Totally Awesome Hulk",
-      "extension": "Champions"
+      "extension": "Champions",
+      "teams": [
+        "Champions"
+      ]
     },
     {
       "name": "Ultimate Spider-Man",
-      "extension": "Secret Wars, Volume 1"
+      "extension": "Secret Wars, Volume 1",
+      "teams": [
+        "Spider Friends"
+      ]
     },
     {
       "name": "Valkyrie",
-      "extension": "Heroes of Asgard"
+      "extension": "Heroes of Asgard",
+      "teams": [
+        "Heroes of Asgard"
+      ]
     },
     {
       "name": "Vision",
-      "extension": "Civil War"
+      "extension": "Civil War",
+      "teams": [
+        "The Avengers"
+      ]
     },
     {
       "name": "Viv Vision",
-      "extension": "Champions"
+      "extension": "Champions",
+      "teams": [
+        "Champions"
+      ]
     },
     {
       "name": "Warlock",
-      "extension": "The New Mutants"
+      "extension": "The New Mutants",
+      "teams": [
+        "X-Men"
+      ]
     },
     {
       "name": "Wasp",
-      "extension": "Ant-Man"
+      "extension": "Ant-Man",
+      "teams": [
+        "The Avengers"
+      ]
     },
     {
       "name": "Wiccan",
-      "extension": "Civil War"
+      "extension": "Civil War",
+      "teams": [
+        "The Avengers"
+      ]
     },
     {
       "name": "Wolfsbane",
-      "extension": "The New Mutants"
+      "extension": "The New Mutants",
+      "teams": [
+        "X-Men"
+      ]
     },
     {
       "name": "Wolverine",
-      "extension": "Dark City"
+      "extension": "Dark City",
+      "teams": [
+        "X-Force"
+      ]
     },
     {
       "name": "Wolverine",
-      "extension": "Core Set"
+      "extension": "Core Set",
+      "teams": [
+        "X-Men"
+      ]
     },
     {
       "name": "Wonder Man",
-      "extension": "Ant-Man"
+      "extension": "Ant-Man",
+      "teams": [
+        "The Avengers"
+      ]
     }
   ]
 }

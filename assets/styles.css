@@ -23,3 +23,15 @@ h1 a {
     float: right;
     font-size: medium;
 }
+
+.card-name {
+    font-weight: bold;
+}
+
+.card-team {
+    color: gray;
+}
+
+.card-played-count {
+    font-style: italic;
+}

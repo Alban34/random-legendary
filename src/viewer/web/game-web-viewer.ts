@@ -19,8 +19,14 @@ export class GameWebViewer {
                         Scenario setup
                     </div>
                     <div class="card-body">
-                        <p>Mastermind: ${this.displayCard(game.mastermind)}</p>
-                        <p>Scheme: ${this.displayCard(game.scheme)}</p>
+                        <div class="row">
+                            <span class="col-4">Mastermind:</span>
+                            ${this.displayCard(game.mastermind)}
+                        </div>
+                        <div class="row">
+                            <span class="col-4">Scheme:</span>
+                            ${this.displayCard(game.scheme)}
+                        </div>
                         <p>Bystanders: ${game.bystanders}</p>
                     </div>
                 </div>
@@ -48,14 +54,23 @@ export class GameWebViewer {
     private getMultipleToDisplay(group) {
         let display = `<ul>`;
         group.forEach(card => {
-            display += `<li>${this.displayCard(card)}</li>`;
+            display += `<li class="row">${this.displayCard(card)}</li>`;
         });
         display += `</ul>`;
         return display;
     }
 
     private displayCard(card) {
-        return `${card.name} (${this.displayPlayedCount(card)})`;
+        let teams = '';
+        if (card.teams) {
+            teams += `${card.teams.flatMap(t => `${t}`)}`;
+        }
+        let displayableCard = `<span class="col-5 card-name">${card.name}</span>`;
+        if (teams) {
+            displayableCard += `<span class="col-4 card-team">${teams}</span>`
+        }
+        displayableCard += `<span class="col-3 card-played-count">(${this.displayPlayedCount(card)})</span>`;
+        return displayableCard;
     }
 
     private displayPlayedCount(card) {
