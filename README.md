@@ -26,17 +26,17 @@ This app works based on 3 files:
 
 ## Known extensions
 So far, the cards that are randomly chosen come from:
-- Base core set
-- Dark City
-- Guardians of the Galaxy
+- Ant-Man
 - Champions
-- Doctor Strange and the Shadows of Nightmare
-- New Mutants
-- Ant-man
-- Heroes of Asgard
 - Civil War
-- Secret War vol1
+- Core Set
+- Dark City
+- Doctor Strange and the Shadows of Nightmare
+- Guardians of the Galaxy
+- Heroes of Asgard
 - Paint the Town Red
+- Secret Wars, Volume 1
+- The New Mutants
 
 ## What's next?
 This is a very early version of the randomizer that addresses only my personal needs (with only my personally owned extensions).
@@ -45,8 +45,8 @@ I may also:
 - set up the "Always lead" constraints of the Masterminds (implemented but information is not fully set in card reference file).
 - display a history of the games with the most used cards and the best scores
 - create an executable app for ease of use
-- add the group of heroes (x-force, guardians of the galaxy...)
 - implement the core solo rules
+- make it "multi-tenant" so that heruko deployment can be used by everyone
 
 ## Disclaimer
 This software is not affiliated to Upper Deck nor Marvel. 
