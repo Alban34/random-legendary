@@ -10,7 +10,7 @@ const app = express();
 
 app.disable("x-powered-by");
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
     console.log('Starting Legendary Marvel randomizer on: http://localhost:3000');
 });
 
