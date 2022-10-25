@@ -36,6 +36,7 @@ So far, the cards that are randomly chosen come from:
 - Heroes of Asgard
 - Paint the Town Red
 - Secret Wars, Volume 1
+- Secret Wars, Volume 2
 - The New Mutants
 
 ## What's next?

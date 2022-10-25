@@ -61,6 +61,18 @@
       "alwaysLeadCategory": "villains"
     },
     {
+      "name": "Immortal Emperor Zheng-Zhu",
+      "extension": "Secret Wars, Volume 2",
+      "alwaysLead": "K'un Lun",
+      "alwaysLeadCategory": "villains"
+    },
+    {
+      "name": "King Hyperion",
+      "extension": "Secret Wars, Volume 2",
+      "alwaysLead": "Utopolis",
+      "alwaysLeadCategory": "villains"
+    },
+    {
       "name": "Kingpin",
       "extension": "Dark City",
       "alwaysLead": "Streets of New York",
@@ -153,6 +165,18 @@
       "alwaysLeadCategory": "villains"
     },
     {
+      "name": "Shiklah, the Demon Bride",
+      "extension": "Secret Wars, Volume 2",
+      "alwaysLead": "Monster Metropolis",
+      "alwaysLeadCategory": "villains"
+    },
+    {
+      "name": "Spider Queen",
+      "extension": "Secret Wars, Volume 2",
+      "alwaysLead": "Spider-Infected",
+      "alwaysLeadCategory": "henchmen"
+    },
+    {
       "name": "Stryfe",
       "extension": "Dark City",
       "alwaysLead": "MLF",
@@ -239,6 +263,10 @@
       "extension": "Civil War"
     },
     {
+      "name": "Deadlands Hordes Charge the Wall",
+      "extension": "Secret Wars, Volume 2"
+    },
+    {
       "name": "Detonate the Helicarrier",
       "extension": "Dark City"
     },
@@ -249,6 +277,10 @@
     {
       "name": "Duels of Science and Magic",
       "extension": "Doctor Strange and the Shadows of Nightmare"
+    },
+    {
+      "name": "Enthrone the Barons of Battleworld",
+      "extension": "Secret Wars, Volume 2"
     },
     {
       "name": "Epic Super Hero Civil War",
@@ -285,6 +317,10 @@
     {
       "name": "Master of Tyrants",
       "extension": "Secret Wars, Volume 1"
+    },
+    {
+      "name": "Master the Mysteries of Kung-Fu",
+      "extension": "Secret Wars, Volume 2"
     },
     {
       "name": "Midtown Bank Robbery",
@@ -339,6 +375,14 @@
       "extension": "Core Set"
     },
     {
+      "name": "Secret Wars",
+      "extension": "Secret Wars, Volume 2"
+    },
+    {
+      "name": "Sinister Ambitions",
+      "extension": "Secret Wars, Volume 2"
+    },
+    {
       "name": "Smash Two Dimensions Together",
       "extension": "Secret Wars, Volume 1"
     },
@@ -375,12 +419,24 @@
       "extension": "The New Mutants"
     },
     {
+      "name": "The Fountain of Eternal Life",
+      "extension": "Secret Wars, Volume 2"
+    },
+    {
+      "name": "The God-Emperor of Battleworld",
+      "extension": "Secret Wars, Volume 2"
+    },
+    {
       "name": "The Kree-Skrull War",
       "extension": "Guardians of the Galaxy"
     },
     {
       "name": "The Legacy Virus",
       "extension": "Core Set"
+    },
+    {
+      "name": "The Mark of Khonshu",
+      "extension": "Secret Wars, Volume 2"
     },
     {
       "name": "Transform Citizens into Demons",
@@ -441,6 +497,10 @@
       "extension": "Heroes of Asgard"
     },
     {
+      "name": "Deadpool's Secret Secret Wars",
+      "extension": "Secret Wars, Volume 2"
+    },
+    {
       "name": "Demons of Limbo",
       "extension": "The New Mutants"
     },
@@ -469,6 +529,10 @@
       "extension": "Civil War"
     },
     {
+      "name": "Guardians of Knowhere",
+      "extension": "Secret Wars, Volume 2"
+    },
+    {
       "name": "Hellions",
       "extension": "The New Mutants"
     },
@@ -483,6 +547,10 @@
     {
       "name": "Infinity Gems",
       "extension": "Guardians of the Galaxy"
+    },
+    {
+      "name": "K'un Lun",
+      "extension": "Secret Wars, Volume 2"
     },
     {
       "name": "Kree Starforce",
@@ -515,6 +583,10 @@
     {
       "name": "MLF",
       "extension": "Dark City"
+    },
+    {
+      "name": "Monster Metropolis",
+      "extension": "Secret Wars, Volume 2"
     },
     {
       "name": "Monsters Unleashed",
@@ -573,12 +645,16 @@
       "extension": "Civil War"
     },
     {
-      "name": "Ultron's Legacy",
+      "name": "Ultron’s Legacy",
       "extension": "Ant-Man"
     },
     {
       "name": "Underworld",
       "extension": "Dark City"
+    },
+    {
+      "name": "Utopolis",
+      "extension": "Secret Wars, Volume 2"
     },
     {
       "name": "Wasteland",
@@ -587,6 +663,10 @@
     {
       "name": "Wrecking Crew",
       "extension": "Champions"
+    },
+    {
+      "name": "X-Men 92 (Recruitable)",
+      "extension": "Secret Wars, Volume 2"
     }
   ],
   "henchmen": [
@@ -607,12 +687,20 @@
       "extension": "Core Set"
     },
     {
+      "name": "Khonshu Guardians",
+      "extension": "Secret Wars, Volume 2"
+    },
+    {
       "name": "M.O.D.O.K.s",
       "extension": "Secret Wars, Volume 1"
     },
     {
       "name": "Maggia Goons",
       "extension": "Dark City"
+    },
+    {
+      "name": "Magma Men",
+      "extension": "Secret Wars, Volume 2"
     },
     {
       "name": "Mandroids",
@@ -631,11 +719,22 @@
       "extension": "Core Set"
     },
     {
+      "name": "Spider-Infected",
+      "extension": "Secret Wars, Volume 2"
+    },
+    {
       "name": "Thor Corps",
       "extension": "Secret Wars, Volume 1"
     }
   ],
   "heroes": [
+    {
+      "name": "Agent Venom",
+      "extension": "Secret Wars, Volume 2",
+      "teams": [
+        "Spider Friends"
+      ]
+    },
     {
       "name": "Angel",
       "extension": "Dark City",
@@ -655,6 +754,20 @@
       "extension": "Secret Wars, Volume 1",
       "teams": [
         "X-Men"
+      ]
+    },
+    {
+      "name": "Arkon the Magnificent",
+      "extension": "Secret Wars, Volume 2",
+      "teams": [
+        ""
+      ]
+    },
+    {
+      "name": "Beast",
+      "extension": "Secret Wars, Volume 2",
+      "teams": [
+        "Illuminati"
       ]
     },
     {
@@ -700,6 +813,13 @@
       ]
     },
     {
+      "name": "Black Swan",
+      "extension": "Secret Wars, Volume 2",
+      "teams": [
+        "Cabal"
+      ]
+    },
+    {
       "name": "Black Widow",
       "extension": "Core Set",
       "teams": [
@@ -735,6 +855,13 @@
       ]
     },
     {
+      "name": "Captain Britain",
+      "extension": "Secret Wars, Volume 2",
+      "teams": [
+        "Illuminati"
+      ]
+    },
+    {
       "name": "Captain Marvel",
       "extension": "Secret Wars, Volume 1",
       "teams": [
@@ -761,6 +888,13 @@
       "extension": "Dark City",
       "teams": [
         "X-Force"
+      ]
+    },
+    {
+      "name": "Corvus Glaive",
+      "extension": "Secret Wars, Volume 2",
+      "teams": [
+        "Cabal"
       ]
     },
     {
@@ -814,6 +948,13 @@
       ]
     },
     {
+      "name": "Dr Punisher, Soldier Supreme",
+      "extension": "Secret Wars, Volume 2",
+      "teams": [
+        "Marvel Knights"
+      ]
+    },
+    {
       "name": "Dr. Strange",
       "extension": "Secret Wars, Volume 1",
       "teams": [
@@ -832,6 +973,13 @@
       "extension": "Dark City",
       "teams": [
         "Marvel Knights"
+      ]
+    },
+    {
+      "name": "Elsa Bloodstone",
+      "extension": "Secret Wars, Volume 2",
+      "teams": [
+        "S.H.I.E.L.D."
       ]
     },
     {
@@ -1075,6 +1223,13 @@
       ]
     },
     {
+      "name": "Phoenix Force Cyclops",
+      "extension": "Secret Wars, Volume 2",
+      "teams": [
+        "X-Men"
+      ]
+    },
+    {
       "name": "Professor X",
       "extension": "Dark City",
       "teams": [
@@ -1110,6 +1265,13 @@
       ]
     },
     {
+      "name": "Ruby Summers",
+      "extension": "Secret Wars, Volume 2",
+      "teams": [
+        "X-Men"
+      ]
+    },
+    {
       "name": "Scarlet Spider",
       "extension": "Paint the Town Red",
       "teams": [
@@ -1117,10 +1279,38 @@
       ]
     },
     {
+      "name": "Shang-Chi",
+      "extension": "Secret Wars, Volume 2",
+      "teams": [
+        "Marvel Knights"
+      ]
+    },
+    {
+      "name": "Silk",
+      "extension": "Secret Wars, Volume 2",
+      "teams": [
+        "Spider Friends"
+      ]
+    },
+    {
+      "name": "Soulsword Colossus",
+      "extension": "Secret Wars, Volume 2",
+      "teams": [
+        "X-Men"
+      ]
+    },
+    {
       "name": "Speedball",
       "extension": "Civil War",
       "teams": [
         "New Warriors"
+      ]
+    },
+    {
+      "name": "Spider-Gwen",
+      "extension": "Secret Wars, Volume 2",
+      "teams": [
+        "Spider Friends"
       ]
     },
     {
@@ -1202,6 +1392,13 @@
       ]
     },
     {
+      "name": "The Captain and the Devil",
+      "extension": "Secret Wars, Volume 2",
+      "teams": [
+        "The Avengers"
+      ]
+    },
+    {
       "name": "The Vishanti",
       "extension": "Doctor Strange and the Shadows of Nightmare",
       "teams": [
@@ -1234,6 +1431,13 @@
       "extension": "Civil War",
       "teams": [
         "The Avengers"
+      ]
+    },
+    {
+      "name": "Time-Traveling Jean Grey",
+      "extension": "Secret Wars, Volume 2",
+      "teams": [
+        "X-Men"
       ]
     },
     {
