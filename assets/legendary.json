@@ -2,51 +2,75 @@
   "masterminds": [
     {
       "name": "Apocalypse",
-      "extension": "Dark City"
+      "extension": "Dark City",
+      "alwaysLead": "Four Horsemen",
+      "alwaysLeadCategory": "villains"
     },
     {
       "name": "Authoritarian Iron Man",
-      "extension": "Civil War"
+      "extension": "Civil War",
+      "alwaysLead": "Superhuman Registration Act",
+      "alwaysLeadCategory": "villains"
     },
     {
       "name": "Baron Helmut Zemo",
-      "extension": "Civil War"
+      "extension": "Civil War",
+      "alwaysLead": "Thunderbolts",
+      "alwaysLeadCategory": "villains"
     },
     {
       "name": "Belasco, Demon Lord of Limbo",
-      "extension": "The New Mutants"
+      "extension": "The New Mutants",
+      "alwaysLead": "Demons of Limbo",
+      "alwaysLeadCategory": "villains"
     },
     {
       "name": "Carnage",
-      "extension": "Paint the Town Red"
+      "extension": "Paint the Town Red",
+      "alwaysLead": "Maximum Carnage",
+      "alwaysLeadCategory": "villains"
     },
     {
       "name": "Dormammu",
-      "extension": "Doctor Strange and the Shadows of Nightmare"
+      "extension": "Doctor Strange and the Shadows of Nightmare",
+      "alwaysLead": "Lords of the Netherworld",
+      "alwaysLeadCategory": "villains"
     },
     {
       "name": "Dr. Doom",
-      "extension": "Core Set"
+      "extension": "Core Set",
+      "alwaysLead": "Doombot Legion",
+      "alwaysLeadCategory": "henchmen"
     },
     {
       "name": "Emma Frost, The White Queen",
-      "extension": "The New Mutants"
+      "extension": "The New Mutants",
+      "alwaysLead": "Hellions",
+      "alwaysLeadCategory": "villains"
     },
     {
       "name": "Fin Fang Foom",
-      "extension": "Champions"
+      "extension": "Champions",
+      "alwaysLead": "Monsters Unleashed",
+      "alwaysLeadCategory": "villains"
     },
     {
       "name": "Hela, Goddess of Death",
-      "extension": "Heroes of Asgard"
+      "extension": "Heroes of Asgard",
+      "alwaysLead": "Omens of Ragnarok",
+      "alwaysLeadCategory": "villains"
     },
     {
       "name": "Kingpin",
-      "extension": "Dark City"
+      "extension": "Dark City",
+      "alwaysLead": "Streets of New York",
+      "alwaysLeadCategory": "villains"
     },
     {
       "name": "Loki",
-      "extension": "Core Set"
+      "extension": "Core Set",
+      "alwaysLead": "Enemies of Asgard",
+      "alwaysLeadCategory": "villains"
     },
     {
       "name": "Madelyne Pryor, Goblin Queen",
@@ -54,39 +78,57 @@
     },
     {
       "name": "Magneto",
-      "extension": "Core Set"
+      "extension": "Core Set",
+      "alwaysLead": "Brotherhood",
+      "alwaysLeadCategory": "villains"
     },
     {
       "name": "Malekith the Accursed",
-      "extension": "Heroes of Asgard"
+      "extension": "Heroes of Asgard",
+      "alwaysLead": "Dark Council",
+      "alwaysLeadCategory": "villains"
     },
     {
       "name": "Maria Hill, Director of S.H.I.E.L.D.",
-      "extension": "Civil War"
+      "extension": "Civil War",
+      "alwaysLead": "S.H.I.E.L.D. Elite",
+      "alwaysLeadCategory": "villains"
     },
     {
       "name": "Mephisto",
-      "extension": "Dark City"
+      "extension": "Dark City",
+      "alwaysLead": "Underworld",
+      "alwaysLeadCategory": "villains"
     },
     {
       "name": "Misty Knight",
-      "extension": "Civil War"
+      "extension": "Civil War",
+      "alwaysLead": "Heroes for Hire",
+      "alwaysLeadCategory": "villains"
     },
     {
       "name": "Morgan Le Fay",
-      "extension": "Ant-Man"
+      "extension": "Ant-Man",
+      "alwaysLead": "Queen's Vengeance",
+      "alwaysLeadCategory": "villains"
     },
     {
       "name": "Mr. Sinister",
-      "extension": "Dark City"
+      "extension": "Dark City",
+      "alwaysLead": "Marauders",
+      "alwaysLeadCategory": "villains"
     },
     {
       "name": "Mysterio",
-      "extension": "Paint the Town Red"
+      "extension": "Paint the Town Red",
+      "alwaysLead": "Sinister Six",
+      "alwaysLeadCategory": "villains"
     },
     {
       "name": "Nightmare",
-      "extension": "Doctor Strange and the Shadows of Nightmare"
+      "extension": "Doctor Strange and the Shadows of Nightmare",
+      "alwaysLead": "Fear Lords",
+      "alwaysLeadCategory": "villains"
     },
     {
       "name": "Nimrod, Super Sentinel",
@@ -94,31 +136,45 @@
     },
     {
       "name": "Pagliacci",
-      "extension": "Champions"
+      "extension": "Champions",
+      "alwaysLead": "Wrecking Crew",
+      "alwaysLeadCategory": "villains"
     },
     {
       "name": "Ragnarok",
-      "extension": "Civil War"
+      "extension": "Civil War",
+      "alwaysLead": "Registration Enforcers",
+      "alwaysLeadCategory": "villains"
     },
     {
       "name": "Red Skull",
-      "extension": "Core Set"
+      "extension": "Core Set",
+      "alwaysLead": "HYDRA",
+      "alwaysLeadCategory": "villains"
     },
     {
       "name": "Stryfe",
-      "extension": "Dark City"
+      "extension": "Dark City",
+      "alwaysLead": "MLF",
+      "alwaysLeadCategory": "villains"
     },
     {
       "name": "Supreme Intelligence of the Kree",
-      "extension": "Guardians of the Galaxy"
+      "extension": "Guardians of the Galaxy",
+      "alwaysLead": "Kree Starforce",
+      "alwaysLeadCategory": "villains"
     },
     {
       "name": "Thanos",
-      "extension": "Guardians of the Galaxy"
+      "extension": "Guardians of the Galaxy",
+      "alwaysLead": "Infinity Gems",
+      "alwaysLeadCategory": "villains"
     },
     {
       "name": "Ultron",
-      "extension": "Ant-Man"
+      "extension": "Ant-Man",
+      "alwaysLead": "Ultron's Legacy",
+      "alwaysLeadCategory": "villains"
     },
     {
       "name": "Wasteland Hulk",
@@ -267,11 +323,11 @@
       "extension": "Heroes of Asgard"
     },
     {
-      "name": "Replace Earth\"s Leaders with Killbots",
+      "name": "Replace Earth's Leaders with Killbots",
       "extension": "Core Set"
     },
     {
-      "name": "Reveal Heroes\" Secret Identities",
+      "name": "Reveal Heroes' Secret Identities",
       "extension": "Civil War"
     },
     {
@@ -367,7 +423,7 @@
       "extension": "Paint the Town Red"
     },
     {
-      "name": "X-Cutioner\"s Song",
+      "name": "X-Cutioner's Song",
       "extension": "Dark City"
     }
   ],
@@ -469,7 +525,7 @@
       "extension": "Heroes of Asgard"
     },
     {
-      "name": "Queen\"s Vengeance",
+      "name": "Queen's Vengeance",
       "extension": "Ant-Man"
     },
     {
