@@ -14,7 +14,10 @@ export class CardWebViewer {
     }
 
     private buildCardView(card: Card): string {
-        return `<li class="list-group-item">${card.name}</li>`;
+        return `<li class="list-group-item">
+                    ${card.name}<br />
+                    <small>${card.extension}</small>
+                </li>`;
     }
 
     private buildCategoryView(categoryName, cards: Card[], style?: string): string {
