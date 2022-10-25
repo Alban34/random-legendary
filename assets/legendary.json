@@ -86,7 +86,9 @@
     },
     {
       "name": "Madelyne Pryor, Goblin Queen",
-      "extension": "Secret Wars, Volume 1"
+      "extension": "Secret Wars, Volume 1",
+      "alwaysLead": "Limbo",
+      "alwaysLeadCategory": "villains"
     },
     {
       "name": "Magneto",
@@ -144,7 +146,9 @@
     },
     {
       "name": "Nimrod, Super Sentinel",
-      "extension": "Secret Wars, Volume 1"
+      "extension": "Secret Wars, Volume 1",
+      "alwaysLead": "Sentinel Territories",
+      "alwaysLeadCategory": "villains"
     },
     {
       "name": "Pagliacci",
@@ -202,11 +206,15 @@
     },
     {
       "name": "Wasteland Hulk",
-      "extension": "Secret Wars, Volume 1"
+      "extension": "Secret Wars, Volume 1",
+      "alwaysLead": "Wasteland",
+      "alwaysLeadCategory": "villains"
     },
     {
       "name": "Zombie Green Goblin",
-      "extension": "Secret Wars, Volume 1"
+      "extension": "Secret Wars, Volume 1",
+      "alwaysLead": "The Deadlands",
+      "alwaysLeadCategory": "villains"
     }
   ],
   "schemes": [
