@@ -1,18 +1,19 @@
 import { Scores } from './game.module';
-import fs from 'fs-extra';
 import { DataManager } from '../data/data-manager.interface';
 
+const gameFilter = (card) => card.gameId && card.gameId.length > 0;
 export class GameDataManager {
 
     constructor(private readonly dataManager: DataManager) {}
 
+
     public saveData(legendaryBase): void {
         const gamesToSave = {
-            "masterminds": legendaryBase.masterminds,
-            "schemes": legendaryBase.schemes,
-            "villains": legendaryBase.villains,
-            "henchmen": legendaryBase.henchmen,
-            "heroes": legendaryBase.heroes
+            "masterminds": legendaryBase.masterminds.filter(gameFilter),
+            "schemes": legendaryBase.schemes.filter(gameFilter),
+            "villains": legendaryBase.villains.filter(gameFilter),
+            "henchmen": legendaryBase.henchmen.filter(gameFilter),
+            "heroes": legendaryBase.heroes.filter(gameFilter)
         };
         this.dataManager.writeGameData(gamesToSave);
     }
