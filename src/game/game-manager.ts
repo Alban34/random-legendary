@@ -1,9 +1,14 @@
 import { Game, GameDataManager } from './game.module';
 import { Card } from '../card/model/card';
+import { DataManager } from '../data/data-manager.interface';
 
 export class GameManager {
 
-    private dataManager = new GameDataManager();
+    private gameDataManager;
+
+    constructor(dataManager: DataManager) {
+        this.gameDataManager =  new GameDataManager(dataManager);
+    }
 
     public loadRegisteredGame(cardList): string[] {
         const gameIds = cardList.masterminds.flatMap(mastermind => mastermind.gameId);
@@ -12,7 +17,7 @@ export class GameManager {
 
     public loadRegisteredGameWithNoScore(cardList): string[] {
         const allGames = this.loadRegisteredGame(cardList);
-        const scores = this.dataManager.loadScores();
+        const scores = this.gameDataManager.loadScores();
         return allGames.filter(game => !scores[game] || !scores[game].score);
     }
 

@@ -1,7 +1,10 @@
 import { Scores } from './game.module';
 import fs from 'fs-extra';
+import { DataManager } from '../data/data-manager.interface';
 
 export class GameDataManager {
+
+    constructor(private readonly dataManager: DataManager) {}
 
     public saveData(legendaryBase): void {
         const gamesToSave = {
@@ -11,24 +14,17 @@ export class GameDataManager {
             "henchmen": legendaryBase.henchmen,
             "heroes": legendaryBase.heroes
         };
-        const data = JSON.stringify(gamesToSave);
-        fs.writeFileSync('games.json', data);
+        this.dataManager.writeGameData(gamesToSave);
     }
 
     public loadScores(): Scores {
-        let scores: Scores = {};
-        if (fs.existsSync('./scores.json')) {
-            const rawData = fs.readFileSync('./scores.json');
-            scores = JSON.parse(rawData.toString());
-        }
-        return scores;
+        return this.dataManager.readScores();
     }
 
     public saveScore(gameId: string, score: number): void {
         const scores = this.loadScores();
         scores[gameId] = { score };
-        const data = JSON.stringify(scores);
-        fs.writeFileSync('scores.json', data);
+        this.dataManager.writeScores(scores);
     }
 
 }

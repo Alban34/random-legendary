@@ -1,17 +1,17 @@
 import fs from 'fs-extra';
+import { DataManager } from '../data/data-manager.interface';
 
 const CATEGORIES = ['masterminds', 'schemes', 'villains', 'henchmen', 'heroes'];
 
 export class CardLoader {
 
+    constructor(private readonly dataManager: DataManager) {}
+
     public loadData() {
         let rawData = fs.readFileSync('./assets/legendary.json');
         const legendaryBase = JSON.parse(rawData.toString());
 
-        if (fs.existsSync('./games.json')) {
-            rawData = fs.readFileSync('./games.json');
-            this.mergeGameDataIntoBase(legendaryBase, JSON.parse(rawData.toString()));
-        }
+        this.mergeGameDataIntoBase(legendaryBase, this.dataManager.readGamesData());
 
         return legendaryBase;
     }
@@ -26,8 +26,6 @@ export class CardLoader {
                             baseValue.count = saveCatValue[0].count;
                             baseValue.gameId = saveCatValue[0].gameId;
                         }
-                    } else {
-                        console.warn(`Unsaved category "${category}"`);
                     }
                 });
             } else {
@@ -37,16 +35,11 @@ export class CardLoader {
     }
 
     public loadExtensions(): string[] {
-        if (fs.existsSync('./extensions.json')) {
-            const rawData = fs.readFileSync('./extensions.json');
-            return JSON.parse(rawData.toString());
-        }
-        return [];
+        return this.dataManager.readExtensionsData();
     }
 
     public saveExtensions(extensions: string[]): void {
-        const data = JSON.stringify(extensions);
-        fs.writeFileSync('extensions.json', data);
+        this.dataManager.writeExtensionsData(extensions);
     }
 
 }

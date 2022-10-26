@@ -1,8 +1,26 @@
 import { describe, expect, test } from '@jest/globals';
 import { CardLoader } from './card-loader';
+import { DataManager } from '../data/data-manager.interface';
+import { Scores } from '../game/model/scores';
 
 describe('card-loader', () => {
-    const cardLoader = new CardLoader();
+    const dataManagerMock: DataManager = {
+        readExtensionsData(): string[] {
+            return [];
+        },
+        readGamesData() {
+        },
+        readScores(): Scores {
+            return undefined;
+        },
+        writeGameData(gamesToSave) {
+        },
+        writeExtensionsData(extensions: string[]) {
+        },
+        writeScores(scores): void {
+        }
+    };
+    const cardLoader = new CardLoader(dataManagerMock);
 
     test('should merge game count into the base data', () => {
         const baseCardList = {
@@ -27,6 +45,26 @@ describe('card-loader', () => {
         cardLoader['mergeGameDataIntoBase'](baseCardList, gameCardList);
 
         expect(baseCardList.masterminds[1]['count']).toBe(2);
+    });
+
+    test('should not break if the game data is empty', () => {
+        const baseCardList = {
+            'masterminds': [
+                { 'name': 'card1' },
+                { 'name': 'card2' },
+                { 'name': 'card3' }
+            ],
+            'schemes': [],
+            'villains': [],
+            'henchmen': [],
+            'heroes': []
+        };
+
+        const gameCardList = {};
+
+        cardLoader['mergeGameDataIntoBase'](baseCardList, gameCardList);
+
+        expect(baseCardList.masterminds.length).toBe(3);
     });
 
     test('should merge game ids into the base data', () => {

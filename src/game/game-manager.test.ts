@@ -1,7 +1,25 @@
 import { describe, expect, test } from '@jest/globals';
 import { GameManager } from './game-manager';
+import { DataManager } from '../data/data-manager.interface';
+import { Scores } from './model/scores';
 
 describe('GameManager', () => {
+    const dataManagerMock: DataManager = {
+        readExtensionsData(): string[] {
+            return [];
+        },
+        readGamesData() {
+        },
+        readScores(): Scores {
+            return { 'game2': { score: 10 } };
+        },
+        writeGameData(gamesToSave) {
+        },
+        writeExtensionsData(extensions: string[]) {
+        },
+        writeScores(scores): void {
+        }
+    };
 
     const cardList = {
         masterminds: [
@@ -35,7 +53,7 @@ describe('GameManager', () => {
     };
 
     test('should load all available registered games', () => {
-        const gameManager = new GameManager();
+        const gameManager = new GameManager(dataManagerMock);
         const gameIds = gameManager.loadRegisteredGame(cardList);
         expect(gameIds).toContain('game1');
         expect(gameIds).toContain('game2');
@@ -43,7 +61,7 @@ describe('GameManager', () => {
     });
 
     test('should extract the cards of a given game', () => {
-        const gameManager = new GameManager();
+        const gameManager = new GameManager(dataManagerMock);
         const game = gameManager.getCardsOfGame(cardList, 'game1');
         expect(game.mastermind.name).toBe('m3');
         expect(game.scheme.name).toBe('s1');
@@ -57,11 +75,7 @@ describe('GameManager', () => {
     });
 
     test('should load only the games without a scoring already registered', () => {
-        const gameManager = new GameManager();
-        gameManager['dataManager'].loadScores = () => {
-            return { 'game2': { score: 10 } };
-        };
-
+        const gameManager = new GameManager(dataManagerMock);
         const games = gameManager.loadRegisteredGameWithNoScore(cardList);
         expect(games).toContain('game1');
         expect(games).toContain('game3');

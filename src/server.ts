@@ -4,6 +4,7 @@ import { SetupWebViewer } from './viewer/web/setup-web-viewer';
 import { CardLoader } from './card/card-loader';
 import { ScoreInputParser } from './viewer/web/score-input-parser';
 import { GameDataManager } from './game/game-data-manager';
+import { FileDataManager } from './data/file-data-manager';
 
 const setupWebViewer = new SetupWebViewer();
 const app = express();
@@ -40,6 +41,7 @@ const handlePost = (req, res, callback) => {
     res.redirect('/');
 };
 
+const dataManager = new FileDataManager();
 const saveExtensions = (chunks) => {
     const data = Buffer.concat(chunks).toString()
         .replace(/&/g, '')
@@ -47,7 +49,7 @@ const saveExtensions = (chunks) => {
         .replace(/\+/g, ' ');
     const idsToSave = data.split('ext=')
         .filter(value => value !== '');
-    const cardLoader = new CardLoader();
+    const cardLoader = new CardLoader(dataManager);
     cardLoader.saveExtensions(idsToSave);
 };
 
@@ -55,7 +57,7 @@ const saveScores = (chunks) => {
     const data = Buffer.concat(chunks).toString();
     const parser = new ScoreInputParser();
     const scores = parser.parseInput(data);
-    const gameDataManager = new GameDataManager();
+    const gameDataManager = new GameDataManager(dataManager);
     for (const gameId in scores) {
         gameDataManager.saveScore(gameId, scores[gameId].score);
     }

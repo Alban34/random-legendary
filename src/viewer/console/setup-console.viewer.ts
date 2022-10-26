@@ -7,13 +7,15 @@ import { CardManager } from '../../card/card-manager';
 import { PlayerConfig } from '../../game/player-config';
 import { GameBuilder } from '../../game/game-builder';
 import { GameConsoleViewer } from './game-console-viewer';
+import { FileDataManager } from '../../data/file-data-manager';
 
 export class SetupConsoleViewer {
 
     private readonly legendaryBase;
-    private dataManager = new GameDataManager();
-    private cardLoader = new CardLoader();
-    private gameManager = new GameManager();
+    private dataManager = new FileDataManager();
+    private gameDataManager = new GameDataManager(this.dataManager);
+    private cardLoader = new CardLoader(this.dataManager);
+    private gameManager = new GameManager(this.dataManager);
     private cardManager = new CardManager();
 
     private readonly availableGamesForScore;
@@ -120,7 +122,7 @@ export class SetupConsoleViewer {
         const cardList = this.cardManager.filterAllCards(this.legendaryBase, this.selectedExtensions);
         const game = gameBuilder.buildGame(cardList, playerConfig);
 
-        this.dataManager.saveData(this.legendaryBase);
+        this.gameDataManager.saveData(this.legendaryBase);
 
         const gameViewer = new GameConsoleViewer();
         console.log(gameViewer.buildView(playerCount, game));
@@ -132,7 +134,7 @@ export class SetupConsoleViewer {
             intro = `Sorry to hear you lost the game with id '${gameId}'.`;
         }
         console.log(`${intro}\nYour score has been saved in scores.json file.`);
-        this.dataManager.saveScore(gameId, score);
+        this.gameDataManager.saveScore(gameId, score);
     }
 
     private loadExtensions() {

@@ -6,13 +6,15 @@ import { PlayerConfig } from '../../game/player-config';
 import { GameBuilder } from '../../game/game-builder';
 import { GameDataManager } from '../../game/game-data-manager';
 import { GameWebViewer } from './game-web-viewer';
+import { FileDataManager } from '../../data/file-data-manager';
 
 export class SetupWebViewer {
 
+    private dataManager = new FileDataManager();
     private cardManager = new CardManager();
-    private cardLoader = new CardLoader();
-    private dataManager = new GameDataManager();
-    private gameManager = new GameManager();
+    private cardLoader = new CardLoader(this.dataManager);
+    private dataGameManager = new GameDataManager(this.dataManager);
+    private gameManager = new GameManager(this.dataManager);
 
     public showUI(): string {
         const choices = [];
@@ -99,7 +101,7 @@ export class SetupWebViewer {
         const cardList = this.cardManager.filterAllCards(allCardList, this.cardLoader.loadExtensions());
         const game = gameBuilder.buildGame(cardList, playerConfig);
 
-        this.dataManager.saveData(allCardList);
+        this.dataGameManager.saveData(allCardList);
 
         const gameViewer = new GameWebViewer();
         return gameViewer.buildView(playerCount, game);
