@@ -548,23 +548,15 @@ toParse.forEach(content => {
 
 });
 
-allEntries.masterminds = allEntries.masterminds.sort((a, b) => {
+const standardSort = (a, b) => {
     return a.name.localeCompare(b.name);
-});
+};
 
-allEntries.schemes = allEntries.schemes.sort((a, b) => {
-    return a.name.localeCompare(b.name);
-});
-
-allEntries.villains = allEntries.villains.sort((a, b) => {
-    return a.name.localeCompare(b.name);
-});
-
-allEntries.henchmen = allEntries.henchmen.sort((a, b) => {
-    return a.name.localeCompare(b.name);
-});
-
-allEntries.heroes = allEntries.heroes.sort((a, b) => {
+allEntries.masterminds.sort(standardSort);
+allEntries.schemes.sort(standardSort);
+allEntries.villains.sort(standardSort);
+allEntries.henchmen.sort(standardSort);
+allEntries.heroes.sort((a, b) => {
     if (a.name === b.name) {
         return a.teams[0].localeCompare(b.teams[0]);
     }
