@@ -14,7 +14,7 @@ Once the project is cloned, just run `npm install` to install required dependenc
 ### Run the randomizer
 Once the dependencies are installed you have 2 options:
 - run `npm run start:console` to have a command line user interface
-- run `npm run start:web` to connect to http://localhost:9615 with your web browser to have a web user interface
+- run `npm run start:web` to connect to http://localhost:3000 with your web browser to have a web user interface
 
 If you play solo, only the advanced solo rules from the Dark City extension will be applied for now.
 
@@ -22,6 +22,7 @@ If you play solo, only the advanced solo rules from the Dark City extension will
 This app works based on 3 files:
 - assets/legendary.json: it contains the basic information about cards that are needed for the app
 - games.json: it will be created by randomizing your first game: it will store which mastermind, scheme, villains, henchmen and heroes you already played, so that they will not be selected on your next game.
+- extensions.json: it will be created when storing your first selection of extensions.
 - scores.json: it will be created when storing your first score.
 
 ## Known extensions
@@ -43,8 +44,9 @@ So far, the cards that are randomly chosen come from:
 This is a very early version of the randomizer that addresses only my personal needs (with only my personally owned extensions).
 I will add more extensions in the future (as I acquired them ;)).
 I may also:
-- set up the "Always lead" constraints of the Masterminds (implemented but information is not fully set in card reference file).
+- improve bystanders and master strike requirements base on the scheme setup.
 - display a history of the games with the most used cards and the best scores
+- give possibility to enter multiple scores for a given game (depending on number of players)
 - create an executable app for ease of use
 - implement the core solo rules
 - make it "multi-tenant" so that heruko deployment can be used by everyone
