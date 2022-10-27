@@ -1,5 +1,4 @@
 import { beforeEach, describe, expect, test } from '@jest/globals';
-import { GameManager } from './game-manager';
 import { GameDataManager } from './game-data-manager';
 import { DataManager } from '../data/data-manager.interface';
 import { Scores } from './model/scores';
