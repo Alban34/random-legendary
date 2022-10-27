@@ -63,7 +63,7 @@ export class GameWebViewer {
     private displayCard(card) {
         let teams = '';
         if (card.teams) {
-            teams += `${card.teams.flatMap(t => `${t}`)}`;
+            teams += card.teams.flatMap(t => `${t}`);
         }
         let displayableCard = `<span class="col-5 card-name">${card.name}</span>`;
         if (teams) {
