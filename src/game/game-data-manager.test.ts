@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, test } from '@jest/globals';
+import { beforeEach, describe, expect, test, jest } from '@jest/globals';
 import { GameDataManager } from './game-data-manager';
 import { DataManager } from '../data/data-manager.interface';
 import { Scores } from './model/scores';
@@ -65,8 +65,12 @@ describe('GameDataManager', () => {
             expect(gamesToSave.henchmen.filter(card => (card.name === 'hm2' || card.name === 'hm3')).length).toBe(0);
             expect(gamesToSave.heroes.filter(card => card.name === 'h3').length).toBe(0);
         };
+
+        const spyDataManager = jest.spyOn(dataManagerMock, 'writeGameData');
+
         const gameManager = new GameDataManager(dataManagerMock);
         gameManager.saveData(cardList);
+        expect(spyDataManager).toHaveBeenCalled();
     });
 
 });
