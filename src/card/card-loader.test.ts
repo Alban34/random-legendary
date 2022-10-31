@@ -1,26 +1,14 @@
-import { describe, expect, test } from '@jest/globals';
+import { beforeEach, describe, expect, test } from '@jest/globals';
 import { CardLoader } from './card-loader';
-import { DataManager } from '../data/data-manager.interface';
-import { Scores } from '../game/model/scores';
+import { container } from '../injectable-config';
+import TYPES from '../types';
 
 describe('card-loader', () => {
-    const dataManagerMock: DataManager = {
-        readExtensionsData(): string[] {
-            return [];
-        },
-        readGamesData() {
-        },
-        readScores(): Scores {
-            return undefined;
-        },
-        writeGameData(gamesToSave) {
-        },
-        writeExtensionsData(extensions: string[]) {
-        },
-        writeScores(scores): void {
-        }
-    };
-    const cardLoader = new CardLoader(dataManagerMock);
+    let cardLoader;
+
+    beforeEach(() => {
+        cardLoader = container.get<CardLoader>(TYPES.CardLoader);
+    });
 
     test('should merge game count into the base data', () => {
         const baseCardList = {

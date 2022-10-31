@@ -2,10 +2,13 @@ import { beforeEach, describe, expect, test, jest } from '@jest/globals';
 import { GameDataManager } from './game-data-manager';
 import { DataManager } from '../data/data-manager.interface';
 import { Scores } from './model/scores';
+import { container } from '../injectable-config';
+import TYPES from '../types';
 
 describe('GameDataManager', () => {
 
     let dataManagerMock: DataManager;
+    let gameManager;
 
     const cardList = {
         masterminds: [
@@ -55,6 +58,9 @@ describe('GameDataManager', () => {
             writeScores(scores): void {
             }
         };
+
+        container.rebind<DataManager>(TYPES.DataManager).toConstantValue(dataManagerMock);
+        gameManager = container.get<GameDataManager>(TYPES.GameDataManager);
     });
 
     test('should save only the cards that have a games without a scoring already registered', () => {
@@ -68,7 +74,6 @@ describe('GameDataManager', () => {
 
         const spyDataManager = jest.spyOn(dataManagerMock, 'writeGameData');
 
-        const gameManager = new GameDataManager(dataManagerMock);
         gameManager.saveData(cardList);
         expect(spyDataManager).toHaveBeenCalled();
     });
