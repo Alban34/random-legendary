@@ -1,4 +1,5 @@
 import { Card } from './model/card';
+import crypto from 'crypto';
 
 export class CardDrawer {
 
@@ -42,7 +43,7 @@ export class CardDrawer {
     }
 
     private getRandomInt(max: number) {
-        return Math.floor(Math.random() * max);
+        return crypto.randomInt(max);
     }
 
     private filterList(element: Card, countToKeep: number) {
