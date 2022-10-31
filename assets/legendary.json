@@ -55,15 +55,45 @@
       "alwaysLeadCategory": "villains"
     },
     {
+      "name": "General \"Thunderbolt\" Ross / Red Hulk",
+      "extension": "World War Hulk",
+      "alwaysLead": "Code Red",
+      "alwaysLeadCategory": "villains"
+    },
+    {
       "name": "Hela, Goddess of Death",
       "extension": "Heroes of Asgard",
       "alwaysLead": "Omens of Ragnarok",
       "alwaysLeadCategory": "villains"
     },
     {
+      "name": "HYDRA High Council",
+      "extension": "S.H.I.E.L.D.",
+      "alwaysLead": "HYDRA Elite",
+      "alwaysLeadCategory": "villains"
+    },
+    {
+      "name": "HYDRA Super Adaptoid",
+      "extension": "S.H.I.E.L.D.",
+      "alwaysLead": "A.I.M., HYDRA Offshoot",
+      "alwaysLeadCategory": "villains"
+    },
+    {
+      "name": "Illuminati, Secret Society",
+      "extension": "World War Hulk",
+      "alwaysLead": "Illuminati",
+      "alwaysLeadCategory": "villains"
+    },
+    {
       "name": "Immortal Emperor Zheng-Zhu",
       "extension": "Secret Wars, Volume 2",
       "alwaysLead": "K'un Lun",
+      "alwaysLeadCategory": "villains"
+    },
+    {
+      "name": "King Hulk, Sakaarson",
+      "extension": "World War Hulk",
+      "alwaysLead": "Warbound",
       "alwaysLeadCategory": "villains"
     },
     {
@@ -82,6 +112,12 @@
       "name": "Loki",
       "extension": "Core Set",
       "alwaysLead": "Enemies of Asgard",
+      "alwaysLeadCategory": "villains"
+    },
+    {
+      "name": "M.O.D.O.K.",
+      "extension": "World War Hulk",
+      "alwaysLead": "Intelligencia",
       "alwaysLeadCategory": "villains"
     },
     {
@@ -199,6 +235,18 @@
       "alwaysLeadCategory": "villains"
     },
     {
+      "name": "The Red King",
+      "extension": "World War Hulk",
+      "alwaysLead": "Sakaar Imperial Guard",
+      "alwaysLeadCategory": "villains"
+    },
+    {
+      "name": "The Sentry / The Void",
+      "extension": "World War Hulk",
+      "alwaysLead": "Aspects of the Void",
+      "alwaysLeadCategory": "villains"
+    },
+    {
       "name": "Ultron",
       "extension": "Ant-Man",
       "alwaysLead": "Ultron's Legacy",
@@ -229,6 +277,10 @@
     {
       "name": "Avengers vs. X-Men",
       "extension": "Civil War"
+    },
+    {
+      "name": "Break the Planet Asunder",
+      "extension": "World War Hulk"
     },
     {
       "name": "Build An Army of Annihilation",
@@ -263,6 +315,10 @@
       "extension": "Doctor Strange and the Shadows of Nightmare"
     },
     {
+      "name": "Cytoplasm Spike Invasion",
+      "extension": "World War Hulk"
+    },
+    {
       "name": "Dark Alliance",
       "extension": "Secret Wars, Volume 1"
     },
@@ -295,12 +351,28 @@
       "extension": "Civil War"
     },
     {
+      "name": "Fall of the Hulks",
+      "extension": "World War Hulk"
+    },
+    {
       "name": "Forge the Infinity Gauntlet",
       "extension": "Guardians of the Galaxy"
     },
     {
       "name": "Fragmented Realities",
       "extension": "Secret Wars, Volume 1"
+    },
+    {
+      "name": "Gladiator Pits of Sakaar",
+      "extension": "World War Hulk"
+    },
+    {
+      "name": "Hail Hydra",
+      "extension": "S.H.I.E.L.D."
+    },
+    {
+      "name": "HYDRA Helicarriers Hunt Heroes",
+      "extension": "S.H.I.E.L.D."
     },
     {
       "name": "Hypnotize Every Human",
@@ -333,6 +405,10 @@
     {
       "name": "Midtown Bank Robbery",
       "extension": "Core Set"
+    },
+    {
+      "name": "Mutating Gamma Rays",
+      "extension": "World War Hulk"
     },
     {
       "name": "Negative Zone Prison Breakout",
@@ -375,8 +451,16 @@
       "extension": "Civil War"
     },
     {
+      "name": "S.H.I.E.L.D. Vs. HYDRA War",
+      "extension": "S.H.I.E.L.D."
+    },
+    {
       "name": "Save Humanity",
       "extension": "Dark City"
+    },
+    {
+      "name": "Secret Empire of Betrayal",
+      "extension": "S.H.I.E.L.D."
     },
     {
       "name": "Secret Invasion of the Skrull Shapeshifters",
@@ -385,6 +469,10 @@
     {
       "name": "Secret Wars",
       "extension": "Secret Wars, Volume 2"
+    },
+    {
+      "name": "Shoot Hulk into Space",
+      "extension": "World War Hulk"
     },
     {
       "name": "Sinister Ambitions",
@@ -405,6 +493,10 @@
     {
       "name": "Steal the Weaponized Plutonium",
       "extension": "Dark City"
+    },
+    {
+      "name": "Subjugate With Obedience Disks",
+      "extension": "World War Hulk"
     },
     {
       "name": "Super Hero Civil War",
@@ -487,14 +579,30 @@
       "extension": "Paint the Town Red"
     },
     {
+      "name": "World War Hulk",
+      "extension": "World War Hulk"
+    },
+    {
       "name": "X-Cutioner's Song",
       "extension": "Dark City"
     }
   ],
   "villains": [
     {
+      "name": "A.I.M., HYDRA Offshoot",
+      "extension": "S.H.I.E.L.D."
+    },
+    {
+      "name": "Aspects of the Void",
+      "extension": "World War Hulk"
+    },
+    {
       "name": "Brotherhood",
       "extension": "Core Set"
+    },
+    {
+      "name": "Code Red",
+      "extension": "World War Hulk"
     },
     {
       "name": "CSA Special Marshals",
@@ -553,8 +661,20 @@
       "extension": "Core Set"
     },
     {
+      "name": "HYDRA Elite",
+      "extension": "S.H.I.E.L.D."
+    },
+    {
+      "name": "Illuminati",
+      "extension": "World War Hulk"
+    },
+    {
       "name": "Infinity Gems",
       "extension": "Guardians of the Galaxy"
+    },
+    {
+      "name": "Intelligencia",
+      "extension": "World War Hulk"
     },
     {
       "name": "K'un Lun",
@@ -621,6 +741,10 @@
       "extension": "Civil War"
     },
     {
+      "name": "Sakaar Imperial Guard",
+      "extension": "World War Hulk"
+    },
+    {
       "name": "Sentinel Territories",
       "extension": "Secret Wars, Volume 1"
     },
@@ -653,6 +777,10 @@
       "extension": "Civil War"
     },
     {
+      "name": "U-Foes",
+      "extension": "World War Hulk"
+    },
+    {
       "name": "Ultron’s Legacy",
       "extension": "Ant-Man"
     },
@@ -663,6 +791,10 @@
     {
       "name": "Utopolis",
       "extension": "Secret Wars, Volume 2"
+    },
+    {
+      "name": "Warbound",
+      "extension": "World War Hulk"
     },
     {
       "name": "Wasteland",
@@ -681,6 +813,14 @@
     {
       "name": "Cape-killers",
       "extension": "Civil War"
+    },
+    {
+      "name": "Cytoplasmic Spikes",
+      "extension": "World War Hulk"
+    },
+    {
+      "name": "Death's Heads",
+      "extension": "World War Hulk"
     },
     {
       "name": "Doombot Legion",
@@ -719,6 +859,10 @@
       "extension": "Dark City"
     },
     {
+      "name": "Sakaaran Hivelings",
+      "extension": "World War Hulk"
+    },
+    {
       "name": "Savage Land Mutates",
       "extension": "Core Set"
     },
@@ -737,10 +881,24 @@
   ],
   "heroes": [
     {
+      "name": "Agent Phil Coulson",
+      "extension": "S.H.I.E.L.D.",
+      "teams": [
+        "S.H.I.E.L.D."
+      ]
+    },
+    {
       "name": "Agent Venom",
       "extension": "Secret Wars, Volume 2",
       "teams": [
         "Spider Friends"
+      ]
+    },
+    {
+      "name": "Amadeus Cho (+5)",
+      "extension": "World War Hulk",
+      "teams": [
+        "Champions"
       ]
     },
     {
@@ -842,10 +1000,24 @@
       ]
     },
     {
+      "name": "Bruce Banner (+5)",
+      "extension": "World War Hulk",
+      "teams": [
+        "The Avengers"
+      ]
+    },
+    {
       "name": "Cable",
       "extension": "Dark City",
       "teams": [
         "X-Force"
+      ]
+    },
+    {
+      "name": "Caiera (+1)",
+      "extension": "World War Hulk",
+      "teams": [
+        "Warbound"
       ]
     },
     {
@@ -932,6 +1104,13 @@
       "extension": "Core Set",
       "teams": [
         ""
+      ]
+    },
+    {
+      "name": "Deathlok",
+      "extension": "S.H.I.E.L.D.",
+      "teams": [
+        "S.H.I.E.L.D."
       ]
     },
     {
@@ -1033,6 +1212,13 @@
       ]
     },
     {
+      "name": "Gladiator Hulk (+5)",
+      "extension": "World War Hulk",
+      "teams": [
+        "Warbound"
+      ]
+    },
+    {
       "name": "Goliath",
       "extension": "Civil War",
       "teams": [
@@ -1068,8 +1254,22 @@
       ]
     },
     {
+      "name": "Hiroim (+5)",
+      "extension": "World War Hulk",
+      "teams": [
+        "Warbound"
+      ]
+    },
+    {
       "name": "Hulk",
       "extension": "Core Set",
+      "teams": [
+        "The Avengers"
+      ]
+    },
+    {
+      "name": "Hulkbuster Iron Man (+3)",
+      "extension": "World War Hulk",
       "teams": [
         "The Avengers"
       ]
@@ -1117,10 +1317,24 @@
       ]
     },
     {
+      "name": "Joe Fix-It, Grey Hulk (+3)",
+      "extension": "World War Hulk",
+      "teams": [
+        "Crime Syndicate"
+      ]
+    },
+    {
       "name": "Karma",
       "extension": "The New Mutants",
       "teams": [
         "X-Men"
+      ]
+    },
+    {
+      "name": "Korg (+3)",
+      "extension": "World War Hulk",
+      "teams": [
+        "Warbound"
       ]
     },
     {
@@ -1160,10 +1374,24 @@
       ]
     },
     {
+      "name": "Miek the Unhived (+1)",
+      "extension": "World War Hulk",
+      "teams": [
+        "Warbound"
+      ]
+    },
+    {
       "name": "Mirage",
       "extension": "The New Mutants",
       "teams": [
         "X-Men"
+      ]
+    },
+    {
+      "name": "Mockingbird",
+      "extension": "S.H.I.E.L.D.",
+      "teams": [
+        "S.H.I.E.L.D."
       ]
     },
     {
@@ -1188,6 +1416,13 @@
       ]
     },
     {
+      "name": "Namora (+3)",
+      "extension": "World War Hulk",
+      "teams": [
+        "Champions"
+      ]
+    },
+    {
       "name": "Nick Fury",
       "extension": "Core Set",
       "teams": [
@@ -1199,6 +1434,13 @@
       "extension": "Dark City",
       "teams": [
         "X-Men"
+      ]
+    },
+    {
+      "name": "No-Name, Brood Queen (+3)",
+      "extension": "World War Hulk",
+      "teams": [
+        "Warbound"
       ]
     },
     {
@@ -1259,6 +1501,21 @@
       ]
     },
     {
+      "name": "Quake",
+      "extension": "S.H.I.E.L.D.",
+      "teams": [
+        "S.H.I.E.L.D."
+      ]
+    },
+    {
+      "name": "Rick Jones (+9)",
+      "extension": "World War Hulk",
+      "teams": [
+        "S.H.I.E.L.D.",
+        "The Avengers"
+      ]
+    },
+    {
       "name": "Rocket Raccoon",
       "extension": "Guardians of the Galaxy",
       "teams": [
@@ -1287,6 +1544,13 @@
       ]
     },
     {
+      "name": "Sentry (+8)",
+      "extension": "World War Hulk",
+      "teams": [
+        "The Avengers"
+      ]
+    },
+    {
       "name": "Shang-Chi",
       "extension": "Secret Wars, Volume 2",
       "teams": [
@@ -1294,10 +1558,24 @@
       ]
     },
     {
+      "name": "She-Hulk (+5)",
+      "extension": "World War Hulk",
+      "teams": [
+        "The Avengers"
+      ]
+    },
+    {
       "name": "Silk",
       "extension": "Secret Wars, Volume 2",
       "teams": [
         "Spider Friends"
+      ]
+    },
+    {
+      "name": "Skaar, Son of Hulk (+3)",
+      "extension": "World War Hulk",
+      "teams": [
+        "The Avengers"
       ]
     },
     {

@@ -65,6 +65,59 @@ Sentinels
     },
 
     {
+        'setName': 'World War Hulk',
+        'heroes': `
+Microbadge: Legendary fan - Champions Team Amadeus Cho (+5)
+Microbadge: Legendary fan - The Avengers Team Bruce Banner (+5)
+Microbadge: Legendary fan - Warbound Team Caiera (+1)
+Microbadge: Legendary fan - Warbound Team Gladiator Hulk (+5)
+Microbadge: Legendary fan - Warbound Team Hiroim (+5)
+Microbadge: Legendary fan - The Avengers Team Hulkbuster Iron Man (+3)
+Microbadge: Legendary fan - Crime Syndicate Team Joe Fix-It, Grey Hulk (+3)
+Microbadge: Legendary fan - Warbound Team Korg (+3)
+Microbadge: Legendary fan - Warbound Team Miek the Unhived (+1)
+Microbadge: Legendary fan - Champions Team Namora (+3)
+Microbadge: Legendary fan - Warbound Team No-Name, Brood Queen (+3)
+Microbadge: Legendary fan - S.H.I.E.L.D. TeamMicrobadge: Legendary fan - The Avengers Team Rick Jones (+9)
+Microbadge: Legendary fan - The Avengers Team Sentry (+8)
+Microbadge: Legendary fan - The Avengers Team She-Hulk (+5)
+Microbadge: Legendary fan - The Avengers Team Skaar, Son of Hulk (+3)
+`,
+        'masterminds': `
+General "Thunderbolt" Ross / Red Hulk
+Illuminati, Secret Society
+King Hulk, Sakaarson
+M.O.D.O.K.
+The Red King
+The Sentry / The Void
+`,
+        'schemes': `
+Break the Planet Asunder
+Cytoplasm Spike Invasion
+Fall of the Hulks
+Gladiator Pits of Sakaar
+Mutating Gamma Rays
+Shoot Hulk into Space
+Subjugate With Obedience Disks
+World War Hulk
+`,
+        'villains': `
+Aspects of the Void
+Code Red
+Illuminati
+Intelligencia
+Sakaar Imperial Guard
+U-Foes
+Warbound
+`,
+        'henchmen': `
+Cytoplasmic Spikes
+Death's Heads
+Sakaaran Hivelings
+`
+    },
+
+    {
         'setName': 'Ant-Man',
         'heroes': `
 Microbadge: Legendary fan - The Avengers Team Ant-Man
@@ -430,6 +483,36 @@ Trapped in the Insane Asylum
     },
 
 
+
+    {
+        'setName': 'S.H.I.E.L.D.',
+        'heroes': `
+Microbadge: Legendary fan - S.H.I.E.L.D. Team Agent Phil Coulson
+Microbadge: Legendary fan - S.H.I.E.L.D. Team Deathlok
+Microbadge: Legendary fan - S.H.I.E.L.D. Team Mockingbird
+Microbadge: Legendary fan - S.H.I.E.L.D. Team Quake
+`,
+        'masterminds': `
+HYDRA High Council
+HYDRA Super Adaptoid
+`,
+        'villains': `
+A.I.M., HYDRA Offshoot
+HYDRA Elite
+`,
+        'henchmen': `
+
+`,
+        'schemes': `
+Hail Hydra
+HYDRA Helicarriers Hunt Heroes
+Secret Empire of Betrayal
+S.H.I.E.L.D. Vs. HYDRA War
+`
+
+    },
+
+
     {
         'setName': 'Secret Wars, Volume 2',
         'heroes': `
@@ -565,30 +648,30 @@ allEntries.heroes.sort((a, b) => {
 
 console.log('{"masterminds": [');
 allEntries.masterminds.forEach(v => {
-    console.log(`{"name":"${v.name}", "extension": "${v.extension}", "alwaysLead": "", "alwaysLeadCategory": "villains"},`);
+    console.log(`{"name":"${v.name.replace(/"/g, '\\"')}", "extension": "${v.extension}", "alwaysLead": "", "alwaysLeadCategory": "villains"},`);
 });
 console.log('],');
 
 console.log('"schemes": [');
 allEntries.schemes.forEach(v => {
-    console.log(`{"name":"${v.name}", "extension": "${v.extension}"},`);
+    console.log(`{"name":"${v.name.replace(/"/g, '\\"')}", "extension": "${v.extension}"},`);
 });
 console.log('],');
 
 console.log('"villains": [');
 allEntries.villains.forEach(v => {
-    console.log(`{"name":"${v.name}", "extension": "${v.extension}"},`);
+    console.log(`{"name":"${v.name.replace(/"/g, '\\"')}", "extension": "${v.extension}"},`);
 });
 console.log('],');
 
 console.log('"henchmen": [');
 allEntries.henchmen.forEach(v => {
-    console.log(`{"name":"${v.name}", "extension": "${v.extension}"},`);
+    console.log(`{"name":"${v.name.replace(/"/g, '\\"')}", "extension": "${v.extension}"},`);
 });
 console.log('],');
 
 console.log('"heroes": [');
 allEntries.heroes.forEach(v => {
-    console.log(`{"name":"${v.name}", "extension": "${v.extension}", "teams":[${v.teams.flatMap(e => '"' + e + '",')}]},`);
+    console.log(`{"name":"${v.name.replace(/"/g, '\\"')}", "extension": "${v.extension}", "teams":[${v.teams.flatMap(e => '"' + e + '",')}]},`);
 });
 console.log(']}');
