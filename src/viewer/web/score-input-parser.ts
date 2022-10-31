@@ -9,6 +9,29 @@ export interface ParsedScores {
 }
 
 export class ScoreInputParser {
+
+    public parseObject(input: any): Scores {
+        const scores: Scores = {};
+
+        for (const [key, value] of Object.entries(input)) {
+            const gameId = key.substring(0, key.indexOf(':'));
+            if (!scores[gameId]) {
+                scores[gameId] = {} as Score;
+            }
+            if (key.substring(key.indexOf(':') + 1) === 'score') {
+                scores[gameId].score = parseInt(value.toString());
+            }
+        }
+
+        for (const key of Object.keys(scores)) {
+            if (!input[`${key}:won`]) {
+                scores[key].score = -1;
+            }
+        }
+
+        return scores;
+    }
+
     public parseInput(input: string): Scores {
         let games: ParsedScores = {};
         input
@@ -22,7 +45,7 @@ export class ScoreInputParser {
 
                 let game = games[id];
                 if (!game) {
-                    game = { score: 0, won: false};
+                    game = { score: 0, won: false };
                     games[id] = game;
                 }
                 if (!isNaN(parseInt(valueFromId))) {

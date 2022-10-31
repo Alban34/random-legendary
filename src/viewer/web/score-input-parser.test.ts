@@ -25,4 +25,32 @@ describe('ScoreInputParser', () => {
         const parser = new ScoreInputParser();
         expect(parser.parseInput(input)).toEqual(expected);
     });
+
+    test('should parse from inversify', () => {
+        const input = {
+            '98e37f66-4ad9-45f4-9b4c-6d8d6237d09c:score': '10',
+            '98e37f66-4ad9-45f4-9b4c-6d8d6237d09c:won': 'on'
+        };
+
+        const expected = {
+            "98e37f66-4ad9-45f4-9b4c-6d8d6237d09c": { score: 10 }
+        }
+
+        const parser = new ScoreInputParser();
+        expect(parser.parseObject(input)).toEqual(expected);
+    });
+
+    test('should parse from inversify when game is lost', () => {
+        const input = {
+            '98e37f66-4ad9-45f4-9b4c-6d8d6237d09c:score': '10'
+        };
+
+        const expected = {
+            "98e37f66-4ad9-45f4-9b4c-6d8d6237d09c": { score: -1 }
+        }
+
+        const parser = new ScoreInputParser();
+        expect(parser.parseObject(input)).toEqual(expected);
+    });
+
 });
