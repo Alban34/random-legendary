@@ -4,9 +4,16 @@ import { CardWebViewer } from '../card-web-viewer';
 import { CardLoader } from '../../../card/card-loader';
 import { FileDataManager } from '../../../data/file-data-manager';
 import { CardManager } from '../../../card/card-manager';
+import { inject } from 'inversify';
+import { Card } from '../../../card/model/card';
+import TYPES from '../../../types';
 
 @controller('/cards')
 export class CardController extends AbstractController {
+
+    constructor(@inject(TYPES.CardLoader) private readonly cardLoader: CardLoader) {
+        super();
+    }
 
     @httpGet('/all')
     public getAll(): string {
@@ -23,18 +30,16 @@ export class CardController extends AbstractController {
      * @param all if true (default) show all cards known by the app. Otherwise, show only the cards of the user own extensions.
      */
     private showCards(all = true): string {
-        const dataManager = new FileDataManager();
-        const cardLoader = new CardLoader(dataManager);
         const cardManager = new CardManager();
 
         const cardViewer = new CardWebViewer();
 
-        const allCardList = cardLoader.loadData();
+        const allCardList = this.cardLoader.loadData();
         if (all) {
             return cardViewer.getDisplayableCards(allCardList);
         }
 
-        const cardList = cardManager.filterAllCards(allCardList, cardLoader.loadExtensions());
+        const cardList = cardManager.filterAllCards(allCardList, this.cardLoader.loadExtensions());
         return cardViewer.getDisplayableCards(cardList);
     }
 

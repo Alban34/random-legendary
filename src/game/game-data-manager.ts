@@ -1,10 +1,13 @@
 import { Scores } from './game.module';
 import { DataManager } from '../data/data-manager.interface';
+import { inject, injectable } from 'inversify';
+import TYPES from '../types';
 
 const gameFilter = (card) => card.gameId && card.gameId.length > 0;
+@injectable()
 export class GameDataManager {
 
-    constructor(private readonly dataManager: DataManager) {}
+    constructor(@inject(TYPES.DataManager) private readonly dataManager: DataManager) {}
 
 
     public saveData(legendaryBase): void {

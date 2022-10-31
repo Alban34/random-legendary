@@ -2,10 +2,18 @@ import { controller, httpGet } from 'inversify-express-utils';
 import { AbstractController } from './abstract-controller';
 import { GameManager } from '../../../game/game-manager';
 import { CardLoader } from '../../../card/card-loader';
-import { FileDataManager } from '../../../data/file-data-manager';
+import { inject } from 'inversify';
+import TYPES from '../../../types';
 
 @controller('/')
 export class HomeController extends AbstractController {
+
+    constructor(
+        @inject(TYPES.CardLoader) private readonly cardLoader: CardLoader,
+        @inject(TYPES.GameManager) private readonly gameManager: GameManager
+    ) {
+        super();
+    }
 
     @httpGet('/')
     public get(): string {
@@ -13,17 +21,14 @@ export class HomeController extends AbstractController {
     }
 
     private showUI(): string {
-        const dataManager = new FileDataManager();
-        const cardLoader = new CardLoader(dataManager);
-        const gameManager = new GameManager(dataManager);
 
         const choices = [];
-        const availableGamesForScore = gameManager.loadRegisteredGameWithNoScore(cardLoader.loadData());
+        const availableGamesForScore = this.gameManager.loadRegisteredGameWithNoScore(this.cardLoader.loadData());
         if (availableGamesForScore.length > 0) {
             choices.push({ label: 'Enter a game score', path: '/scores' });
         }
         choices.push(...[
-            { label: 'Select your extensions', path: '/extensions' },
+            { label: 'Select my extensions', path: '/extensions' },
             { label: 'Show all available cards', path: '/cards/all' },
             { label: 'Show my cards (from selected extensions)', path: '/cards/mine' }]);
 

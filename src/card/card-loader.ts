@@ -1,11 +1,14 @@
 import fs from 'fs-extra';
 import { DataManager } from '../data/data-manager.interface';
+import { inject, injectable } from 'inversify';
+import TYPES from '../types';
 
 const CATEGORIES = ['masterminds', 'schemes', 'villains', 'henchmen', 'heroes'];
 
+@injectable()
 export class CardLoader {
 
-    constructor(private readonly dataManager: DataManager) {}
+    constructor(@inject(TYPES.DataManager) private readonly dataManager: DataManager) {}
 
     public loadData() {
         let rawData = fs.readFileSync('./assets/legendary.json');

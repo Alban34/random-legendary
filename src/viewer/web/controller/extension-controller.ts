@@ -4,9 +4,15 @@ import { AbstractController } from './abstract-controller';
 import { CardLoader } from '../../../card/card-loader';
 import { FileDataManager } from '../../../data/file-data-manager';
 import { CardManager } from '../../../card/card-manager';
+import { inject } from 'inversify';
+import TYPES from '../../../types';
 
 @controller('/extensions')
 export class ExtensionController extends AbstractController {
+
+    constructor(@inject(TYPES.CardLoader) private readonly cardLoader: CardLoader) {
+        super();
+    }
 
     @httpGet('/')
     public get(): string {
@@ -23,12 +29,10 @@ export class ExtensionController extends AbstractController {
     }
 
     private showExtensions(): string {
-        const dataManager = new FileDataManager();
-        const cardLoader = new CardLoader(dataManager);
         const cardManager = new CardManager();
 
-        const allExtensions = cardManager.getAvailableExtensions(cardLoader.loadData());
-        let selectedExtensions = cardLoader.loadExtensions();
+        const allExtensions = cardManager.getAvailableExtensions(this.cardLoader.loadData());
+        let selectedExtensions = this.cardLoader.loadExtensions();
         if (selectedExtensions.length === 0) {
             selectedExtensions = allExtensions;
         }

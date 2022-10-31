@@ -1,14 +1,23 @@
-import * as express from "express";
+import * as express from 'express';
 import { controller, httpGet, httpPost, requestBody, response } from 'inversify-express-utils';
 import { AbstractController } from './abstract-controller';
-import { FileDataManager } from '../../../data/file-data-manager';
 import { ScoreInputParser } from '../score-input-parser';
 import { GameDataManager } from '../../../game/game-data-manager';
 import { CardLoader } from '../../../card/card-loader';
 import { GameManager } from '../../../game/game-manager';
+import { inject } from 'inversify';
+import TYPES from '../../../types';
 
 @controller('/scores')
 export class ScoreController extends AbstractController {
+
+    constructor(
+        @inject(TYPES.CardLoader) private readonly cardLoader: CardLoader,
+        @inject(TYPES.GameManager) private readonly gameManager: GameManager,
+        @inject(TYPES.GameDataManager) private readonly gameDataManager: GameDataManager
+    ) {
+        super();
+    }
 
     @httpGet('/')
     public getAll(): string {
@@ -18,23 +27,18 @@ export class ScoreController extends AbstractController {
     @httpPost('/')
     public save(@response() res: express.Response,
                 @requestBody() unparsedScores: any) {
-        const dataManager = new FileDataManager();
         const parser = new ScoreInputParser();
         const scores = parser.parseObject(unparsedScores);
-        const gameDataManager = new GameDataManager(dataManager);
         for (const gameId in scores) {
-            gameDataManager.saveScore(gameId, scores[gameId].score);
+            this.gameDataManager.saveScore(gameId, scores[gameId].score);
         }
         res.redirect('/');
     }
 
     private showAvailableGameForScore(): string {
-        const dataManager = new FileDataManager();
-        const cardLoader = new CardLoader(dataManager);
-        const gameManager = new GameManager(dataManager);
 
-        const allCardList = cardLoader.loadData();
-        const allAvailableGamesForScore = gameManager.loadRegisteredGameWithNoScore(allCardList);
+        const allCardList = this.cardLoader.loadData();
+        const allAvailableGamesForScore = this.gameManager.loadRegisteredGameWithNoScore(allCardList);
 
         let webView = `
                 <form action="/scores" method="post" class="scores">`;

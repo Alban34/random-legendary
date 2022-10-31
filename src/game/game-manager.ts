@@ -1,13 +1,12 @@
 import { Game, GameDataManager } from './game.module';
 import { Card } from '../card/model/card';
-import { DataManager } from '../data/data-manager.interface';
+import { inject, injectable } from 'inversify';
+import TYPES from '../types';
 
+@injectable()
 export class GameManager {
 
-    private gameDataManager;
-
-    constructor(dataManager: DataManager) {
-        this.gameDataManager =  new GameDataManager(dataManager);
+    constructor(@inject(TYPES.GameDataManager) private readonly gameDataManager: GameDataManager) {
     }
 
     public loadRegisteredGame(cardList): string[] {

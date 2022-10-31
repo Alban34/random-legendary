@@ -7,9 +7,18 @@ import { FileDataManager } from '../../../data/file-data-manager';
 import { CardLoader } from '../../../card/card-loader';
 import { CardManager } from '../../../card/card-manager';
 import { GameDataManager } from '../../../game/game-data-manager';
+import { inject } from 'inversify';
+import TYPES from '../../../types';
 
 @controller('/game')
 export class GameController extends AbstractController {
+
+    constructor(
+        @inject(TYPES.CardLoader) private readonly cardLoader: CardLoader,
+        @inject(TYPES.GameDataManager) private readonly dataGameManager: GameDataManager
+    ) {
+        super();
+    }
 
     @httpGet('/new/:playerCount')
     public get(request: Request): string {
@@ -18,19 +27,16 @@ export class GameController extends AbstractController {
     }
 
     private startGame(playerCount: number): string {
-        const dataManager = new FileDataManager();
-        const cardLoader = new CardLoader(dataManager);
         const cardManager = new CardManager();
-        const dataGameManager = new GameDataManager(dataManager);
 
         const playerConfig = new PlayerConfig(playerCount);
         const gameBuilder = new GameBuilder();
 
-        const allCardList = cardLoader.loadData();
-        const cardList = cardManager.filterAllCards(allCardList, cardLoader.loadExtensions());
+        const allCardList = this.cardLoader.loadData();
+        const cardList = cardManager.filterAllCards(allCardList, this.cardLoader.loadExtensions());
         const game = gameBuilder.buildGame(cardList, playerConfig);
 
-        dataGameManager.saveData(allCardList);
+        this.dataGameManager.saveData(allCardList);
 
         const gameViewer = new GameWebViewer();
         return gameViewer.buildView(playerCount, game);

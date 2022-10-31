@@ -15,7 +15,7 @@ export class SetupConsoleViewer {
     private dataManager = new FileDataManager();
     private gameDataManager = new GameDataManager(this.dataManager);
     private cardLoader = new CardLoader(this.dataManager);
-    private gameManager = new GameManager(this.dataManager);
+    private gameManager = new GameManager(this.gameDataManager);
     private cardManager = new CardManager();
 
     private readonly availableGamesForScore;
