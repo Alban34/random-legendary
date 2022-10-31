@@ -47,7 +47,7 @@ describe('car-drawer', () => {
             { 'name': 'card6' },
         ];
 
-        const randomCards = cardDrawer.drawRandomMultiple(cardList,  3);
+        const randomCards = cardDrawer.drawRandomMultiple(cardList, 3);
 
         expect(randomCards).toBeDefined();
         expect(randomCards.length).toBe(3);
@@ -98,4 +98,21 @@ describe('car-drawer', () => {
         expect(result.indexOf('card3')).not.toBe(-1);
     });
 
+    test('should never pick twice the same card', () => {
+        const cardDrawer = new CardDrawer();
+
+        const cardList = [
+            { 'name': 'card1' },
+            { 'name': 'card2', 'count': 1 },
+            { 'name': 'card3', 'count': 1 }
+        ];
+
+        for (let i = 0; i < 10; i++) {
+            const randomCards = cardDrawer.drawRandomMultipleForce(cardList, 3, ['card1']);
+
+            expect(randomCards).toBeDefined();
+            expect(randomCards.length).toBe(3);
+            expect(randomCards[0].name).not.toBe(randomCards[1].name);
+        }
+    });
 });

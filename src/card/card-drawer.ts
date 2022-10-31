@@ -26,7 +26,7 @@ export class CardDrawer {
     }
 
     /**
-     * Draw randomly multiple cards from a give card list but always select some of them without triggering the randomization
+     * Draw randomly multiple cards from a given card list but always select some of them without triggering the randomization
      * @param cardList
      * @param countToDraw
      * @param alwaysSelected
@@ -35,6 +35,7 @@ export class CardDrawer {
         const randomCount = countToDraw - alwaysSelected.length;
 
         let choices = cardList.filter(value => alwaysSelected.indexOf(value.name) > -1);
+        choices.forEach(card => this.updateCardCount(card));
         for (let i = 0; i < randomCount; i++) {
             choices.push(this.drawRandom(cardList));
         }
@@ -61,11 +62,15 @@ export class CardDrawer {
         const filteredCardList = cardList.filter((value) => this.filterList(value, lowestCount));
         const choice = filteredCardList[this.getRandomInt(filteredCardList.length)];
 
-        if (!choice.count) {
-            choice.count = 0;
-        }
-        choice.count++;
+        this.updateCardCount(choice);
 
         return choice;
+    }
+
+    private updateCardCount(card: Card) {
+        if (!card.count) {
+            card.count = 0;
+        }
+        card.count++;
     }
 }
