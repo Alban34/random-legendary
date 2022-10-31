@@ -2,10 +2,8 @@ import { controller, httpGet } from 'inversify-express-utils';
 import { AbstractController } from './abstract-controller';
 import { CardWebViewer } from '../card-web-viewer';
 import { CardLoader } from '../../../card/card-loader';
-import { FileDataManager } from '../../../data/file-data-manager';
 import { CardManager } from '../../../card/card-manager';
 import { inject } from 'inversify';
-import { Card } from '../../../card/model/card';
 import TYPES from '../../../types';
 
 @controller('/cards')

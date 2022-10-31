@@ -3,7 +3,6 @@ import { AbstractController } from './abstract-controller';
 import { PlayerConfig } from '../../../game/player-config';
 import { GameBuilder } from '../../../game/game-builder';
 import { GameWebViewer } from '../game-web-viewer';
-import { FileDataManager } from '../../../data/file-data-manager';
 import { CardLoader } from '../../../card/card-loader';
 import { CardManager } from '../../../card/card-manager';
 import { GameDataManager } from '../../../game/game-data-manager';
