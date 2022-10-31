@@ -107,7 +107,7 @@ describe('car-drawer', () => {
             { 'name': 'card3', 'count': 1 }
         ];
 
-        for (let i = 0; i < 10; i++) {
+        for (let i = 0; i < 100; i++) {
             const randomCards = cardDrawer.drawRandomMultipleForce(cardList, 3, ['card1']);
 
             expect(randomCards).toBeDefined();

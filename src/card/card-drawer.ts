@@ -36,8 +36,9 @@ export class CardDrawer {
 
         let choices = cardList.filter(value => alwaysSelected.indexOf(value.name) > -1);
         choices.forEach(card => this.updateCardCount(card));
+        const remainingCards = cardList.filter(card => choices.indexOf(card) === -1);
         for (let i = 0; i < randomCount; i++) {
-            choices.push(this.drawRandom(cardList));
+            choices.push(this.drawRandom(remainingCards));
         }
 
         return choices;
