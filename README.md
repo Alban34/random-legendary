@@ -1,4 +1,7 @@
 # Another Legendary Marvel randomizer
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Alban34_random-legendary&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=Alban34_random-legendary)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=Alban34_random-legendary&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=Alban34_random-legendary)
+[![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=Alban34_random-legendary&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=Alban34_random-legendary)
 
 Looking for more variety in my games, I wrote this randomizer that stores your previous games so that the groups used previously will not be selected.
 This is a fan made randomizer for Legendary Marvel, unofficial software.
@@ -51,6 +54,11 @@ I may also:
 - create an executable app for ease of use
 - implement the core solo rules
 - make it "multi-tenant" so that heruko deployment can be used by everyone
+
+## Quick try
+If you do not want to install it locally to try it, you can go to [the heroku deployment](http://marvel-legendary-randomizer.herokuapp.com/)
+
+/!\ Be aware that this is for demo only, all your data might be lost at anytime and might be changed by any other user connecting to this URL.
 
 ## Disclaimer
 This software is not affiliated to Upper Deck nor Marvel. 
