@@ -1,5 +1,4 @@
 import 'reflect-metadata';
-import fs from 'fs-extra';
 import { DataManager } from '../data/data-manager.interface';
 import { inject, injectable } from 'inversify';
 import TYPES from '../types';
