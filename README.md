@@ -20,7 +20,6 @@ If you play solo, only the advanced solo rules from the Dark City extension will
 
 ### Files
 This app works based on 3 files:
-- assets/legendary.json: it contains the basic information about cards that are needed for the app
 - games.json: it will be created by randomizing your first game: it will store which mastermind, scheme, villains, henchmen and heroes you already played, so that they will not be selected on your next game.
 - extensions.json: it will be created when storing your first selection of extensions.
 - scores.json: it will be created when storing your first score.

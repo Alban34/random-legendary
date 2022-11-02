@@ -4,6 +4,7 @@
   "description": "Fan made randomizer for Legendary Marvel",
   "main": "index.js",
   "scripts": {
+    "postinstall": "ts-node ./scripts/copy-bootstrap.ts",
     "start:console": "ts-node ./src/index.ts",
     "start:web": "ts-node ./src/server.ts",
     "start": "npm run start:web",

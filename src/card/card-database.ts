@@ -1,3 +1,4 @@
+export const ALL_CARDS =
 {
   "masterminds": [
     {
@@ -1811,4 +1812,4 @@
       ]
     }
   ]
-}
+};

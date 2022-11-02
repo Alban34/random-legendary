@@ -3,6 +3,7 @@ import fs from 'fs-extra';
 import { DataManager } from '../data/data-manager.interface';
 import { inject, injectable } from 'inversify';
 import TYPES from '../types';
+import { ALL_CARDS } from './card-database';
 
 const CATEGORIES = ['masterminds', 'schemes', 'villains', 'henchmen', 'heroes'];
 
@@ -12,11 +13,8 @@ export class CardLoader {
     constructor(@inject(TYPES.DataManager) private readonly dataManager: DataManager) {}
 
     public loadData() {
-        let rawData = fs.readFileSync('./assets/legendary.json');
-        const legendaryBase = JSON.parse(rawData.toString());
-
+        const legendaryBase = { ...ALL_CARDS };
         this.mergeGameDataIntoBase(legendaryBase, this.dataManager.readGamesData());
-
         return legendaryBase;
     }
 

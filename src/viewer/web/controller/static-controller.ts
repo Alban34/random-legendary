@@ -12,21 +12,21 @@ export class StaticController extends AbstractController {
 
     @httpGet('/bootstrap.css')
     public getBootstrap() {
-        return fs.readFileSync('./node_modules/bootstrap/dist/css/bootstrap.min.css');
+        return fs.readFileSync('./assets/generated/bootstrap.min.css');
     }
 
     @httpGet('/bootstrap.min.css.map')
     public getBootstrapMinMap() {
-        return fs.readFileSync('./node_modules/bootstrap/dist/css/bootstrap.min.css.map');
+        return fs.readFileSync('./assets/generated/bootstrap.min.css.map');
     }
 
     @httpGet('/bootstrap.js')
     public getBootstrapJS() {
-        return fs.readFileSync('./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js');
+        return fs.readFileSync('./assets/generated/bootstrap.bundle.min.js');
     }
 
     @httpGet('/bootstrap.bundle.min.js.map')
     public getBootstrapJSMap() {
-        return fs.readFileSync('./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js.map');
+        return fs.readFileSync('./assets/generated/bootstrap.bundle.min.js.map');
     }
 }
