@@ -35,7 +35,8 @@ export class GameManager {
             villains,
             henchmen,
             heroes,
-            bystanders: -1
+            bystanders: -1,
+            masterStrike: -1
         };
     }
 

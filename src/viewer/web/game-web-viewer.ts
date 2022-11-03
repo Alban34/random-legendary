@@ -1,7 +1,12 @@
 import { Game } from '../../game/model/game';
 
 export class GameWebViewer {
-    public buildView(playerCount, game: Game): string {
+    public buildView(playerCount: number, game: Game): string {
+
+        let henchmenLimit: number;
+        if (playerCount === 1) {
+            henchmenLimit = 3;
+        }
 
         return `
             <div class="new-game">
@@ -28,6 +33,7 @@ export class GameWebViewer {
                             ${this.displayCard(game.scheme)}
                         </div>
                         <p>Bystanders: ${game.bystanders}</p>
+                        <p>Master strikes: ${game.masterStrike}</p>
                     </div>
                 </div>
                 <div class="card">
@@ -36,7 +42,7 @@ export class GameWebViewer {
                     </div>
                     <div class="card-body">
                         <p>Villains: ${this.getMultipleToDisplay(game.villains)}</p>
-                        <p>Henchmen: ${this.getMultipleToDisplay(game.henchmen)}</p>
+                        <p>Henchmen: ${this.getMultipleToDisplay(game.henchmen, henchmenLimit)}</p>
                     </div>
                 </div>
                 <div class="card">
@@ -51,10 +57,14 @@ export class GameWebViewer {
         `;
     }
 
-    private getMultipleToDisplay(group) {
+    private getMultipleToDisplay(group, limit?: number) {
+        let limitSentence = '';
+        if (limit) {
+            limitSentence = `(only ${limit} cards of them)`;
+        }
         let display = `<ul>`;
         group.forEach(card => {
-            display += `<li class="row">${this.displayCard(card)}</li>`;
+            display += `<li class="row">${this.displayCard(card)}${limitSentence}</li>`;
         });
         display += `</ul>`;
         return display;

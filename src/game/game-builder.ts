@@ -45,7 +45,8 @@ export class GameBuilder {
             villains,
             henchmen,
             heroes,
-            bystanders: playerConfig.bystandersCount
+            bystanders: playerConfig.bystandersCount,
+            masterStrike: playerConfig.masterStrikeCount
         };
     }
 

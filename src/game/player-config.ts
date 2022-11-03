@@ -1,9 +1,19 @@
+export enum GAME_MODE {
+    SOLO = 0,
+    ADVANCED_SOLO = 1,
+    TWO_PLAYERS = 2,
+    THREE_PLAYERS = 3,
+    FOUR_PLAYERS = 4,
+    FIVE_PLAYERS = 5
+}
+
 export class PlayerConfig {
 
     private readonly _villainsCount: number;
     private readonly _henchmenCount: number;
     private readonly _heroesCount: number;
     private readonly _bystandersCount: number;
+    private readonly _masterStrikeCount: number = 5;
 
     public get villainsCount(): number {
         return this._villainsCount;
@@ -21,12 +31,33 @@ export class PlayerConfig {
         return this._bystandersCount;
     }
 
-    public get playerCount(): number {
-        return this._playerCount;
+    public get masterStrikeCount(): number {
+        return this._masterStrikeCount;
     }
 
-    constructor(private _playerCount: number) {
-        switch (_playerCount) {
+    public playerCount: number;
+
+    constructor(gameMode: GAME_MODE) {
+
+        switch (gameMode) {
+            case GAME_MODE.TWO_PLAYERS:
+                this.playerCount = 2;
+                break;
+            case GAME_MODE.THREE_PLAYERS:
+                this.playerCount = 3;
+                break;
+            case GAME_MODE.FOUR_PLAYERS:
+                this.playerCount = 4;
+                break;
+            case GAME_MODE.FIVE_PLAYERS:
+                this.playerCount = 5;
+                break;
+            default:
+                this.playerCount = 1;
+                break;
+        }
+
+        switch (this.playerCount) {
             case 2: {
                 this._villainsCount = 2;
                 this._henchmenCount = 1;
@@ -62,6 +93,10 @@ export class PlayerConfig {
                 this._bystandersCount = 1;
                 break;
             }
+        }
+
+        if (gameMode === GAME_MODE.SOLO) {
+            this._masterStrikeCount = 1;
         }
     }
 }

@@ -19,7 +19,7 @@ Once the dependencies are installed you have 2 options:
 - run `npm run start:console` to have a command line user interface
 - run `npm run start:web` to connect to http://localhost:3000 with your web browser to have a web user interface
 
-If you play solo, only the advanced solo rules from the Dark City extension will be applied for now.
+If you play solo, both core and advanced solo rules can be used.
 
 ### Files
 This app works based on 3 files:
@@ -52,7 +52,6 @@ I may also:
 - display a history of the games with the most used cards and the best scores
 - give possibility to enter multiple scores for a given game (depending on number of players)
 - create an executable app for ease of use
-- implement the core solo rules
 - make it "multi-tenant" so that heruko deployment can be used by everyone
 
 ## Quick try

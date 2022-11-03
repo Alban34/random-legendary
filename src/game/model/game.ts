@@ -8,4 +8,5 @@ export interface Game {
     henchmen: Card[];
     heroes: Card[];
     bystanders: number;
+    masterStrike: number;
 }

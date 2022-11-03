@@ -21,14 +21,14 @@ export class GameController extends AbstractController {
 
     @httpGet('/new/:playerCount')
     public get(request: Request): string {
-        const playerCount = parseInt(request['params'].playerCount);
-        return this.writeHTMLResponse(this.startGame(playerCount));
+        const gameMode = parseInt(request['params'].playerCount);
+        return this.writeHTMLResponse(this.startGame(gameMode));
     }
 
-    private startGame(playerCount: number): string {
+    private startGame(gameMode: number): string {
         const cardManager = new CardManager();
 
-        const playerConfig = new PlayerConfig(playerCount);
+        const playerConfig = new PlayerConfig(gameMode);
         const gameBuilder = new GameBuilder();
 
         const allCardList = this.cardLoader.loadData();
@@ -38,7 +38,7 @@ export class GameController extends AbstractController {
         this.dataGameManager.saveData(allCardList);
 
         const gameViewer = new GameWebViewer();
-        return gameViewer.buildView(playerCount, game);
+        return gameViewer.buildView(playerConfig.playerCount, game);
     }
 
 }
