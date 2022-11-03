@@ -896,7 +896,7 @@ export const ALL_CARDS =
       ]
     },
     {
-      "name": "Amadeus Cho (+5)",
+      "name": "Amadeus Cho",
       "extension": "World War Hulk",
       "teams": [
         "Champions"
@@ -1001,7 +1001,7 @@ export const ALL_CARDS =
       ]
     },
     {
-      "name": "Bruce Banner (+5)",
+      "name": "Bruce Banner",
       "extension": "World War Hulk",
       "teams": [
         "The Avengers"
@@ -1015,7 +1015,7 @@ export const ALL_CARDS =
       ]
     },
     {
-      "name": "Caiera (+1)",
+      "name": "Caiera",
       "extension": "World War Hulk",
       "teams": [
         "Warbound"
@@ -1213,7 +1213,7 @@ export const ALL_CARDS =
       ]
     },
     {
-      "name": "Gladiator Hulk (+5)",
+      "name": "Gladiator Hulk",
       "extension": "World War Hulk",
       "teams": [
         "Warbound"
@@ -1255,7 +1255,7 @@ export const ALL_CARDS =
       ]
     },
     {
-      "name": "Hiroim (+5)",
+      "name": "Hiroim",
       "extension": "World War Hulk",
       "teams": [
         "Warbound"
@@ -1269,7 +1269,7 @@ export const ALL_CARDS =
       ]
     },
     {
-      "name": "Hulkbuster Iron Man (+3)",
+      "name": "Hulkbuster Iron Man",
       "extension": "World War Hulk",
       "teams": [
         "The Avengers"
@@ -1318,7 +1318,7 @@ export const ALL_CARDS =
       ]
     },
     {
-      "name": "Joe Fix-It, Grey Hulk (+3)",
+      "name": "Joe Fix-It, Grey Hulk",
       "extension": "World War Hulk",
       "teams": [
         "Crime Syndicate"
@@ -1332,7 +1332,7 @@ export const ALL_CARDS =
       ]
     },
     {
-      "name": "Korg (+3)",
+      "name": "Korg",
       "extension": "World War Hulk",
       "teams": [
         "Warbound"
@@ -1375,7 +1375,7 @@ export const ALL_CARDS =
       ]
     },
     {
-      "name": "Miek the Unhived (+1)",
+      "name": "Miek the Unhived",
       "extension": "World War Hulk",
       "teams": [
         "Warbound"
@@ -1417,7 +1417,7 @@ export const ALL_CARDS =
       ]
     },
     {
-      "name": "Namora (+3)",
+      "name": "Namora",
       "extension": "World War Hulk",
       "teams": [
         "Champions"
@@ -1438,7 +1438,7 @@ export const ALL_CARDS =
       ]
     },
     {
-      "name": "No-Name, Brood Queen (+3)",
+      "name": "No-Name, Brood Queen",
       "extension": "World War Hulk",
       "teams": [
         "Warbound"
@@ -1509,7 +1509,7 @@ export const ALL_CARDS =
       ]
     },
     {
-      "name": "Rick Jones (+9)",
+      "name": "Rick Jones",
       "extension": "World War Hulk",
       "teams": [
         "S.H.I.E.L.D.",
@@ -1545,7 +1545,7 @@ export const ALL_CARDS =
       ]
     },
     {
-      "name": "Sentry (+8)",
+      "name": "Sentry",
       "extension": "World War Hulk",
       "teams": [
         "The Avengers"
@@ -1559,7 +1559,7 @@ export const ALL_CARDS =
       ]
     },
     {
-      "name": "She-Hulk (+5)",
+      "name": "She-Hulk",
       "extension": "World War Hulk",
       "teams": [
         "The Avengers"
@@ -1573,7 +1573,7 @@ export const ALL_CARDS =
       ]
     },
     {
-      "name": "Skaar, Son of Hulk (+3)",
+      "name": "Skaar, Son of Hulk",
       "extension": "World War Hulk",
       "teams": [
         "The Avengers"
