@@ -4,10 +4,9 @@
   "description": "Fan made randomizer for Legendary Marvel",
   "main": "index.js",
   "scripts": {
-    "postinstall": "ts-node ./scripts/copy-bootstrap.ts",
-    "clean": "rimraf ./dist",
+    "clean": "rimraf ./dist && rimraf src/viewer/web/generated && rimraf coverage",
     "build": "tsc",
-    "build:clean": "npm run clean && tsc",
+    "build:clean": "npm run clean && ts-node scripts/build-static-assets.ts && tsc",
     "package": "npm run build:clean && webpack --config webpack.config.js",
     "start:console": "ts-node ./src/index.ts",
     "start:web": "ts-node ./src/server.ts",
