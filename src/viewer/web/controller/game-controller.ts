@@ -1,3 +1,5 @@
+import { inject } from 'inversify';
+import { Request } from 'express';
 import { controller, httpGet } from 'inversify-express-utils';
 import { AbstractController } from './abstract-controller';
 import { PlayerConfig } from '../../../game/player-config';
@@ -6,7 +8,6 @@ import { GameWebViewer } from '../game-web-viewer';
 import { CardLoader } from '../../../card/card-loader';
 import { CardManager } from '../../../card/card-manager';
 import { GameDataManager } from '../../../game/game-data-manager';
-import { inject } from 'inversify';
 import TYPES from '../../../types';
 
 @controller('/game')

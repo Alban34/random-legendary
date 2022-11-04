@@ -1,4 +1,3 @@
-import 'reflect-metadata';
 import { DataManager } from '../data/data-manager.interface';
 import { inject, injectable } from 'inversify';
 import TYPES from '../types';

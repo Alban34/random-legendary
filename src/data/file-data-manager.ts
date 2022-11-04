@@ -1,4 +1,3 @@
-import 'reflect-metadata';
 import { DataManager } from './data-manager.interface';
 import { Scores } from '../game/model/scores';
 import fs from 'fs-extra';

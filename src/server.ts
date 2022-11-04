@@ -1,6 +1,6 @@
 import 'reflect-metadata';
 import { InversifyExpressServer } from 'inversify-express-utils';
-import * as bodyParser from 'body-parser';
+import bodyParser from 'body-parser';
 
 import './viewer/web/controller/home-controller';
 import './viewer/web/controller/card-controller';
