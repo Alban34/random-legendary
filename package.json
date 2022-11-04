@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "clean": "rimraf ./dist && rimraf src/viewer/web/generated && rimraf coverage",
-    "build": "tsc",
-    "build:clean": "npm run clean && ts-node scripts/build-static-assets.ts && tsc",
+    "build": "ts-node scripts/build-static-assets.ts && tsc",
+    "build:clean": "npm run clean && npm run build",
     "package": "npm run build:clean && webpack --config webpack.config.js",
     "start:console": "ts-node ./src/index.ts",
     "start:web": "ts-node ./src/server.ts",
