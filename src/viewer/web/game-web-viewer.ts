@@ -9,7 +9,7 @@ export class GameWebViewer {
         }
 
         return `
-            <div class="new-game">
+            <div class="col-lg-6 col-md-8 col-sm-12">
                 <div class="card">
                     <div class="card-header bg-info">
                         Game setup

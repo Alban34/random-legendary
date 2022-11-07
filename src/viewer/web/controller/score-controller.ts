@@ -41,7 +41,7 @@ export class ScoreController extends AbstractController {
         const allAvailableGamesForScore = this.gameManager.loadRegisteredGameWithNoScore(allCardList);
 
         let webView = `
-                <form action="/scores" method="post" class="scores">`;
+                <form action="/scores" method="post" class="col-lg-6 col-md-8 col-sm-12">`;
         allAvailableGamesForScore.forEach(value => {
             webView += `
                     <div class="card">
