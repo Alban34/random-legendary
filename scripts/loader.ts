@@ -1,5 +1,8 @@
 const parseMultiTeams = (value) => {
-    return value.split('Microbadge: Legendary fan - ').filter(v => v !== '').map(v => {
+    const searchFor = 'Microbadge: Legendary fan - ';
+    const regEscape = v => v.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
+
+    return value.split(new RegExp(regEscape(searchFor), "ig")).filter(v => v !== '').map(v => {
         if (v.indexOf(' Team') > -1) {
             return v.substring(0, v.indexOf(' Team'));
         }
@@ -10,8 +13,44 @@ const parseMultiTeams = (value) => {
     });
 };
 
+const flattenHeroTeams = (heroes) => {
+    let flatHeroes = '';
+    heroes.forEach(e => flatHeroes += '\n\'' + e.replace(/'/g, '\\\'') + '\',');
+    flatHeroes = flatHeroes.substring(0, flatHeroes.length -1) + '\n';
+    return flatHeroes;
+}
+
 
 const toParse = [
+
+
+    /*    {
+            'setName': 'TEMPLATE',
+            'heroes': `
+
+    `,
+            'masterminds': `
+
+
+    `,
+            'schemes': `
+
+
+    `,
+            'villains': `
+
+
+    `,
+            'henchmen': `
+
+
+    `
+        },
+
+
+     */
+
+
     {
         'setName': 'Core Set',
         'heroes': `
@@ -565,6 +604,141 @@ Spider-Infected
     },
 
 
+    {
+        'setName': 'X-Men',
+        'heroes': `
+Microbadge: Legendary fan - X-Men Team Aurora & Northstar
+Microbadge: Legendary fan - X-Men Team Banshee
+Microbadge: Legendary fan - X-Men Team Beast
+Microbadge: Legendary fan - X-Men Team Cannonball
+Microbadge: Legendary fan - X-Men Team Colossus & Wolverine
+Microbadge: Legendary fan - X-Men Team Dazzler
+Microbadge: Legendary fan - X-Men Team Havok
+Microbadge: Legendary fan - X-Men Team Jubilee
+Microbadge: Legendary fan - X-Men Team Kitty Pryde
+Microbadge: Legendary fan - X-Men Team Legion
+Microbadge: Legendary fan - X-Men Team Longshot
+Microbadge: Legendary fan - X-Men Team Phoenix
+Microbadge: Legendary fan - X-Men Team Polaris
+Microbadge: Legendary fan - X-Men Team Psylocke
+Microbadge: Legendary fan - X-Men Team X-23
+`,
+        'masterminds': `
+Arcade
+Dark Phoenix
+Deathbird
+Mojo
+Onslaught
+Shadow King
+
+`,
+        'schemes': `
+Alien Brood Encounters
+Anti-Mutant Hatred
+The Dark Phoenix Saga
+Horror of Horrors
+Mutant-Hunting Super Sentinels
+Nuclear Armageddon
+Televised Deathtraps of Mojoworld
+X-Men Danger Room Goes Berserk
+
+`,
+        'villains': `
+
+Dark Descendants
+Hellfire Club
+Mojoverse
+Murderworld
+Shadow-X
+Shi'ar Imperial Guard
+Sisterhood of Mutants
+`,
+        'henchmen': `
+
+The Brood
+Hellfire Cult
+Sapien League
+Shi'ar Death Commandos
+Shi'ar Patrol Craft
+`
+    },
+
+
+
+    {
+        'setName': 'Messiah Complex',
+        'heroes': `
+Microbadge: Legendary fan - X-Factor Team M
+Microbadge: Legendary fan - X-Factor Team Multiple Man
+Microbadge: Legendary fan - X-Factor Team Rictor
+Microbadge: Legendary fan - X-Force Team Shatterstar
+Microbadge: Legendary fan - X-Factor Team Siryn
+Microbadge: Legendary fan - X-Men Team Stepford Cuckoos
+Microbadge: Legendary fan - X-Factor Team Strong Guy
+Microbadge: Legendary fan - X-Force Team Warpath
+`,
+        'masterminds': `
+
+Bastion
+Exodus
+Lady Deathstrike
+`,
+        'schemes': `
+
+Drain Mutants' Powers to... / ...Open Rifts to Future Timelines
+Hack Cerebro to... / ...Manipulate the Mutant Messiah
+Hire Singularity Investigations to... / ...Reveal Heroes' Evil Clones
+Raid Gene Bank to... / ...Unleash an Anti-Mutant Bioweapon
+`,
+        'villains': `
+Acolytes
+Clan Yashida
+Purifiers
+Reavers
+
+`,
+        'henchmen': `
+Mr. Sinister Clones
+Sentinel Squad O*N*E*
+
+`
+    },
+
+
+
+    {
+        'setName': 'Black Panther',
+        'heroes': `
+Microbadge: Legendary Fan - Heroes of Wakanda "Wakanda Forever!" Team General Okoye
+Microbadge: Legendary Fan - Heroes of Wakanda "Wakanda Forever!" Team King Black Panther
+Microbadge: Legendary Fan - Heroes of Wakanda "Wakanda Forever!" Team Princess Shuri
+Microbadge: Legendary Fan - Heroes of Wakanda "Wakanda Forever!" Team Queen Storm of Wakanda
+Microbadge: Legendary Fan - Heroes of Wakanda "Wakanda Forever!" Team White Wolf
+`,
+        'masterminds': `
+Killmonger
+Klaw
+
+`,
+        'schemes': `
+
+Plunder Wakanda's Vibranium
+Poison Lakes with Nanite Microbots
+Provoke a Clash of Nations
+Seize The Wakandan Throne
+`,
+        'villains': `
+Enemies of Wakanda
+Killmonger's League
+
+`,
+        'henchmen': `
+
+
+`
+    },
+
+
 ];
 
 let allEntries = {
@@ -619,6 +793,10 @@ toParse.forEach(content => {
             hero = hero.substring(0, hero.indexOf(' - '));
         }
 
+        if (hero.indexOf('(+') > -1) {
+            hero = hero.substring(0, hero.indexOf('(+'));
+        }
+
         return { team, hero, extension: content.setName };
     }).forEach(value => {
         allEntries.heroes.push({
@@ -646,32 +824,38 @@ allEntries.heroes.sort((a, b) => {
     return a.name.localeCompare(b.name);
 });
 
-console.log('{"masterminds": [');
-allEntries.masterminds.forEach(v => {
-    console.log(`{"name":"${v.name.replace(/"/g, '\\"')}", "extension": "${v.extension}", "alwaysLead": "", "alwaysLeadCategory": "villains"},`);
-});
-console.log('],');
 
-console.log('"schemes": [');
-allEntries.schemes.forEach(v => {
-    console.log(`{"name":"${v.name.replace(/"/g, '\\"')}", "extension": "${v.extension}"},`);
-});
-console.log('],');
+const printAll = () => {
 
-console.log('"villains": [');
-allEntries.villains.forEach(v => {
-    console.log(`{"name":"${v.name.replace(/"/g, '\\"')}", "extension": "${v.extension}"},`);
-});
-console.log('],');
+    console.log(`export const ALL_CARDS =\n{'masterminds': [`);
+    allEntries.masterminds.forEach(v => {
+        console.log(`{\n'name':'${v.name.replace(/'/g, '\\\'')}', \n'extension': '${v.extension}', \n'alwaysLead': '', \n'alwaysLeadCategory': 'villains'},`);
+    });
+    console.log('],');
 
-console.log('"henchmen": [');
-allEntries.henchmen.forEach(v => {
-    console.log(`{"name":"${v.name.replace(/"/g, '\\"')}", "extension": "${v.extension}"},`);
-});
-console.log('],');
+    console.log(`'schemes': [`);
+    allEntries.schemes.forEach(v => {
+        console.log(`{\n'name':'${v.name.replace(/'/g, '\\\'')}', \n'extension': '${v.extension}'},`);
+    });
+    console.log('],');
 
-console.log('"heroes": [');
-allEntries.heroes.forEach(v => {
-    console.log(`{"name":"${v.name.replace(/"/g, '\\"')}", "extension": "${v.extension}", "teams":[${v.teams.flatMap(e => '"' + e + '",')}]},`);
-});
-console.log(']}');
+    console.log(`'villains': [`);
+    allEntries.villains.forEach(v => {
+        console.log(`{\n'name':'${v.name.replace(/'/g, '\\\'')}', \n'extension': '${v.extension}'},`);
+    });
+    console.log('],');
+
+    console.log(`'henchmen': [`);
+    allEntries.henchmen.forEach(v => {
+        console.log(`{\n'name':'${v.name.replace(/'/g, '\\\'')}', \n'extension': '${v.extension}'},`);
+    });
+    console.log('],');
+
+    console.log(`'heroes': [`);
+    allEntries.heroes.forEach(v => {
+        console.log(`{\n'name':'${v.name.replace(/'/g, '\\\'')}', \n'extension': '${v.extension}', \n'teams':[${flattenHeroTeams(v.teams)}]},`);
+    });
+    console.log(']};');
+}
+
+printAll();

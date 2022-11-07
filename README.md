@@ -30,6 +30,7 @@ This app works based on 3 files:
 ## Known extensions
 So far, the cards that are randomly chosen come from:
 - Ant-Man
+- Black Panther
 - Champions
 - Civil War
 - Core Set
@@ -37,12 +38,14 @@ So far, the cards that are randomly chosen come from:
 - Doctor Strange and the Shadows of Nightmare
 - Guardians of the Galaxy
 - Heroes of Asgard
+- Messiah Complex
 - Paint the Town Red
 - S.H.I.E.L.D.
 - Secret Wars, Volume 1
 - Secret Wars, Volume 2
 - The New Mutants
 - World War Hulk
+- X-Men
 
 ## What's next?
 This is a very early version of the randomizer that addresses only my personal needs (with only my personally owned extensions).
