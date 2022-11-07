@@ -94,4 +94,21 @@ describe('GameBuilder', () => {
         expect(game.mastermind.gameId.length).toBe(2);
         expect(game.mastermind.gameId[0]).not.toBe(game.mastermind.gameId[1]);
     });
+
+    test('should force special cards for specialLead attribute', () => {
+
+        cardList.masterminds[0]['alwaysLead'] = 'v1';
+        cardList.masterminds[0]['alwaysLeadCategory'] = 'villains';
+        cardList.masterminds[0]['specialLead'] = 'sl';
+
+        cardList.henchmen.push({ name: 'hsl1', count: 20 });
+        cardList.henchmen.push({ name: 'hsl2', count: 15 });
+        cardList.henchmen.push({ name: 'hsl3', count: 20 });
+
+        const game = gameBuilder.buildGame(cardList, new PlayerConfig(2));
+
+        expect(game.villains[0].name).toBe('v1');
+        expect(game.henchmen[0].name).toBe('hsl2');
+    });
+
 });

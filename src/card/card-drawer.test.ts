@@ -115,4 +115,22 @@ describe('car-drawer', () => {
             expect(randomCards[0].name).not.toBe(randomCards[1].name);
         }
     });
+
+    test('should be able to pick a random card with name starting with requested value (e.g. Sentinels of Bastion', () => {
+        const cardDrawer = new CardDrawer();
+
+        const cardList = [
+            { 'name': 'super card1', 'count': 1 },
+            { 'name': 'extra card2', 'count': 1 },
+            { 'name': 'extra card3', 'count': 10 },
+            { 'name': 'extra card4', 'count': 10 },
+            { 'name': 'super card5', 'count': 1 }
+        ];
+
+        const randomCards = cardDrawer.drawRandomMultipleForce(cardList, 1, ['tra'], false);
+
+        expect(randomCards).toBeDefined();
+        expect(randomCards.length).toBe(1);
+        expect(randomCards[0].name).toBe('extra card2');
+    });
 });

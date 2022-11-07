@@ -27,9 +27,15 @@ export class GameBuilder {
             }
         }
 
+        let strictHenchmen = true;
+        if (mastermind.specialLead) {
+            alwaysLeadHenchmen.push(mastermind.specialLead);
+            strictHenchmen = false;
+        }
+
         const scheme = this.cardDrawer.drawRandomUnique(legendaryBase.schemes);
         const villains = this.cardDrawer.drawRandomMultipleForce(legendaryBase.villains, playerConfig.villainsCount, alwaysLeadVillains);
-        const henchmen = this.cardDrawer.drawRandomMultipleForce(legendaryBase.henchmen, playerConfig.henchmenCount, alwaysLeadHenchmen);
+        const henchmen = this.cardDrawer.drawRandomMultipleForce(legendaryBase.henchmen, playerConfig.henchmenCount, alwaysLeadHenchmen, strictHenchmen);
         const heroes = this.cardDrawer.drawRandomMultiple(legendaryBase.heroes, playerConfig.heroesCount);
 
         this.addGameIdToCard(mastermind, gameId);

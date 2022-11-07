@@ -30,18 +30,35 @@ export class CardDrawer {
      * @param cardList
      * @param countToDraw
      * @param alwaysSelected
+     * @param strict when true, search for the exact name found in alwaysSelected. Otherwise, search for a card containing this value.
      */
-    public drawRandomMultipleForce(cardList: Card[], countToDraw: number, alwaysSelected: string[]): Card[] {
-        const randomCount = countToDraw - alwaysSelected.length;
+    public drawRandomMultipleForce(cardList: Card[], countToDraw: number, alwaysSelected: string[], strict = true): Card[] {
+        let randomCount = countToDraw - alwaysSelected.length;
+        if (!strict) {
+            randomCount = countToDraw - 1;
+        }
 
-        let choices = cardList.filter(value => alwaysSelected.indexOf(value.name) > -1);
+        let choices = cardList.filter((value: Card) => alwaysSelected.indexOf(value.name) > -1);
+
+        if (!strict) {
+            const selectableCards = cardList.filter(this.containsFilter(alwaysSelected));
+            choices.push(this.drawRandom(selectableCards));
+        }
+
         choices.forEach(card => this.updateCardCount(card));
+
         const remainingCards = cardList.filter(card => choices.indexOf(card) === -1);
         for (let i = 0; i < randomCount; i++) {
             choices.push(this.drawRandom(remainingCards));
         }
 
         return choices;
+    }
+
+    private containsFilter(searchValues: string[]) {
+        return (value: Card) => {
+            return searchValues.filter(search => value.name.indexOf(search) > -1).length > 0;
+        };
     }
 
     private getRandomInt(max: number) {
