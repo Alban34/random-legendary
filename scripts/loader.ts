@@ -51,6 +51,123 @@ const toParse = [
      */
 
 
+   {
+        'setName': 'Black Widow',
+        'heroes': `
+Microbadge: Legendary fan - S.H.I.E.L.D. Team Black Widow
+Microbadge: Legendary fan - The Avengers Team Falcon & Winter Soldier
+Red Guardian
+Microbadge: Legendary fan - Marvel Knights team White Tiger
+Microbadge: Legendary fan - S.H.I.E.L.D. Team Yelena Belova
+`,
+        'masterminds': `
+Indestructible Man
+Taskmaster
+
+`,
+        'schemes': `
+Corrupt the Spy Agencies
+Frame Heroes for Murder
+Sniper Rifle Assassins
+Train Black Widows in the Red Room
+
+`,
+        'villains': `
+Elite Assassins
+Taskmaster's Thunderbolts
+
+`,
+        'henchmen': `
+
+
+`
+    },
+
+
+   {
+        'setName': 'Into the Cosmos',
+        'heroes': `
+Microbadge: Legendary fan - The Avengers Team Adam Warlock
+Microbadge: Legendary fan - The Avengers Team Captain Mar-Vell
+Microbadge: Legendary fan - The Avengers Team Moondragon
+Microbadge: Legendary fan - Guardians of the Galaxy team Nebula
+Microbadge: Legendary fan - The Avengers Team Nova
+Microbadge: Legendary fan - Guardians of the Galaxy team Phyla-Vell
+Microbadge: Legendary fan - The Avengers Team Quasar
+Ronan the Accuser
+Microbadge: Legendary fan - Guardians of the Galaxy team Yondu
+`,
+        'masterminds': `
+The Beyonder
+Grandmaster
+Magus
+
+`,
+        'schemes': `
+Annihilation:Conquest
+The Contest of Champions
+Destroy the Nova Corps
+Turn the Soul of Adam Warlock
+
+`,
+        'villains': `
+Black Order of Thanos
+Celestials
+Elders of the Universe
+From Beyond
+
+`,
+        'henchmen': `
+Sidera Maris, Bridge Builders
+Universal Church of Truth
+
+`
+    },
+
+
+{
+        'setName': 'Revelations',
+        'heroes': `
+Microbadge: Legendary fan - S.H.I.E.L.D. Team Captain Marvel - Agent of S.H.I.E.L.D.
+Microbadge: Legendary fan - The Avengers Team Darkhawk
+Microbadge: Legendary fan - The Avengers Team Hellcat
+Microbadge: Legendary fan - The Avengers Team Photon
+Microbadge: Legendary fan - The Avengers Team Quicksilver
+Microbadge: Legendary fan - The Avengers Team Ronin
+Microbadge: Legendary fan - The Avengers Team Scarlet Witch
+Microbadge: Legendary fan - The Avengers Team Speed
+Microbadge: Legendary fan - The Avengers Team War Machine
+`,
+        'masterminds': `
+Grim Reaper
+The Hood
+Mandarin
+
+`,
+        'schemes': `
+Earthquake Drains the Ocean / Tsunami Crushes the Coast
+House of M / No More Mutants
+The Korvac Saga / Korvac Revealed
+Secret HYDRA Corruption / Open HYDRA Revolution
+
+`,
+        'villains': `
+Army of Evil
+Dark Avengers
+Hood's Gang
+Lethal Legion
+
+`,
+        'henchmen': `
+
+Mandarin's Rings
+Hydra Base
+
+`
+    },
+
+
+
     {
         'setName': 'Core Set',
         'heroes': `
@@ -685,10 +802,10 @@ Lady Deathstrike
 `,
         'schemes': `
 
-Drain Mutants' Powers to... / ...Open Rifts to Future Timelines
-Hack Cerebro to... / ...Manipulate the Mutant Messiah
-Hire Singularity Investigations to... / ...Reveal Heroes' Evil Clones
-Raid Gene Bank to... / ...Unleash an Anti-Mutant Bioweapon
+Drain Mutants' Powers to / Open Rifts to Future Timelines
+Hack Cerebro to / Manipulate the Mutant Messiah
+Hire Singularity Investigations to / Reveal Heroes' Evil Clones
+Raid Gene Bank to / Unleash an Anti-Mutant Bioweapon
 `,
         'villains': `
 Acolytes

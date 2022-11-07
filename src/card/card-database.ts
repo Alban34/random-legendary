@@ -94,6 +94,18 @@ export const ALL_CARDS =
                 'alwaysLeadCategory': 'villains'
             },
             {
+                'name': 'Grandmaster',
+                'extension': 'Into the Cosmos',
+                'alwaysLead': 'Elders of the Universe',
+                'alwaysLeadCategory': 'villains'
+            },
+            {
+                'name': 'Grim Reaper',
+                'extension': 'Revelations',
+                'alwaysLead': 'Lethal Legion',
+                'alwaysLeadCategory': 'villains'
+            },
+            {
                 'name': 'Hela, Goddess of Death',
                 'extension': 'Heroes of Asgard',
                 'alwaysLead': 'Omens of Ragnarok',
@@ -121,6 +133,12 @@ export const ALL_CARDS =
                 'name': 'Immortal Emperor Zheng-Zhu',
                 'extension': 'Secret Wars, Volume 2',
                 'alwaysLead': 'K\'un Lun',
+                'alwaysLeadCategory': 'villains'
+            },
+            {
+                'name': 'Indestructible Man',
+                'extension': 'Black Widow',
+                'alwaysLead': 'Elite Assassins',
                 'alwaysLeadCategory': 'villains'
             },
             {
@@ -184,9 +202,21 @@ export const ALL_CARDS =
                 'alwaysLeadCategory': 'villains'
             },
             {
+                'name': 'Magus',
+                'extension': 'Into the Cosmos',
+                'alwaysLead': 'Universal Church of Truth',
+                'alwaysLeadCategory': 'villains'
+            },
+            {
                 'name': 'Malekith the Accursed',
                 'extension': 'Heroes of Asgard',
                 'alwaysLead': 'Dark Council',
+                'alwaysLeadCategory': 'villains'
+            },
+            {
+                'name': 'Mandarin',
+                'extension': 'Revelations',
+                'alwaysLead': 'Mandarin\'s Rings',
                 'alwaysLeadCategory': 'villains'
             },
             {
@@ -298,9 +328,27 @@ export const ALL_CARDS =
                 'alwaysLeadCategory': 'villains'
             },
             {
+                'name': 'Taskmaster',
+                'extension': 'Black Widow',
+                'alwaysLead': 'Taskmaster\'s Thunderbolts',
+                'alwaysLeadCategory': 'villains'
+            },
+            {
                 'name': 'Thanos',
                 'extension': 'Guardians of the Galaxy',
                 'alwaysLead': 'Infinity Gems',
+                'alwaysLeadCategory': 'villains'
+            },
+            {
+                'name': 'The Beyonder',
+                'extension': 'Into the Cosmos',
+                'alwaysLead': 'From Beyond',
+                'alwaysLeadCategory': 'villains'
+            },
+            {
+                'name': 'The Hood',
+                'extension': 'Revelations',
+                'alwaysLead': 'Hood\'s Gang',
                 'alwaysLeadCategory': 'villains'
             },
             {
@@ -332,7 +380,7 @@ export const ALL_CARDS =
                 'extension': 'Secret Wars, Volume 1',
                 'alwaysLead': 'The Deadlands',
                 'alwaysLeadCategory': 'villains'
-            }
+            },
         ],
         'schemes': [
             {
@@ -342,6 +390,10 @@ export const ALL_CARDS =
             {
                 'name': 'Alien Brood Encounters',
                 'extension': 'X-Men'
+            },
+            {
+                'name': 'Annihilation:Conquest',
+                'extension': 'Into the Cosmos'
             },
             {
                 'name': 'Anti-Mutant Hatred',
@@ -380,6 +432,10 @@ export const ALL_CARDS =
                 'extension': 'Secret Wars, Volume 1'
             },
             {
+                'name': 'Corrupt the Spy Agencies',
+                'extension': 'Black Widow'
+            },
+            {
                 'name': 'Crash the Moon into the Sun',
                 'extension': 'The New Mutants'
             },
@@ -408,6 +464,10 @@ export const ALL_CARDS =
                 'extension': 'Secret Wars, Volume 2'
             },
             {
+                'name': 'Destroy the Nova Corps',
+                'extension': 'Into the Cosmos'
+            },
+            {
                 'name': 'Detonate the Helicarrier',
                 'extension': 'Dark City'
             },
@@ -416,12 +476,16 @@ export const ALL_CARDS =
                 'extension': 'Champions'
             },
             {
-                'name': 'Drain Mutants\' Powers to... / ...Open Rifts to Future Timelines',
+                'name': 'Drain Mutants\' Powers to / Open Rifts to Future Timelines',
                 'extension': 'Messiah Complex'
             },
             {
                 'name': 'Duels of Science and Magic',
                 'extension': 'Doctor Strange and the Shadows of Nightmare'
+            },
+            {
+                'name': 'Earthquake Drains the Ocean / Tsunami Crushes the Coast',
+                'extension': 'Revelations'
             },
             {
                 'name': 'Enthrone the Barons of Battleworld',
@@ -444,11 +508,15 @@ export const ALL_CARDS =
                 'extension': 'Secret Wars, Volume 1'
             },
             {
+                'name': 'Frame Heroes for Murder',
+                'extension': 'Black Widow'
+            },
+            {
                 'name': 'Gladiator Pits of Sakaar',
                 'extension': 'World War Hulk'
             },
             {
-                'name': 'Hack Cerebro to... / ...Manipulate the Mutant Messiah',
+                'name': 'Hack Cerebro to / Manipulate the Mutant Messiah',
                 'extension': 'Messiah Complex'
             },
             {
@@ -456,12 +524,16 @@ export const ALL_CARDS =
                 'extension': 'S.H.I.E.L.D.'
             },
             {
-                'name': 'Hire Singularity Investigations to... / ...Reveal Heroes\' Evil Clones',
+                'name': 'Hire Singularity Investigations to / Reveal Heroes\' Evil Clones',
                 'extension': 'Messiah Complex'
             },
             {
                 'name': 'Horror of Horrors',
                 'extension': 'X-Men'
+            },
+            {
+                'name': 'House of M / No More Mutants',
+                'extension': 'Revelations'
             },
             {
                 'name': 'HYDRA Helicarriers Hunt Heroes',
@@ -556,7 +628,7 @@ export const ALL_CARDS =
                 'extension': 'Heroes of Asgard'
             },
             {
-                'name': 'Raid Gene Bank to... / ...Unleash an Anti-Mutant Bioweapon',
+                'name': 'Raid Gene Bank to / Unleash an Anti-Mutant Bioweapon',
                 'extension': 'Messiah Complex'
             },
             {
@@ -578,6 +650,10 @@ export const ALL_CARDS =
             {
                 'name': 'Secret Empire of Betrayal',
                 'extension': 'S.H.I.E.L.D.'
+            },
+            {
+                'name': 'Secret HYDRA Corruption / Open HYDRA Revolution',
+                'extension': 'Revelations'
             },
             {
                 'name': 'Secret Invasion of the Skrull Shapeshifters',
@@ -602,6 +678,10 @@ export const ALL_CARDS =
             {
                 'name': 'Smash Two Dimensions Together',
                 'extension': 'Secret Wars, Volume 1'
+            },
+            {
+                'name': 'Sniper Rifle Assassins',
+                'extension': 'Black Widow'
             },
             {
                 'name': 'Splice Humans with Spider DNA',
@@ -636,6 +716,10 @@ export const ALL_CARDS =
                 'extension': 'Paint the Town Red'
             },
             {
+                'name': 'The Contest of Champions',
+                'extension': 'Into the Cosmos'
+            },
+            {
                 'name': 'The Dark Phoenix Saga',
                 'extension': 'X-Men'
             },
@@ -656,6 +740,10 @@ export const ALL_CARDS =
                 'extension': 'Secret Wars, Volume 2'
             },
             {
+                'name': 'The Korvac Saga / Korvac Revealed',
+                'extension': 'Revelations'
+            },
+            {
                 'name': 'The Kree-Skrull War',
                 'extension': 'Guardians of the Galaxy'
             },
@@ -666,6 +754,10 @@ export const ALL_CARDS =
             {
                 'name': 'The Mark of Khonshu',
                 'extension': 'Secret Wars, Volume 2'
+            },
+            {
+                'name': 'Train Black Widows in the Red Room',
+                'extension': 'Black Widow'
             },
             {
                 'name': 'Transform Citizens into Demons',
@@ -682,6 +774,10 @@ export const ALL_CARDS =
             {
                 'name': 'Trapped in the Insane Asylum',
                 'extension': 'The New Mutants'
+            },
+            {
+                'name': 'Turn the Soul of Adam Warlock',
+                'extension': 'Into the Cosmos'
             },
             {
                 'name': 'Unite the Shards',
@@ -730,12 +826,24 @@ export const ALL_CARDS =
                 'extension': 'Messiah Complex'
             },
             {
+                'name': 'Army of Evil',
+                'extension': 'Revelations'
+            },
+            {
                 'name': 'Aspects of the Void',
                 'extension': 'World War Hulk'
             },
             {
+                'name': 'Black Order of Thanos',
+                'extension': 'Into the Cosmos'
+            },
+            {
                 'name': 'Brotherhood',
                 'extension': 'Core Set'
+            },
+            {
+                'name': 'Celestials',
+                'extension': 'Into the Cosmos'
             },
             {
                 'name': 'Clan Yashida',
@@ -748,6 +856,10 @@ export const ALL_CARDS =
             {
                 'name': 'CSA Special Marshals',
                 'extension': 'Civil War'
+            },
+            {
+                'name': 'Dark Avengers',
+                'extension': 'Revelations'
             },
             {
                 'name': 'Dark Council',
@@ -770,6 +882,14 @@ export const ALL_CARDS =
                 'extension': 'Secret Wars, Volume 1'
             },
             {
+                'name': 'Elders of the Universe',
+                'extension': 'Into the Cosmos'
+            },
+            {
+                'name': 'Elite Assassins',
+                'extension': 'Black Widow'
+            },
+            {
                 'name': 'Emissaries of Evil',
                 'extension': 'Dark City'
             },
@@ -790,6 +910,10 @@ export const ALL_CARDS =
                 'extension': 'Dark City'
             },
             {
+                'name': 'From Beyond',
+                'extension': 'Into the Cosmos'
+            },
+            {
                 'name': 'Great Lake Avengers',
                 'extension': 'Civil War'
             },
@@ -808,6 +932,10 @@ export const ALL_CARDS =
             {
                 'name': 'Heroes for Hire',
                 'extension': 'Civil War'
+            },
+            {
+                'name': 'Hood\'s Gang',
+                'extension': 'Revelations'
             },
             {
                 'name': 'HYDRA',
@@ -840,6 +968,10 @@ export const ALL_CARDS =
             {
                 'name': 'Kree Starforce',
                 'extension': 'Guardians of the Galaxy'
+            },
+            {
+                'name': 'Lethal Legion',
+                'extension': 'Revelations'
             },
             {
                 'name': 'Limbo',
@@ -954,6 +1086,10 @@ export const ALL_CARDS =
                 'extension': 'Civil War'
             },
             {
+                'name': 'Taskmaster\'s Thunderbolts',
+                'extension': 'Black Widow'
+            },
+            {
                 'name': 'The Deadlands',
                 'extension': 'Secret Wars, Volume 1'
             },
@@ -1024,6 +1160,10 @@ export const ALL_CARDS =
                 'extension': 'X-Men'
             },
             {
+                'name': 'Hydra Base',
+                'extension': 'Revelations'
+            },
+            {
                 'name': 'Khonshu Guardians',
                 'extension': 'Secret Wars, Volume 2'
             },
@@ -1038,6 +1178,10 @@ export const ALL_CARDS =
             {
                 'name': 'Magma Men',
                 'extension': 'Secret Wars, Volume 2'
+            },
+            {
+                'name': 'Mandarin\'s Rings',
+                'extension': 'Revelations'
             },
             {
                 'name': 'Mandroids',
@@ -1080,6 +1224,10 @@ export const ALL_CARDS =
                 'extension': 'X-Men'
             },
             {
+                'name': 'Sidera Maris, Bridge Builders',
+                'extension': 'Into the Cosmos'
+            },
+            {
                 'name': 'Spider-Infected',
                 'extension': 'Secret Wars, Volume 2'
             },
@@ -1091,8 +1239,19 @@ export const ALL_CARDS =
                 'name': 'Thor Corps',
                 'extension': 'Secret Wars, Volume 1'
             },
+            {
+                'name': 'Universal Church of Truth',
+                'extension': 'Into the Cosmos'
+            },
         ],
         'heroes': [
+            {
+                'name': 'Adam Warlock',
+                'extension': 'Into the Cosmos',
+                'teams': [
+                    'The Avengers'
+                ]
+            },
             {
                 'name': 'Agent Phil Coulson',
                 'extension': 'S.H.I.E.L.D.',
@@ -1221,6 +1380,13 @@ export const ALL_CARDS =
             },
             {
                 'name': 'Black Widow',
+                'extension': 'Black Widow',
+                'teams': [
+                    'S.H.I.E.L.D.'
+                ]
+            },
+            {
+                'name': 'Black Widow',
                 'extension': 'Core Set',
                 'teams': [
                     'The Avengers'
@@ -1280,6 +1446,20 @@ export const ALL_CARDS =
                 'extension': 'Secret Wars, Volume 2',
                 'teams': [
                     'Illuminati'
+                ]
+            },
+            {
+                'name': 'Captain Mar-Vell',
+                'extension': 'Into the Cosmos',
+                'teams': [
+                    'The Avengers'
+                ]
+            },
+            {
+                'name': 'Captain Marvel',
+                'extension': 'Revelations',
+                'teams': [
+                    'S.H.I.E.L.D.'
                 ]
             },
             {
@@ -1345,6 +1525,13 @@ export const ALL_CARDS =
                 'teams': [
                     'The Avengers',
                     'Marvel Knights'
+                ]
+            },
+            {
+                'name': 'Darkhawk',
+                'extension': 'Revelations',
+                'teams': [
+                    'The Avengers'
                 ]
             },
             {
@@ -1439,6 +1626,13 @@ export const ALL_CARDS =
                 ]
             },
             {
+                'name': 'Falcon & Winter Soldier',
+                'extension': 'Black Widow',
+                'teams': [
+                    'The Avengers'
+                ]
+            },
+            {
                 'name': 'Forge',
                 'extension': 'Dark City',
                 'teams': [
@@ -1511,6 +1705,13 @@ export const ALL_CARDS =
             {
                 'name': 'Hawkeye',
                 'extension': 'Core Set',
+                'teams': [
+                    'The Avengers'
+                ]
+            },
+            {
+                'name': 'Hellcat',
+                'extension': 'Revelations',
                 'teams': [
                     'The Avengers'
                 ]
@@ -1713,6 +1914,13 @@ export const ALL_CARDS =
                 ]
             },
             {
+                'name': 'Moondragon',
+                'extension': 'Into the Cosmos',
+                'teams': [
+                    'The Avengers'
+                ]
+            },
+            {
                 'name': 'Ms. Marvel',
                 'extension': 'Champions',
                 'teams': [
@@ -1741,6 +1949,13 @@ export const ALL_CARDS =
                 ]
             },
             {
+                'name': 'Nebula',
+                'extension': 'Into the Cosmos',
+                'teams': [
+                    'Guardians of the Galaxy'
+                ]
+            },
+            {
                 'name': 'Nick Fury',
                 'extension': 'Core Set',
                 'teams': [
@@ -1766,6 +1981,13 @@ export const ALL_CARDS =
                 'extension': 'Champions',
                 'teams': [
                     'Champions'
+                ]
+            },
+            {
+                'name': 'Nova',
+                'extension': 'Into the Cosmos',
+                'teams': [
+                    'The Avengers'
                 ]
             },
             {
@@ -1802,6 +2024,20 @@ export const ALL_CARDS =
                 'extension': 'Secret Wars, Volume 2',
                 'teams': [
                     'X-Men'
+                ]
+            },
+            {
+                'name': 'Photon',
+                'extension': 'Revelations',
+                'teams': [
+                    'The Avengers'
+                ]
+            },
+            {
+                'name': 'Phyla-Vell',
+                'extension': 'Into the Cosmos',
+                'teams': [
+                    'Guardians of the Galaxy'
                 ]
             },
             {
@@ -1854,10 +2090,31 @@ export const ALL_CARDS =
                 ]
             },
             {
+                'name': 'Quasar',
+                'extension': 'Into the Cosmos',
+                'teams': [
+                    'The Avengers'
+                ]
+            },
+            {
                 'name': 'Queen Storm of Wakanda',
                 'extension': 'Black Panther',
                 'teams': [
                     'Heroes of Wakanda "Wakanda Forever!"'
+                ]
+            },
+            {
+                'name': 'Quicksilver',
+                'extension': 'Revelations',
+                'teams': [
+                    'The Avengers'
+                ]
+            },
+            {
+                'name': 'Red Guardian',
+                'extension': 'Black Widow',
+                'teams': [
+                    ''
                 ]
             },
             {
@@ -1890,6 +2147,20 @@ export const ALL_CARDS =
                 ]
             },
             {
+                'name': 'Ronan the Accuser',
+                'extension': 'Into the Cosmos',
+                'teams': [
+                    ''
+                ]
+            },
+            {
+                'name': 'Ronin',
+                'extension': 'Revelations',
+                'teams': [
+                    'The Avengers'
+                ]
+            },
+            {
                 'name': 'Ruby Summers',
                 'extension': 'Secret Wars, Volume 2',
                 'teams': [
@@ -1901,6 +2172,13 @@ export const ALL_CARDS =
                 'extension': 'Paint the Town Red',
                 'teams': [
                     'Spider Friends'
+                ]
+            },
+            {
+                'name': 'Scarlet Witch',
+                'extension': 'Revelations',
+                'teams': [
+                    'The Avengers'
                 ]
             },
             {
@@ -1957,6 +2235,13 @@ export const ALL_CARDS =
                 'extension': 'Secret Wars, Volume 2',
                 'teams': [
                     'X-Men'
+                ]
+            },
+            {
+                'name': 'Speed',
+                'extension': 'Revelations',
+                'teams': [
+                    'The Avengers'
                 ]
             },
             {
@@ -2150,6 +2435,13 @@ export const ALL_CARDS =
                 ]
             },
             {
+                'name': 'War Machine',
+                'extension': 'Revelations',
+                'teams': [
+                    'The Avengers'
+                ]
+            },
+            {
                 'name': 'Warlock',
                 'extension': 'The New Mutants',
                 'teams': [
@@ -2168,6 +2460,13 @@ export const ALL_CARDS =
                 'extension': 'Ant-Man',
                 'teams': [
                     'The Avengers'
+                ]
+            },
+            {
+                'name': 'White Tiger',
+                'extension': 'Black Widow',
+                'teams': [
+                    'Marvel Knights'
                 ]
             },
             {
@@ -2217,6 +2516,20 @@ export const ALL_CARDS =
                 'extension': 'X-Men',
                 'teams': [
                     'X-Men'
+                ]
+            },
+            {
+                'name': 'Yelena Belova',
+                'extension': 'Black Widow',
+                'teams': [
+                    'S.H.I.E.L.D.'
+                ]
+            },
+            {
+                'name': 'Yondu',
+                'extension': 'Into the Cosmos',
+                'teams': [
+                    'Guardians of the Galaxy'
                 ]
             },
         ]

@@ -31,6 +31,7 @@ This app works based on 3 files:
 So far, the cards that are randomly chosen come from:
 - Ant-Man
 - Black Panther
+- Black Widow
 - Champions
 - Civil War
 - Core Set
@@ -38,8 +39,10 @@ So far, the cards that are randomly chosen come from:
 - Doctor Strange and the Shadows of Nightmare
 - Guardians of the Galaxy
 - Heroes of Asgard
+- Into the Cosmos
 - Messiah Complex
 - Paint the Town Red
+- Revelations
 - S.H.I.E.L.D.
 - Secret Wars, Volume 1
 - Secret Wars, Volume 2
