@@ -19,6 +19,11 @@ small {
     font-size: 0.8em;
 }
 
+ul {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
 @media only screen and (min-width: 1200px) {
     .cards-container {
         grid-template-columns: repeat(5, 1fr);
@@ -63,4 +68,8 @@ small {
 
 .card-played-count {
     font-style: italic;
+}
+
+.card {
+    margin-bottom: 10px;
 }

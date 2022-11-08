@@ -1,4 +1,3 @@
-import fs from 'fs-extra';
 import { controller, httpGet } from 'inversify-express-utils';
 import { AbstractController } from './abstract-controller';
 import { STYLES } from '../generated/styles';
