@@ -17,7 +17,7 @@ export class GameManager {
     public loadRegisteredGameWithNoScore(cardList): string[] {
         const allGames = this.loadRegisteredGame(cardList);
         const scores = this.gameDataManager.loadScores();
-        return allGames.filter(game => !scores[game] || !scores[game].score);
+        return allGames.filter(game => !scores[game] || scores[game].length === 0);
     }
 
     public getCardsOfGame(cardList, gameId: string): Game {

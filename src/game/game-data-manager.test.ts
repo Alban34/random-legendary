@@ -49,7 +49,7 @@ describe('GameDataManager', () => {
             readGamesData() {
             },
             readScores(): Scores {
-                return { 'game2': { score: 10 } };
+                return { 'game2': [{ score: 10, player: 'player' }] };
             },
             writeGameData(gamesToSave) {
             },

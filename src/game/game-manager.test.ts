@@ -2,12 +2,35 @@ import { beforeEach, describe, expect, test } from '@jest/globals';
 import { GameManager } from './game-manager';
 import { container } from '../injectable-config';
 import TYPES from '../types';
+import { GameDataManager } from './game-data-manager';
+import { Score, Scores } from './model/scores';
+import { DataManager } from '../data/data-manager.interface';
 
 describe('GameManager', () => {
 
     let gameManager: GameManager;
+    let dataManagerMock: DataManager;
 
     beforeEach(() => {
+
+        dataManagerMock = {
+            readExtensionsData(): string[] {
+                return [];
+            },
+            readGamesData() {
+            },
+            readScores(): Scores {
+                return { 'game2': [{ score: 10, player: 'player' }] };
+            },
+            writeGameData(gamesToSave) {
+            },
+            writeExtensionsData(extensions: string[]) {
+            },
+            writeScores(scores): void {
+            }
+        };
+
+        container.rebind<DataManager>(TYPES.DataManager).toConstantValue(dataManagerMock);
         gameManager = container.get<GameManager>(TYPES.GameManager);
     });
 
@@ -65,6 +88,7 @@ describe('GameManager', () => {
     test('should load only the games without a scoring already registered', () => {
         const games = gameManager.loadRegisteredGameWithNoScore(cardList);
         expect(games).toContain('game1');
+        expect(games).not.toContain('game2');
         expect(games).toContain('game3');
     });
 });

@@ -99,4 +99,12 @@ export class PlayerConfig {
             this._masterStrikeCount = 1;
         }
     }
+
+    static guessPlayerCount(villains: number, henchmen: number): number {
+        if (henchmen === 1) {
+            return villains;
+        }
+
+        return villains + 1;
+    }
 }

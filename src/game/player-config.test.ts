@@ -61,4 +61,28 @@ describe('player-config', () => {
         expect(config.masterStrikeCount).toBe(5);
         expect(config.heroesCount).toBe(6);
     });
+
+    describe('should be able to guess the amount of players according to the villains and henchmen count', () => {
+
+        test('should 1 villains and 1 henchman lead to 1 player configs', () => {
+            expect(PlayerConfig.guessPlayerCount(1, 1)).toBe(1);
+        });
+
+        test('should 2 villains and 1 henchman lead to 2 players configs', () => {
+            expect(PlayerConfig.guessPlayerCount(2, 1)).toBe(2);
+        });
+
+        test('should 3 villains and 1 henchman lead to 3 players configs', () => {
+            expect(PlayerConfig.guessPlayerCount(3, 1)).toBe(3);
+        });
+
+        test('should 3 villains and 2 henchman lead to 4 players configs', () => {
+            expect(PlayerConfig.guessPlayerCount(3, 2)).toBe(4);
+        });
+
+        test('should 4 villains and 2 henchman lead to 5 players configs', () => {
+            expect(PlayerConfig.guessPlayerCount(4, 2)).toBe(5);
+        });
+
+    });
 });
