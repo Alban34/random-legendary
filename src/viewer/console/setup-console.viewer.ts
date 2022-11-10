@@ -134,7 +134,7 @@ export class SetupConsoleViewer {
             intro = `Sorry to hear you lost the game with id '${gameId}'.`;
         }
         console.log(`${intro}\nYour score has been saved in scores.json file.`);
-        this.gameDataManager.saveScore(gameId, score);
+        this.gameDataManager.saveScore(gameId, [{ score, player: 'player' }]);
     }
 
     private loadExtensions() {
