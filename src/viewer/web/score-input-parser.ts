@@ -28,13 +28,16 @@ export class ScoreInputParser {
             }
         }
 
+        this.setLostGames(scores, input);
+
+        return scores;
+    }
+
+    private setLostGames(scores, input) {
         for (const key of Object.keys(scores)) {
             if (!input[`${key}:won`]) {
                 scores[key].forEach(score => score.score = -1);
             }
         }
-
-        return scores;
     }
-
 }

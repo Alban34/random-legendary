@@ -2,8 +2,7 @@ import { beforeEach, describe, expect, test } from '@jest/globals';
 import { GameManager } from './game-manager';
 import { container } from '../injectable-config';
 import TYPES from '../types';
-import { GameDataManager } from './game-data-manager';
-import { Score, Scores } from './model/scores';
+import { Scores } from './model/scores';
 import { DataManager } from '../data/data-manager.interface';
 
 describe('GameManager', () => {
