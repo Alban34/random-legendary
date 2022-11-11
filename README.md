@@ -11,12 +11,25 @@ This is a fan made randomizer for Legendary Marvel, unofficial software.
 ### Pre-requisites
 To use it, you will need nodejs.
 
-### Install dependencies
-Once the project is cloned, just run `npm install` to install required dependencies.
+#### Use the randomizer from the published bundle
+>If you download the random-legendary.js bundle, you can run it by just entering the following command line: `node ./random-legendary.js`
 
-### Run the randomizer
+Once running, you can connect to http://localhost:3000 to access the randomizer.
+
+#### Installing from the source code
+
+> First, clone the repository
+
+Get all source code locally by cloning this GitHub repository.
+
+> Then, install all dependencies
+
+Run `npm install` to install required dependencies.
+
+> Run the randomizer
+
 Once the dependencies are installed you have 2 options:
-- run `npm run start:console` to have a command line user interface
+- run `npm run start:console` to have a command line user interface (not recommended, I no longer use it)
 - run `npm run start:web` to connect to http://localhost:3000 with your web browser to have a web user interface
 
 If you play solo, both core and advanced solo rules can be used.
@@ -52,18 +65,11 @@ So far, the cards that are randomly chosen come from:
 
 ## What's next?
 This is a very early version of the randomizer that addresses only my personal needs (with only my personally owned extensions).
-I will add more extensions in the future (as I acquired them ;)).
+I will add more extensions in the future.
 I may also:
 - improve bystanders and master strike requirements base on the scheme setup.
 - display a history of the games with the most used cards and the best scores
-- give possibility to enter multiple scores for a given game (depending on number of players)
 - create an executable app for ease of use
-- make it "multi-tenant" so that heruko deployment can be used by everyone
-
-## Quick try
-If you do not want to install it locally to try it, you can go to [the heroku deployment](http://marvel-legendary-randomizer.herokuapp.com/)
-
-/!\ Be aware that this is for demo only, all your data might be lost at anytime and might be changed by any other user connecting to this URL.
 
 ## Disclaimer
 This software is not affiliated to Upper Deck nor Marvel. 
