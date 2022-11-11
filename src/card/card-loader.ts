@@ -21,10 +21,12 @@ export class CardLoader {
             if (legendaryBase[category]) {
                 legendaryBase[category].forEach(baseValue => {
                     if (games[category]) {
-                        const saveCatValue = games[category].filter(m => m.name === baseValue.name);
+                        const saveCatValue = games[category].filter(m => {
+                            return m.name === baseValue.name && m.extension === baseValue.extension;
+                        });
                         if (saveCatValue && saveCatValue.length === 1) {
-                            baseValue.count = saveCatValue[0].count;
-                            baseValue.gameId = saveCatValue[0].gameId;
+                            this.mergeIfDefined(saveCatValue, baseValue, 'count');
+                            this.mergeIfDefined(saveCatValue, baseValue, 'gameId');
                         }
                     }
                 });
@@ -42,4 +44,10 @@ export class CardLoader {
         this.dataManager.writeExtensionsData(extensions);
     }
 
+    private mergeIfDefined(saveCatValue, baseValue, attributeName: string) {
+        if (saveCatValue[0][attributeName]) {
+            baseValue[attributeName] = saveCatValue[0][attributeName];
+        }
+
+    }
 }

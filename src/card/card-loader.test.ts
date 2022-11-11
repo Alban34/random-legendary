@@ -82,4 +82,39 @@ describe('card-loader', () => {
         expect(mergedGameIds[0]).toBe('game1');
         expect(mergedGameIds[1]).toBe('game2');
     });
+
+    test('should take the heroes group into account for merging game ids into the base data', () => {
+        const baseCardList = {
+            'masterminds': [
+                { 'name': 'card1',  'extension': 'ext1' },
+                { 'name': 'card2',  'extension': 'ext1' },
+                { 'name': 'card3',  'extension': 'ext1' }
+            ],
+            'schemes': [],
+            'villains': [],
+            'henchmen': [],
+            'heroes': [
+                { 'name': 'card1', 'extension': 'ext1' },
+                { 'name': 'card2', 'extension': 'ext1' },
+                { 'name': 'card2', 'extension': 'ext2' }
+            ]
+        };
+
+        const gameCardList = {
+            'masterminds': [
+                { 'name': 'card1',  'extension': 'ext1' },
+                { 'name': 'card2',  'extension': 'ext1', 'count': 2, 'gameId': ['game1', 'game2'] }
+            ],
+            'heroes': [
+                { 'name': 'card1'},
+                { 'name': 'card2', 'extension': 'ext1',  'count': 2, 'gameId': ['game1', 'game2'] },
+                { 'name': 'card2', 'extension': 'ext2' },
+            ]
+        };
+
+        cardLoader['mergeGameDataIntoBase'](baseCardList, gameCardList);
+        const mergedGameIds = baseCardList.heroes[1]['gameId'];
+        expect(mergedGameIds.length).toBe(2);
+        expect(baseCardList.heroes[2]['gameId']).toBeUndefined();
+    });
 });
