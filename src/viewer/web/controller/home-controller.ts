@@ -24,9 +24,14 @@ export class HomeController extends AbstractController {
     private showUI(): string {
 
         const choices = [];
-        const availableGamesForScore = this.gameManager.loadRegisteredGameWithNoScore(this.cardLoader.loadData());
+        const allCards = this.cardLoader.loadData();
+        const availableGamesForScore = this.gameManager.loadRegisteredGameWithNoScore(allCards);
         if (availableGamesForScore.length > 0) {
             choices.push({ label: 'Enter a game score', path: '/scores' });
+        }
+        const registeredGames = this.gameManager.loadRegisteredGame(allCards);
+        if (registeredGames.length > 0) {
+            choices.push({ label: 'Show my game history', path: '/game/history' });
         }
         choices.push(...[
             { label: 'Select my extensions', path: '/extensions' },
