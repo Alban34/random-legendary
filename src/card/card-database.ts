@@ -592,7 +592,7 @@ export const ALL_CARDS =
                 'extension': 'X-Men'
             },
             {
-                'name': 'Organized Crimewave',
+                'name': 'Organized Crime Wave',
                 'extension': 'Dark City'
             },
             {
