@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
     entry: './dist/out-tsc/server.js',
     output: {
-        filename: 'bundle.js',
+        filename: 'random-legendary.js',
         path: path.resolve(__dirname, 'dist'),
     },
     mode: "development",
