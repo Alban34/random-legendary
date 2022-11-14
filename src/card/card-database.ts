@@ -14,9 +14,21 @@ export const ALL_CARDS =
                 'alwaysLeadCategory': 'villains'
             },
             {
+                'name': 'Arnim Zola',
+                'extension': 'Captain America 75th Anniversary',
+                'alwaysLead': 'Zola\'s Creations',
+                'alwaysLeadCategory': 'villains'
+            },
+            {
                 'name': 'Authoritarian Iron Man',
                 'extension': 'Civil War',
                 'alwaysLead': 'Superhuman Registration Act',
+                'alwaysLeadCategory': 'villains'
+            },
+            {
+                'name': 'Baron Heinrich Zemo',
+                'extension': 'Captain America 75th Anniversary',
+                'alwaysLead': 'Masters of Evil (WWII)',
                 'alwaysLeadCategory': 'villains'
             },
             {
@@ -45,6 +57,12 @@ export const ALL_CARDS =
                 'alwaysLeadCategory': 'villains'
             },
             {
+                'name': 'Charles Xavier, Professor of Crime',
+                'extension': 'Marvel Noir',
+                'alwaysLead': 'X-Men Noir',
+                'alwaysLeadCategory': 'villains'
+            },
+            {
                 'name': 'Dark Phoenix',
                 'extension': 'X-Men',
                 'alwaysLead': 'Hellfire Club',
@@ -70,9 +88,21 @@ export const ALL_CARDS =
                 'alwaysLeadCategory': 'henchmen'
             },
             {
+                'name': 'Dr. Strange',
+                'extension': 'Villains',
+                'alwaysLead': 'Defenders',
+                'alwaysLeadCategory': 'villains'
+            },
+            {
                 'name': 'Emma Frost, The White Queen',
                 'extension': 'The New Mutants',
                 'alwaysLead': 'Hellions',
+                'alwaysLeadCategory': 'villains'
+            },
+            {
+                'name': 'Evil Deadpool',
+                'extension': 'Deadpool',
+                'alwaysLead': 'Evil Deadpool Corpse',
                 'alwaysLeadCategory': 'villains'
             },
             {
@@ -85,6 +115,12 @@ export const ALL_CARDS =
                 'name': 'Fin Fang Foom',
                 'extension': 'Champions',
                 'alwaysLead': 'Monsters Unleashed',
+                'alwaysLeadCategory': 'villains'
+            },
+            {
+                'name': 'Galactus',
+                'extension': 'Fantastic Four',
+                'alwaysLead': 'Heralds of Galactus',
                 'alwaysLeadCategory': 'villains'
             },
             {
@@ -190,6 +226,12 @@ export const ALL_CARDS =
                 'alwaysLeadCategory': 'villains'
             },
             {
+                'name': 'Macho Gomez',
+                'extension': 'Deadpool',
+                'alwaysLead': 'Deadpool\'s "Friends"',
+                'alwaysLeadCategory': 'villains'
+            },
+            {
                 'name': 'Madelyne Pryor, Goblin Queen',
                 'extension': 'Secret Wars, Volume 1',
                 'alwaysLead': 'Limbo',
@@ -244,6 +286,12 @@ export const ALL_CARDS =
                 'alwaysLeadCategory': 'villains'
             },
             {
+                'name': 'Mole Man',
+                'extension': 'Fantastic Four',
+                'alwaysLead': 'Subterranea',
+                'alwaysLeadCategory': 'villains'
+            },
+            {
                 'name': 'Morgan Le Fay',
                 'extension': 'Ant-Man',
                 'alwaysLead': 'Queen\'s Vengeance',
@@ -262,6 +310,12 @@ export const ALL_CARDS =
                 'alwaysLeadCategory': 'villains'
             },
             {
+                'name': 'Nick Fury',
+                'extension': 'Villains',
+                'alwaysLead': 'Avengers',
+                'alwaysLeadCategory': 'villains'
+            },
+            {
                 'name': 'Nightmare',
                 'extension': 'Doctor Strange and the Shadows of Nightmare',
                 'alwaysLead': 'Fear Lords',
@@ -274,6 +328,12 @@ export const ALL_CARDS =
                 'alwaysLeadCategory': 'villains'
             },
             {
+                'name': 'Odin',
+                'extension': 'Villains',
+                'alwaysLead': 'Asgardian Warriors',
+                'alwaysLeadCategory': 'henchmen'
+            },
+            {
                 'name': 'Onslaught',
                 'extension': 'X-Men',
                 'alwaysLead': 'Dark Descendants',
@@ -283,6 +343,12 @@ export const ALL_CARDS =
                 'name': 'Pagliacci',
                 'extension': 'Champions',
                 'alwaysLead': 'Wrecking Crew',
+                'alwaysLeadCategory': 'villains'
+            },
+            {
+                'name': 'Professor X',
+                'extension': 'Villains',
+                'alwaysLead': 'X-Men First Class',
                 'alwaysLeadCategory': 'villains'
             },
             {
@@ -346,6 +412,12 @@ export const ALL_CARDS =
                 'alwaysLeadCategory': 'villains'
             },
             {
+                'name': 'The Goblin, Underworld Boss',
+                'extension': 'Marvel Noir',
+                'alwaysLead': 'Goblin\'s Freak Show',
+                'alwaysLeadCategory': 'villains'
+            },
+            {
                 'name': 'The Hood',
                 'extension': 'Revelations',
                 'alwaysLead': 'Hood\'s Gang',
@@ -367,6 +439,12 @@ export const ALL_CARDS =
                 'name': 'Ultron',
                 'extension': 'Ant-Man',
                 'alwaysLead': 'Ultron\'s Legacy',
+                'alwaysLeadCategory': 'villains'
+            },
+            {
+                'name': 'Uru-Enchanted Iron Man',
+                'extension': 'Fear Itself',
+                'alwaysLead': 'The Mighty',
                 'alwaysLeadCategory': 'villains'
             },
             {
@@ -408,6 +486,14 @@ export const ALL_CARDS =
                 'extension': 'Civil War'
             },
             {
+                'name': 'Bathe Earth in Cosmic Rays',
+                'extension': 'Fantastic Four'
+            },
+            {
+                'name': 'Brainwash the Military',
+                'extension': 'Captain America 75th Anniversary'
+            },
+            {
                 'name': 'Break the Planet Asunder',
                 'extension': 'World War Hulk'
             },
@@ -416,8 +502,20 @@ export const ALL_CARDS =
                 'extension': 'Secret Wars, Volume 1'
             },
             {
+                'name': 'Build an Underground Mega-Vault Prison',
+                'extension': 'Villains'
+            },
+            {
+                'name': 'Cage Villains in Power-Suppressing Cells',
+                'extension': 'Villains'
+            },
+            {
                 'name': 'Capture Baby Hope',
                 'extension': 'Dark City'
+            },
+            {
+                'name': 'Change the Outcome of WWII',
+                'extension': 'Captain America 75th Anniversary'
             },
             {
                 'name': 'Claim Souls for Demons',
@@ -438,6 +536,14 @@ export const ALL_CARDS =
             {
                 'name': 'Crash the Moon into the Sun',
                 'extension': 'The New Mutants'
+            },
+            {
+                'name': 'Crown Thor King of Asgard',
+                'extension': 'Villains'
+            },
+            {
+                'name': 'Crush Hydra',
+                'extension': 'Villains'
             },
             {
                 'name': 'Crush Them with My Bare hands',
@@ -462,6 +568,18 @@ export const ALL_CARDS =
             {
                 'name': 'Deadlands Hordes Charge the Wall',
                 'extension': 'Secret Wars, Volume 2'
+            },
+            {
+                'name': 'Deadpool Kills the Marvel Universe',
+                'extension': 'Deadpool'
+            },
+            {
+                'name': 'Deadpool Wants a Chimichanga',
+                'extension': 'Deadpool'
+            },
+            {
+                'name': 'Deadpool Writes a Scheme',
+                'extension': 'Deadpool'
             },
             {
                 'name': 'Destroy the Nova Corps',
@@ -496,8 +614,28 @@ export const ALL_CARDS =
                 'extension': 'Civil War'
             },
             {
+                'name': 'Everybody Hates Deadpool',
+                'extension': 'Deadpool'
+            },
+            {
                 'name': 'Fall of the Hulks',
                 'extension': 'World War Hulk'
+            },
+            {
+                'name': 'Fear Itself',
+                'extension': 'Fear Itself'
+            },
+            {
+                'name': 'Find the Split Personality Killer',
+                'extension': 'Marvel Noir'
+            },
+            {
+                'name': 'Five Families of Crime',
+                'extension': 'Marvel Noir'
+            },
+            {
+                'name': 'Flood the Planet with Melted Glaciers',
+                'extension': 'Fantastic Four'
             },
             {
                 'name': 'Forge the Infinity Gauntlet',
@@ -516,12 +654,24 @@ export const ALL_CARDS =
                 'extension': 'World War Hulk'
             },
             {
+                'name': 'Go Back in Time to Slay Heroes\' Ancestors',
+                'extension': 'Captain America 75th Anniversary'
+            },
+            {
+                'name': 'Graduation at Xavier\'s X-Academy',
+                'extension': 'Villains'
+            },
+            {
                 'name': 'Hack Cerebro to / Manipulate the Mutant Messiah',
                 'extension': 'Messiah Complex'
             },
             {
                 'name': 'Hail Hydra',
                 'extension': 'S.H.I.E.L.D.'
+            },
+            {
+                'name': 'Hidden Heart of Darkness',
+                'extension': 'Marvel Noir'
             },
             {
                 'name': 'Hire Singularity Investigations to / Reveal Heroes\' Evil Clones',
@@ -548,12 +698,28 @@ export const ALL_CARDS =
                 'extension': 'Civil War'
             },
             {
+                'name': 'Infiltrate the Lair with Spies',
+                'extension': 'Villains'
+            },
+            {
                 'name': 'Intergalactic Kree Nega-Bomb',
                 'extension': 'Guardians of the Galaxy'
             },
             {
                 'name': 'Invade the Daily Bugle News HQ',
                 'extension': 'Paint the Town Red'
+            },
+            {
+                'name': 'Invincible Force Field',
+                'extension': 'Fantastic Four'
+            },
+            {
+                'name': 'Last Stand at Avengers Tower',
+                'extension': 'Fear Itself'
+            },
+            {
+                'name': 'Mass Produce War Machine Armor',
+                'extension': 'Villains'
             },
             {
                 'name': 'Massive Earthquake Generator',
@@ -624,6 +790,10 @@ export const ALL_CARDS =
                 'extension': 'Ant-Man'
             },
             {
+                'name': 'Pull Reality into the Negative Zone',
+                'extension': 'Fantastic Four'
+            },
+            {
                 'name': 'Ragnarok, Twilight of the Gods',
                 'extension': 'Heroes of Asgard'
             },
@@ -634,6 +804,10 @@ export const ALL_CARDS =
             {
                 'name': 'Replace Earth\'s Leaders with Killbots',
                 'extension': 'Core Set'
+            },
+            {
+                'name': 'Resurrect Heroes with the Norn Stones',
+                'extension': 'Villains'
             },
             {
                 'name': 'Reveal Heroes\' Secret Identities',
@@ -670,6 +844,10 @@ export const ALL_CARDS =
             {
                 'name': 'Shoot Hulk into Space',
                 'extension': 'World War Hulk'
+            },
+            {
+                'name': 'Silence the Witnesses',
+                'extension': 'Marvel Noir'
             },
             {
                 'name': 'Sinister Ambitions',
@@ -756,6 +934,14 @@ export const ALL_CARDS =
                 'extension': 'Secret Wars, Volume 2'
             },
             {
+                'name': 'The Traitor',
+                'extension': 'Fear Itself'
+            },
+            {
+                'name': 'The Unbreakable Enigma Code',
+                'extension': 'Captain America 75th Anniversary'
+            },
+            {
                 'name': 'Train Black Widows in the Red Room',
                 'extension': 'Black Widow'
             },
@@ -834,6 +1020,10 @@ export const ALL_CARDS =
                 'extension': 'World War Hulk'
             },
             {
+                'name': 'Avengers',
+                'extension': 'Villains'
+            },
+            {
                 'name': 'Black Order of Thanos',
                 'extension': 'Into the Cosmos'
             },
@@ -870,8 +1060,16 @@ export const ALL_CARDS =
                 'extension': 'X-Men'
             },
             {
+                'name': 'Deadpool\'s "Friends"',
+                'extension': 'Deadpool'
+            },
+            {
                 'name': 'Deadpool\'s Secret Secret Wars',
                 'extension': 'Secret Wars, Volume 2'
+            },
+            {
+                'name': 'Defenders',
+                'extension': 'Villains'
             },
             {
                 'name': 'Demons of Limbo',
@@ -902,6 +1100,10 @@ export const ALL_CARDS =
                 'extension': 'Black Panther'
             },
             {
+                'name': 'Evil Deadpool Corpse',
+                'extension': 'Deadpool'
+            },
+            {
                 'name': 'Fear Lords',
                 'extension': 'Doctor Strange and the Shadows of Nightmare'
             },
@@ -912,6 +1114,10 @@ export const ALL_CARDS =
             {
                 'name': 'From Beyond',
                 'extension': 'Into the Cosmos'
+            },
+            {
+                'name': 'Goblin\'s Freak Show',
+                'extension': 'Marvel Noir'
             },
             {
                 'name': 'Great Lake Avengers',
@@ -928,6 +1134,10 @@ export const ALL_CARDS =
             {
                 'name': 'Hellions',
                 'extension': 'The New Mutants'
+            },
+            {
+                'name': 'Heralds of Galactus',
+                'extension': 'Fantastic Four'
             },
             {
                 'name': 'Heroes for Hire',
@@ -990,8 +1200,16 @@ export const ALL_CARDS =
                 'extension': 'Dark City'
             },
             {
+                'name': 'Marvel Knights',
+                'extension': 'Villains'
+            },
+            {
                 'name': 'Masters of Evil',
                 'extension': 'Core Set'
+            },
+            {
+                'name': 'Masters of Evil (WWII)',
+                'extension': 'Captain America 75th Anniversary'
             },
             {
                 'name': 'Maximum Carnage',
@@ -1078,8 +1296,16 @@ export const ALL_CARDS =
                 'extension': 'Core Set'
             },
             {
+                'name': 'Spider Friends',
+                'extension': 'Villains'
+            },
+            {
                 'name': 'Streets of New York',
                 'extension': 'Dark City'
+            },
+            {
+                'name': 'Subterranea',
+                'extension': 'Fantastic Four'
             },
             {
                 'name': 'Superhuman Registration Act',
@@ -1094,6 +1320,10 @@ export const ALL_CARDS =
                 'extension': 'Secret Wars, Volume 1'
             },
             {
+                'name': 'The Mighty',
+                'extension': 'Fear Itself'
+            },
+            {
                 'name': 'Thunderbolts',
                 'extension': 'Civil War'
             },
@@ -1104,6 +1334,14 @@ export const ALL_CARDS =
             {
                 'name': 'Ultron’s Legacy',
                 'extension': 'Ant-Man'
+            },
+            {
+                'name': 'Uncanny Avengers',
+                'extension': 'Villains'
+            },
+            {
+                'name': 'Uncanny X-Men',
+                'extension': 'Villains'
             },
             {
                 'name': 'Underworld',
@@ -1129,11 +1367,31 @@ export const ALL_CARDS =
                 'name': 'X-Men 92 (Recruitable)',
                 'extension': 'Secret Wars, Volume 2'
             },
+            {
+                'name': 'X-Men First Class',
+                'extension': 'Villains'
+            },
+            {
+                'name': 'X-Men Noir',
+                'extension': 'Marvel Noir'
+            },
+            {
+                'name': 'Zola\'s Creations',
+                'extension': 'Captain America 75th Anniversary'
+            },
         ],
         'henchmen': [
             {
+                'name': 'Asgardian Warriors',
+                'extension': 'Villains'
+            },
+            {
                 'name': 'Cape-killers',
                 'extension': 'Civil War'
+            },
+            {
+                'name': 'Cops',
+                'extension': 'Villains'
             },
             {
                 'name': 'Cytoplasmic Spikes',
@@ -1192,8 +1450,16 @@ export const ALL_CARDS =
                 'extension': 'Messiah Complex'
             },
             {
+                'name': 'Multiple Man',
+                'extension': 'Villains'
+            },
+            {
                 'name': 'Phalanx',
                 'extension': 'Dark City'
+            },
+            {
+                'name': 'S.H.I.E.L.D. Assault Squad',
+                'extension': 'Villains'
             },
             {
                 'name': 'Sakaaran Hivelings',
@@ -1267,6 +1533,13 @@ export const ALL_CARDS =
                 ]
             },
             {
+                'name': 'Agent X-13',
+                'extension': 'Captain America 75th Anniversary',
+                'teams': [
+                    'S.H.I.E.L.D.'
+                ]
+            },
+            {
                 'name': 'Amadeus Cho ',
                 'extension': 'World War Hulk',
                 'teams': [
@@ -1276,6 +1549,13 @@ export const ALL_CARDS =
             {
                 'name': 'Angel',
                 'extension': 'Dark City',
+                'teams': [
+                    'X-Men'
+                ]
+            },
+            {
+                'name': 'Angel Noir',
+                'extension': 'Marvel Noir',
                 'teams': [
                     'X-Men'
                 ]
@@ -1400,10 +1680,24 @@ export const ALL_CARDS =
                 ]
             },
             {
+                'name': 'Bob, Agent of Hydra',
+                'extension': 'Deadpool',
+                'teams': [
+                    'HYDRA'
+                ]
+            },
+            {
                 'name': 'Bruce Banner ',
                 'extension': 'World War Hulk',
                 'teams': [
                     'The Avengers'
+                ]
+            },
+            {
+                'name': 'Bullseye',
+                'extension': 'Villains',
+                'teams': [
+                    'Crime Syndicate'
                 ]
             },
             {
@@ -1430,6 +1724,20 @@ export const ALL_CARDS =
             {
                 'name': 'Captain America',
                 'extension': 'Core Set',
+                'teams': [
+                    'The Avengers'
+                ]
+            },
+            {
+                'name': 'Captain America (Falcon)',
+                'extension': 'Captain America 75th Anniversary',
+                'teams': [
+                    'The Avengers'
+                ]
+            },
+            {
+                'name': 'Captain America 1941',
+                'extension': 'Captain America 75th Anniversary',
                 'teams': [
                     'The Avengers'
                 ]
@@ -1528,6 +1836,13 @@ export const ALL_CARDS =
                 ]
             },
             {
+                'name': 'Daredevil Noir',
+                'extension': 'Marvel Noir',
+                'teams': [
+                    'Marvel Knights'
+                ]
+            },
+            {
                 'name': 'Darkhawk',
                 'extension': 'Revelations',
                 'teams': [
@@ -1546,6 +1861,13 @@ export const ALL_CARDS =
                 'extension': 'Core Set',
                 'teams': [
                     ''
+                ]
+            },
+            {
+                'name': 'Deadpool',
+                'extension': 'Deadpool',
+                'teams': [
+                    'Mercs for Money'
                 ]
             },
             {
@@ -1584,6 +1906,13 @@ export const ALL_CARDS =
                 ]
             },
             {
+                'name': 'Dr. Octopus',
+                'extension': 'Villains',
+                'teams': [
+                    'Sinister Six'
+                ]
+            },
+            {
                 'name': 'Dr. Strange',
                 'extension': 'Secret Wars, Volume 1',
                 'teams': [
@@ -1595,6 +1924,13 @@ export const ALL_CARDS =
                 'extension': 'Guardians of the Galaxy',
                 'teams': [
                     'Guardians of the Galaxy'
+                ]
+            },
+            {
+                'name': 'Electro',
+                'extension': 'Villains',
+                'teams': [
+                    'Sinister Six'
                 ]
             },
             {
@@ -1616,6 +1952,13 @@ export const ALL_CARDS =
                 'extension': 'Core Set',
                 'teams': [
                     'X-Men'
+                ]
+            },
+            {
+                'name': 'Enchantress',
+                'extension': 'Villains',
+                'teams': [
+                    'Foes of Asgard'
                 ]
             },
             {
@@ -1679,6 +2022,20 @@ export const ALL_CARDS =
                 'extension': 'Civil War',
                 'teams': [
                     'The Avengers'
+                ]
+            },
+            {
+                'name': 'Green Goblin',
+                'extension': 'Villains',
+                'teams': [
+                    'Sinister Six'
+                ]
+            },
+            {
+                'name': 'Greithoth, Breaker of Wills',
+                'extension': 'Fear Itself',
+                'teams': [
+                    'Foes of Asgard'
                 ]
             },
             {
@@ -1752,10 +2109,24 @@ export const ALL_CARDS =
                 ]
             },
             {
+                'name': 'Human Torch',
+                'extension': 'Fantastic Four',
+                'teams': [
+                    'Fantastic Four'
+                ]
+            },
+            {
                 'name': 'Iceman',
                 'extension': 'Dark City',
                 'teams': [
                     'X-Men'
+                ]
+            },
+            {
+                'name': 'Invisible Woman',
+                'extension': 'Fantastic Four',
+                'teams': [
+                    'Fantastic Four'
                 ]
             },
             {
@@ -1768,6 +2139,13 @@ export const ALL_CARDS =
             {
                 'name': 'Iron Man',
                 'extension': 'Core Set',
+                'teams': [
+                    'The Avengers'
+                ]
+            },
+            {
+                'name': 'Iron Man Noir',
+                'extension': 'Marvel Noir',
                 'teams': [
                     'The Avengers'
                 ]
@@ -1801,6 +2179,13 @@ export const ALL_CARDS =
                 ]
             },
             {
+                'name': 'Juggernaut',
+                'extension': 'Villains',
+                'teams': [
+                    'Brotherhood'
+                ]
+            },
+            {
                 'name': 'Karma',
                 'extension': 'The New Mutants',
                 'teams': [
@@ -1815,6 +2200,13 @@ export const ALL_CARDS =
                 ]
             },
             {
+                'name': 'Kingpin',
+                'extension': 'Villains',
+                'teams': [
+                    'Crime Syndicate'
+                ]
+            },
+            {
                 'name': 'Kitty Pryde',
                 'extension': 'X-Men',
                 'teams': [
@@ -1826,6 +2218,20 @@ export const ALL_CARDS =
                 'extension': 'World War Hulk',
                 'teams': [
                     'Warbound'
+                ]
+            },
+            {
+                'name': 'Kraven',
+                'extension': 'Villains',
+                'teams': [
+                    'Sinister Six'
+                ]
+            },
+            {
+                'name': 'Kuurth, Breaker of Stone',
+                'extension': 'Fear Itself',
+                'teams': [
+                    'Foes of Asgard'
                 ]
             },
             {
@@ -1850,6 +2256,13 @@ export const ALL_CARDS =
                 ]
             },
             {
+                'name': 'Loki',
+                'extension': 'Villains',
+                'teams': [
+                    'Foes of Asgard'
+                ]
+            },
+            {
                 'name': 'Longshot',
                 'extension': 'X-Men',
                 'teams': [
@@ -1865,6 +2278,13 @@ export const ALL_CARDS =
                 ]
             },
             {
+                'name': 'Luke Cage Noir',
+                'extension': 'Marvel Noir',
+                'teams': [
+                    'Marvel Knights'
+                ]
+            },
+            {
                 'name': 'M',
                 'extension': 'Messiah Complex',
                 'teams': [
@@ -1876,6 +2296,13 @@ export const ALL_CARDS =
                 'extension': 'Secret Wars, Volume 1',
                 'teams': [
                     'X-Men'
+                ]
+            },
+            {
+                'name': 'Magneto',
+                'extension': 'Villains',
+                'teams': [
+                    'Brotherhood'
                 ]
             },
             {
@@ -1921,6 +2348,13 @@ export const ALL_CARDS =
                 ]
             },
             {
+                'name': 'Mr Fantastic',
+                'extension': 'Fantastic Four',
+                'teams': [
+                    'Fantastic Four'
+                ]
+            },
+            {
                 'name': 'Ms. Marvel',
                 'extension': 'Champions',
                 'teams': [
@@ -1932,6 +2366,20 @@ export const ALL_CARDS =
                 'extension': 'Messiah Complex',
                 'teams': [
                     'X-Factor'
+                ]
+            },
+            {
+                'name': 'Mysterio',
+                'extension': 'Villains',
+                'teams': [
+                    'Sinister Six'
+                ]
+            },
+            {
+                'name': 'Mystique',
+                'extension': 'Villains',
+                'teams': [
+                    'Brotherhood'
                 ]
             },
             {
@@ -1953,6 +2401,13 @@ export const ALL_CARDS =
                 'extension': 'Into the Cosmos',
                 'teams': [
                     'Guardians of the Galaxy'
+                ]
+            },
+            {
+                'name': 'Nerkkod, Breaker of Oceans',
+                'extension': 'Fear Itself',
+                'teams': [
+                    'Foes of Asgard'
                 ]
             },
             {
@@ -1988,6 +2443,13 @@ export const ALL_CARDS =
                 'extension': 'Into the Cosmos',
                 'teams': [
                     'The Avengers'
+                ]
+            },
+            {
+                'name': 'Nul, Breaker of Worlds',
+                'extension': 'Fear Itself',
+                'teams': [
+                    'Foes of Asgard'
                 ]
             },
             {
@@ -2168,6 +2630,13 @@ export const ALL_CARDS =
                 ]
             },
             {
+                'name': 'Sabretooth',
+                'extension': 'Villains',
+                'teams': [
+                    'Brotherhood'
+                ]
+            },
+            {
                 'name': 'Scarlet Spider',
                 'extension': 'Paint the Town Red',
                 'teams': [
@@ -2217,6 +2686,13 @@ export const ALL_CARDS =
                 ]
             },
             {
+                'name': 'Silver Surfer',
+                'extension': 'Fantastic Four',
+                'teams': [
+                    ''
+                ]
+            },
+            {
                 'name': 'Siryn',
                 'extension': 'Messiah Complex',
                 'teams': [
@@ -2228,6 +2704,34 @@ export const ALL_CARDS =
                 'extension': 'World War Hulk',
                 'teams': [
                     'The Avengers'
+                ]
+            },
+            {
+                'name': 'Skadi',
+                'extension': 'Fear Itself',
+                'teams': [
+                    'HYDRA'
+                ]
+            },
+            {
+                'name': 'Skirn, Breaker of Men',
+                'extension': 'Fear Itself',
+                'teams': [
+                    'Foes of Asgard'
+                ]
+            },
+            {
+                'name': 'Slapstick',
+                'extension': 'Deadpool',
+                'teams': [
+                    'Mercs for Money'
+                ]
+            },
+            {
+                'name': 'Solo',
+                'extension': 'Deadpool',
+                'teams': [
+                    'Mercs for Money'
                 ]
             },
             {
@@ -2266,6 +2770,13 @@ export const ALL_CARDS =
                 ]
             },
             {
+                'name': 'Spider-Man Noir',
+                'extension': 'Marvel Noir',
+                'teams': [
+                    'Spider Friends'
+                ]
+            },
+            {
                 'name': 'Spider-Woman',
                 'extension': 'Paint the Town Red',
                 'teams': [
@@ -2291,6 +2802,20 @@ export const ALL_CARDS =
                 'extension': 'Messiah Complex',
                 'teams': [
                     'X-Men'
+                ]
+            },
+            {
+                'name': 'Steve Rogers, Director of S.H.I.E.L.D.',
+                'extension': 'Captain America 75th Anniversary',
+                'teams': [
+                    'S.H.I.E.L.D.'
+                ]
+            },
+            {
+                'name': 'Stingray',
+                'extension': 'Deadpool',
+                'teams': [
+                    'Mercs for Money'
                 ]
             },
             {
@@ -2372,6 +2897,13 @@ export const ALL_CARDS =
                 ]
             },
             {
+                'name': 'Thing',
+                'extension': 'Fantastic Four',
+                'teams': [
+                    'Fantastic Four'
+                ]
+            },
+            {
                 'name': 'Thor',
                 'extension': 'Heroes of Asgard',
                 'teams': [
@@ -2414,10 +2946,24 @@ export const ALL_CARDS =
                 ]
             },
             {
+                'name': 'Ultron',
+                'extension': 'Villains',
+                'teams': [
+                    ''
+                ]
+            },
+            {
                 'name': 'Valkyrie',
                 'extension': 'Heroes of Asgard',
                 'teams': [
                     'Heroes of Asgard'
+                ]
+            },
+            {
+                'name': 'Venom',
+                'extension': 'Villains',
+                'teams': [
+                    'Sinister Six'
                 ]
             },
             {
@@ -2481,6 +3027,13 @@ export const ALL_CARDS =
                 'extension': 'Civil War',
                 'teams': [
                     'The Avengers'
+                ]
+            },
+            {
+                'name': 'Winter Soldier',
+                'extension': 'Captain America 75th Anniversary',
+                'teams': [
+                    ''
                 ]
             },
             {

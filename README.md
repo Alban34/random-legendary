@@ -45,14 +45,19 @@ So far, the cards that are randomly chosen come from:
 - Ant-Man
 - Black Panther
 - Black Widow
+- Captain America 75th Anniversary
 - Champions
 - Civil War
 - Core Set
 - Dark City
+- Deadpool
 - Doctor Strange and the Shadows of Nightmare
+- Fantastic Four
+- Fear Itself
 - Guardians of the Galaxy
 - Heroes of Asgard
 - Into the Cosmos
+- Marvel Noir
 - Messiah Complex
 - Paint the Town Red
 - Revelations
@@ -60,6 +65,7 @@ So far, the cards that are randomly chosen come from:
 - Secret Wars, Volume 1
 - Secret Wars, Volume 2
 - The New Mutants
+- Villains
 - World War Hulk
 - X-Men
 

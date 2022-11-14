@@ -24,7 +24,8 @@ const flattenHeroTeams = (heroes) => {
 const toParse = [
 
 
-    /*    {
+    /*
+    {
             'setName': 'TEMPLATE',
             'heroes': `
 
@@ -46,9 +47,230 @@ const toParse = [
 
     `
         },
+*/
 
 
-     */
+    {
+            'setName': 'Marvel Noir',
+            'heroes': `
+Microbadge: Legendary fan - X-Men Team Angel Noir
+Microbadge: Legendary fan - Marvel Knights team Daredevil Noir
+Microbadge: Legendary fan - The Avengers Team Iron Man Noir
+Microbadge: Legendary fan - Marvel Knights team Luke Cage Noir
+Microbadge: Legendary fan - Spider Friends Team Spider-Man Noir
+    `,
+            'masterminds': `
+Charles Xavier, Professor of Crime
+The Goblin, Underworld Boss
+
+    `,
+            'schemes': `
+
+Hidden Heart of Darkness
+Silence the Witnesses
+Five Families of Crime
+Find the Split Personality Killer
+    `,
+            'villains': `
+Goblin's Freak Show
+X-Men Noir
+
+    `,
+            'henchmen': `
+
+
+    `
+        },
+
+
+    {
+            'setName': 'Deadpool',
+            'heroes': `
+Microbadge: Legendary fan - HYDRA Team Bob, Agent of Hydra
+Microbadge: Legendary fan - Mercs for Money Team Deadpool
+Microbadge: Legendary fan - Mercs for Money Team Slapstick
+Microbadge: Legendary fan - Mercs for Money Team Solo
+Microbadge: Legendary fan - Mercs for Money Team Stingray
+    `,
+            'masterminds': `
+Evil Deadpool
+Macho Gomez
+
+    `,
+            'schemes': `
+Deadpool Kills the Marvel Universe
+Deadpool Wants a Chimichanga
+Deadpool Writes a Scheme
+Everybody Hates Deadpool
+
+    `,
+            'villains': `
+Deadpool's "Friends"
+Evil Deadpool Corpse
+
+    `,
+            'henchmen': `
+
+
+    `
+        },
+
+
+    {
+            'setName': 'Captain America 75th Anniversary',
+            'heroes': `
+Microbadge: Legendary fan - S.H.I.E.L.D. Team Agent X-13
+Microbadge: Legendary fan - The Avengers Team Captain America 1941
+Microbadge: Legendary fan - The Avengers Team Captain America (Falcon)
+Microbadge: Legendary fan - S.H.I.E.L.D. Team Steve Rogers, Director of S.H.I.E.L.D.
+Winter Soldier
+    `,
+            'masterminds': `
+
+Arnim Zola
+Baron Heinrich Zemo
+    `,
+            'schemes': `
+
+Brainwash the Military
+Change the Outcome of WWII
+Go Back in Time to Slay Heroes' Ancestors
+The Unbreakable Enigma Code
+    `,
+            'villains': `
+Zola's Creations
+Masters of Evil (WWII)
+
+    `,
+            'henchmen': `
+
+
+    `
+        },
+
+
+    {
+            'setName': 'Fear Itself',
+            'heroes': `
+Microbadge: Legendary fan - Foes of Asgard Team Greithoth, Breaker of Wills
+Microbadge: Legendary fan - Foes of Asgard Team Kuurth, Breaker of Stone
+Microbadge: Legendary fan - Foes of Asgard Team Nerkkod, Breaker of Oceans
+Microbadge: Legendary fan - Foes of Asgard Team Nul, Breaker of Worlds
+Microbadge: Legendary fan - HYDRA Team Skadi
+Microbadge: Legendary fan - Foes of Asgard Team Skirn, Breaker of Men
+    `,
+            'masterminds': `
+
+Uru-Enchanted Iron Man
+    `,
+            'schemes': `
+Fear Itself
+Last Stand at Avengers Tower
+The Traitor
+
+    `,
+            'villains': `
+
+The Mighty
+    `,
+            'henchmen': `
+
+
+    `
+        },
+
+
+    {
+            'setName': 'Villains',
+            'heroes': `
+Microbadge: Legendary fan - Crime Syndicate Team Bullseye
+Microbadge: Legendary fan - Sinister Six Team Dr. Octopus
+Microbadge: Legendary fan - Sinister Six Team Electro
+Microbadge: Legendary fan - Foes of Asgard Team Enchantress
+Microbadge: Legendary fan - Sinister Six Team Green Goblin
+Microbadge: Legendary fan - Brotherhood Team Juggernaut
+Microbadge: Legendary fan - Crime Syndicate Team Kingpin
+Microbadge: Legendary fan - Sinister Six Team Kraven
+Microbadge: Legendary fan - Foes of Asgard Team Loki
+Microbadge: Legendary fan - Brotherhood Team Magneto
+Microbadge: Legendary fan - Sinister Six Team Mysterio
+Microbadge: Legendary fan - Brotherhood Team Mystique
+Microbadge: Legendary fan - Brotherhood Team Sabretooth
+Ultron
+Microbadge: Legendary fan - Sinister Six Team Venom
+    `,
+            'masterminds': `
+Dr. Strange
+Nick Fury
+Odin
+Professor X
+
+    `,
+            'schemes': `
+Build an Underground Mega-Vault Prison
+Cage Villains in Power-Suppressing Cells
+Crown Thor King of Asgard
+Crush Hydra
+Graduation at Xavier's X-Academy
+Infiltrate the Lair with Spies
+Mass Produce War Machine Armor
+Resurrect Heroes with the Norn Stones
+
+    `,
+            'villains': `
+
+Avengers
+Defenders
+Marvel Knights
+Spider Friends
+Uncanny Avengers
+Uncanny X-Men
+X-Men First Class
+    `,
+            'henchmen': `
+Asgardian Warriors
+Cops
+Multiple Man
+S.H.I.E.L.D. Assault Squad
+
+    `
+        },
+
+
+
+        {
+            'setName': 'Fantastic Four',
+            'heroes': `
+Microbadge: Legendary fan - Fantastic Four Team Mr Fantastic
+Microbadge: Legendary fan - Fantastic Four Team Invisible Woman
+Microbadge: Legendary fan - Fantastic Four Team Thing
+Microbadge: Legendary fan - Fantastic Four Team Human Torch
+Silver Surfer
+    `,
+            'masterminds': `
+
+Galactus
+Mole Man
+    `,
+            'schemes': `
+
+Bathe Earth in Cosmic Rays
+Flood the Planet with Melted Glaciers
+Invincible Force Field
+Pull Reality into the Negative Zone
+    `,
+            'villains': `
+Heralds of Galactus
+Subterranea
+
+    `,
+            'henchmen': `
+
+
+    `
+        },
+
+
 
 
    {
@@ -429,7 +651,7 @@ Phalanx
 Capture Baby Hope
 Detonate the Helicarrier
 Massive Earthquake Generator
-Organized Crimewave
+Organized Crime Wave
 Save Humanity
 Steal the Weaponized Plutonium
 Transform Citizens into Demons
