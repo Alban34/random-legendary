@@ -7,13 +7,13 @@ export class GameBuilder {
 
     private cardDrawer = new CardDrawer();
 
-    public buildGame(legendaryBase, playerConfig: PlayerConfig): Game {
+    public buildGame(allCards, playerConfig: PlayerConfig): Game {
 
         const gameId = uuidv4();
         let alwaysLeadVillains = [];
         let alwaysLeadHenchmen = [];
 
-        const mastermind = this.cardDrawer.drawRandomUnique(legendaryBase.masterminds) as MastermindCard;
+        const mastermind = this.cardDrawer.drawRandomUnique(allCards.masterminds) as MastermindCard;
         if (playerConfig.playerCount > 1) {
             switch (mastermind.alwaysLeadCategory) {
                 case 'villains':
@@ -33,18 +33,12 @@ export class GameBuilder {
             strictHenchmen = false;
         }
 
-        const scheme = this.cardDrawer.drawRandomUnique(legendaryBase.schemes);
-        const villains = this.cardDrawer.drawRandomMultipleForce(legendaryBase.villains, playerConfig.villainsCount, alwaysLeadVillains);
-        const henchmen = this.cardDrawer.drawRandomMultipleForce(legendaryBase.henchmen, playerConfig.henchmenCount, alwaysLeadHenchmen, strictHenchmen);
-        const heroes = this.cardDrawer.drawRandomMultiple(legendaryBase.heroes, playerConfig.heroesCount);
+        const scheme = this.cardDrawer.drawRandomUnique(allCards.schemes);
+        const villains = this.cardDrawer.drawRandomMultipleForce(allCards.villains, playerConfig.villainsCount, alwaysLeadVillains);
+        const henchmen = this.cardDrawer.drawRandomMultipleForce(allCards.henchmen, playerConfig.henchmenCount, alwaysLeadHenchmen, strictHenchmen);
+        const heroes = this.cardDrawer.drawRandomMultiple(allCards.heroes, playerConfig.heroesCount);
 
-        this.addGameIdToCard(mastermind, gameId);
-        this.addGameIdToCard(scheme, gameId);
-        villains.forEach(villain => this.addGameIdToCard(villain, gameId));
-        henchmen.forEach(henchman => this.addGameIdToCard(henchman, gameId));
-        heroes.forEach(hero => this.addGameIdToCard(hero, gameId));
-
-        return {
+        const game = {
             gameId: gameId,
             mastermind,
             scheme,
@@ -54,6 +48,16 @@ export class GameBuilder {
             bystanders: playerConfig.bystandersCount,
             masterStrike: playerConfig.masterStrikeCount
         };
+
+        this.customizeGame(mastermind, game, allCards);
+
+        this.addGameIdToCard(game.mastermind, gameId);
+        this.addGameIdToCard(game.scheme, gameId);
+        game.villains.forEach(villain => this.addGameIdToCard(villain, gameId));
+        game.henchmen.forEach(henchman => this.addGameIdToCard(henchman, gameId));
+        game.heroes.forEach(hero => this.addGameIdToCard(hero, gameId));
+
+        return game;
     }
 
     private addGameIdToCard(card: Card, gameId: string) {
@@ -63,4 +67,9 @@ export class GameBuilder {
         card.gameId.push(gameId);
     }
 
+    private customizeGame(card: MastermindCard, game: Game, allCards) {
+        if (card.customRule) {
+            card.customRule(game, this.cardDrawer, allCards);
+        }
+    }
 }
