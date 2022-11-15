@@ -59,4 +59,60 @@ describe('ScoreInputParser', () => {
         expect(result).toEqual(expected);
     });
 
+    test('should not extract empty data', () => {
+
+        const input = {
+            '73f36a8e-1a91-40ae-a4f7-acb815649040:score_0': '10',
+            '73f36a8e-1a91-40ae-a4f7-acb815649040:player_0': 'Player 1',
+            '73f36a8e-1a91-40ae-a4f7-acb815649040:won': 'on',
+            'a94d4a4f-202b-45a2-b360-268833021d06:score_0': '',
+            'a94d4a4f-202b-45a2-b360-268833021d06:player_0': 'Player 1',
+            'a94d4a4f-202b-45a2-b360-268833021d06:won': 'on',
+            'a8f550db-e7ab-437d-845e-cf436ed53ccc:score_0': '',
+            'a8f550db-e7ab-437d-845e-cf436ed53ccc:player_0': 'Player 1',
+            'a8f550db-e7ab-437d-845e-cf436ed53ccc:won': 'on'
+        };
+
+        const expected = {
+            '73f36a8e-1a91-40ae-a4f7-acb815649040': [
+                {
+                    score: 10,
+                    player: 'Player 1'
+                }
+            ]
+        };
+
+        const parser = new ScoreInputParser();
+        const result = parser.parseObject(input);
+        expect(result).toEqual(expected);
+    });
+
+    test('should extract game lost from empty data', () => {
+
+        const input = {
+            '73f36a8e-1a91-40ae-a4f7-acb815649040:score_0': '',
+            '73f36a8e-1a91-40ae-a4f7-acb815649040:player_0': 'Player 1',
+            'a94d4a4f-202b-45a2-b360-268833021d06:score_0': '',
+            'a94d4a4f-202b-45a2-b360-268833021d06:player_0': 'Player 1',
+            'a94d4a4f-202b-45a2-b360-268833021d06:won': 'on',
+            'a8f550db-e7ab-437d-845e-cf436ed53ccc:score_0': '',
+            'a8f550db-e7ab-437d-845e-cf436ed53ccc:player_0': 'Player 1',
+            'a8f550db-e7ab-437d-845e-cf436ed53ccc:won': 'on'
+        };
+
+        const expected = {
+            '73f36a8e-1a91-40ae-a4f7-acb815649040': [
+                {
+                    score: -1,
+                    player: 'Player 1'
+                }
+            ]
+        };
+
+        const parser = new ScoreInputParser();
+        const result = parser.parseObject(input);
+        expect(result).toEqual(expected);
+    });
+
+
 });

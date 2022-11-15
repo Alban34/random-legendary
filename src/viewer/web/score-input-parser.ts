@@ -29,6 +29,7 @@ export class ScoreInputParser {
         }
 
         this.setLostGames(scores, input);
+        this.removeEmptyScores(scores);
 
         return scores;
     }
@@ -40,4 +41,16 @@ export class ScoreInputParser {
             }
         }
     }
+
+    private removeEmptyScores(scores) {
+        const scoresToRemove = [];
+        for (const key of Object.keys(scores)) {
+            const validScores = scores[key].filter(score => !isNaN(score.score));
+            if (validScores.length === 0) {
+                scoresToRemove.push(key);
+            }
+        }
+        scoresToRemove.forEach(key => delete scores[key]);
+    }
+
 }
