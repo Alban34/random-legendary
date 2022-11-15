@@ -54,14 +54,26 @@ export class GameController extends AbstractController {
                 <tbody>`;
         allGames.forEach(gameId => {
             const game = this.gameLoader.load(allCardList, gameId);
+            const score = this.getScores(allScores, gameId);
+            let rowClass;
+            switch (score) {
+                case 'No score yet':
+                    rowClass = 'table-light';
+                    break;
+                case 'Game lost':
+                    rowClass = 'table-danger';
+                    break;
+                default:
+                    rowClass = 'table-success';
+            }
             view += `
-                    <tr>
+                    <tr class="${rowClass}">
                         <td>${game.mastermind.name}</td>
                         <td>${game.scheme.name}</td>
                         <td>${this.getMultipleCards(game.villains)}</td>
                         <td>${this.getMultipleCards(game.henchmen)}</td>
                         <td>${this.getMultipleCards(game.heroes)}</td>
-                        <td>${this.getScores(allScores, gameId)}</td>
+                        <td>${score}</td>
                     </tr>
             `;
         });
@@ -91,7 +103,7 @@ export class GameController extends AbstractController {
     private getMultipleCards(cards: Card[]): string {
         let view = '<ul>';
         cards.forEach(card => view += `<li>${card.name}</li>`);
-        view += '</ul>'
+        view += '</ul>';
         return view;
     }
 
@@ -99,7 +111,7 @@ export class GameController extends AbstractController {
         let lost = false;
         let view = '';
         if (!allScores[gameId]) {
-            return '<p>No score yet</p>'
+            return 'No score yet';
         }
         allScores[gameId].forEach(s => {
             if (s.score === -1) {
