@@ -78,3 +78,8 @@ table ul {
 .card {
     margin-bottom: 10px;
 }
+
+.extensions-list {
+    margin-top: 10px;
+    column-count: 3;
+}

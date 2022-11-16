@@ -40,22 +40,32 @@ export class ExtensionController extends AbstractController {
         const availableExtensionsAsWeb = allExtensions.map((ext) => {
             return `
                 <div class="input-group mb-2">
-                  <div class="input-group-text">
-                    <input class="form-check-input mt-0" 
-                           type="checkbox" 
-                           id="${ext}" 
-                           name="ext"
-                           value="${ext}"
-                           ${selectedExtensions.indexOf(ext) !== -1 ? 'checked' : ''}>
-                    <label style="margin-left: 10px" for="${ext}">${ext}</label>
-                  </div>
+                    <div class="input-group-text">
+                        <input class="form-check-input mt-0" 
+                                type="checkbox" 
+                                id="${ext}" 
+                                name="ext"
+                                value="${ext}"
+                                ${selectedExtensions.indexOf(ext) !== -1 ? 'checked' : ''}>
+                        <label style="margin-left: 10px" for="${ext}">${ext}</label>
+                    </div>
                 </div>
             `;
         });
         return `
-            <form action="/extensions" method="post">
-                ${availableExtensionsAsWeb.join('')}
-                <button type="submit" class="btn btn-primary">Save</button>
+            <div class="btn-group" role="group">
+                <button class="btn btn-secondary" onclick="Array.from(document.getElementsByTagName('input')).forEach(item => item.checked = true)">
+                    Check all</button>
+                <button class="btn btn-secondary" onclick="Array.from(document.getElementsByTagName('input')).forEach(item => item.checked = false)">
+                    Uncheck all</button>
+                <button class="btn btn-secondary" onclick="Array.from(document.getElementsByTagName('input')).forEach(item => item.checked = !item.checked)">
+                    Inverse selection</button>
+            </div>
+            <button class="btn btn-primary" onclick="document.getElementById('extForm').submit()">Save</button>
+            <form action="/extensions" method="post" id="extForm">
+                <div class="extensions-list">
+                    ${availableExtensionsAsWeb.join('')}
+                </div>
             </form>
         `;
     }
