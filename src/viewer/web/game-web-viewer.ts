@@ -54,7 +54,7 @@ export class GameWebViewer {
 
     private getMultipleToDisplay(group, limit?: number) {
         let limitSentence = '';
-        if (limit) {
+        if (limit && limit < 10) {
             limitSentence = `(only ${limit} cards of them)`;
         }
         let display = `<ul>`;
