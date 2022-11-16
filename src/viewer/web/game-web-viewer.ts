@@ -3,11 +3,6 @@ import { Game } from '../../game/model/game';
 export class GameWebViewer {
     public buildView(playerCount: number, game: Game): string {
 
-        let henchmenLimit: number;
-        if (playerCount === 1) {
-            henchmenLimit = 3;
-        }
-
         return `
             <div class="col-lg-6 col-md-8 col-sm-12">
                 <div class="card">
@@ -42,7 +37,7 @@ export class GameWebViewer {
                     </div>
                     <div class="card-body">
                         <p>Villains: ${this.getMultipleToDisplay(game.villains)}</p>
-                        <p>Henchmen: ${this.getMultipleToDisplay(game.henchmen, henchmenLimit)}</p>
+                        <p>Henchmen: ${this.getMultipleToDisplay(game.henchmen, game.henchmenCardsCount)}</p>
                     </div>
                 </div>
                 <div class="card">

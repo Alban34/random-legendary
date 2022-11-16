@@ -44,6 +44,7 @@ export class GameBuilder {
             scheme,
             villains,
             henchmen,
+            henchmenCardsCount: playerConfig.henchmenCardsCount,
             heroes,
             bystanders: playerConfig.bystandersCount,
             masterStrike: playerConfig.masterStrikeCount

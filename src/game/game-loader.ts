@@ -17,9 +17,7 @@ export class GameLoader {
             scheme,
             villains,
             henchmen,
-            heroes,
-            bystanders: -1,
-            masterStrike: -1
+            heroes
         };
     }
 

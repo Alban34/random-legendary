@@ -6,7 +6,8 @@ export interface Game {
     scheme: Card;
     villains: Card[];
     henchmen: Card[];
+    henchmenCardsCount?: number;
     heroes: Card[];
-    bystanders: number;
-    masterStrike: number;
+    bystanders?: number;
+    masterStrike?: number;
 }

@@ -14,7 +14,12 @@ export const ALL_CARDS =
                 'name': 'Annihilus',
                 'extension': 'Annihilation',
                 'alwaysLead': 'Annihilation Wave',
-                'alwaysLeadCategory': 'villains'
+                'alwaysLeadCategory': 'villains',
+                'customRule': (game) => {
+                    if (game.henchmenCardsCount === 3) {
+                        game.henchmenCardsCount = 6;
+                    }
+                }
             },
             {
                 'name': 'Apocalypse',

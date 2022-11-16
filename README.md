@@ -80,7 +80,6 @@ I may add the following features in the future:
 - improve bystanders and master strike requirements base on the scheme setup.
 - display a history of the games with the most used cards and the best scores
 - create an executable app for ease of use
-- add a custom rule on Annihilus to set 6 henchmen in a 1 player game
 - add some statistics on games and cards
 
 ## Disclaimer

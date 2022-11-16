@@ -11,6 +11,7 @@ export class PlayerConfig {
 
     private readonly _villainsCount: number;
     private readonly _henchmenCount: number;
+    private readonly _henchmenCardsCount: number = 10;
     private readonly _heroesCount: number;
     private readonly _bystandersCount: number;
     private readonly _masterStrikeCount: number = 5;
@@ -21,6 +22,10 @@ export class PlayerConfig {
 
     public get henchmenCount(): number {
         return this._henchmenCount;
+    }
+
+    public get henchmenCardsCount(): number {
+        return this._henchmenCardsCount;
     }
 
     public get heroesCount(): number {
@@ -89,6 +94,7 @@ export class PlayerConfig {
             default: {
                 this._villainsCount = 1;
                 this._henchmenCount = 1;
+                this._henchmenCardsCount = 3;
                 this._heroesCount = 3;
                 this._bystandersCount = 1;
                 break;
