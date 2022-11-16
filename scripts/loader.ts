@@ -49,6 +49,196 @@ const toParse = [
         },
 */
 
+    {
+            'setName': 'Venom',
+            'heroes': `
+Microbadge: Legendary fan - Venomverse Team Carnage
+Microbadge: Legendary fan - Venomverse Team Venom
+Microbadge: Legendary fan - Venomverse Team Venom Rocket
+Microbadge: Legendary fan - Venomverse Team Venomized Dr. Strange
+Microbadge: Legendary fan - Venomverse Team Venompool
+    `,
+            'masterminds': `
+
+Poison Thanos
+Hybrid
+    `,
+            'schemes': `
+Invasion of the Venom Symbiotes
+Maximum Carnage
+Paralyzing Venom
+Symbiotic Absorption
+
+    `,
+            'villains': `
+Life Foundation
+Poisons
+
+    `,
+            'henchmen': `
+
+
+    `
+        },
+
+    {
+            'setName': 'Spider-Man Homecoming',
+            'heroes': `
+Happy Hogan
+Microbadge: Legendary fan - Spider Friends Team Hightech Spider-Man
+Microbadge: Legendary fan - Spider Friends Team Peter's Allies
+Microbadge: Legendary fan - Spider Friends Team Peter Parker, Homecoming
+Microbadge: Legendary fan - The Avengers Team Tony Stark
+    `,
+            'masterminds': `
+Adrian Toomes
+Vulture
+
+
+    `,
+            'schemes': `
+
+Distract the Hero
+Explosion at the Washington Monument
+Ferry Disaster
+Scavenge Alien Weaponry
+    `,
+            'villains': `
+Salvagers
+Vulture Tech
+
+    `,
+            'henchmen': `
+
+
+    `
+        },
+
+    {
+            'setName': 'Realm of Kings',
+            'heroes': `
+Microbadge: Legendary fan - Inhumans Team Black Bolt
+Microbadge: Legendary fan - Inhumans Team Crystal
+Microbadge: Legendary fan - Inhumans Team Gorgon
+Microbadge: Legendary fan - Inhumans Team Karnak
+Microbadge: Legendary fan - Inhumans Team Medusa
+    `,
+            'masterminds': `
+Maximus the Mad
+Emperor Vulcan of the Shi'Ar
+
+    `,
+            'schemes': `
+Devolve with Xerogen Crystals
+Tornado of Terrigen Mists
+Ruin the Perfect Wedding
+War of Kings
+
+    `,
+            'villains': `
+Inhuman Rebellion
+Shi'Ar Imperial Elite
+
+    `,
+            'henchmen': `
+
+
+    `
+        },
+
+    {
+            'setName': `Marvel Studios\\\' Guardians of the Galaxy`,
+            'heroes': `
+Microbadge: Legendary fan - Guardians of the Galaxy team Drax
+Microbadge: Legendary fan - Guardians of the Galaxy team Gamora
+Microbadge: Legendary fan - Guardians of the Galaxy team Mantis
+Microbadge: Legendary fan - Guardians of the Galaxy team Rocket and Groot
+Microbadge: Legendary fan - Guardians of the Galaxy team Star-Lord
+    `,
+            'masterminds': `
+
+Ronan the Accuser
+Ego, The Living Planet
+    `,
+            'schemes': `
+Provoke the Sovereign War Fleet
+Unleash the Abilisk Space Monster
+Inescapable "Kyln" Space Prison
+Star-Lord's Awesome Mix Tape
+
+    `,
+            'villains': `
+Ravagers
+Followers of Ronan
+
+    `,
+            'henchmen': `
+
+
+    `
+        },
+
+
+    {
+            'setName': 'Dimensions',
+            'heroes': `
+Howard the Duck
+Microbadge: Legendary fan - Marvel Knights team Jessica Jones
+Man-Thing
+Microbadge: Legendary fan - The Avengers Team Ms. America
+Microbadge: Legendary fan - The Avengers Team Squirrel Girl
+    `,
+            'masterminds': `
+J. Jonah Jameson
+
+    `,
+            'schemes': `
+
+
+    `,
+            'villains': `
+
+
+    `,
+            'henchmen': `
+
+Circus of Crime
+Spider-Slayer
+    `
+        },
+
+    {
+            'setName': 'Annihilation',
+            'heroes': `
+Microbadge: Legendary: Fantastic Four team Brainstorm
+Microbadge: Legendary: Fantastic Four team Fantastic Four United
+Heralds of Galactus
+Microbadge: Legendary: Fantastic Four team Psi-Lord
+Super-Skrull
+    `,
+            'masterminds': `
+Annihilus
+Kang the Conqueror
+
+    `,
+            'schemes': `
+Pulse Waves from the Negative Zone
+Sneak Attack the Heroes' Homes
+Put Humanity on Trial
+Breach Parallel Dimensions
+
+    `,
+            'villains': `
+Annihilation Wave
+Timelines of Kang
+
+    `,
+            'henchmen': `
+
+
+    `
+        },
+
 
     {
             'setName': 'Marvel Noir',

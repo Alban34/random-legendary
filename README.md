@@ -42,6 +42,7 @@ This app works based on 3 files:
 
 ## Known extensions
 So far, the cards that are randomly chosen come from:
+- Annihilation
 - Ant-Man
 - Black Panther
 - Black Widow
@@ -51,6 +52,7 @@ So far, the cards that are randomly chosen come from:
 - Core Set
 - Dark City
 - Deadpool
+- Dimensions
 - Doctor Strange and the Shadows of Nightmare
 - Fantastic Four
 - Fear Itself
@@ -58,24 +60,28 @@ So far, the cards that are randomly chosen come from:
 - Heroes of Asgard
 - Into the Cosmos
 - Marvel Noir
+- Marvel Studios' Guardians of the Galaxy
 - Messiah Complex
 - Paint the Town Red
+- Realm of Kings
 - Revelations
 - S.H.I.E.L.D.
 - Secret Wars, Volume 1
 - Secret Wars, Volume 2
+- Spider-Man Homecoming
 - The New Mutants
+- Venom
 - Villains
 - World War Hulk
 - X-Men
 
 ## What's next?
-This is a very early version of the randomizer that addresses only my personal needs (with only my personally owned extensions).
-I will add more extensions in the future.
-I may also:
+I may add the following features in the future:
 - improve bystanders and master strike requirements base on the scheme setup.
 - display a history of the games with the most used cards and the best scores
 - create an executable app for ease of use
+- add a custom rule on Annihilus to set 6 henchmen in a 1 player game
+- add some statistics on games and cards
 
 ## Disclaimer
 This software is not affiliated to Upper Deck nor Marvel. 
