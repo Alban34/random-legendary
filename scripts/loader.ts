@@ -48,6 +48,49 @@ const toParse = [
     `
         },
 */
+    {
+            'setName': 'Marvel Studios, Phase 1',
+            'heroes': `
+Microbadge: Legendary fan - The Avengers Team Black Widow (Black Widow)
+Microbadge: Legendary fan - The Avengers Team Captain America (Captain America)
+Microbadge: Legendary fan - The Avengers Team Hawkeye (Hawkeye)
+Microbadge: Legendary fan - The Avengers Team Hulk (Hulk)
+Microbadge: Legendary fan - The Avengers Team Iron Man (Iron Man)
+Microbadge: Legendary fan - S.H.I.E.L.D. Team Nick Fury (Nick Fury)
+Microbadge: Legendary fan - The Avengers Team Thor (Thor)
+    `,
+            'masterminds': `
+
+Iron Monger
+Loki
+Red Skull
+    `,
+            'schemes': `
+Asgard Under Siege
+Destroy the Cities of Earth!
+Enslave Minds with the Chitauri Scepter
+Invade Asgard
+Radioactive Palladium Poisoning
+Replace Earth’s Leaders with HYDRA
+Super Hero Civil War
+Unleash the Power of the Cosmic Cube
+
+    `,
+            'villains': `
+Chitauri
+Enemies of Asgard
+Gamma Hunters
+HYDRA
+Iron Foes
+
+    `,
+            'henchmen': `
+Hammer Drone Army
+HYDRA Pilots
+HYDRA Spies
+Ten Rings Fanatics
+    `
+        },
 
     {
             'setName': 'Venom',

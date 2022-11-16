@@ -61,6 +61,7 @@ So far, the cards that are randomly chosen come from:
 - Into the Cosmos
 - Marvel Noir
 - Marvel Studios' Guardians of the Galaxy
+- Marvel Studios, Phase 1
 - Messiah Complex
 - Paint the Town Red
 - Realm of Kings

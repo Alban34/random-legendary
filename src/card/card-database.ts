@@ -217,6 +217,12 @@ export const ALL_CARDS =
                 'alwaysLeadCategory': 'villains'
             },
             {
+                'name': 'Iron Monger',
+                'extension': 'Marvel Studios, Phase 1',
+                'alwaysLead': 'Iron Foes',
+                'alwaysLeadCategory': 'villains'
+            },
+            {
                 'name': 'J. Jonah Jameson',
                 'extension': 'Dimensions',
                 'alwaysLead': 'Spider-Slayer',
@@ -262,6 +268,12 @@ export const ALL_CARDS =
                 'name': 'Lady Deathstrike',
                 'extension': 'Messiah Complex',
                 'alwaysLead': 'Reavers',
+                'alwaysLeadCategory': 'villains'
+            },
+            {
+                'name': 'Loki',
+                'extension': 'Marvel Studios, Phase 1',
+                'alwaysLead': 'Enemies of Asgard',
                 'alwaysLeadCategory': 'villains'
             },
             {
@@ -422,6 +434,12 @@ export const ALL_CARDS =
             },
             {
                 'name': 'Red Skull',
+                'extension': 'Marvel Studios, Phase 1',
+                'alwaysLead': 'HYDRA',
+                'alwaysLeadCategory': 'villains'
+            },
+            {
+                'name': 'Red Skull',
                 'extension': 'Core Set',
                 'alwaysLead': 'HYDRA',
                 'alwaysLeadCategory': 'villains'
@@ -553,6 +571,10 @@ export const ALL_CARDS =
                 'extension': 'X-Men'
             },
             {
+                'name': 'Asgard Under Siege',
+                'extension': 'Marvel Studios, Phase 1'
+            },
+            {
                 'name': 'Asgardian Test of Worth',
                 'extension': 'Heroes of Asgard'
             },
@@ -661,6 +683,10 @@ export const ALL_CARDS =
                 'extension': 'Deadpool'
             },
             {
+                'name': 'Destroy the Cities of Earth!',
+                'extension': 'Marvel Studios, Phase 1'
+            },
+            {
                 'name': 'Destroy the Nova Corps',
                 'extension': 'Into the Cosmos'
             },
@@ -691,6 +717,10 @@ export const ALL_CARDS =
             {
                 'name': 'Earthquake Drains the Ocean / Tsunami Crushes the Coast',
                 'extension': 'Revelations'
+            },
+            {
+                'name': 'Enslave Minds with the Chitauri Scepter',
+                'extension': 'Marvel Studios, Phase 1'
             },
             {
                 'name': 'Enthrone the Barons of Battleworld',
@@ -805,6 +835,10 @@ export const ALL_CARDS =
                 'extension': 'Guardians of the Galaxy'
             },
             {
+                'name': 'Invade Asgard',
+                'extension': 'Marvel Studios, Phase 1'
+            },
+            {
                 'name': 'Invade the Daily Bugle News HQ',
                 'extension': 'Paint the Town Red'
             },
@@ -917,6 +951,10 @@ export const ALL_CARDS =
                 'extension': 'Annihilation'
             },
             {
+                'name': 'Radioactive Palladium Poisoning',
+                'extension': 'Marvel Studios, Phase 1'
+            },
+            {
                 'name': 'Ragnarok, Twilight of the Gods',
                 'extension': 'Heroes of Asgard'
             },
@@ -927,6 +965,10 @@ export const ALL_CARDS =
             {
                 'name': 'Replace Earth\'s Leaders with Killbots',
                 'extension': 'Core Set'
+            },
+            {
+                'name': 'Replace Earth’s Leaders with HYDRA',
+                'extension': 'Marvel Studios, Phase 1'
             },
             {
                 'name': 'Resurrect Heroes with the Norn Stones',
@@ -1015,6 +1057,10 @@ export const ALL_CARDS =
             {
                 'name': 'Subjugate With Obedience Disks',
                 'extension': 'World War Hulk'
+            },
+            {
+                'name': 'Super Hero Civil War',
+                'extension': 'Marvel Studios, Phase 1'
             },
             {
                 'name': 'Super Hero Civil War',
@@ -1126,6 +1172,10 @@ export const ALL_CARDS =
             },
             {
                 'name': 'Unleash the Power of the Cosmic Cube',
+                'extension': 'Marvel Studios, Phase 1'
+            },
+            {
+                'name': 'Unleash the Power of the Cosmic Cube',
                 'extension': 'Core Set'
             },
             {
@@ -1195,6 +1245,10 @@ export const ALL_CARDS =
                 'extension': 'Into the Cosmos'
             },
             {
+                'name': 'Chitauri',
+                'extension': 'Marvel Studios, Phase 1'
+            },
+            {
                 'name': 'Clan Yashida',
                 'extension': 'Messiah Complex'
             },
@@ -1252,6 +1306,10 @@ export const ALL_CARDS =
             },
             {
                 'name': 'Enemies of Asgard',
+                'extension': 'Marvel Studios, Phase 1'
+            },
+            {
+                'name': 'Enemies of Asgard',
                 'extension': 'Core Set'
             },
             {
@@ -1277,6 +1335,10 @@ export const ALL_CARDS =
             {
                 'name': 'From Beyond',
                 'extension': 'Into the Cosmos'
+            },
+            {
+                'name': 'Gamma Hunters',
+                'extension': 'Marvel Studios, Phase 1'
             },
             {
                 'name': 'Goblin\'s Freak Show',
@@ -1312,6 +1374,10 @@ export const ALL_CARDS =
             },
             {
                 'name': 'HYDRA',
+                'extension': 'Marvel Studios, Phase 1'
+            },
+            {
+                'name': 'HYDRA',
                 'extension': 'Core Set'
             },
             {
@@ -1333,6 +1399,10 @@ export const ALL_CARDS =
             {
                 'name': 'Intelligencia',
                 'extension': 'World War Hulk'
+            },
+            {
+                'name': 'Iron Foes',
+                'extension': 'Marvel Studios, Phase 1'
             },
             {
                 'name': 'K\'un Lun',
@@ -1609,6 +1679,10 @@ export const ALL_CARDS =
                 'extension': 'Secret Wars, Volume 1'
             },
             {
+                'name': 'Hammer Drone Army',
+                'extension': 'Marvel Studios, Phase 1'
+            },
+            {
                 'name': 'Hand Ninjas',
                 'extension': 'Core Set'
             },
@@ -1619,6 +1693,14 @@ export const ALL_CARDS =
             {
                 'name': 'Hydra Base',
                 'extension': 'Revelations'
+            },
+            {
+                'name': 'HYDRA Pilots',
+                'extension': 'Marvel Studios, Phase 1'
+            },
+            {
+                'name': 'HYDRA Spies',
+                'extension': 'Marvel Studios, Phase 1'
             },
             {
                 'name': 'Khonshu Guardians',
@@ -1699,6 +1781,10 @@ export const ALL_CARDS =
             {
                 'name': 'Spider-Slayer',
                 'extension': 'Dimensions'
+            },
+            {
+                'name': 'Ten Rings Fanatics',
+                'extension': 'Marvel Studios, Phase 1'
             },
             {
                 'name': 'The Brood',
@@ -1883,6 +1969,13 @@ export const ALL_CARDS =
                 ]
             },
             {
+                'name': 'Black Widow (Black Widow)',
+                'extension': 'Marvel Studios, Phase 1',
+                'teams': [
+                    'The Avengers'
+                ]
+            },
+            {
                 'name': 'Blade',
                 'extension': 'Dark City',
                 'teams': [
@@ -1941,6 +2034,13 @@ export const ALL_CARDS =
             {
                 'name': 'Captain America',
                 'extension': 'Core Set',
+                'teams': [
+                    'The Avengers'
+                ]
+            },
+            {
+                'name': 'Captain America (Captain America)',
+                'extension': 'Marvel Studios, Phase 1',
                 'teams': [
                     'The Avengers'
                 ]
@@ -2333,6 +2433,13 @@ export const ALL_CARDS =
                 ]
             },
             {
+                'name': 'Hawkeye (Hawkeye)',
+                'extension': 'Marvel Studios, Phase 1',
+                'teams': [
+                    'The Avengers'
+                ]
+            },
+            {
                 'name': 'Hellcat',
                 'extension': 'Revelations',
                 'teams': [
@@ -2382,6 +2489,13 @@ export const ALL_CARDS =
                 ]
             },
             {
+                'name': 'Hulk (Hulk)',
+                'extension': 'Marvel Studios, Phase 1',
+                'teams': [
+                    'The Avengers'
+                ]
+            },
+            {
                 'name': 'Hulkbuster Iron Man ',
                 'extension': 'World War Hulk',
                 'teams': [
@@ -2426,6 +2540,13 @@ export const ALL_CARDS =
             {
                 'name': 'Iron Man',
                 'extension': 'Core Set',
+                'teams': [
+                    'The Avengers'
+                ]
+            },
+            {
+                'name': 'Iron Man (Iron Man)',
+                'extension': 'Marvel Studios, Phase 1',
                 'teams': [
                     'The Avengers'
                 ]
@@ -2742,6 +2863,13 @@ export const ALL_CARDS =
             {
                 'name': 'Nick Fury',
                 'extension': 'Core Set',
+                'teams': [
+                    'S.H.I.E.L.D.'
+                ]
+            },
+            {
+                'name': 'Nick Fury (Nick Fury)',
+                'extension': 'Marvel Studios, Phase 1',
                 'teams': [
                     'S.H.I.E.L.D.'
                 ]
@@ -3291,6 +3419,13 @@ export const ALL_CARDS =
             {
                 'name': 'Thor',
                 'extension': 'Core Set',
+                'teams': [
+                    'The Avengers'
+                ]
+            },
+            {
+                'name': 'Thor (Thor)',
+                'extension': 'Marvel Studios, Phase 1',
                 'teams': [
                     'The Avengers'
                 ]
