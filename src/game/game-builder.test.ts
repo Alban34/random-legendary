@@ -101,8 +101,21 @@ describe('GameBuilder', () => {
         expect(game.henchmen[0].name).toBe('hsl2');
     });
 
-    test('should manage very custom rules depending on additional callback on cards', () => {
+    test('should manage custom rules depending on additional callback on mastermind cards', () => {
         cardList.masterminds[0]['customRule'] = (game: Game, cardDrawer: CardDrawer, allCards) => {
+            game.bystanders = 20;
+            game.villains.push(cardDrawer.drawRandomUnique(allCards.villains));
+        };
+
+        const game = gameBuilder.buildGame(cardList, new PlayerConfig(2));
+
+        expect(game.bystanders).toBe(20);
+        expect(game.villains.length).toBe(3);
+        game.villains.forEach(v => expect(v.gameId).toContain(game.gameId));
+    });
+
+    test('should manage custom rules depending on additional callback on scheme cards too', () => {
+        cardList.schemes[0]['customRule'] = (game: Game, cardDrawer: CardDrawer, allCards) => {
             game.bystanders = 20;
             game.villains.push(cardDrawer.drawRandomUnique(allCards.villains));
         };

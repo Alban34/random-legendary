@@ -2,6 +2,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { PlayerConfig } from './player-config';
 import { Game } from './model/game';
 import { Card, CardDrawer, MastermindCard } from '../card/card.module';
+import { CustomRuleCard } from '../card/model/custom-rule-card';
 
 export class GameBuilder {
 
@@ -33,7 +34,7 @@ export class GameBuilder {
             strictHenchmen = false;
         }
 
-        const scheme = this.cardDrawer.drawRandomUnique(allCards.schemes);
+        const scheme = this.cardDrawer.drawRandomUnique(allCards.schemes) as CustomRuleCard;
         const villains = this.cardDrawer.drawRandomMultipleForce(allCards.villains, playerConfig.villainsCount, alwaysLeadVillains);
         const henchmen = this.cardDrawer.drawRandomMultipleForce(allCards.henchmen, playerConfig.henchmenCount, alwaysLeadHenchmen, strictHenchmen);
         const heroes = this.cardDrawer.drawRandomMultiple(allCards.heroes, playerConfig.heroesCount);
@@ -51,6 +52,7 @@ export class GameBuilder {
         };
 
         this.customizeGame(mastermind, game, allCards);
+        this.customizeGame(scheme, game, allCards);
 
         this.addGameIdToCard(game.mastermind, gameId);
         this.addGameIdToCard(game.scheme, gameId);
@@ -68,7 +70,7 @@ export class GameBuilder {
         card.gameId.push(gameId);
     }
 
-    private customizeGame(card: MastermindCard, game: Game, allCards) {
+    private customizeGame(card: CustomRuleCard, game: Game, allCards) {
         if (card.customRule) {
             card.customRule(game, this.cardDrawer, allCards);
         }

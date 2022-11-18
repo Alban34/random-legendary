@@ -1,10 +1,7 @@
-import { Card } from './card';
-import { Game } from '../../game/model/game';
-import { CardDrawer } from '../card-drawer';
+import { CustomRuleCard } from './custom-rule-card';
 
-export interface MastermindCard extends Card {
+export interface MastermindCard extends CustomRuleCard {
     alwaysLead?: string;
     alwaysLeadCategory?: 'villains' | 'henchmen';
     specialLead?: string;
-    customRule?: (game: Game, cardDrawer: CardDrawer, allCards) => {};
 }

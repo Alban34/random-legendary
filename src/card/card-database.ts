@@ -1052,7 +1052,10 @@ export const ALL_CARDS =
             },
             {
                 'name': 'Steal the Weaponized Plutonium',
-                'extension': 'Dark City'
+                'extension': 'Dark City',
+                'customRule': (game: Game, cardDrawer: CardDrawer, allCards) => {
+                    game.villains.push(cardDrawer.drawRandomUnique(allCards.villains));
+                }
             },
             {
                 'name': 'Subjugate With Obedience Disks',
