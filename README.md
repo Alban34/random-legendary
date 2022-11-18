@@ -82,6 +82,7 @@ I may add the following features in the future:
 - display a history of the games with the most used cards and the best scores
 - create an executable app for ease of use
 - add some statistics on games and cards
+- add special rule of Avengers VS X-Men scheme
 
 ## Disclaimer
 This software is not affiliated to Upper Deck nor Marvel. 

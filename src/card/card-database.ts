@@ -15,8 +15,8 @@ export const ALL_CARDS =
                 'extension': 'Annihilation',
                 'alwaysLead': 'Annihilation Wave',
                 'alwaysLeadCategory': 'villains',
-                'customRule': (game) => {
-                    if (game.henchmenCardsCount === 3) {
+                'customRule': (game: Game, _cardDrawer: CardDrawer, _allCards, playerCount: number) => {
+                    if (playerCount === 1) {
                         game.henchmenCardsCount = 6;
                     }
                 }
@@ -657,7 +657,10 @@ export const ALL_CARDS =
             },
             {
                 'name': 'Cursed Pages of the Darkhold Tome',
-                'extension': 'Doctor Strange and the Shadows of Nightmare'
+                'extension': 'Doctor Strange and the Shadows of Nightmare',
+                'customRule': (game: Game, cardDrawer: CardDrawer, allCards,) => {
+                    game.villains.push(cardDrawer.drawRandomUnique(allCards.villains));
+                }
             },
             {
                 'name': 'Cytoplasm Spike Invasion',
@@ -673,7 +676,10 @@ export const ALL_CARDS =
             },
             {
                 'name': 'Deadlands Hordes Charge the Wall',
-                'extension': 'Secret Wars, Volume 2'
+                'extension': 'Secret Wars, Volume 2',
+                'customRule': (game: Game, cardDrawer: CardDrawer, allCards,) => {
+                    game.villains.push(cardDrawer.drawRandomUnique(allCards.villains));
+                }
             },
             {
                 'name': 'Deadpool Kills the Marvel Universe',
@@ -697,7 +703,12 @@ export const ALL_CARDS =
             },
             {
                 'name': 'Detonate the Helicarrier',
-                'extension': 'Dark City'
+                'extension': 'Dark City',
+                'customRule': (game, cardDrawer, allCards) => {
+                    for (let i = game.heroes.length; i < 6; i++) {
+                        game.heroes.push(cardDrawer.drawRandomUnique(allCards.heroes));
+                    }
+                }
             },
             {
                 'name': 'Devolve with Xerogen Crystals',
@@ -709,7 +720,12 @@ export const ALL_CARDS =
             },
             {
                 'name': 'Divide and Conquer',
-                'extension': 'Champions'
+                'extension': 'Champions',
+                'customRule': (game, cardDrawer, allCards) => {
+                    for (let i = game.heroes.length; i < 7; i++) {
+                        game.heroes.push(cardDrawer.drawRandomUnique(allCards.heroes));
+                    }
+                }
             },
             {
                 'name': 'Drain Mutants\' Powers to / Open Rifts to Future Timelines',
@@ -733,7 +749,14 @@ export const ALL_CARDS =
             },
             {
                 'name': 'Epic Super Hero Civil War',
-                'extension': 'Civil War'
+                'extension': 'Civil War',
+                'customRule': (game, cardDrawer, allCards, playerCount) => {
+                    if (playerCount === 1) {
+                        for (let i = game.heroes.length; i < 4; i++) {
+                            game.heroes.push(cardDrawer.drawRandomUnique(allCards.heroes));
+                        }
+                    }
+                }
             },
             {
                 'name': 'Everybody Hates Deadpool',
@@ -769,7 +792,13 @@ export const ALL_CARDS =
             },
             {
                 'name': 'Forge the Infinity Gauntlet',
-                'extension': 'Guardians of the Galaxy'
+                'extension': 'Guardians of the Galaxy',
+                'customRule': (game, cardDrawer, allCards) => {
+                    const previousVillain = game.villains[0];
+                    previousVillain.count--;
+                    game.villains[0] =
+                        cardDrawer.drawRandomMultipleForce(allCards.villains, 1, ['Infinity Gems'])[0];
+                }
             },
             {
                 'name': 'Fragmented Realities',
@@ -821,7 +850,11 @@ export const ALL_CARDS =
             },
             {
                 'name': 'Hypnotize Every Human',
-                'extension': 'Champions'
+                'extension': 'Champions',
+                'customRule': (game, cardDrawer, allCards) => {
+                    game.bystanders = 0;
+                    game.henchmen.push(cardDrawer.drawRandomUnique(allCards.henchmen));
+                }
             },
             {
                 'name': 'Imprison Unregistered Superhumans',
