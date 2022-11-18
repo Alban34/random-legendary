@@ -556,7 +556,12 @@ export const ALL_CARDS =
         'schemes': [
             {
                 'name': 'Age of Ultron',
-                'extension': 'Ant-Man'
+                'extension': 'Ant-Man',
+                'customRule': (game: Game, cardDrawer: CardDrawer, allCards, playerCount) => {
+                    if (playerCount === 4 || playerCount === 5) {
+                        game.villains.push(cardDrawer.drawRandomUnique(allCards.villains));
+                    }
+                }
             },
             {
                 'name': 'Alien Brood Encounters',

@@ -3,18 +3,19 @@ import { PlayerConfig } from './player-config';
 import { Game } from './model/game';
 import { Card, CardDrawer, MastermindCard } from '../card/card.module';
 import { CustomRuleCard } from '../card/model/custom-rule-card';
+import { PredefinedGame } from './model/predefined-game';
 
 export class GameBuilder {
 
     private cardDrawer = new CardDrawer();
 
-    public buildGame(allCards, playerConfig: PlayerConfig): Game {
+    public buildGame(allCards, playerConfig: PlayerConfig, predefinedGame?: PredefinedGame): Game {
 
         const gameId = uuidv4();
         let alwaysLeadVillains = [];
         let alwaysLeadHenchmen = [];
 
-        const mastermind = this.cardDrawer.drawRandomUnique(allCards.masterminds) as MastermindCard;
+        const mastermind = this.getCard(predefinedGame, allCards, 'mastermind', 'masterminds') as MastermindCard;
         if (playerConfig.playerCount > 1) {
             switch (mastermind.alwaysLeadCategory) {
                 case 'villains':
@@ -34,7 +35,7 @@ export class GameBuilder {
             strictHenchmen = false;
         }
 
-        const scheme = this.cardDrawer.drawRandomUnique(allCards.schemes) as CustomRuleCard;
+        const scheme = this.getCard(predefinedGame, allCards, 'scheme', 'schemes') as CustomRuleCard;
         const villains = this.cardDrawer.drawRandomMultipleForce(allCards.villains, playerConfig.villainsCount, alwaysLeadVillains);
         const henchmen = this.cardDrawer.drawRandomMultipleForce(allCards.henchmen, playerConfig.henchmenCount, alwaysLeadHenchmen, strictHenchmen);
         const heroes = this.cardDrawer.drawRandomMultiple(allCards.heroes, playerConfig.heroesCount);
@@ -51,8 +52,8 @@ export class GameBuilder {
             masterStrike: playerConfig.masterStrikeCount
         };
 
-        this.customizeGame(mastermind, game, allCards);
-        this.customizeGame(scheme, game, allCards);
+        this.customizeGame(mastermind, game, allCards, playerConfig.playerCount);
+        this.customizeGame(scheme, game, allCards, playerConfig.playerCount);
 
         this.addGameIdToCard(game.mastermind, gameId);
         this.addGameIdToCard(game.scheme, gameId);
@@ -63,6 +64,17 @@ export class GameBuilder {
         return game;
     }
 
+    private getCard(predefinedGame, allCards, cardType, cardGroup) {
+        let card;
+        if (predefinedGame && predefinedGame[cardType]) {
+            card = allCards[cardGroup].filter(c => c.name === predefinedGame[cardType].name && c.extension === predefinedGame[cardType].extension)[0];
+        }
+        if (!card) {
+            card = this.cardDrawer.drawRandomUnique(allCards[cardGroup]);
+        }
+        return card;
+    }
+
     private addGameIdToCard(card: Card, gameId: string) {
         if (!card.gameId) {
             card.gameId = [];
@@ -70,9 +82,9 @@ export class GameBuilder {
         card.gameId.push(gameId);
     }
 
-    private customizeGame(card: CustomRuleCard, game: Game, allCards) {
+    private customizeGame(card: CustomRuleCard, game: Game, allCards, playerCount) {
         if (card.customRule) {
-            card.customRule(game, this.cardDrawer, allCards);
+            card.customRule(game, this.cardDrawer, allCards, playerCount);
         }
     }
 }

@@ -3,6 +3,7 @@ import { GameBuilder } from './game-builder';
 import { PlayerConfig } from './player-config';
 import { Game } from './model/game';
 import { CardDrawer } from '../card/card-drawer';
+import { PredefinedGame } from './model/predefined-game';
 
 describe('GameBuilder', () => {
 
@@ -125,5 +126,35 @@ describe('GameBuilder', () => {
         expect(game.bystanders).toBe(20);
         expect(game.villains.length).toBe(3);
         game.villains.forEach(v => expect(v.gameId).toContain(game.gameId));
+    });
+
+    test('should create a game with predefined mastermind', () => {
+        cardList.masterminds.push({
+            name: 'm2',
+            count: 10,
+            alwaysLead: 'v1',
+            alwaysLeadCategory: 'villains',
+            extension: 'ext1'
+        });
+        const predefinedGame = {
+            mastermind: {name:'m2', extension:'ext1'}
+        } as PredefinedGame;
+
+        const game = gameBuilder.buildGame(cardList, new PlayerConfig(2), predefinedGame);
+        expect(game.mastermind.name).toBe('m2');
+    });
+
+    test('should create a game with predefined scheme', () => {
+        cardList.schemes.push({
+            name: 's2',
+            count: 10,
+            extension: 'ext1'
+        });
+        const predefinedGame = {
+            scheme: {name:'s2', extension:'ext1'}
+        } as PredefinedGame;
+
+        const game = gameBuilder.buildGame(cardList, new PlayerConfig(2), predefinedGame);
+        expect(game.scheme.name).toBe('s2');
     });
 });
