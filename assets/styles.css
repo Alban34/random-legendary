@@ -1,5 +1,5 @@
 body {
-    padding: 15px;
+    padding: 0;
 }
 
 h1 a {
@@ -57,6 +57,10 @@ table ul {
     }
 }
 
+.content {
+    padding: 15px;
+}
+
 .cards-container {
     display: grid;
     width: 100%;
@@ -82,4 +86,10 @@ table ul {
 .extensions-list {
     margin-top: 10px;
     column-count: 3;
+}
+
+.version {
+    white-space: nowrap;
+    color: white;
+    margin-right: 10px;
 }

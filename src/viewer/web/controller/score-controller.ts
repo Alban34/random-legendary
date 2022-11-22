@@ -43,6 +43,14 @@ export class ScoreController extends AbstractController {
         const allCardList = this.cardLoader.loadData();
         const allAvailableGamesForScore = this.gameManager.loadRegisteredGameWithNoScore(allCardList);
 
+        if (allAvailableGamesForScore.length === 0) {
+            return `
+                <div class="alert alert-warning" role="alert">
+                    <h4 class="alert-heading">No game without score</h4>
+                    <p>There is no game that needs to fill in a score. Please start a new game first.</p>
+                </div>`;
+        }
+
         let webView = `
                 <form action="/scores" method="post" class="col-lg-6 col-md-8 col-sm-12">`;
         allAvailableGamesForScore.forEach(gameId => {

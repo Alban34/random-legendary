@@ -36,9 +36,63 @@ export class GameController extends AbstractController {
 
     @httpGet('/history')
     public getHistory(): string {
+        return this.writeHTMLResponse(this.showHistory());
+    }
+
+    private startGame(gameMode: number): string {
+        const cardManager = new CardManager();
+
+        const playerConfig = new PlayerConfig(gameMode);
+        const gameBuilder = new GameBuilder();
+
+        const allCardList = this.cardLoader.loadData();
+        const cardList = cardManager.filterAllCards(allCardList, this.cardLoader.loadExtensions());
+        const game = gameBuilder.buildGame(cardList, playerConfig);
+
+        this.dataGameManager.saveData(allCardList);
+
+        const gameViewer = new GameWebViewer();
+        return gameViewer.buildView(playerConfig.playerCount, game);
+    }
+
+    private getMultipleCards(cards: Card[]): string {
+        let view = '<ul>';
+        cards.forEach(card => view += `<li>${card.name}</li>`);
+        view += '</ul>';
+        return view;
+    }
+
+    private getScores(allScores: Scores, gameId: string): string {
+        let lost = false;
+        let view = '';
+        if (!allScores[gameId]) {
+            return 'No score yet';
+        }
+        allScores[gameId].forEach(s => {
+            if (s.score === -1) {
+                lost = true;
+            }
+            view += `<p>${s.player}: ${s.score}</p>`;
+        });
+        if (lost) {
+            view = 'Game lost';
+        }
+        return view;
+    }
+
+    private showHistory() {
         const allCardList = this.cardLoader.loadData();
         const allScores = this.dataManager.readScores();
         const allGames = this.gameManager.loadRegisteredGame(allCardList);
+
+        if (allGames.length === 0) {
+            return `
+                <div class="alert alert-warning" role="alert">
+                    <h4 class="alert-heading">No game found</h4>
+                    <p>There is no history to be displayed yet. Please start a new game first.</p>
+                </div>`;
+        }
+
         let view = `
             <table class="table table-striped table-hover">
                 <thead class="table-light">
@@ -81,47 +135,6 @@ export class GameController extends AbstractController {
                 </tbody>
             </table>
         `;
-        return this.writeHTMLResponse(view);
-    }
-
-    private startGame(gameMode: number): string {
-        const cardManager = new CardManager();
-
-        const playerConfig = new PlayerConfig(gameMode);
-        const gameBuilder = new GameBuilder();
-
-        const allCardList = this.cardLoader.loadData();
-        const cardList = cardManager.filterAllCards(allCardList, this.cardLoader.loadExtensions());
-        const game = gameBuilder.buildGame(cardList, playerConfig);
-
-        this.dataGameManager.saveData(allCardList);
-
-        const gameViewer = new GameWebViewer();
-        return gameViewer.buildView(playerConfig.playerCount, game);
-    }
-
-    private getMultipleCards(cards: Card[]): string {
-        let view = '<ul>';
-        cards.forEach(card => view += `<li>${card.name}</li>`);
-        view += '</ul>';
-        return view;
-    }
-
-    private getScores(allScores: Scores, gameId: string): string {
-        let lost = false;
-        let view = '';
-        if (!allScores[gameId]) {
-            return 'No score yet';
-        }
-        allScores[gameId].forEach(s => {
-            if (s.score === -1) {
-                lost = true;
-            }
-            view += `<p>${s.player}: ${s.score}</p>`;
-        });
-        if (lost) {
-            view = 'Game lost';
-        }
         return view;
     }
 }
