@@ -18,9 +18,19 @@ export class CardController extends AbstractController {
         return this.writeHTMLResponse(this.showCards());
     }
 
+    @httpGet('/all/group')
+    public getAllByGroup(): string {
+        return this.writeHTMLResponse(this.showCardsByGroup());
+    }
+
     @httpGet('/mine')
     public getMine(): string {
         return this.writeHTMLResponse(this.showCards(false));
+    }
+
+    @httpGet('/mine/group')
+    public getMineByGroup(): string {
+        return this.writeHTMLResponse(this.showCardsByGroup(false));
     }
 
     /**
@@ -41,4 +51,24 @@ export class CardController extends AbstractController {
         return cardViewer.getDisplayableCards(cardList);
     }
 
+    private showCardsByGroup(all = true) {
+        const cardManager = new CardManager();
+
+        const cardViewer = new CardWebViewer();
+
+        const allCardList = this.cardLoader.loadData();
+        let extensions;
+        if (all) {
+            extensions = cardManager.getAvailableExtensions(this.cardLoader.loadData());
+        } else {
+            extensions = this.cardLoader.loadExtensions()
+        }
+
+        let view = '';
+        extensions.forEach(extension => {
+            const cardList = cardManager.filterAllCards(allCardList, [extension]);
+            view += `<h3>${extension}</h3>${cardViewer.getDisplayableCards(cardList)}<hr>`;
+        });
+        return view;
+    }
 }

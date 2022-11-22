@@ -36,7 +36,10 @@ export class HomeController extends AbstractController {
         choices.push(...[
             { label: 'Select my extensions', path: '/extensions' },
             { label: 'Show all available cards', path: '/cards/all' },
-            { label: 'Show my cards (from selected extensions)', path: '/cards/mine' }]);
+            { label: 'Show all available cards (grouped by extensions)', path: '/cards/all/group' },
+            { label: 'Show my cards (from selected extensions)', path: '/cards/mine' },
+            { label: 'Show my cards (from selected extensions, grouped by extensions)', path: '/cards/mine/group' }
+        ]);
 
         let webChoices = `
                 <div class="dropdown">
