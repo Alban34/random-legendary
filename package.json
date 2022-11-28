@@ -1,6 +1,6 @@
 {
   "name": "random-legendary",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Fan made randomizer for Legendary Marvel",
   "main": "index.js",
   "scripts": {
