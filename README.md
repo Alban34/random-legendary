@@ -32,6 +32,8 @@ Once the dependencies are installed you have 2 options:
 - run `npm run start:console` to have a command line user interface (not recommended, I no longer use it)
 - run `npm run start:web` to connect to http://localhost:3000 with your web browser to have a web user interface
 
+You can also build a standalone app with `npm run package:electron`. In the `out` folder, you should find the executable app that you can use rather than starting a web server.
+
 If you play solo, both core and advanced solo rules can be used.
 
 ### Files
@@ -80,7 +82,6 @@ So far, the cards that are randomly chosen come from:
 I may add the following features in the future:
 - improve bystanders and master strike requirements base on the scheme setup.
 - display a history of the games with the most used cards and the best scores
-- create an executable app for ease of use
 - add some statistics on games and cards
 - add special rule of Avengers VS X-Men scheme
 
