@@ -57,11 +57,9 @@ export class CardController extends AbstractController {
         const cardViewer = new CardWebViewer();
 
         const allCardList = this.cardLoader.loadData();
-        let extensions;
-        if (all) {
+        let extensions = this.cardLoader.loadExtensions();
+        if (all || extensions.length === 0) {
             extensions = cardManager.getAvailableExtensions(this.cardLoader.loadData());
-        } else {
-            extensions = this.cardLoader.loadExtensions()
         }
 
         let view = '';

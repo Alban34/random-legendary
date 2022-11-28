@@ -20,15 +20,15 @@ export class FileDataManager implements DataManager {
     }
 
     readExtensionsData(): string[] {
-        return this.readData('extensions.json');
+        return this.readData('extensions.json', []);
     }
 
     readGamesData() {
-        return this.readData('games.json');
+        return this.readData('games.json', {});
     }
 
     readScores(): Scores {
-        return this.readData('scores.json');
+        return this.readData('scores.json', {});
     }
 
     writeGameData(gamesToSave) {
@@ -51,12 +51,12 @@ export class FileDataManager implements DataManager {
         return this.randomLegendaryHome + path.sep + fileName;
     }
 
-    private readData(fileName) {
+    private readData(fileName, defaultValue) {
         if (fs.existsSync(this.getFilePath(fileName))) {
             const rawData = fs.readFileSync(this.getFilePath(fileName));
             return JSON.parse(rawData.toString());
         }
-        return {};
+        return defaultValue;
     }
 
     private writeData(data, fileName) {
