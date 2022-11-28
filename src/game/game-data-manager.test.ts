@@ -43,6 +43,9 @@ describe('GameDataManager', () => {
 
     beforeEach(() => {
         dataManagerMock = {
+            getDataLocation(): string {
+                return '';
+            },
             readExtensionsData(): string[] {
                 return [];
             },

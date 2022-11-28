@@ -7,4 +7,5 @@ export interface DataManager {
     writeGameData(gamesToSave): void;
     writeExtensionsData(extensions: string[]): void;
     writeScores(scores: Scores): void;
+    getDataLocation(): string;
 }

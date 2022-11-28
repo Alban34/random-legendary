@@ -8,10 +8,10 @@ import { GameManager } from './game/game-manager';
 import { GameLoader } from './game/game-loader';
 
 const container = new Container();
-container.bind<DataManager>(TYPES.DataManager).to(FileDataManager);
-container.bind<CardLoader>(TYPES.CardLoader).to(CardLoader);
-container.bind<GameDataManager>(TYPES.GameDataManager).to(GameDataManager);
-container.bind<GameManager>(TYPES.GameManager).to(GameManager);
-container.bind<GameLoader>(TYPES.GameLoader).to(GameLoader);
+container.bind<DataManager>(TYPES.DataManager).to(FileDataManager).inSingletonScope();
+container.bind<CardLoader>(TYPES.CardLoader).to(CardLoader).inSingletonScope();
+container.bind<GameDataManager>(TYPES.GameDataManager).to(GameDataManager).inSingletonScope();
+container.bind<GameManager>(TYPES.GameManager).to(GameManager).inSingletonScope();
+container.bind<GameLoader>(TYPES.GameLoader).to(GameLoader).inSingletonScope();
 
 export { container };

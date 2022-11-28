@@ -2,47 +2,65 @@ import { DataManager } from './data-manager.interface';
 import { Scores } from '../game/model/scores';
 import fs from 'fs-extra';
 import { injectable } from 'inversify';
+import os from 'os';
+import path from 'path';
 
 @injectable()
 export class FileDataManager implements DataManager {
-    readExtensionsData(): string[] {
-        if (fs.existsSync('./extensions.json')) {
-            const rawData = fs.readFileSync('./extensions.json');
-            return JSON.parse(rawData.toString());
+
+    private readonly randomLegendaryHome: string;
+
+    constructor() {
+        this.randomLegendaryHome = os.homedir() + path.sep + 'random-legendary';
+        if (!fs.existsSync(this.randomLegendaryHome)) {
+            fs.mkdirs(this.randomLegendaryHome).then(() => console.log(`Data folder created in ${this.randomLegendaryHome}`));
+        } else {
+            console.log(`Using data folder found in ${this.randomLegendaryHome}`);
         }
-        return [];
+    }
+
+    readExtensionsData(): string[] {
+        return this.readData('extensions.json');
     }
 
     readGamesData() {
-        if (fs.existsSync('./games.json')) {
-            const rawData = fs.readFileSync('./games.json');
+        return this.readData('games.json');
+    }
+
+    readScores(): Scores {
+        return this.readData('scores.json');
+    }
+
+    writeGameData(gamesToSave) {
+        this.writeData(gamesToSave, 'games.json');
+    }
+
+    writeExtensionsData(extensions: string[]) {
+        this.writeData(extensions, 'extensions.json');
+    }
+
+    writeScores(scores: Scores): void {
+        this.writeData(scores, 'scores.json');
+    }
+
+    getDataLocation(): string {
+        return this.randomLegendaryHome;
+    }
+
+    private getFilePath(fileName) {
+        return this.randomLegendaryHome + path.sep + fileName;
+    }
+
+    private readData(fileName) {
+        if (fs.existsSync(this.getFilePath(fileName))) {
+            const rawData = fs.readFileSync(this.getFilePath(fileName));
             return JSON.parse(rawData.toString());
         }
         return {};
     }
 
-    readScores(): Scores {
-        let scores = {};
-        if (fs.existsSync('./scores.json')) {
-            const rawData = fs.readFileSync('./scores.json');
-            scores = JSON.parse(rawData.toString());
-        }
-        return scores;
+    private writeData(data, fileName) {
+        const dataAsStr = JSON.stringify(data);
+        fs.writeFileSync(this.getFilePath(fileName), dataAsStr);
     }
-
-    writeGameData(gamesToSave) {
-        const data = JSON.stringify(gamesToSave);
-        fs.writeFileSync('games.json', data);
-    }
-
-    writeExtensionsData(extensions: string[]) {
-        const data = JSON.stringify(extensions);
-        fs.writeFileSync('extensions.json', data);
-    }
-
-    writeScores(scores: Scores): void {
-        const data = JSON.stringify(scores);
-        fs.writeFileSync('scores.json', data);
-    }
-
 }
