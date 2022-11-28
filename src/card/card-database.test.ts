@@ -5,12 +5,29 @@ import TYPES from '../types';
 import { GameBuilder } from '../game/game-builder';
 import { PredefinedGame } from '../game/model/predefined-game';
 import { GAME_MODE, PlayerConfig } from '../game/player-config';
+import { DataManager } from '../data/data-manager.interface';
+import { Scores } from '../game/model/scores';
 
 describe('custom rules tests on database', () => {
 
     let allCards;
     let gameBuilder: GameBuilder;
     beforeEach(() => {
+        const dataManagerMock: DataManager = {
+            getDataLocation(): string {
+                return '';
+            }, readExtensionsData(): string[] {
+                return [];
+            }, readGamesData() {
+                return {};
+            }, readScores(): Scores {
+                return undefined;
+            }, writeExtensionsData(extensions: string[]): void {
+            }, writeGameData(gamesToSave): void {
+            }, writeScores(scores: Scores): void {
+            }
+        };
+        container.rebind<DataManager>(TYPES.DataManager).toConstantValue(dataManagerMock);
         const cardLoader = container.get<CardLoader>(TYPES.CardLoader);
         allCards = cardLoader.loadData();
         gameBuilder = new GameBuilder();

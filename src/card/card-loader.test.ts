@@ -2,11 +2,28 @@ import { beforeEach, describe, expect, test } from '@jest/globals';
 import { CardLoader } from './card-loader';
 import { container } from '../injectable-config';
 import TYPES from '../types';
+import { DataManager } from '../data/data-manager.interface';
+import { Scores } from '../game/model/scores';
 
 describe('card-loader', () => {
     let cardLoader;
 
     beforeEach(() => {
+        const dataManagerMock: DataManager = {
+            getDataLocation(): string {
+                return '';
+            }, readExtensionsData(): string[] {
+                return [];
+            }, readGamesData() {
+                return {};
+            }, readScores(): Scores {
+                return undefined;
+            }, writeExtensionsData(extensions: string[]): void {
+            }, writeGameData(gamesToSave): void {
+            }, writeScores(scores: Scores): void {
+            }
+        };
+        container.rebind<DataManager>(TYPES.DataManager).toConstantValue(dataManagerMock);
         cardLoader = container.get<CardLoader>(TYPES.CardLoader);
     });
 
