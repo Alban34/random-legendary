@@ -14,6 +14,7 @@ export class GameBuilder {
         const gameId = uuidv4();
         let alwaysLeadVillains = [];
         let alwaysLeadHenchmen = [];
+        let alwaysUseHeroes = [];
 
         const mastermind = this.getCard(predefinedGame, allCards, 'mastermind', 'masterminds') as MastermindCard;
         if (playerConfig.playerCount > 1) {
@@ -35,10 +36,14 @@ export class GameBuilder {
             strictHenchmen = false;
         }
 
+        this.fillAlwaysArray(predefinedGame, 'villains', alwaysLeadVillains);
+        this.fillAlwaysArray(predefinedGame, 'henchmen', alwaysLeadHenchmen);
+        this.fillAlwaysArray(predefinedGame, 'heroes', alwaysUseHeroes);
+
         const scheme = this.getCard(predefinedGame, allCards, 'scheme', 'schemes') as CustomRuleCard;
         const villains = this.cardDrawer.drawRandomMultipleForce(allCards.villains, playerConfig.villainsCount, alwaysLeadVillains);
         const henchmen = this.cardDrawer.drawRandomMultipleForce(allCards.henchmen, playerConfig.henchmenCount, alwaysLeadHenchmen, strictHenchmen);
-        const heroes = this.cardDrawer.drawRandomMultiple(allCards.heroes, playerConfig.heroesCount);
+        const heroes = this.cardDrawer.drawRandomMultipleForce(allCards.heroes, playerConfig.heroesCount, alwaysUseHeroes);
 
         const game = {
             gameId: gameId,
@@ -68,6 +73,10 @@ export class GameBuilder {
         let card;
         if (predefinedGame && predefinedGame[cardType]) {
             card = allCards[cardGroup].filter(c => c.name === predefinedGame[cardType].name && c.extension === predefinedGame[cardType].extension)[0];
+            if (!card.count) {
+                card.count = 0;
+            }
+            card.count++;
         }
         if (!card) {
             card = this.cardDrawer.drawRandomUnique(allCards[cardGroup]);
@@ -85,6 +94,16 @@ export class GameBuilder {
     private customizeGame(card: CustomRuleCard, game: Game, allCards, playerCount) {
         if (card.customRule) {
             card.customRule(game, this.cardDrawer, allCards, playerCount);
+        }
+    }
+
+    private fillAlwaysArray(predefinedGame: PredefinedGame, cardType: string, arrayToFill: string[]) {
+        if (predefinedGame && predefinedGame[cardType]) {
+            predefinedGame[cardType].forEach(c => {
+                if (!arrayToFill.includes(c)) {
+                    arrayToFill.push(c.name);
+                }
+            });
         }
     }
 }

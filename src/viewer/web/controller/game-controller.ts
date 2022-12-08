@@ -1,8 +1,8 @@
 import { inject } from 'inversify';
 import { Request } from 'express';
-import { controller, httpGet } from 'inversify-express-utils';
+import { controller, httpGet, httpPost, requestBody, response } from 'inversify-express-utils';
 import { AbstractController } from './abstract-controller';
-import { PlayerConfig } from '../../../game/player-config';
+import { GAME_MODE, PlayerConfig } from '../../../game/player-config';
 import { GameBuilder } from '../../../game/game-builder';
 import { GameWebViewer } from '../game-web-viewer';
 import { CardLoader } from '../../../card/card-loader';
@@ -14,6 +14,11 @@ import { GameLoader } from '../../../game/game-loader';
 import { Card } from '../../../card/model/card';
 import { DataManager } from '../../../data/data-manager.interface';
 import { Scores } from '../../../game/model/scores';
+import { CardWebViewer } from '../card-web-viewer';
+import * as express from 'express';
+import { GameCustomParser } from '../../../game/game-custom.parser';
+import { PredefinedGame } from '../../../game/model/predefined-game';
+import { Game } from '../../../game/model/game';
 
 @controller('/game')
 export class GameController extends AbstractController {
@@ -34,12 +39,47 @@ export class GameController extends AbstractController {
         return this.writeHTMLResponse(this.startGame(gameMode));
     }
 
+    @httpGet('/custom/new')
+    public getCustom(): string {
+        const cardViewer = new CardWebViewer(true);
+
+        const allCardList = this.cardLoader.loadData();
+        const extensions = this.cardLoader.loadExtensions();
+
+        const view = `
+            <h3>Select the cards for the game</h3>
+            <form method="post" action="/game/custom/create">
+                ${cardViewer.showCardsByGroup(allCardList, extensions)}
+                <select name="gameMode">
+                    <option value="0">Solo</option>
+                    <option value="1">Advanced Solo</option>
+                    <option value="2">2 players</option>
+                    <option value="3">3 players</option>
+                    <option value="4">4 players</option>
+                    <option value="5">5 players</option>
+                </select>
+                <button type="submit" class="btn btn-primary">Start game with selected cards</button>
+            </form>
+        `;
+
+        return this.writeHTMLResponse(view);
+    }
+
+    @httpPost('/custom/create')
+    public createCustom(@response() res: express.Response,
+                        @requestBody() body: any) {
+        const gameCustomParser = new GameCustomParser();
+        const predefinedGame = gameCustomParser.parse(body);
+        const gameMode = parseInt(body.gameMode);
+        return this.writeHTMLResponse(this.startGame(gameMode, predefinedGame));
+    }
+
     @httpGet('/history')
     public getHistory(): string {
         return this.writeHTMLResponse(this.showHistory());
     }
 
-    private startGame(gameMode: number): string {
+    private startGame(gameMode: number, predefinedGame?: PredefinedGame): string {
         const cardManager = new CardManager();
 
         const playerConfig = new PlayerConfig(gameMode);
@@ -47,7 +87,7 @@ export class GameController extends AbstractController {
 
         const allCardList = this.cardLoader.loadData();
         const cardList = cardManager.filterAllCards(allCardList, this.cardLoader.loadExtensions());
-        const game = gameBuilder.buildGame(cardList, playerConfig);
+        const game = gameBuilder.buildGame(cardList, playerConfig, predefinedGame);
 
         this.dataGameManager.saveData(allCardList);
 

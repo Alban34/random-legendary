@@ -37,6 +37,8 @@ export abstract class AbstractController {
                                             <li><a class="dropdown-item" href="/game/new/${GAME_MODE.THREE_PLAYERS}">3 players</a></li>
                                             <li><a class="dropdown-item" href="/game/new/${GAME_MODE.FOUR_PLAYERS}">4 players</a></li>
                                             <li><a class="dropdown-item" href="/game/new/${GAME_MODE.FIVE_PLAYERS}">5 players</a></li>
+                                            <hr>
+                                            <li><a class="dropdown-item" href="/game/custom/new">Custom (make your own choices)</a></li>
                                         </ul>
                                     </div>
                                 </li>

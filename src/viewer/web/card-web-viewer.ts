@@ -1,6 +1,10 @@
 import { Card } from '../../card/model/card';
+import { CardManager } from '../../card/card-manager';
 
 export class CardWebViewer {
+
+    constructor(private readonly forSelection = false) {
+    }
 
     public getDisplayableCards(cardList): string {
         let cardsView = '<div class="cards-container">';
@@ -13,11 +17,32 @@ export class CardWebViewer {
         return cardsView;
     }
 
-    private buildCardView(card: Card): string {
-        return `<li class="list-group-item">
+    public showCardsByGroup(allCardList, extensions: string[]) {
+        const cardManager = new CardManager();
+
+        let view = '';
+        extensions.forEach(extension => {
+            const cardList = cardManager.filterAllCards(allCardList, [extension]);
+            view += `<h3>${extension}</h3>${this.getDisplayableCards(cardList)}<hr>`;
+        });
+        return view;
+    }
+
+    private buildCardView(card: Card, categoryName?: string): string {
+        let cardLabel = `
+                <label for="${card.name + card.extension}">
                     ${card.name}<br />
-                    <small>${card.extension}</small>
-                </li>`;
+                </label><br>
+                <small>${card.extension}</small>
+        `;
+
+        if (this.forSelection) {
+            cardLabel = `<input type="checkbox" 
+                            id="${card.name + card.extension}" 
+                            name="${categoryName}|${card.name}|${card.extension}">
+                        ${cardLabel}`;
+        }
+        return `<li class="list-group-item">${cardLabel}</li>`;
     }
 
     private buildCategoryView(categoryName, cards: Card[], style?: string): string {
@@ -28,7 +53,7 @@ export class CardWebViewer {
             </div>
             <ul class="list-group list-group-flush">`;
 
-        cards.forEach(c => categoryView += this.buildCardView(c));
+        cards.forEach(c => categoryView += this.buildCardView(c, categoryName));
 
         categoryView += `
             </ul>

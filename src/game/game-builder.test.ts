@@ -20,22 +20,22 @@ describe('GameBuilder', () => {
                 alwaysLeadCategory: 'villains'
             }],
             villains: [
-                { name: 'v1', count: 10 },
-                { name: 'v2', count: 0 },
-                { name: 'v3', count: 20 }
+                { name: 'v1', count: 10, extension: 'ext1' },
+                { name: 'v2', count: 0, extension: 'ext1' },
+                { name: 'v3', count: 20, extension: 'ext1' }
             ],
             schemes: [
-                { name: 's1', count: 0 }
+                { name: 's1', count: 0, extension: 'ext1' }
             ],
             henchmen: [
-                { name: 'hm1', count: 10 },
-                { name: 'hm2', count: 0 }
+                { name: 'hm1', count: 10, extension: 'ext1' },
+                { name: 'hm2', count: 0, extension: 'ext1' }
             ],
             heroes: [
-                { name: 'h1', count: 0 },
-                { name: 'h2', count: 0 },
-                { name: 'h3', count: 0 },
-                { name: 'h4', count: 0 }
+                { name: 'h1', count: 0, extension: 'ext1' },
+                { name: 'h2', count: 0, extension: 'ext1' },
+                { name: 'h3', count: 0, extension: 'ext1' },
+                { name: 'h4', count: 0, extension: 'ext1' }
             ]
         };
     });
@@ -137,7 +137,7 @@ describe('GameBuilder', () => {
             extension: 'ext1'
         });
         const predefinedGame = {
-            mastermind: {name:'m2', extension:'ext1'}
+            mastermind: { name: 'm2', extension: 'ext1' }
         } as PredefinedGame;
 
         const game = gameBuilder.buildGame(cardList, new PlayerConfig(2), predefinedGame);
@@ -151,10 +151,49 @@ describe('GameBuilder', () => {
             extension: 'ext1'
         });
         const predefinedGame = {
-            scheme: {name:'s2', extension:'ext1'}
+            scheme: { name: 's2', extension: 'ext1' }
         } as PredefinedGame;
 
         const game = gameBuilder.buildGame(cardList, new PlayerConfig(2), predefinedGame);
         expect(game.scheme.name).toBe('s2');
+    });
+
+    test('should create a game with everything predefined', () => {
+        cardList.masterminds.push({
+            name: 'm2',
+            count: 10,
+            extension: 'ext1'
+        });
+        cardList.schemes.push({
+            name: 's2',
+            extension: 'ext1'
+        });
+        const predefinedGame = {
+            mastermind: { name: 'm2', extension: 'ext1' },
+            scheme: { name: 's2', extension: 'ext1' },
+            villains: [
+                { name: 'v3', extension: 'ext1' }
+            ],
+            henchmen: [
+                { name: 'hm1', extension: 'ext1' }
+            ],
+            heroes: [
+                { name: 'h1', extension: 'ext1' },
+                { name: 'h2', extension: 'ext1' },
+                { name: 'h3', extension: 'ext1' }
+            ]
+        };
+
+        const game = gameBuilder.buildGame(cardList, new PlayerConfig(1), predefinedGame);
+        expect(game.mastermind.name).toBe('m2');
+        expect(game.mastermind.count).toBe(11);
+        expect(game.scheme.name).toBe('s2');
+        expect(game.scheme.count).toBe(1);
+        expect(game.villains[0].name).toBe('v3');
+        expect(game.villains[0].count).toBe(21);
+        expect(game.henchmen[0].name).toBe('hm1');
+        expect(game.henchmen[0].count).toBe(11);
+        expect(game.heroes.map(h => h.name)).toEqual(['h1', 'h2', 'h3']);
+        game.heroes.forEach(h => expect(h.count).toBe(1));
     });
 });

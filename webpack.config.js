@@ -6,6 +6,6 @@ module.exports = {
         filename: 'random-legendary.js',
         path: path.resolve(__dirname, 'dist'),
     },
-    mode: "development",
+    mode: 'development',
     target: 'node'
 };
