@@ -73,9 +73,13 @@ export class FileDataManager implements DataManager {
 
     private moveFile(fileName, dataFileLabel) {
         if (fs.existsSync(fileName)) {
-            fs.move(fileName, this.getFilePath(fileName)).then(() => {
-                console.log(`${dataFileLabel} data has been moved to ${this.randomLegendaryHome}`);
-            });
+            if (!fs.existsSync(fileName)) {
+                fs.move(fileName, this.getFilePath(fileName)).then(() => {
+                    console.log(`${dataFileLabel} data has been moved to ${this.randomLegendaryHome}`);
+                });
+            } else {
+                console.error(`${dataFileLabel} data has already been moved to ${this.randomLegendaryHome}. You might have some corrupted data.`);
+            }
         }
     }
 }
