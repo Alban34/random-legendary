@@ -2,7 +2,7 @@ import { inject } from 'inversify';
 import { Request } from 'express';
 import { controller, httpGet, httpPost, requestBody, response } from 'inversify-express-utils';
 import { AbstractController } from './abstract-controller';
-import { GAME_MODE, PlayerConfig } from '../../../game/player-config';
+import { PlayerConfig } from '../../../game/player-config';
 import { GameBuilder } from '../../../game/game-builder';
 import { GameWebViewer } from '../game-web-viewer';
 import { CardLoader } from '../../../card/card-loader';
@@ -18,7 +18,6 @@ import { CardWebViewer } from '../card-web-viewer';
 import * as express from 'express';
 import { GameCustomParser } from '../../../game/game-custom.parser';
 import { PredefinedGame } from '../../../game/model/predefined-game';
-import { Game } from '../../../game/model/game';
 
 @controller('/game')
 export class GameController extends AbstractController {

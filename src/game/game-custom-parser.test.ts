@@ -1,5 +1,4 @@
 import { describe, expect, test } from '@jest/globals';
-import { Game } from './model/game';
 import { GameCustomParser } from './game-custom.parser';
 
 describe('GameCustomParser', function () {
