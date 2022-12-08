@@ -17,6 +17,7 @@ export class FileDataManager implements DataManager {
         } else {
             console.log(`Using data folder found in ${this.randomLegendaryHome}`);
         }
+        this.migrateDataFiles();
     }
 
     readExtensionsData(): string[] {
@@ -62,5 +63,19 @@ export class FileDataManager implements DataManager {
     private writeData(data, fileName) {
         const dataAsStr = JSON.stringify(data);
         fs.writeFileSync(this.getFilePath(fileName), dataAsStr);
+    }
+
+    private migrateDataFiles() {
+        this.moveFile('games.json', 'Games');
+        this.moveFile('extensions.json', 'Extensions');
+        this.moveFile('scores.json', 'Scoring');
+    }
+
+    private moveFile(fileName, dataFileLabel) {
+        if (fs.existsSync(fileName)) {
+            fs.move(fileName, this.getFilePath(fileName)).then(() => {
+                console.log(`${dataFileLabel} data has been moved to ${this.randomLegendaryHome}`);
+            });
+        }
     }
 }
