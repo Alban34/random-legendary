@@ -75,11 +75,19 @@ export class CardDrawer {
     }
 
     private cardFilter(filteringCards: CardIdentifier[]) {
+        const names = filteringCards.map(ci => ci.name);
+        const extensions = filteringCards.map(ci => ci.extension);
+        const checkNameOnly = extensions.indexOf('none') > -1;
         return (value: Card) => {
-            let found = filteringCards.map(ci => ci.name).indexOf(value.name) > -1;
-            if (filteringCards.filter(ci => ci.extension !== 'none').length !== 0) {
-                found = found && filteringCards.map(ci => ci.extension).indexOf(value.extension) > -1;
+            if (checkNameOnly) {
+                return names.indexOf(value.name) > -1;
             }
+            let found = false;
+            names.forEach((name, index) => {
+                if (value.name === name && value.extension === extensions[index]) {
+                    found = true;
+                }
+            });
             return found;
         }
     }

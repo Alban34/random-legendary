@@ -4,6 +4,7 @@ import { PlayerConfig } from './player-config';
 import { Game } from './model/game';
 import { CardDrawer } from '../card/card-drawer';
 import { PredefinedGame } from './model/predefined-game';
+import { ALL_CARDS } from '../card/card-database';
 
 describe('GameBuilder', () => {
 
@@ -195,5 +196,25 @@ describe('GameBuilder', () => {
         expect(game.henchmen[0].count).toBe(11);
         expect(game.heroes.map(h => h.name)).toEqual(['h1', 'h2', 'h3']);
         game.heroes.forEach(h => expect(h.count).toBe(1));
+    });
+
+    test.only('should work properly on duplicate heroes names', () => {
+        const predefinedGame = {
+            mastermind: { name: 'Red Skull', extension: 'Core Set' },
+            scheme: { name: 'Detonate the Helicarrier', extension: 'Dark City' },
+            villains: [ { name: 'Enemies of Asgard', extension: 'Core Set' } ],
+            heroes: [
+                { name: 'Black Widow', extension: 'Core Set' },
+                { name: 'Cyclops', extension: 'Core Set' },
+                { name: 'Hawkeye', extension: 'Core Set' },
+                { name: 'Daredevil', extension: 'Dark City' },
+                { name: 'Iceman', extension: 'Dark City' },
+                { name: 'Wolverine', extension: 'Dark City' }
+            ],
+            henchmen: [ { name: 'Maggia Goons', extension: 'Dark City' } ]
+        };
+
+        const game = gameBuilder.buildGame(ALL_CARDS, new PlayerConfig(1), predefinedGame);
+        expect(game.heroes.length).toBe(6);
     });
 });
