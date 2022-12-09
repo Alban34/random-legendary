@@ -1,5 +1,6 @@
 import { Card } from './model/card';
 import crypto from 'crypto';
+import { CardIdentifier } from '../game/model/predefined-game';
 
 export class CardDrawer {
 
@@ -32,16 +33,28 @@ export class CardDrawer {
      * @param alwaysSelected
      * @param strict when true, search for the exact name found in alwaysSelected. Otherwise, search for a card containing this value.
      */
-    public drawRandomMultipleForce(cardList: Card[], countToDraw: number, alwaysSelected: string[], strict = true): Card[] {
+    public drawRandomMultipleForce(cardList: Card[], countToDraw: number, alwaysSelected: CardIdentifier[] | string[], strict = true): Card[] {
         let randomCount = countToDraw - alwaysSelected.length;
         if (!strict) {
             randomCount = countToDraw - 1;
         }
 
-        let choices = cardList.filter((value: Card) => alwaysSelected.indexOf(value.name) > -1);
+        const cardToSelect = [];
+        alwaysSelected.forEach(ci => {
+            if (typeof ci === 'string') {
+                cardToSelect.push({
+                    name: ci,
+                    extension: 'none'
+                });
+            } else {
+                cardToSelect.push(ci);
+            }
+        });
+
+        let choices = cardList.filter(this.cardFilter(cardToSelect));
 
         if (!strict) {
-            const selectableCards = cardList.filter(this.containsFilter(alwaysSelected));
+            const selectableCards = cardList.filter(this.containsFilter(cardToSelect));
             choices.push(this.drawRandom(selectableCards));
         }
 
@@ -55,10 +68,20 @@ export class CardDrawer {
         return choices;
     }
 
-    private containsFilter(searchValues: string[]) {
+    private containsFilter(searchValues: CardIdentifier[]) {
         return (value: Card) => {
-            return searchValues.filter(search => value.name.indexOf(search) > -1).length > 0;
+            return searchValues.filter(search => value.name.indexOf(search.name) > -1).length > 0;
         };
+    }
+
+    private cardFilter(filteringCards: CardIdentifier[]) {
+        return (value: Card) => {
+            let found = filteringCards.map(ci => ci.name).indexOf(value.name) > -1;
+            if (filteringCards.filter(ci => ci.extension !== 'none').length !== 0) {
+                found = found && filteringCards.map(ci => ci.extension).indexOf(value.extension) > -1;
+            }
+            return found;
+        }
     }
 
     private getRandomInt(max: number) {
