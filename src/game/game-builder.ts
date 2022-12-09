@@ -3,7 +3,7 @@ import { PlayerConfig } from './player-config';
 import { Game } from './model/game';
 import { Card, CardDrawer, MastermindCard } from '../card/card.module';
 import { CustomRuleCard } from '../card/model/custom-rule-card';
-import { PredefinedGame } from './model/predefined-game';
+import { CardIdentifier, PredefinedGame } from './model/predefined-game';
 
 export class GameBuilder {
 
@@ -14,7 +14,7 @@ export class GameBuilder {
         const gameId = uuidv4();
         let alwaysLeadVillains = [];
         let alwaysLeadHenchmen = [];
-        let alwaysUseHeroes = [];
+        let alwaysUseHeroes: CardIdentifier[] = [];
 
         const mastermind = this.getCard(predefinedGame, allCards, 'mastermind', 'masterminds') as MastermindCard;
         if (playerConfig.playerCount > 1) {
@@ -38,7 +38,7 @@ export class GameBuilder {
 
         this.fillAlwaysArray(predefinedGame, 'villains', alwaysLeadVillains);
         this.fillAlwaysArray(predefinedGame, 'henchmen', alwaysLeadHenchmen);
-        this.fillAlwaysArray(predefinedGame, 'heroes', alwaysUseHeroes);
+        this.fillAlwaysHeroesArray(predefinedGame, alwaysUseHeroes);
 
         const scheme = this.getCard(predefinedGame, allCards, 'scheme', 'schemes') as CustomRuleCard;
         const villains = this.cardDrawer.drawRandomMultipleForce(allCards.villains, playerConfig.villainsCount, alwaysLeadVillains);
@@ -102,6 +102,16 @@ export class GameBuilder {
             predefinedGame[cardType].forEach(c => {
                 if (!arrayToFill.includes(c)) {
                     arrayToFill.push(c.name);
+                }
+            });
+        }
+    }
+
+    private fillAlwaysHeroesArray(predefinedGame: PredefinedGame, arrayToFill: CardIdentifier[]) {
+        if (predefinedGame && predefinedGame.heroes) {
+            predefinedGame.heroes.forEach(c => {
+                if (!arrayToFill.includes(c)) {
+                    arrayToFill.push(c);
                 }
             });
         }
