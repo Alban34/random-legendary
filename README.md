@@ -80,10 +80,13 @@ So far, the cards that are randomly chosen come from:
 
 ## What's next?
 I may add the following features in the future:
-- improve bystanders and master strike requirements base on the scheme setup.
+- improve bystanders and master strike requirements base on the scheme setup
 - display a history of the games with the most used cards and the best scores
 - add some statistics on games and cards
 - add special rule of Avengers VS X-Men scheme
+
+## Known issue
+- scheme cards that would add villains to the game break the player count guess mechanism, leading to a wrong player count in scoring page.
 
 ## Disclaimer
 This software is not affiliated to Upper Deck nor Marvel. 

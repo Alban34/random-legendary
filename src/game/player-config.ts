@@ -106,7 +106,10 @@ export class PlayerConfig {
         }
     }
 
-    static guessPlayerCount(villains: number, henchmen: number): number {
+    static guessPlayerCount(villains: number, henchmen: number, heroes: number): number {
+        if (heroes === 3) {
+            return 1;
+        }
         if (henchmen === 1) {
             return villains;
         }

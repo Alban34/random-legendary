@@ -55,7 +55,7 @@ export class ScoreController extends AbstractController {
                 <form action="/scores" method="post" class="col-lg-6 col-md-8 col-sm-12">`;
         allAvailableGamesForScore.forEach(gameId => {
             const game = this.gameLoader.load(allCardList, gameId);
-            const playerCount = PlayerConfig.guessPlayerCount(game.villains.length, game.henchmen.length);
+            const playerCount = PlayerConfig.guessPlayerCount(game.villains.length, game.henchmen.length, game.heroes.length);
             webView += `
                         <div class="card">
                             <div class="card-header">
