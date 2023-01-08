@@ -82,8 +82,10 @@ So far, the cards that are randomly chosen come from:
 I may add the following features in the future:
 - improve bystanders and master strike requirements base on the scheme setup
 - display a history of the games with the most used cards and the best scores
-- add some statistics on games and cards
+- add some statistics on games and cards:
+  - percentage of completion of user's collection on extension selection page
 - add special rule of Avengers VS X-Men scheme
+- add a button to replay a given game
 
 ## Known issue
 - scheme cards that would add villains to the game break the player count guess mechanism, leading to a wrong player count in scoring page.
