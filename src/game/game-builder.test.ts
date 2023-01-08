@@ -198,7 +198,7 @@ describe('GameBuilder', () => {
         game.heroes.forEach(h => expect(h.count).toBe(1));
     });
 
-    test.only('should work properly on duplicate heroes names', () => {
+    test('should work properly on duplicate heroes names', () => {
         const predefinedGame = {
             mastermind: { name: 'Red Skull', extension: 'Core Set' },
             scheme: { name: 'Detonate the Helicarrier', extension: 'Dark City' },

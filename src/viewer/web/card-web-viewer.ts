@@ -1,7 +1,10 @@
 import { Card } from '../../card/model/card';
 import { CardManager } from '../../card/card-manager';
+import { StatsService } from '../../stats/stats-service';
 
 export class CardWebViewer {
+
+    private statsService = new StatsService();
 
     constructor(private readonly forSelection = false) {
     }
@@ -46,10 +49,14 @@ export class CardWebViewer {
     }
 
     private buildCategoryView(categoryName, cards: Card[], style?: string): string {
+        let statsView = '';
+        if (cards.length > 0) {
+            statsView =  `(${this.statsService.computeStats(cards)}% played)`;
+        }
         let categoryView = `
         <div class="card ${style}">
             <div class="card-header">
-                ${categoryName} (${cards.length})
+                ${categoryName} (${cards.length}) ${statsView}
             </div>
             <ul class="list-group list-group-flush">`;
 
