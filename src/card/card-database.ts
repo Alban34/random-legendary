@@ -1042,7 +1042,14 @@ export const ALL_CARDS =
             },
             {
                 'name': 'Secret Invasion of the Skrull Shapeshifters',
-                'extension': 'Core Set'
+                'extension': 'Core Set',
+                'alwaysLead': 'Skrulls',
+                'alwaysLeadCategory': 'villains',
+                'customRule': (game, cardDrawer, allCards) => {
+                    while (game.heroes.length < 6) {
+                        game.heroes.push(cardDrawer.drawRandomUnique(allCards.heroes));
+                    }
+                }
             },
             {
                 'name': 'Secret Wars',

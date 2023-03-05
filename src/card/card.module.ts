@@ -1,5 +1,5 @@
 export { Card } from './model/card';
-export { MastermindCard } from './model/mastermind.card';
+export { AlwaysLeadCard } from './model/always-lead-card';
 
 export { CardDrawer } from './card-drawer';
 export { CardManager } from './card-manager';

@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from 'uuid';
 import { PlayerConfig } from './player-config';
 import { Game } from './model/game';
-import { Card, CardDrawer, MastermindCard } from '../card/card.module';
+import { Card, CardDrawer, AlwaysLeadCard } from '../card/card.module';
 import { CustomRuleCard } from '../card/model/custom-rule-card';
 import { CardIdentifier, PredefinedGame } from './model/predefined-game';
 
@@ -16,18 +16,9 @@ export class GameBuilder {
         let alwaysLeadHenchmen = [];
         let alwaysUseHeroes: CardIdentifier[] = [];
 
-        const mastermind = this.getCard(predefinedGame, allCards, 'mastermind', 'masterminds') as MastermindCard;
+        const mastermind = this.getCard(predefinedGame, allCards, 'mastermind', 'masterminds') as AlwaysLeadCard;
         if (playerConfig.playerCount > 1) {
-            switch (mastermind.alwaysLeadCategory) {
-                case 'villains':
-                    alwaysLeadVillains.push(mastermind.alwaysLead);
-                    break;
-                case 'henchmen':
-                    alwaysLeadHenchmen.push(mastermind.alwaysLead);
-                    break;
-                default:
-                    console.error(`Category ${mastermind.alwaysLeadCategory} is not supported`);
-            }
+            this.setupAlwaysLead(mastermind, alwaysLeadVillains, alwaysLeadHenchmen);
         }
 
         let strictHenchmen = true;
@@ -36,11 +27,13 @@ export class GameBuilder {
             strictHenchmen = false;
         }
 
+        const scheme = this.getCard(predefinedGame, allCards, 'scheme', 'schemes') as AlwaysLeadCard;
+        this.setupAlwaysLead(scheme, alwaysLeadVillains, alwaysLeadHenchmen);
+
         this.fillAlwaysArray(predefinedGame, 'villains', alwaysLeadVillains);
         this.fillAlwaysArray(predefinedGame, 'henchmen', alwaysLeadHenchmen);
         this.fillAlwaysHeroesArray(predefinedGame, alwaysUseHeroes);
 
-        const scheme = this.getCard(predefinedGame, allCards, 'scheme', 'schemes') as CustomRuleCard;
         const villains = this.cardDrawer.drawRandomMultipleForce(allCards.villains, playerConfig.villainsCount, alwaysLeadVillains);
         const henchmen = this.cardDrawer.drawRandomMultipleForce(allCards.henchmen, playerConfig.henchmenCount, alwaysLeadHenchmen, strictHenchmen);
         const heroes = this.cardDrawer.drawRandomMultipleForce(allCards.heroes, playerConfig.heroesCount, alwaysUseHeroes);
@@ -114,6 +107,21 @@ export class GameBuilder {
                     arrayToFill.push(c);
                 }
             });
+        }
+    }
+
+    private setupAlwaysLead(card, alwaysLeadVillains, alwaysLeadHenchmen) {
+        if (card.alwaysLead) {
+            switch (card.alwaysLeadCategory) {
+                case 'villains':
+                    alwaysLeadVillains.push(card.alwaysLead);
+                    break;
+                case 'henchmen':
+                    alwaysLeadHenchmen.push(card.alwaysLead);
+                    break;
+                default:
+                    console.error(`Category ${card.alwaysLeadCategory} is not supported`);
+            }
         }
     }
 }

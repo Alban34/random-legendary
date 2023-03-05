@@ -1,8 +1,8 @@
-import { MastermindCard, Card } from '../../card/card.module';
+import { AlwaysLeadCard, Card } from '../../card/card.module';
 
 export interface Game {
     gameId: string;
-    mastermind: MastermindCard;
+    mastermind: AlwaysLeadCard;
     scheme: Card;
     villains: Card[];
     henchmen: Card[];

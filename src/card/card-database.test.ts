@@ -247,6 +247,49 @@ describe('custom rules tests on database', () => {
         });
     });
 
+    describe('Secret Invasion of the Skrull Shapeshifters', () => {
+        const predefinedGame = {
+            mastermind: {
+                name: 'Apocalypse',
+                extension: 'Dark City'
+            },
+            scheme: {
+                name: 'Secret Invasion of the Skrull Shapeshifters',
+                extension: 'Core Set',
+            }
+        } as PredefinedGame;
+
+        test('should always have 6 heroes', () => {
+            testHeroesCount(predefinedGame, 6);
+        });
+
+        test('should always have the Skrulls villain group', () => {
+            let game = gameBuilder.buildGame(allCards, new PlayerConfig(GAME_MODE.SOLO), predefinedGame);
+            let hasSkrulls = game.villains.filter(v => v.name === 'Skrulls');
+            expect(hasSkrulls.length).toBe(1);
+
+            game = gameBuilder.buildGame(allCards, new PlayerConfig(GAME_MODE.ADVANCED_SOLO), predefinedGame);
+            hasSkrulls = game.villains.filter(v => v.name === 'Skrulls');
+            expect(hasSkrulls.length).toBe(1);
+
+            game = gameBuilder.buildGame(allCards, new PlayerConfig(GAME_MODE.TWO_PLAYERS), predefinedGame);
+            hasSkrulls = game.villains.filter(v => v.name === 'Skrulls');
+            expect(hasSkrulls.length).toBe(1);
+
+            game = gameBuilder.buildGame(allCards, new PlayerConfig(GAME_MODE.THREE_PLAYERS), predefinedGame);
+            hasSkrulls = game.villains.filter(v => v.name === 'Skrulls');
+            expect(hasSkrulls.length).toBe(1);
+
+            game = gameBuilder.buildGame(allCards, new PlayerConfig(GAME_MODE.FOUR_PLAYERS), predefinedGame);
+            hasSkrulls = game.villains.filter(v => v.name === 'Skrulls');
+            expect(hasSkrulls.length).toBe(1);
+
+            game = gameBuilder.buildGame(allCards, new PlayerConfig(GAME_MODE.FIVE_PLAYERS), predefinedGame);
+            hasSkrulls = game.villains.filter(v => v.name === 'Skrulls');
+            expect(hasSkrulls.length).toBe(1);
+        });
+    });
+
     function testAddOneVillainGroup(predefinedGame) {
         let game = gameBuilder.buildGame(allCards, new PlayerConfig(GAME_MODE.SOLO), predefinedGame);
         expect(game.villains.length).toBe(2);
