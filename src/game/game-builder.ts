@@ -11,7 +11,7 @@ export class GameBuilder {
 
     public buildGame(allCards, playerConfig: PlayerConfig, predefinedGame?: PredefinedGame): Game {
 
-        const gameId = uuidv4();
+        const gameId = `${uuidv4()}|${playerConfig.getGameMode()}`;
         let alwaysLeadVillains = [];
         let alwaysLeadHenchmen = [];
         let alwaysUseHeroes: CardIdentifier[] = [];

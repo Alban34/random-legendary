@@ -42,7 +42,11 @@ export class PlayerConfig {
 
     public playerCount: number;
 
-    constructor(gameMode: GAME_MODE) {
+    public getGameMode() {
+        return this.gameMode;
+    }
+
+    constructor(private gameMode: GAME_MODE) {
 
         switch (gameMode) {
             case GAME_MODE.TWO_PLAYERS:

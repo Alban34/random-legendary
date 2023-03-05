@@ -202,7 +202,7 @@ describe('GameBuilder', () => {
         const predefinedGame = {
             mastermind: { name: 'Red Skull', extension: 'Core Set' },
             scheme: { name: 'Detonate the Helicarrier', extension: 'Dark City' },
-            villains: [ { name: 'Enemies of Asgard', extension: 'Core Set' } ],
+            villains: [{ name: 'Enemies of Asgard', extension: 'Core Set' }],
             heroes: [
                 { name: 'Black Widow', extension: 'Core Set' },
                 { name: 'Cyclops', extension: 'Core Set' },
@@ -211,10 +211,17 @@ describe('GameBuilder', () => {
                 { name: 'Iceman', extension: 'Dark City' },
                 { name: 'Wolverine', extension: 'Dark City' }
             ],
-            henchmen: [ { name: 'Maggia Goons', extension: 'Dark City' } ]
+            henchmen: [{ name: 'Maggia Goons', extension: 'Dark City' }]
         };
 
         const game = gameBuilder.buildGame(ALL_CARDS, new PlayerConfig(1), predefinedGame);
         expect(game.heroes.length).toBe(6);
+    });
+
+    test('should gameId ends by the game mode which is used', () => {
+        for (let i = 0; i <= 5; i++) {
+            const game = gameBuilder.buildGame(cardList, new PlayerConfig(i));
+            expect(game.gameId.endsWith(`|${i}`)).toBeTruthy();
+        }
     });
 });
