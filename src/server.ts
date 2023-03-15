@@ -10,6 +10,8 @@ import './viewer/web/controller/score-controller';
 import './viewer/web/controller/static-controller';
 
 import { container } from './injectable-config';
+import { Migrator } from './migrator';
+import TYPES from './types';
 
 // start the server
 const server = new InversifyExpressServer(container);
@@ -24,5 +26,6 @@ server.setConfig((app) => {
 const serverInstance = server.build();
 const port = process.env.PORT || 3000;
 serverInstance.listen(port);
+container.get<Migrator>(TYPES.Migrator).migrateGameIdTo4();
 
 console.log(`Starting Legendary Marvel randomizer on: http://localhost:${port}`);
