@@ -33,6 +33,9 @@ export abstract class AbstractController {
                                         <ul class="dropdown-menu" style="">
                                             <li><a class="dropdown-item" href="/game/new/${GAME_MODE.SOLO}">Solo</a></li>
                                             <li><a class="dropdown-item" href="/game/new/${GAME_MODE.ADVANCED_SOLO}">Advanced Solo</a></li>
+                                            <li><a class="dropdown-item" href="/game/new/${GAME_MODE.TWO_HANDED_SOLO}">2 Handed Solo</a></li>
+                                            <li><a class="dropdown-item" href="/game/new/${GAME_MODE.THREE_HANDED_SOLO}">3 Handed Solo</a></li>
+                                            <hr>
                                             <li><a class="dropdown-item" href="/game/new/${GAME_MODE.TWO_PLAYERS}">2 players</a></li>
                                             <li><a class="dropdown-item" href="/game/new/${GAME_MODE.THREE_PLAYERS}">3 players</a></li>
                                             <li><a class="dropdown-item" href="/game/new/${GAME_MODE.FOUR_PLAYERS}">4 players</a></li>

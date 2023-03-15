@@ -8,7 +8,7 @@ import { GameManager } from '../../../game/game-manager';
 import { inject } from 'inversify';
 import TYPES from '../../../types';
 import { GameLoader } from '../../../game/game-loader';
-import { PlayerConfig } from '../../../game/game.module';
+import { PlayerConfig, GAME_MODE } from '../../../game/game.module';
 
 @controller('/scores')
 export class ScoreController extends AbstractController {
@@ -55,7 +55,6 @@ export class ScoreController extends AbstractController {
                 <form action="/scores" method="post" class="col-lg-6 col-md-8 col-sm-12">`;
         allAvailableGamesForScore.forEach(gameId => {
             const game = this.gameLoader.load(allCardList, gameId);
-            const playerCount = PlayerConfig.guessPlayerCount(game.villains.length, game.henchmen.length, game.heroes.length);
             webView += `
                         <div class="card">
                             <div class="card-header">
@@ -67,7 +66,7 @@ export class ScoreController extends AbstractController {
                                 ${this.showMultiple(game.heroes, 'Heroes')}
                             </div>
                             <div class="card-body">
-                                ${this.getPlayersView(playerCount, gameId)}
+                                ${this.getPlayersView(gameId)}
                                 <div class="form-check form-switch">
                                     <input class="form-check-input" 
                                         type="checkbox" 
@@ -102,16 +101,37 @@ export class ScoreController extends AbstractController {
         return show;
     }
 
-    private getPlayersView(playerCount: number, gameId: string) {
+    private getPlayersView(gameId: string) {
+        const gameMode = Number.parseInt(gameId.split('|')[1]);
+        const playerCount = PlayerConfig.getPlayerCount(gameMode);
         let view = '';
         for (let i = 0; i < playerCount; i++) {
             view += `
                 <div>
-                    Score: <input name="${gameId}:score_${i}" type="number">
-                    Player: <input name="${gameId}:player_${i}" type="string" value="Player ${i + 1}">
+                    Player: <input name="${gameId}:player_${i}" type="text" value="Player ${i + 1}">
+                    Score: ${this.getInputsScore(gameMode, gameId)}
                 </div>
             `;
         }
         return view;
+    }
+
+    private getInputsScore(gameMode: number, gameId: string): string {
+        let scoreInputCount;
+        switch (gameMode) {
+            case GAME_MODE.TWO_HANDED_SOLO:
+                scoreInputCount = 2;
+                break;
+            case GAME_MODE.THREE_HANDED_SOLO:
+                scoreInputCount = 3;
+                break;
+            default:
+                scoreInputCount = 1;
+        }
+        let scoreInputs = '';
+        for (let i = 0; i < scoreInputCount; i++) {
+            scoreInputs += `<input name="${gameId}:score_${i}" type="number">`;
+        }
+        return scoreInputs;
     }
 }

@@ -2,7 +2,9 @@ export enum GAME_MODE {
     SOLO = 0,
     ADVANCED_SOLO = 1,
     TWO_PLAYERS = 2,
+    TWO_HANDED_SOLO = 21,
     THREE_PLAYERS = 3,
+    THREE_HANDED_SOLO = 31,
     FOUR_PLAYERS = 4,
     FIVE_PLAYERS = 5
 }
@@ -50,9 +52,11 @@ export class PlayerConfig {
 
         switch (gameMode) {
             case GAME_MODE.TWO_PLAYERS:
+            case GAME_MODE.TWO_HANDED_SOLO:
                 this.playerCount = 2;
                 break;
             case GAME_MODE.THREE_PLAYERS:
+            case GAME_MODE.THREE_HANDED_SOLO:
                 this.playerCount = 3;
                 break;
             case GAME_MODE.FOUR_PLAYERS:
@@ -119,5 +123,17 @@ export class PlayerConfig {
         }
 
         return villains + 1;
+    }
+
+    static getPlayerCount(gameMode: number) {
+        switch (gameMode) {
+            case GAME_MODE.SOLO:
+            case GAME_MODE.ADVANCED_SOLO:
+            case GAME_MODE.TWO_HANDED_SOLO:
+            case GAME_MODE.THREE_HANDED_SOLO:
+                return 1;
+            default:
+                return gameMode;
+        }
     }
 }
