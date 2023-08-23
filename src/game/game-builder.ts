@@ -64,7 +64,7 @@ export class GameBuilder {
 
     private getCard(predefinedGame, allCards, cardType, cardGroup) {
         let card;
-        if (predefinedGame && predefinedGame[cardType]) {
+        if (predefinedGame?.[cardType]) {
             card = allCards[cardGroup].filter(c => c.name === predefinedGame[cardType].name && c.extension === predefinedGame[cardType].extension)[0];
             if (!card.count) {
                 card.count = 0;
@@ -91,7 +91,7 @@ export class GameBuilder {
     }
 
     private fillAlwaysArray(predefinedGame: PredefinedGame, cardType: string, arrayToFill: string[]) {
-        if (predefinedGame && predefinedGame[cardType]) {
+        if (predefinedGame?.[cardType]) {
             predefinedGame[cardType].forEach(c => {
                 if (!arrayToFill.includes(c)) {
                     arrayToFill.push(c.name);
@@ -101,7 +101,7 @@ export class GameBuilder {
     }
 
     private fillAlwaysHeroesArray(predefinedGame: PredefinedGame, arrayToFill: CardIdentifier[]) {
-        if (predefinedGame && predefinedGame.heroes) {
+        if (predefinedGame?.heroes) {
             predefinedGame.heroes.forEach(c => {
                 if (!arrayToFill.includes(c)) {
                     arrayToFill.push(c);
