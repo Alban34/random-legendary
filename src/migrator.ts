@@ -6,6 +6,7 @@ import { GameManager } from './game/game-manager';
 import { GameDataManager } from './game/game-data-manager';
 import { DataManager } from './data/data-manager.interface';
 import TYPES from './types';
+import { Score, Scores } from './game/model/scores';
 
 @injectable()
 export class Migrator {
@@ -26,6 +27,7 @@ export class Migrator {
 
         if (gameToMigrate.length > 0) {
             const allScores = this.gameDataManager.loadScores();
+            const scoresWithNewId: Scores = {};
             const gamesToSave = [];
             gameToMigrate.forEach(gameId => {
                 const game = this.gameManager.getCardsOfGame(allCardList, gameId);
@@ -39,11 +41,10 @@ export class Migrator {
                 game.heroes.forEach(c => this.migrateGameIdInCard(c, gameId, newId));
 
                 gamesToSave.push(game);
-                allScores[newId] = allScores[gameId];
-                delete allScores[gameId];
+                scoresWithNewId[newId] = allScores[gameId];
             });
-            this.dataManager.writeGameData(gamesToSave);
-            this.dataManager.writeScores(allScores);
+            this.gameDataManager.saveData(allCardList);
+            this.dataManager.writeScores(scoresWithNewId);
             console.log(`${gameToMigrate.length} games migrated to the new 4.0 version way.`);
         }
     }
