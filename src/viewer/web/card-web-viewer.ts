@@ -38,6 +38,9 @@ export class CardWebViewer {
                 </label><br>
                 <small>${card.extension}</small>
         `;
+        if (!card.count) {
+            cardLabel += '<small>(not played yet)</small>'
+        }
 
         if (this.forSelection) {
             cardLabel = `<input type="checkbox" 
