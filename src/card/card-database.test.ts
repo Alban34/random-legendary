@@ -214,6 +214,162 @@ describe('custom rules tests on database', () => {
         });
     });
 
+    describe('Fall of the Hulks', () => {
+
+        const perfomeTest = (predefinedGame, mode) => {
+            const playerConfig = new PlayerConfig(mode);
+            const game = gameBuilder.buildGame(allCards, playerConfig, predefinedGame);
+            const hulkCards = game.heroes.filter(card => card.name.indexOf('Hulk') > -1);
+            expect(hulkCards.length).toBe(2);
+            expect(game.heroes.length).toBe(playerConfig.heroesCount);
+        }
+
+        describe('none Hulk selected yet', () => {
+            const predefinedGame = {
+                mastermind: {
+                    name: 'Illuminati, Secret Society',
+                    extension: 'World War Hulk'
+                },
+                scheme: {
+                    name: 'Fall of the Hulks',
+                    extension: 'World War Hulk'
+                },
+                heroes: [
+                    {
+                        'name': 'Goliath',
+                        'extension': 'Civil War'
+                    },
+                    {
+                        'name': 'Gorgon',
+                        'extension': 'Realm of Kings'
+                    }
+                ]
+            } as PredefinedGame;
+            
+            test('should always add the 2 Hulk heroes solo', () => {
+                perfomeTest(predefinedGame, GAME_MODE.SOLO);
+            });
+
+            test('should always add the 2 Hulk heroes advanced solo', () => {
+                perfomeTest(predefinedGame, GAME_MODE.ADVANCED_SOLO);
+            });
+
+            test('should always add the 2 Hulk heroes 2 players', () => {
+                perfomeTest(predefinedGame, GAME_MODE.TWO_PLAYERS);
+            });
+
+            test('should always add the 2 Hulk heroes 3 players', () => {
+                perfomeTest(predefinedGame, GAME_MODE.THREE_PLAYERS);
+            });
+
+            test('should always add the 2 Hulk heroes 4 players', () => {
+                perfomeTest(predefinedGame, GAME_MODE.FOUR_PLAYERS);
+            });
+
+            test('should always add the 2 Hulk heroes 5 players', () => {
+                perfomeTest(predefinedGame, GAME_MODE.FIVE_PLAYERS);
+            });
+        });
+
+        describe('already 2 Hulk selected yet', () => {
+            const predefinedGame = {
+                mastermind: {
+                    name: 'Illuminati, Secret Society',
+                    extension: 'World War Hulk'
+                },
+                scheme: {
+                    name: 'Fall of the Hulks',
+                    extension: 'World War Hulk'
+                },
+                heroes: [
+                    {
+                        'name': 'Gladiator Hulk',
+                        'extension': 'World War Hulk',
+                    },
+                    {
+                        'name': 'Hulk',
+                        'extension': 'Core Set',
+                    }
+                ]
+            } as PredefinedGame;
+
+            test('should remove as many Hulk as need to have only 2 solo', () => {
+                perfomeTest(predefinedGame, GAME_MODE.SOLO);
+            });
+
+            test('should remove as many Hulk as need to have only 2 advanced solo', () => {
+                perfomeTest(predefinedGame, GAME_MODE.ADVANCED_SOLO);
+            });
+
+            test('should remove as many Hulk as need to have only 2 2 players', () => {
+                perfomeTest(predefinedGame, GAME_MODE.TWO_PLAYERS);
+            });
+
+            test('should remove as many Hulk as need to have only 2 3 players', () => {
+                perfomeTest(predefinedGame, GAME_MODE.THREE_PLAYERS);
+            });
+
+            test('should remove as many Hulk as need to have only 2 4 players', () => {
+                perfomeTest(predefinedGame, GAME_MODE.FOUR_PLAYERS);
+            });
+
+            test('should remove as many Hulk as need to have only 2 5 players', () => {
+                perfomeTest(predefinedGame, GAME_MODE.FIVE_PLAYERS);
+            });
+        });
+
+        describe('already more than 2 Hulk selected yet', () => {
+            const predefinedGame = {
+                mastermind: {
+                    name: 'Illuminati, Secret Society',
+                    extension: 'World War Hulk'
+                },
+                scheme: {
+                    name: 'Fall of the Hulks',
+                    extension: 'World War Hulk'
+                },
+                heroes: [
+                    {
+                        'name': 'Gladiator Hulk',
+                        'extension': 'World War Hulk',
+                    },
+                    {
+                        'name': 'Hulk',
+                        'extension': 'Core Set',
+                    },
+                    {
+                        'name': 'Hulkling',
+                        'extension': 'Civil War'
+                    }
+                ]
+            } as PredefinedGame;
+            
+            test('should remove as many Hulk as need to have only 2 solo', () => {
+                perfomeTest(predefinedGame, GAME_MODE.SOLO);
+            });
+
+            test('should remove as many Hulk as need to have only 2 advanced solo', () => {
+                perfomeTest(predefinedGame, GAME_MODE.ADVANCED_SOLO);
+            });
+
+            test('should remove as many Hulk as need to have only 2 2 players', () => {
+                perfomeTest(predefinedGame, GAME_MODE.TWO_PLAYERS);
+            });
+
+            test('should remove as many Hulk as need to have only 2 3 players', () => {
+                perfomeTest(predefinedGame, GAME_MODE.THREE_PLAYERS);
+            });
+
+            test('should remove as many Hulk as need to have only 2 4 players', () => {
+                perfomeTest(predefinedGame, GAME_MODE.FOUR_PLAYERS);
+            });
+
+            test('should remove as many Hulk as need to have only 2 5 players', () => {
+                perfomeTest(predefinedGame, GAME_MODE.FIVE_PLAYERS);
+            });
+        });
+    });
+
     describe('Forge the Infinity Gauntlet', () => {
         const predefinedGame = {
             mastermind: {

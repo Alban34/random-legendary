@@ -174,4 +174,19 @@ describe('card-drawer', () => {
         expect(randomCards[0].name).toBe('super card1');
     });
 
+    test('should be able to find a random card based a provided filter', () => {
+        const cardDrawer = new CardDrawer();
+
+        const cardList = [
+            { 'name': 'super card1', 'count': 1, 'extension': 'ext1' },
+            { 'name': 'super selected card2', 'count': 100, 'extension': 'ext2' },
+            { 'name': 'super card3', 'count': 10, 'extension': 'ext3' },
+        ];
+
+        const myFilter = (card => card.name.indexOf('selected') > -1)
+        const randomCard = cardDrawer.drawRandomUnique(cardList, myFilter);
+
+        expect(randomCard).toBeDefined();
+        expect(randomCard.name).toBe('super selected card2');
+    });
 });

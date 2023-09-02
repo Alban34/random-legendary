@@ -7,9 +7,10 @@ export class CardDrawer {
     /**
      * Draw randomly a single card from the given card list
      * @param cardList
+     * @param filter an optional filter that will exclude cards not matching it
      */
-    public drawRandomUnique(cardList: Card[]) {
-        return this.drawRandom(cardList);
+    public drawRandomUnique(cardList: Card[], filter?) {
+        return this.drawRandom(cardList, filter);
     }
 
     /**
@@ -100,7 +101,10 @@ export class CardDrawer {
         return element.count === countToKeep;
     }
 
-    private drawRandom(cardList: Card[]): Card {
+    private drawRandom(cardList: Card[], filter?): Card {
+        if (filter) {
+            cardList = cardList.filter(filter);
+        }
         const lowestCount = cardList.reduce((prev, curr) => {
             if (!prev.count) {
                 return prev;

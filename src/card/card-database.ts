@@ -773,7 +773,27 @@ export const ALL_CARDS =
             },
             {
                 'name': 'Fall of the Hulks',
-                'extension': 'World War Hulk'
+                'extension': 'World War Hulk',
+                'customRule': (game, cardDrawer, allCards) => {
+                    const hulkFilter = (card) => card.name.indexOf('Hulk') > -1;
+                    const nonHulkFilter = (card) => card.name.indexOf('Hulk') == -1;
+                    const hulkCards = game.heroes.filter(hulkFilter);
+                    if (hulkCards.length >= 2) {
+                        const heroesToAdd = [];
+                        for (let i = hulkCards.length; i > 2; i--) {
+                            game.heroes.splice(game.heroes.indexOf(hulkCards[i - 1]), 1).count--;
+                            heroesToAdd.push(cardDrawer.drawRandomUnique(allCards.heroes, nonHulkFilter));
+                        }
+                        heroesToAdd.forEach(card => game.heroes.push(card));
+                    } else {
+                        // first remove 2 heroes and lower their associated count
+                        game.heroes.pop().count--;
+                        game.heroes.pop().count--;
+                        // then add 2 Hulks
+                        game.heroes.push(cardDrawer.drawRandomUnique(allCards.heroes, hulkFilter));
+                        game.heroes.push(cardDrawer.drawRandomUnique(allCards.heroes, hulkFilter));
+                    }
+                }
             },
             {
                 'name': 'Fear Itself',
@@ -2416,7 +2436,7 @@ export const ALL_CARDS =
                 ]
             },
             {
-                'name': 'Gladiator Hulk ',
+                'name': 'Gladiator Hulk',
                 'extension': 'World War Hulk',
                 'teams': [
                     'Warbound'
@@ -2549,7 +2569,7 @@ export const ALL_CARDS =
                 ]
             },
             {
-                'name': 'Hulkbuster Iron Man ',
+                'name': 'Hulkbuster Iron Man',
                 'extension': 'World War Hulk',
                 'teams': [
                     'The Avengers'
