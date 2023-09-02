@@ -74,6 +74,45 @@ describe('custom rules tests on database', () => {
         });
     });
 
+    describe('Break the Planet Asunder', () => {
+        const predefinedGame = {
+            mastermind: {
+                name: 'Illuminati, Secret Society',
+                extension: 'World War Hulk'
+            },
+            scheme: {
+                name: 'Break the Planet Asunder',
+                extension: 'World War Hulk'
+            }
+        } as PredefinedGame;
+
+        test('should have 7 heroes always', () => {
+            let game = gameBuilder.buildGame(allCards, new PlayerConfig(GAME_MODE.SOLO), predefinedGame);
+            expect(game.scheme.name).toBe('Break the Planet Asunder');
+            expect(game.heroes.length).toBe(7);
+
+            game = gameBuilder.buildGame(allCards, new PlayerConfig(GAME_MODE.ADVANCED_SOLO), predefinedGame);
+            expect(game.scheme.name).toBe('Break the Planet Asunder');
+            expect(game.heroes.length).toBe(7);
+
+            game = gameBuilder.buildGame(allCards, new PlayerConfig(GAME_MODE.TWO_PLAYERS), predefinedGame);
+            expect(game.scheme.name).toBe('Break the Planet Asunder');
+            expect(game.heroes.length).toBe(7);
+
+            game = gameBuilder.buildGame(allCards, new PlayerConfig(GAME_MODE.THREE_PLAYERS), predefinedGame);
+            expect(game.scheme.name).toBe('Break the Planet Asunder');
+            expect(game.heroes.length).toBe(7);
+
+            game = gameBuilder.buildGame(allCards, new PlayerConfig(GAME_MODE.FOUR_PLAYERS), predefinedGame);
+            expect(game.scheme.name).toBe('Break the Planet Asunder');
+            expect(game.heroes.length).toBe(7);
+
+            game = gameBuilder.buildGame(allCards, new PlayerConfig(GAME_MODE.FIVE_PLAYERS), predefinedGame);
+            expect(game.scheme.name).toBe('Break the Planet Asunder');
+            expect(game.heroes.length).toBe(7);
+        });
+    });
+
     describe('Cursed Pages of the Darkhold Tome', () => {
         const predefinedGame = {
             mastermind: {

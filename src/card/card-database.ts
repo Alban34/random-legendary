@@ -601,7 +601,12 @@ export const ALL_CARDS =
             },
             {
                 'name': 'Break the Planet Asunder',
-                'extension': 'World War Hulk'
+                'extension': 'World War Hulk',
+                'customRule': (game: Game, cardDrawer: CardDrawer, allCards, playerCount) => {
+                    while (game.heroes.length < 7) {
+                        game.heroes.push(cardDrawer.drawRandomUnique(allCards.heroes));
+                    }
+                }
             },
             {
                 'name': 'Build An Army of Annihilation',
