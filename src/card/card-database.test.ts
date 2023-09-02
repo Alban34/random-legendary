@@ -403,6 +403,45 @@ describe('custom rules tests on database', () => {
         });
     });
 
+    describe('HYDRA Helicarriers Hunt Heroes', () => {
+        const predefinedGame = {
+            mastermind: {
+                name: 'HYDRA High Council',
+                extension: 'S.H.I.E.L.D.'
+            },
+            scheme: {
+                name: 'HYDRA Helicarriers Hunt Heroes',
+                extension: 'S.H.I.E.L.D.',
+            }
+        } as PredefinedGame;
+
+        test('should add an additional hero', () => {
+            let playerConfig = new PlayerConfig(GAME_MODE.SOLO);
+            let game = gameBuilder.buildGame(allCards, playerConfig, predefinedGame);
+            expect(game.heroes.length).toBe(playerConfig.heroesCount + 1);
+
+            playerConfig = new PlayerConfig(GAME_MODE.ADVANCED_SOLO);
+            game = gameBuilder.buildGame(allCards, playerConfig, predefinedGame);
+            expect(game.heroes.length).toBe(playerConfig.heroesCount + 1);
+
+            playerConfig = new PlayerConfig(GAME_MODE.TWO_PLAYERS);
+            game = gameBuilder.buildGame(allCards, playerConfig, predefinedGame);
+            expect(game.heroes.length).toBe(playerConfig.heroesCount + 1);
+
+            playerConfig = new PlayerConfig(GAME_MODE.THREE_PLAYERS);
+            game = gameBuilder.buildGame(allCards, playerConfig, predefinedGame);
+            expect(game.heroes.length).toBe(playerConfig.heroesCount + 1);
+
+            playerConfig = new PlayerConfig(GAME_MODE.FOUR_PLAYERS);
+            game = gameBuilder.buildGame(allCards, playerConfig, predefinedGame);
+            expect(game.heroes.length).toBe(playerConfig.heroesCount + 1);
+
+            playerConfig = new PlayerConfig(GAME_MODE.FIVE_PLAYERS);
+            game = gameBuilder.buildGame(allCards, playerConfig, predefinedGame);
+            expect(game.heroes.length).toBe(playerConfig.heroesCount + 1);
+        });
+    });
+
     describe('Hypnotize Every Human', () => {
         const predefinedGame = {
             mastermind: {

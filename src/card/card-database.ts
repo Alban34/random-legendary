@@ -871,7 +871,10 @@ export const ALL_CARDS =
             },
             {
                 'name': 'HYDRA Helicarriers Hunt Heroes',
-                'extension': 'S.H.I.E.L.D.'
+                'extension': 'S.H.I.E.L.D.',
+                'customRule': (game, cardDrawer, allCards) => {
+                    game.heroes.push(cardDrawer.drawRandomUnique(allCards.heroes));
+                }
             },
             {
                 'name': 'Hypnotize Every Human',
