@@ -942,7 +942,10 @@ export const ALL_CARDS =
             },
             {
                 'name': 'Midtown Bank Robbery',
-                'extension': 'Core Set'
+                'extension': 'Core Set',
+                'customRule': (game) => {
+                    game.bystanders = 12;
+                }
             },
             {
                 'name': 'Mutant-Hunting Super Sentinels',

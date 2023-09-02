@@ -481,6 +481,40 @@ describe('custom rules tests on database', () => {
         });
     });
 
+    describe('Midtown Bank Robbery', () => {
+        const predefinedGame = {
+            mastermind: {
+                name: 'Dr. Doom',
+                extension: 'Core Set'
+            },
+            scheme: {
+                name: 'Midtown Bank Robbery',
+                extension: 'Core Set',
+            }
+        } as PredefinedGame;
+
+        test('should have exactly 12 bystanders always', () => {
+            let game = gameBuilder.buildGame(allCards, new PlayerConfig(GAME_MODE.SOLO), predefinedGame);
+            expect(game.bystanders).toBe(12);
+
+            game = gameBuilder.buildGame(allCards, new PlayerConfig(GAME_MODE.ADVANCED_SOLO), predefinedGame);
+            expect(game.bystanders).toBe(12);
+
+            game = gameBuilder.buildGame(allCards, new PlayerConfig(GAME_MODE.TWO_PLAYERS), predefinedGame);
+            expect(game.bystanders).toBe(12);
+
+            game = gameBuilder.buildGame(allCards, new PlayerConfig(GAME_MODE.THREE_PLAYERS), predefinedGame);
+            expect(game.bystanders).toBe(12);
+
+            game = gameBuilder.buildGame(allCards, new PlayerConfig(GAME_MODE.FOUR_PLAYERS), predefinedGame);
+            expect(game.bystanders).toBe(12);
+
+            game = gameBuilder.buildGame(allCards, new PlayerConfig(GAME_MODE.FIVE_PLAYERS), predefinedGame);
+            expect(game.bystanders).toBe(12);
+
+        });
+    });
+
     describe('Secret Invasion of the Skrull Shapeshifters', () => {
         const predefinedGame = {
             mastermind: {
