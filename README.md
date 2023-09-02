@@ -26,11 +26,16 @@ Get all source code locally by cloning this GitHub repository.
 
 Run `npm install` to install required dependencies.
 
+> Then, build the static resources
+
+Run `npm build` to build all static resources (mainly css)
+
 > Run the randomizer
 
 Once the dependencies are installed you have 2 options:
 - run `npm run start:console` to have a command line user interface (not recommended, I no longer use it)
 - run `npm run start:web` to connect to http://localhost:3000 with your web browser to have a web user interface
+- run `npm run start:client` to start a desktop version of the application, based on Electron toolbox
 
 You can also build a standalone app with `npm run package:electron`. In the `out` folder, you should find the executable app that you can use rather than starting a web server.
 
@@ -84,7 +89,9 @@ I may add the following features in the future:
 - display a history of the games with the most used cards and the best scores
 - add some statistics on games and cards:
   - percentage of completion of user's collection on extension selection page
-- add special rule of Avengers VS X-Men scheme
+- add special setup rules for:
+  - Avengers VS X-Men scheme
+  - Organized Crime Wave
 - add a button to replay a given game
 
 ## Known issue
