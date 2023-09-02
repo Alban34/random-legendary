@@ -957,7 +957,10 @@ export const ALL_CARDS =
             },
             {
                 'name': 'Negative Zone Prison Breakout',
-                'extension': 'Core Set'
+                'extension': 'Core Set',
+                'customRule': (game, cardDrawer, allCards) => {
+                    game.henchmen.push(cardDrawer.drawRandomUnique(allCards.henchmen));
+                }
             },
             {
                 'name': 'Nitro the Supervillain Threatens Crowds',

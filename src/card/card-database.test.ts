@@ -515,6 +515,45 @@ describe('custom rules tests on database', () => {
         });
     });
 
+    describe('Negative Zone Prison Breakout', () => {
+        const predefinedGame = {
+            mastermind: {
+                name: 'Dr. Doom',
+                extension: 'Core Set'
+            },
+            scheme: {
+                'name': 'Negative Zone Prison Breakout',
+                'extension': 'Core Set',
+            }
+        } as PredefinedGame;
+
+        test('should have an additional henchmen group', () => {
+            let playerConfig = new PlayerConfig(GAME_MODE.SOLO);
+            let game = gameBuilder.buildGame(allCards, playerConfig, predefinedGame);
+            expect(game.henchmen.length).toBe(playerConfig.henchmenCount + 1);
+
+            playerConfig = new PlayerConfig(GAME_MODE.ADVANCED_SOLO);
+            game = gameBuilder.buildGame(allCards, playerConfig, predefinedGame);
+            expect(game.henchmen.length).toBe(playerConfig.henchmenCount + 1);
+
+            playerConfig = new PlayerConfig(GAME_MODE.TWO_PLAYERS);
+            game = gameBuilder.buildGame(allCards, playerConfig, predefinedGame);
+            expect(game.henchmen.length).toBe(playerConfig.henchmenCount + 1);
+            
+            playerConfig = new PlayerConfig(GAME_MODE.THREE_PLAYERS);
+            game = gameBuilder.buildGame(allCards, playerConfig, predefinedGame);
+            expect(game.henchmen.length).toBe(playerConfig.henchmenCount + 1);
+
+            playerConfig = new PlayerConfig(GAME_MODE.FOUR_PLAYERS);
+            game = gameBuilder.buildGame(allCards, playerConfig, predefinedGame);
+            expect(game.henchmen.length).toBe(playerConfig.henchmenCount + 1);
+
+            playerConfig = new PlayerConfig(GAME_MODE.FIVE_PLAYERS);
+            game = gameBuilder.buildGame(allCards, playerConfig, predefinedGame);
+            expect(game.henchmen.length).toBe(playerConfig.henchmenCount + 1);
+        });
+    });
+
     describe('Secret Invasion of the Skrull Shapeshifters', () => {
         const predefinedGame = {
             mastermind: {
