@@ -72,7 +72,7 @@ describe('card-drawer', () => {
 
         const result = [];
         randomCards.forEach(card => result.push(card.name));
-        result.sort();
+        result.sort((a, b) => a.localeCompare(b));
         expect(JSON.stringify(result)).toBe(JSON.stringify(['card1', 'card4', 'card6']));
     });
 
