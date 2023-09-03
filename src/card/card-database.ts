@@ -1039,7 +1039,7 @@ export const ALL_CARDS =
                 'extension': 'Core Set'
             },
             {
-                'name': 'Replace Earth’s Leaders with HYDRA',
+                'name': 'Replace Earth\'s Leaders with HYDRA',
                 'extension': 'Marvel Studios, Phase 1'
             },
             {
@@ -1119,7 +1119,9 @@ export const ALL_CARDS =
             },
             {
                 'name': 'Splice Humans with Spider DNA',
-                'extension': 'Paint the Town Red'
+                'extension': 'Paint the Town Red',
+                'alwaysLead': 'Sinister Six',
+                'alwaysLeadCategory': 'villains'
             },
             {
                 'name': 'Star-Lord\'s Awesome Mix Tape',

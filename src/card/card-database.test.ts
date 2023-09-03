@@ -181,7 +181,7 @@ describe('custom rules tests on database', () => {
         });
     });
 
-    describe('Divide and Conquer', () => {
+    describe('Epic Super Hero Civil War', () => {
         const predefinedGame = {
             mastermind: {
                 name: 'Apocalypse',
@@ -571,29 +571,24 @@ describe('custom rules tests on database', () => {
         });
 
         test('should always have the Skrulls villain group', () => {
-            let game = gameBuilder.buildGame(allCards, new PlayerConfig(GAME_MODE.SOLO), predefinedGame);
-            let hasSkrulls = game.villains.filter(v => v.name === 'Skrulls');
-            expect(hasSkrulls.length).toBe(1);
+            testVillainGroupManadatory(predefinedGame, 'Skrulls');
+        });
+    });
 
-            game = gameBuilder.buildGame(allCards, new PlayerConfig(GAME_MODE.ADVANCED_SOLO), predefinedGame);
-            hasSkrulls = game.villains.filter(v => v.name === 'Skrulls');
-            expect(hasSkrulls.length).toBe(1);
+    describe('Splice Humans with Spider DNA', () => {
+        const predefinedGame = {
+            mastermind: {
+                name: 'Carnage',
+                extension: 'Paint the Town Red'
+            },
+            scheme: {
+                name: 'Splice Humans with Spider DNA',
+                extension: 'Paint the Town Red',
+            }
+        } as PredefinedGame;
 
-            game = gameBuilder.buildGame(allCards, new PlayerConfig(GAME_MODE.TWO_PLAYERS), predefinedGame);
-            hasSkrulls = game.villains.filter(v => v.name === 'Skrulls');
-            expect(hasSkrulls.length).toBe(1);
-
-            game = gameBuilder.buildGame(allCards, new PlayerConfig(GAME_MODE.THREE_PLAYERS), predefinedGame);
-            hasSkrulls = game.villains.filter(v => v.name === 'Skrulls');
-            expect(hasSkrulls.length).toBe(1);
-
-            game = gameBuilder.buildGame(allCards, new PlayerConfig(GAME_MODE.FOUR_PLAYERS), predefinedGame);
-            hasSkrulls = game.villains.filter(v => v.name === 'Skrulls');
-            expect(hasSkrulls.length).toBe(1);
-
-            game = gameBuilder.buildGame(allCards, new PlayerConfig(GAME_MODE.FIVE_PLAYERS), predefinedGame);
-            hasSkrulls = game.villains.filter(v => v.name === 'Skrulls');
-            expect(hasSkrulls.length).toBe(1);
+        test('should always have the Sinister Six as villains', () => {
+            testVillainGroupManadatory(predefinedGame, 'Sinister Six');
         });
     });
 
@@ -635,5 +630,39 @@ describe('custom rules tests on database', () => {
 
         game = gameBuilder.buildGame(allCards, new PlayerConfig(GAME_MODE.FIVE_PLAYERS), predefinedGame);
         expect(game.heroes.length).toBe(expectedHeroesCount);
+    }
+
+    function testVillainGroupManadatory(predefinedGame: PredefinedGame, villainName: string) {
+        let game = gameBuilder.buildGame(allCards, new PlayerConfig(GAME_MODE.SOLO), predefinedGame);
+            let hasSkrulls = game.villains.filter(v => v.name === villainName);
+            expect(hasSkrulls.length).toBe(1);
+
+            game = gameBuilder.buildGame(allCards, new PlayerConfig(GAME_MODE.ADVANCED_SOLO), predefinedGame);
+            hasSkrulls = game.villains.filter(v => v.name === villainName);
+            expect(hasSkrulls.length).toBe(1);
+
+            game = gameBuilder.buildGame(allCards, new PlayerConfig(GAME_MODE.TWO_HANDED_SOLO), predefinedGame);
+            hasSkrulls = game.villains.filter(v => v.name === villainName);
+            expect(hasSkrulls.length).toBe(1);
+
+            game = gameBuilder.buildGame(allCards, new PlayerConfig(GAME_MODE.THREE_HANDED_SOLO), predefinedGame);
+            hasSkrulls = game.villains.filter(v => v.name === villainName);
+            expect(hasSkrulls.length).toBe(1);
+
+            game = gameBuilder.buildGame(allCards, new PlayerConfig(GAME_MODE.TWO_PLAYERS), predefinedGame);
+            hasSkrulls = game.villains.filter(v => v.name === villainName);
+            expect(hasSkrulls.length).toBe(1);
+
+            game = gameBuilder.buildGame(allCards, new PlayerConfig(GAME_MODE.THREE_PLAYERS), predefinedGame);
+            hasSkrulls = game.villains.filter(v => v.name === villainName);
+            expect(hasSkrulls.length).toBe(1);
+
+            game = gameBuilder.buildGame(allCards, new PlayerConfig(GAME_MODE.FOUR_PLAYERS), predefinedGame);
+            hasSkrulls = game.villains.filter(v => v.name === villainName);
+            expect(hasSkrulls.length).toBe(1);
+
+            game = gameBuilder.buildGame(allCards, new PlayerConfig(GAME_MODE.FIVE_PLAYERS), predefinedGame);
+            hasSkrulls = game.villains.filter(v => v.name === villainName);
+            expect(hasSkrulls.length).toBe(1);
     }
 });
