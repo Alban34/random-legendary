@@ -1148,7 +1148,8 @@ export const ALL_CARDS =
             },
             {
                 'name': 'Super Hero Civil War',
-                'extension': 'Core Set'
+                'extension': 'Core Set',
+                'minimumPlayerCount': 2
             },
             {
                 'name': 'Superhuman Baseball Game',

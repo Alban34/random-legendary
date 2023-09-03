@@ -16,7 +16,7 @@ export class GameBuilder {
         let alwaysLeadHenchmen = [];
         let alwaysUseHeroes: CardIdentifier[] = [];
 
-        const mastermind = this.getCard(predefinedGame, allCards, 'mastermind', 'masterminds') as AlwaysLeadCard;
+        const mastermind = this.getCard(predefinedGame, allCards, 'mastermind', 'masterminds', playerConfig) as AlwaysLeadCard;
         if (playerConfig.playerCount > 1) {
             this.setupAlwaysLead(mastermind, alwaysLeadVillains, alwaysLeadHenchmen);
         }
@@ -27,7 +27,7 @@ export class GameBuilder {
             strictHenchmen = false;
         }
 
-        const scheme = this.getCard(predefinedGame, allCards, 'scheme', 'schemes') as AlwaysLeadCard;
+        const scheme = this.getCard(predefinedGame, allCards, 'scheme', 'schemes', playerConfig) as AlwaysLeadCard;
         this.setupAlwaysLead(scheme, alwaysLeadVillains, alwaysLeadHenchmen);
 
         this.fillAlwaysArray(predefinedGame, 'villains', alwaysLeadVillains);
@@ -62,8 +62,8 @@ export class GameBuilder {
         return game;
     }
 
-    private getCard(predefinedGame, allCards, cardType, cardGroup) {
-        let card;
+    private getCard(predefinedGame, allCards, cardType, cardGroup, playerConfig: PlayerConfig): Card {
+        let card: Card;
         if (predefinedGame?.[cardType]) {
             card = allCards[cardGroup].filter(c => c.name === predefinedGame[cardType].name && c.extension === predefinedGame[cardType].extension)[0];
             if (!card.count) {
@@ -72,7 +72,8 @@ export class GameBuilder {
             card.count++;
         }
         if (!card) {
-            card = this.cardDrawer.drawRandomUnique(allCards[cardGroup]);
+            const cardsToChoseFrom = allCards[cardGroup].filter(card => !card.minimumPlayerCount || playerConfig.playerCount >= card.minimumPlayerCount);
+            card = this.cardDrawer.drawRandomUnique(cardsToChoseFrom);
         }
         return card;
     }

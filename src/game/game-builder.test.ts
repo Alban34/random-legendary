@@ -224,4 +224,31 @@ describe('GameBuilder', () => {
             expect(game.gameId.endsWith(`|${i}`)).toBeTruthy();
         }
     });
+
+    test('should not pick a Scheme with a minimum player count not satisfied', () => {
+        cardList.schemes[0].count = 2;
+        
+        cardList.schemes.push({
+            name: 's2',
+            extension: 'ext1',
+            minimumPlayerCount: 2
+        });
+       
+        const game = gameBuilder.buildGame(cardList, new PlayerConfig(1));
+        expect(game.scheme.name).toBe('s1');
+    });
+
+    
+    test('should pick a Scheme with the minimum player count satisfied', () => {
+        cardList.schemes[0].count = 2;
+        
+        cardList.schemes.push({
+            name: 's2',
+            extension: 'ext1',
+            minimumPlayerCount: 2
+        });
+       
+        const game = gameBuilder.buildGame(cardList, new PlayerConfig(2));
+        expect(game.scheme.name).toBe('s2');
+    });
 });
