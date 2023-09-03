@@ -109,15 +109,15 @@ export class ScoreController extends AbstractController {
             view += `
                 <div>
                     Player: <input name="${gameId}:player_${i}" type="text" value="Player ${i + 1}">
-                    Score: ${this.getInputsScore(gameMode, gameId)}
+                    Score: ${this.getInputsScore(gameMode, gameId, i)}
                 </div>
             `;
         }
         return view;
     }
 
-    private getInputsScore(gameMode: number, gameId: string): string {
-        let scoreInputCount;
+    private getInputsScore(gameMode: number, gameId: string, playerIndex: number): string {
+        let scoreInputCount: number;
         switch (gameMode) {
             case GAME_MODE.TWO_HANDED_SOLO:
                 scoreInputCount = 2;
@@ -130,7 +130,7 @@ export class ScoreController extends AbstractController {
         }
         let scoreInputs = '';
         for (let i = 0; i < scoreInputCount; i++) {
-            scoreInputs += `<input name="${gameId}:score_${i}" type="number">`;
+            scoreInputs += `<input name="${gameId}:score_${playerIndex + i}" type="number">`;
         }
         return scoreInputs;
     }
