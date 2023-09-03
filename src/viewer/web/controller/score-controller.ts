@@ -103,7 +103,7 @@ export class ScoreController extends AbstractController {
 
     private getPlayersView(gameId: string) {
         const gameMode = Number.parseInt(gameId.split('|')[1]);
-        const playerCount = PlayerConfig.getPlayerCount(gameMode);
+        const playerCount = PlayerConfig.getHumanPlayerCount(gameMode);
         let view = '';
         for (let i = 0; i < playerCount; i++) {
             view += `
