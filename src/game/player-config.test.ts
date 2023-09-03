@@ -1,5 +1,5 @@
 import { describe, expect, test } from '@jest/globals';
-import { PlayerConfig } from './player-config';
+import { GAME_MODE, PlayerConfig } from './player-config';
 
 describe('player-config', () => {
     test('should create config for core solo', () => {
@@ -89,4 +89,32 @@ describe('player-config', () => {
         });
 
     });
+
+    describe('extract player config from game id', () => {
+        test('should be able to find game config', () => {
+            let playerConfig = PlayerConfig.extractPlayerConfigFromGameId('some-kind-of-id|0');
+            expect(playerConfig.getGameMode()).toBe(GAME_MODE.SOLO);
+
+            playerConfig = PlayerConfig.extractPlayerConfigFromGameId('some-kind-of-id|1');
+            expect(playerConfig.getGameMode()).toBe(GAME_MODE.ADVANCED_SOLO);
+
+            playerConfig = PlayerConfig.extractPlayerConfigFromGameId('some-kind-of-id|2');
+            expect(playerConfig.getGameMode()).toBe(GAME_MODE.TWO_PLAYERS);
+
+            playerConfig = PlayerConfig.extractPlayerConfigFromGameId('some-kind-of-id|3');
+            expect(playerConfig.getGameMode()).toBe(GAME_MODE.THREE_PLAYERS);
+        
+            playerConfig = PlayerConfig.extractPlayerConfigFromGameId('some-kind-of-id|4');
+            expect(playerConfig.getGameMode()).toBe(GAME_MODE.FOUR_PLAYERS);
+
+            playerConfig = PlayerConfig.extractPlayerConfigFromGameId('some-kind-of-id|5');
+            expect(playerConfig.getGameMode()).toBe(GAME_MODE.FIVE_PLAYERS);
+
+            playerConfig = PlayerConfig.extractPlayerConfigFromGameId('some-kind-of-id|21');
+            expect(playerConfig.getGameMode()).toBe(GAME_MODE.TWO_HANDED_SOLO);
+
+            playerConfig = PlayerConfig.extractPlayerConfigFromGameId('some-kind-of-id|31');
+            expect(playerConfig.getGameMode()).toBe(GAME_MODE.THREE_HANDED_SOLO);
+        })
+    })
 });

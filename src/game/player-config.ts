@@ -136,4 +136,9 @@ export class PlayerConfig {
                 return gameMode;
         }
     }
+
+    static extractPlayerConfigFromGameId(gameId: string): PlayerConfig {
+        const gameMode = parseInt(gameId.substring(gameId.indexOf('|') + 1));
+        return new PlayerConfig(gameMode);
+    }
 }

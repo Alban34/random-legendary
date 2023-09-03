@@ -2,7 +2,7 @@ import { inject } from 'inversify';
 import { Request } from 'express';
 import { controller, httpGet, httpPost, requestBody, response } from 'inversify-express-utils';
 import { AbstractController } from './abstract-controller';
-import { PlayerConfig } from '../../../game/player-config';
+import { GAME_MODE, PlayerConfig } from '../../../game/player-config';
 import { GameBuilder } from '../../../game/game-builder';
 import { GameWebViewer } from '../game-web-viewer';
 import { CardLoader } from '../../../card/card-loader';
@@ -107,11 +107,22 @@ export class GameController extends AbstractController {
         if (!allScores[gameId]) {
             return 'No score yet';
         }
+        const config: PlayerConfig = PlayerConfig.extractPlayerConfigFromGameId(gameId);
+        let showPlayerName = true;
         allScores[gameId].forEach(s => {
             if (s.score === -1) {
                 lost = true;
             }
-            view += `<p>${s.player}: ${s.score}</p>`;
+            let startWith = `${s.player}: `;
+            if (!showPlayerName) {
+                startWith = ` | `;
+            }
+            view += `${startWith} ${s.score}`;
+            if (config.getGameMode() === GAME_MODE.TWO_HANDED_SOLO || config.getGameMode() === GAME_MODE.THREE_HANDED_SOLO) {
+                showPlayerName = false;
+            } else {
+                view += `<br/>`;
+            }
         });
         if (lost) {
             view = 'Game lost';
