@@ -1,4 +1,4 @@
-import { v4 as uuidv4 } from 'uuid';
+import { randomUUID } from 'node:crypto';
 import { PlayerConfig } from './player-config';
 import { Game } from './model/game';
 import { Card, CardDrawer, AlwaysLeadCard } from '../card/card.module';
@@ -11,9 +11,9 @@ export class GameBuilder {
 
     public buildGame(allCards, playerConfig: PlayerConfig, predefinedGame?: PredefinedGame): Game {
 
-        const gameId = `${uuidv4()}|${playerConfig.getGameMode()}`;
-        let alwaysLeadVillains = [];
-        let alwaysLeadHenchmen = [];
+        const gameId = `${randomUUID()}|${playerConfig.getGameMode()}`;
+        const alwaysLeadVillains: string[] = [];
+        const alwaysLeadHenchmen: string[] = [];
         let alwaysUseHeroes: CardIdentifier[] = [];
 
         const mastermind = this.getCard(predefinedGame, allCards, 'mastermind', 'masterminds', playerConfig) as AlwaysLeadCard;
