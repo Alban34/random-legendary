@@ -9,7 +9,7 @@ export class CardDrawer {
      * @param cardList
      * @param filter an optional filter that will exclude cards not matching it
      */
-    public drawRandomUnique(cardList: Card[], filter?) {
+    public drawRandomUnique(cardList: Card[], filter?: (value: Card) => boolean): Card {
         return this.drawRandom(cardList, filter);
     }
 
@@ -19,7 +19,7 @@ export class CardDrawer {
      * @param countToDraw
      */
     public drawRandomMultiple(cardList: Card[], countToDraw: number): Card[] {
-        let choices = [];
+        const choices: Card[] = [];
         for (let i = 0; i < countToDraw; i++) {
             choices.push(this.drawRandom(cardList));
         }
@@ -40,7 +40,7 @@ export class CardDrawer {
             randomCount = countToDraw - 1;
         }
 
-        const cardToSelect = [];
+        const cardToSelect: CardIdentifier[] = [];
         alwaysSelected.forEach(ci => {
             if (typeof ci === 'string') {
                 cardToSelect.push({
@@ -101,7 +101,7 @@ export class CardDrawer {
         return element.count === countToKeep;
     }
 
-    private drawRandom(cardList: Card[], filter?): Card {
+    private drawRandom(cardList: Card[], filter?: (value: Card) => boolean): Card {
         if (filter) {
             cardList = cardList.filter(filter);
         }

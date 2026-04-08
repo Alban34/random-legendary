@@ -1,5 +1,6 @@
 import { DataManager } from './data-manager.interface';
 import { Scores } from '../game/model/scores';
+import { SavedCardCatalog } from '../card/card.module';
 import fs from 'fs-extra';
 import { injectable } from 'inversify';
 import os from 'os';
@@ -24,7 +25,7 @@ export class FileDataManager implements DataManager {
         return this.readData('extensions.json', []);
     }
 
-    readGamesData() {
+    readGamesData(): SavedCardCatalog {
         return this.readData('games.json', {});
     }
 
@@ -32,7 +33,7 @@ export class FileDataManager implements DataManager {
         return this.readData('scores.json', {});
     }
 
-    writeGameData(gamesToSave) {
+    writeGameData(gamesToSave: SavedCardCatalog): void {
         this.writeData(gamesToSave, 'games.json');
     }
 
@@ -48,19 +49,19 @@ export class FileDataManager implements DataManager {
         return this.randomLegendaryHome;
     }
 
-    private getFilePath(fileName) {
+    private getFilePath(fileName: string): string {
         return this.randomLegendaryHome + path.sep + fileName;
     }
 
-    private readData(fileName, defaultValue) {
+    private readData<T>(fileName: string, defaultValue: T): T {
         if (fs.existsSync(this.getFilePath(fileName))) {
             const rawData = fs.readFileSync(this.getFilePath(fileName));
-            return JSON.parse(rawData.toString());
+            return JSON.parse(rawData.toString()) as T;
         }
         return defaultValue;
     }
 
-    private writeData(data, fileName) {
+    private writeData<T>(data: T, fileName: string): void {
         const dataAsStr = JSON.stringify(data);
         fs.writeFileSync(this.getFilePath(fileName), dataAsStr);
     }
@@ -71,9 +72,9 @@ export class FileDataManager implements DataManager {
         this.moveFile('scores.json', 'Scoring');
     }
 
-    private moveFile(fileName, dataFileLabel) {
+    private moveFile(fileName: string, dataFileLabel: string): void {
         if (fs.existsSync(fileName)) {
-            if (!fs.existsSync(fileName)) {
+            if (!fs.existsSync(this.getFilePath(fileName))) {
                 fs.move(fileName, this.getFilePath(fileName)).then(() => {
                     console.log(`${dataFileLabel} data has been moved to ${this.randomLegendaryHome}`);
                 });

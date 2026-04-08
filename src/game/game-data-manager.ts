@@ -3,8 +3,9 @@ import { DataManager } from '../data/data-manager.interface';
 import { inject, injectable } from 'inversify';
 import TYPES from '../types';
 import { Score } from './model/scores';
+import { Card, CardCatalog } from '../card/card.module';
 
-const gameFilter = (card) => card.gameId && card.gameId.length > 0;
+const gameFilter = (card: Card): boolean => Boolean(card.gameId && card.gameId.length > 0);
 
 @injectable()
 export class GameDataManager {
@@ -13,7 +14,7 @@ export class GameDataManager {
     }
 
 
-    public saveData(legendaryBase): void {
+    public saveData(legendaryBase: CardCatalog): void {
         const gamesToSave = {
             'masterminds': legendaryBase.masterminds.filter(gameFilter),
             'schemes': legendaryBase.schemes.filter(gameFilter),

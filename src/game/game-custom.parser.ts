@@ -7,8 +7,8 @@ interface ParsedCard {
 
 export class GameCustomParser {
 
-    public parse(toParse): PredefinedGame {
-        const game = {};
+    public parse(toParse: Record<string, unknown>): PredefinedGame {
+        const game: PredefinedGame = {};
         Object.keys(toParse).forEach(key => {
             const cardData = this.parseString(key);
             const card = cardData.cardData;
@@ -45,10 +45,10 @@ export class GameCustomParser {
         };
     }
 
-    private getArray(game, category) {
+    private getArray(game: PredefinedGame, category: 'villains' | 'henchmen' | 'heroes'): CardIdentifier[] {
         if (!game[category]) {
             game[category] = [];
         }
-        return game[category];
+        return game[category] as CardIdentifier[];
     }
 }

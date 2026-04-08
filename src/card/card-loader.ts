@@ -2,26 +2,27 @@ import { DataManager } from '../data/data-manager.interface';
 import { inject, injectable } from 'inversify';
 import TYPES from '../types';
 import { ALL_CARDS } from './card-database';
+import { Card, CardCatalog, CardCategory, SavedCardCatalog } from './card.module';
 
-const CATEGORIES = ['masterminds', 'schemes', 'villains', 'henchmen', 'heroes'];
+const CATEGORIES: CardCategory[] = ['masterminds', 'schemes', 'villains', 'henchmen', 'heroes'];
 
 @injectable()
 export class CardLoader {
 
     constructor(@inject(TYPES.DataManager) private readonly dataManager: DataManager) {}
 
-    public loadData() {
-        const legendaryBase = { ...ALL_CARDS };
-        this.mergeGameDataIntoBase(legendaryBase, this.dataManager.readGamesData());
+    public loadData(): CardCatalog {
+        const legendaryBase = { ...ALL_CARDS } as CardCatalog;
+        this.mergeGameDataIntoBase(legendaryBase, this.dataManager.readGamesData() ?? {});
         return legendaryBase;
     }
 
-    private mergeGameDataIntoBase(legendaryBase, games) {
+    private mergeGameDataIntoBase(legendaryBase: CardCatalog, games: SavedCardCatalog): void {
         CATEGORIES.forEach(category => {
             if (legendaryBase[category]) {
                 legendaryBase[category].forEach(baseValue => {
                     if (games[category]) {
-                        const saveCatValue = games[category].filter(m => {
+                        const saveCatValue = games[category].filter((m) => {
                             return m.name === baseValue.name && m.extension === baseValue.extension;
                         });
                         if (saveCatValue && saveCatValue.length === 1) {
@@ -44,9 +45,14 @@ export class CardLoader {
         this.dataManager.writeExtensionsData(extensions);
     }
 
-    private mergeIfDefined(saveCatValue, baseValue, attributeName: string) {
-        if (saveCatValue[0][attributeName]) {
-            baseValue[attributeName] = saveCatValue[0][attributeName];
+    private mergeIfDefined(saveCatValue: Card[], baseValue: Card, attributeName: 'count' | 'gameId'): void {
+        const value = saveCatValue[0][attributeName];
+        if (value) {
+            if (attributeName === 'count') {
+                baseValue.count = value as number;
+            } else {
+                baseValue.gameId = value as string[];
+            }
         }
 
     }

@@ -5,6 +5,7 @@ import { Game } from './model/game';
 import { CardDrawer } from '../card/card-drawer';
 import { PredefinedGame } from './model/predefined-game';
 import { ALL_CARDS } from '../card/card-database';
+import { CardCatalog } from '../card/card.module';
 
 describe('GameBuilder', () => {
 
@@ -214,7 +215,7 @@ describe('GameBuilder', () => {
             henchmen: [{ name: 'Maggia Goons', extension: 'Dark City' }]
         };
 
-        const game = gameBuilder.buildGame(ALL_CARDS, new PlayerConfig(1), predefinedGame);
+        const game = gameBuilder.buildGame(ALL_CARDS as CardCatalog, new PlayerConfig(1), predefinedGame);
         expect(game.heroes.length).toBe(6);
     });
 
@@ -227,27 +228,27 @@ describe('GameBuilder', () => {
 
     test('should not pick a Scheme with a minimum player count not satisfied', () => {
         cardList.schemes[0].count = 2;
-        
+
         cardList.schemes.push({
             name: 's2',
             extension: 'ext1',
             minimumPlayerCount: 2
         });
-       
+
         const game = gameBuilder.buildGame(cardList, new PlayerConfig(1));
         expect(game.scheme.name).toBe('s1');
     });
 
-    
+
     test('should pick a Scheme with the minimum player count satisfied', () => {
         cardList.schemes[0].count = 2;
-        
+
         cardList.schemes.push({
             name: 's2',
             extension: 'ext1',
             minimumPlayerCount: 2
         });
-       
+
         const game = gameBuilder.buildGame(cardList, new PlayerConfig(2));
         expect(game.scheme.name).toBe('s2');
     });

@@ -20,15 +20,16 @@ describe('GameManager', () => {
                 return [];
             },
             readGamesData() {
+                return undefined;
             },
             readScores(): Scores {
                 return { 'game2': [{ score: 10, player: 'player' }] };
             },
-            writeGameData(gamesToSave) {
+            writeGameData(_gamesToSave) {
             },
-            writeExtensionsData(extensions: string[]) {
+            writeExtensionsData(_extensions: string[]) {
             },
-            writeScores(scores): void {
+            writeScores(_scores): void {
             }
         };
 
@@ -68,14 +69,14 @@ describe('GameManager', () => {
     };
 
     test('should load all available registered games', () => {
-        const gameIds = gameManager.loadRegisteredGame(cardList);
+        const gameIds = gameManager.loadRegisteredGame(cardList as any);
         expect(gameIds).toContain('game1');
         expect(gameIds).toContain('game2');
         expect(gameIds).toContain('game3');
     });
 
     test('should extract the cards of a given game', () => {
-        const game = gameManager.getCardsOfGame(cardList, 'game1');
+        const game = gameManager.getCardsOfGame(cardList as any, 'game1');
         expect(game.mastermind.name).toBe('m3');
         expect(game.scheme.name).toBe('s1');
         expect(game.villains.length).toBe(1);
@@ -88,7 +89,7 @@ describe('GameManager', () => {
     });
 
     test('should load only the games without a scoring already registered', () => {
-        const games = gameManager.loadRegisteredGameWithNoScore(cardList);
+        const games = gameManager.loadRegisteredGameWithNoScore(cardList as any);
         expect(games).toContain('game1');
         expect(games).not.toContain('game2');
         expect(games).toContain('game3');
