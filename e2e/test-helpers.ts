@@ -4,8 +4,8 @@ import { Browser, chromium, expect, Locator, Page } from '@playwright/test';
 
 export const e2eDataDir = path.resolve(__dirname, '..', '.playwright-data');
 export const gamesFilePath = path.join(e2eDataDir, 'games.json');
-export const baseUrl = 'http://127.0.0.1:3100';
-const chromeExecutablePath = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
+const port = process.env.PORT ?? '3100';
+export const baseUrl = process.env.PLAYWRIGHT_BASE_URL ?? `http://127.0.0.1:${port}`;
 
 export interface StartedGame {
 	gameId: string;
@@ -20,9 +20,19 @@ export async function resetE2EData(): Promise<void> {
 
 export async function launchBrowser(): Promise<Browser> {
 	return chromium.launch({
-		executablePath: chromeExecutablePath,
+		channel: 'chrome',
 		headless: true
 	});
+}
+
+export async function withPage<T>(callback: (page: Page) => Promise<T>): Promise<T> {
+	const browser = await launchBrowser();
+	const page = await browser.newPage({ viewport: { width: 1440, height: 960 } });
+	try {
+		return await callback(page);
+	} finally {
+		await browser.close();
+	}
 }
 
 export async function readSavedGames(): Promise<Record<string, unknown>> {
@@ -56,11 +66,14 @@ export async function startSoloGame(page: Page): Promise<StartedGame> {
 
 	const scenarioNames = await scenarioCard.locator('.card-name').allTextContents();
 	const heroes = await heroesCard.locator('.card-name').allTextContents();
+	if (scenarioNames.length < 2) {
+		throw new Error('Expected both mastermind and scheme to be rendered on the game setup page.');
+	}
 
 	return {
 		gameId,
-		mastermind: scenarioNames[0]?.trim() ?? '',
-		scheme: scenarioNames[1]?.trim() ?? '',
+		mastermind: scenarioNames[0].trim(),
+		scheme: scenarioNames[1].trim(),
 		heroes: heroes.map((hero) => hero.trim())
 	};
 }
@@ -76,7 +89,7 @@ export async function checkExtension(page: Page, extension: string, checked: boo
 }
 
 export async function saveExtensions(page: Page): Promise<void> {
-	await page.locator('button.btn.btn-primary', { hasText: 'Save' }).click();
+	await page.getByRole('button', { name: 'Save', exact: true }).click();
 	await page.waitForURL('**/');
 }
 

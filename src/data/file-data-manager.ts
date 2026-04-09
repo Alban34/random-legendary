@@ -12,7 +12,7 @@ export class FileDataManager implements DataManager {
     private readonly randomLegendaryHome: string;
 
     constructor() {
-        this.randomLegendaryHome = process.env.RANDOM_LEGENDARY_HOME || path.join(os.homedir(), 'random-legendary');
+        this.randomLegendaryHome = process.env.RANDOM_LEGENDARY_HOME ?? path.join(os.homedir(), 'random-legendary');
         const dataFolderAlreadyExists = fs.existsSync(this.randomLegendaryHome);
         fs.ensureDirSync(this.randomLegendaryHome);
         if (dataFolderAlreadyExists) {
@@ -39,7 +39,7 @@ export class FileDataManager implements DataManager {
         this.writeData(gamesToSave, 'games.json');
     }
 
-    writeExtensionsData(extensions: string[]) {
+    writeExtensionsData(extensions: string[]): void {
         this.writeData(extensions, 'extensions.json');
     }
 
@@ -52,7 +52,7 @@ export class FileDataManager implements DataManager {
     }
 
     private getFilePath(fileName: string): string {
-        return this.randomLegendaryHome + path.sep + fileName;
+        return path.join(this.randomLegendaryHome, fileName);
     }
 
     private readData<T>(fileName: string, defaultValue: T): T {
@@ -68,7 +68,7 @@ export class FileDataManager implements DataManager {
         fs.writeFileSync(this.getFilePath(fileName), dataAsStr);
     }
 
-    private migrateDataFiles() {
+    private migrateDataFiles(): void {
         this.moveFile('games.json', 'Games');
         this.moveFile('extensions.json', 'Extensions');
         this.moveFile('scores.json', 'Scoring');
@@ -77,9 +77,13 @@ export class FileDataManager implements DataManager {
     private moveFile(fileName: string, dataFileLabel: string): void {
         if (fs.existsSync(fileName)) {
             if (!fs.existsSync(this.getFilePath(fileName))) {
-                fs.move(fileName, this.getFilePath(fileName)).then(() => {
-                    console.log(`${dataFileLabel} data has been moved to ${this.randomLegendaryHome}`);
-                });
+                void fs.move(fileName, this.getFilePath(fileName))
+                    .then(() => {
+                        console.log(`${dataFileLabel} data has been moved to ${this.randomLegendaryHome}`);
+                    })
+                    .catch((error: Error) => {
+                        console.error(`Failed to move ${dataFileLabel} data to ${this.randomLegendaryHome}: ${error.message}`);
+                    });
             } else {
                 console.error(`${dataFileLabel} data has already been moved to ${this.randomLegendaryHome}. You might have some corrupted data.`);
             }
