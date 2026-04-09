@@ -7,7 +7,7 @@ export class CardManager {
             .flatMap((m) => m.extension)
             .sort((a, b) => a.localeCompare(b))
             .reduce<string[]>((a, b) => {
-                if (a[a.length - 1] !== b) {
+                if (a.at(-1) !== b) {
                     a.push(b);
                 }
                 return a;
