@@ -1,4 +1,5 @@
 import { Game } from '../../game/model/game';
+import { Card } from '../../card/model/card';
 
 export class GameWebViewer {
     public buildView(playerCount: number, game: Game): string {
@@ -52,23 +53,23 @@ export class GameWebViewer {
         `;
     }
 
-    private getMultipleToDisplay(group, limit?: number) {
+    private getMultipleToDisplay(group: Card[], limit?: number): string {
         let limitSentence = '';
         if (limit && limit < 10) {
             limitSentence = `(only ${limit} cards of them)`;
         }
         let display = `<ul>`;
-        group.forEach(card => {
+        group.forEach((card) => {
             display += `<li class="row">${this.displayCard(card)}${limitSentence}</li>`;
         });
         display += `</ul>`;
         return display;
     }
 
-    private displayCard(card) {
+    private displayCard(card: Card): string {
         let teams = '';
         if (card.teams) {
-            teams += card.teams.flatMap(t => `${t}`);
+            teams += card.teams.flatMap((t) => `${t}`);
         }
         let displayableCard = `<span class="col-5 card-name">${card.name}</span>`;
         if (teams) {
@@ -78,7 +79,7 @@ export class GameWebViewer {
         return displayableCard;
     }
 
-    private displayPlayedCount(card) {
+    private displayPlayedCount(card: Card): string {
         switch (card.count) {
             case 1:
                 return 'never played yet';

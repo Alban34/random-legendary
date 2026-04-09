@@ -1,5 +1,6 @@
 export { Card } from './model/card';
 export { AlwaysLeadCard } from './model/always-lead-card';
+export { CatalogCard, CardCatalog, SavedCardCatalog, CardCategory } from './model/card-catalog';
 
 export { CardDrawer } from './card-drawer';
 export { CardManager } from './card-manager';

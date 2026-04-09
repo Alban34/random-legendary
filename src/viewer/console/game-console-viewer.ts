@@ -1,7 +1,8 @@
 import { Game } from '../../game/model/game';
+import { Card } from '../../card/model/card';
 
 export class GameConsoleViewer {
-    public buildView(playerCount, game: Game): string {
+    public buildView(playerCount: number, game: Game): string {
         return `*** Legendary Marvel Randomizer ***
 Number of players: ${playerCount}
 Game ID: ${game.gameId}
@@ -17,19 +18,19 @@ Bystanders: ${game.bystanders}
 `;
     }
 
-    private getMultipleToDisplay(group) {
+    private getMultipleToDisplay(group: Card[]): string {
         let display = ``;
-        group.forEach(card => {
+        group.forEach((card) => {
             display += `\n  -> ${this.displayCard(card)}`;
         });
         return display;
     }
 
-    private displayCard(card) {
+    private displayCard(card: Card): string {
         return `${card.name} (${this.displayPlayedCount(card)})`;
     }
 
-    private displayPlayedCount(card) {
+    private displayPlayedCount(card: Card): string {
         switch (card.count) {
             case 1: return "never played yet";
             case 2: return "played once";

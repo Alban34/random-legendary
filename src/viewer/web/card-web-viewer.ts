@@ -1,4 +1,4 @@
-import { Card } from '../../card/model/card';
+import { Card, CardCatalog } from '../../card/card.module';
 import { CardManager } from '../../card/card-manager';
 import { StatsService } from '../../stats/stats-service';
 
@@ -9,7 +9,7 @@ export class CardWebViewer {
     constructor(private readonly forSelection = false) {
     }
 
-    public getDisplayableCards(cardList): string {
+    public getDisplayableCards(cardList: CardCatalog): string {
         let cardsView = '<div class="cards-container">';
         cardsView += this.buildCategoryView('Masterminds', cardList.masterminds, 'bg-danger');
         cardsView += this.buildCategoryView('Schemes', cardList.schemes, 'text-white bg-dark');
@@ -20,7 +20,7 @@ export class CardWebViewer {
         return cardsView;
     }
 
-    public showCardsByGroup(allCardList, extensions: string[]) {
+    public showCardsByGroup(allCardList: CardCatalog, extensions: string[]): string {
         const cardManager = new CardManager();
 
         let view = '';
@@ -51,7 +51,7 @@ export class CardWebViewer {
         return `<li class="list-group-item">${cardLabel}</li>`;
     }
 
-    private buildCategoryView(categoryName, cards: Card[], style?: string): string {
+    private buildCategoryView(categoryName: string, cards: Card[], style?: string): string {
         let statsView = '';
         if (cards.length > 0) {
             statsView =  `(${this.statsService.computeStats(cards)}% played)`;

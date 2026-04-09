@@ -7,5 +7,9 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
     },
     mode: 'development',
-    target: 'node'
+    target: 'node',
+    externalsPresets: { node: true },
+    externals: {
+        express: 'commonjs express'
+    }
 };

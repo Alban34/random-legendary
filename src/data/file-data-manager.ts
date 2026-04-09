@@ -1,5 +1,6 @@
 import { DataManager } from './data-manager.interface';
 import { Scores } from '../game/model/scores';
+import { SavedCardCatalog } from '../card/card.module';
 import fs from 'fs-extra';
 import { injectable } from 'inversify';
 import os from 'os';
@@ -11,11 +12,13 @@ export class FileDataManager implements DataManager {
     private readonly randomLegendaryHome: string;
 
     constructor() {
-        this.randomLegendaryHome = os.homedir() + path.sep + 'random-legendary';
-        if (!fs.existsSync(this.randomLegendaryHome)) {
-            fs.mkdirs(this.randomLegendaryHome).then(() => console.log(`Data folder created in ${this.randomLegendaryHome}`));
-        } else {
+        this.randomLegendaryHome = process.env.RANDOM_LEGENDARY_HOME ?? path.join(os.homedir(), 'random-legendary');
+        const dataFolderAlreadyExists = fs.existsSync(this.randomLegendaryHome);
+        fs.ensureDirSync(this.randomLegendaryHome);
+        if (dataFolderAlreadyExists) {
             console.log(`Using data folder found in ${this.randomLegendaryHome}`);
+        } else {
+            console.log(`Data folder created in ${this.randomLegendaryHome}`);
         }
         this.migrateDataFiles();
     }
@@ -24,7 +27,7 @@ export class FileDataManager implements DataManager {
         return this.readData('extensions.json', []);
     }
 
-    readGamesData() {
+    readGamesData(): SavedCardCatalog {
         return this.readData('games.json', {});
     }
 
@@ -32,11 +35,11 @@ export class FileDataManager implements DataManager {
         return this.readData('scores.json', {});
     }
 
-    writeGameData(gamesToSave) {
+    writeGameData(gamesToSave: SavedCardCatalog): void {
         this.writeData(gamesToSave, 'games.json');
     }
 
-    writeExtensionsData(extensions: string[]) {
+    writeExtensionsData(extensions: string[]): void {
         this.writeData(extensions, 'extensions.json');
     }
 
@@ -48,38 +51,45 @@ export class FileDataManager implements DataManager {
         return this.randomLegendaryHome;
     }
 
-    private getFilePath(fileName) {
-        return this.randomLegendaryHome + path.sep + fileName;
+    private getFilePath(fileName: string): string {
+        return path.join(this.randomLegendaryHome, fileName);
     }
 
-    private readData(fileName, defaultValue) {
+    private readData<T>(fileName: string, defaultValue: T): T {
         if (fs.existsSync(this.getFilePath(fileName))) {
             const rawData = fs.readFileSync(this.getFilePath(fileName));
-            return JSON.parse(rawData.toString());
+            return JSON.parse(rawData.toString()) as T;
         }
         return defaultValue;
     }
 
-    private writeData(data, fileName) {
+    private writeData<T>(data: T, fileName: string): void {
         const dataAsStr = JSON.stringify(data);
         fs.writeFileSync(this.getFilePath(fileName), dataAsStr);
     }
 
-    private migrateDataFiles() {
+    private migrateDataFiles(): void {
         this.moveFile('games.json', 'Games');
         this.moveFile('extensions.json', 'Extensions');
         this.moveFile('scores.json', 'Scoring');
     }
 
-    private moveFile(fileName, dataFileLabel) {
-        if (fs.existsSync(fileName)) {
-            if (!fs.existsSync(fileName)) {
-                fs.move(fileName, this.getFilePath(fileName)).then(() => {
-                    console.log(`${dataFileLabel} data has been moved to ${this.randomLegendaryHome}`);
-                });
-            } else {
-                console.error(`${dataFileLabel} data has already been moved to ${this.randomLegendaryHome}. You might have some corrupted data.`);
-            }
+    private moveFile(fileName: string, dataFileLabel: string): void {
+        if (!fs.existsSync(fileName)) {
+            return;
         }
+
+        if (fs.existsSync(this.getFilePath(fileName))) {
+            console.error(`${dataFileLabel} data has already been moved to ${this.randomLegendaryHome}. You might have some corrupted data.`);
+            return;
+        }
+
+        fs.move(fileName, this.getFilePath(fileName))
+            .then(() => {
+                console.log(`${dataFileLabel} data has been moved to ${this.randomLegendaryHome}`);
+            })
+            .catch((error: Error) => {
+                console.error(`Failed to move ${dataFileLabel} data to ${this.randomLegendaryHome}: ${error.message}`);
+            });
     }
 }

@@ -50,15 +50,16 @@ describe('GameDataManager', () => {
                 return [];
             },
             readGamesData() {
+                return undefined;
             },
             readScores(): Scores {
                 return { 'game2': [{ score: 10, player: 'player' }] };
             },
-            writeGameData(gamesToSave) {
+            writeGameData(_gamesToSave) {
             },
-            writeExtensionsData(extensions: string[]) {
+            writeExtensionsData(_extensions: string[]) {
             },
-            writeScores(scores): void {
+            writeScores(_scores): void {
             }
         };
 

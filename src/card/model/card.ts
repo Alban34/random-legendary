@@ -3,4 +3,5 @@ export interface Card {
     extension: string;
     count?: number;
     gameId?: string[];
+    teams?: string[];
 }

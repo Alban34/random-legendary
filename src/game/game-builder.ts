@@ -1,19 +1,23 @@
-import { v4 as uuidv4 } from 'uuid';
+import { randomUUID } from 'node:crypto';
 import { PlayerConfig } from './player-config';
 import { Game } from './model/game';
-import { Card, CardDrawer, AlwaysLeadCard } from '../card/card.module';
+import { Card, CardCatalog, CardDrawer, AlwaysLeadCard } from '../card/card.module';
 import { CustomRuleCard } from '../card/model/custom-rule-card';
 import { CardIdentifier, PredefinedGame } from './model/predefined-game';
+
+type SingleCardType = 'mastermind' | 'scheme';
+type SingleCardGroup = 'masterminds' | 'schemes';
+type AlwaysLeadType = 'villains' | 'henchmen';
 
 export class GameBuilder {
 
     private cardDrawer = new CardDrawer();
 
-    public buildGame(allCards, playerConfig: PlayerConfig, predefinedGame?: PredefinedGame): Game {
+    public buildGame(allCards: CardCatalog, playerConfig: PlayerConfig, predefinedGame?: PredefinedGame): Game {
 
-        const gameId = `${uuidv4()}|${playerConfig.getGameMode()}`;
-        let alwaysLeadVillains = [];
-        let alwaysLeadHenchmen = [];
+        const gameId = `${randomUUID()}|${playerConfig.getGameMode()}`;
+        const alwaysLeadVillains: string[] = [];
+        const alwaysLeadHenchmen: string[] = [];
         let alwaysUseHeroes: CardIdentifier[] = [];
 
         const mastermind = this.getCard(predefinedGame, allCards, 'mastermind', 'masterminds', playerConfig) as AlwaysLeadCard;
@@ -62,17 +66,19 @@ export class GameBuilder {
         return game;
     }
 
-    private getCard(predefinedGame, allCards, cardType, cardGroup, playerConfig: PlayerConfig): Card {
+    private getCard(predefinedGame: PredefinedGame | undefined, allCards: CardCatalog, cardType: SingleCardType, cardGroup: SingleCardGroup, playerConfig: PlayerConfig): Card {
         let card: Card;
         if (predefinedGame?.[cardType]) {
-            card = allCards[cardGroup].filter(c => c.name === predefinedGame[cardType].name && c.extension === predefinedGame[cardType].extension)[0];
-            if (!card.count) {
-                card.count = 0;
+            card = allCards[cardGroup].find((c) => c.name === predefinedGame[cardType]?.name && c.extension === predefinedGame[cardType]?.extension);
+            if (card) {
+                if (!card.count) {
+                    card.count = 0;
+                }
+                card.count++;
             }
-            card.count++;
         }
         if (!card) {
-            const cardsToChoseFrom = allCards[cardGroup].filter(card => !card.minimumPlayerCount || playerConfig.playerCount >= card.minimumPlayerCount);
+            const cardsToChoseFrom = allCards[cardGroup].filter((card) => !card.minimumPlayerCount || playerConfig.playerCount >= card.minimumPlayerCount);
             card = this.cardDrawer.drawRandomUnique(cardsToChoseFrom);
         }
         return card;
@@ -85,33 +91,33 @@ export class GameBuilder {
         card.gameId.push(gameId);
     }
 
-    private customizeGame(card: CustomRuleCard, game: Game, allCards, playerCount) {
+    private customizeGame(card: CustomRuleCard, game: Game, allCards: CardCatalog, playerCount: number): void {
         if (card.customRule) {
             card.customRule(game, this.cardDrawer, allCards, playerCount);
         }
     }
 
-    private fillAlwaysArray(predefinedGame: PredefinedGame, cardType: string, arrayToFill: string[]) {
+    private fillAlwaysArray(predefinedGame: PredefinedGame | undefined, cardType: AlwaysLeadType, arrayToFill: string[]): void {
         if (predefinedGame?.[cardType]) {
-            predefinedGame[cardType].forEach(c => {
-                if (!arrayToFill.includes(c)) {
+            predefinedGame[cardType].forEach((c) => {
+                if (!arrayToFill.includes(c.name)) {
                     arrayToFill.push(c.name);
                 }
             });
         }
     }
 
-    private fillAlwaysHeroesArray(predefinedGame: PredefinedGame, arrayToFill: CardIdentifier[]) {
+    private fillAlwaysHeroesArray(predefinedGame: PredefinedGame | undefined, arrayToFill: CardIdentifier[]): void {
         if (predefinedGame?.heroes) {
-            predefinedGame.heroes.forEach(c => {
-                if (!arrayToFill.includes(c)) {
+            predefinedGame.heroes.forEach((c) => {
+                if (!arrayToFill.some((hero) => hero.name === c.name && hero.extension === c.extension)) {
                     arrayToFill.push(c);
                 }
             });
         }
     }
 
-    private setupAlwaysLead(card, alwaysLeadVillains, alwaysLeadHenchmen) {
+    private setupAlwaysLead(card: AlwaysLeadCard, alwaysLeadVillains: string[], alwaysLeadHenchmen: string[]): void {
         if (card.alwaysLead) {
             switch (card.alwaysLeadCategory) {
                 case 'villains':

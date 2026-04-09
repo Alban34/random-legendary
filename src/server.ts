@@ -1,6 +1,6 @@
 import 'reflect-metadata';
+import express from 'express';
 import { InversifyExpressServer } from 'inversify-express-utils';
-import bodyParser from 'body-parser';
 
 import './viewer/web/controller/home-controller';
 import './viewer/web/controller/card-controller';
@@ -17,14 +17,14 @@ import TYPES from './types';
 const server = new InversifyExpressServer(container);
 
 server.setConfig((app) => {
-    app.use(bodyParser.urlencoded({
+    app.use(express.urlencoded({
         extended: true
     }));
-    app.use(bodyParser.json());
+    app.use(express.json());
 });
 
 const serverInstance = server.build();
-const port = process.env.PORT || 3000;
+const port = Number(process.env.PORT) || 3000;
 serverInstance.listen(port);
 container.get<Migrator>(TYPES.Migrator).migrateGameIdTo4();
 
