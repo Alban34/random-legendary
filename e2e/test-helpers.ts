@@ -19,8 +19,9 @@ export async function resetE2EData(): Promise<void> {
 }
 
 export async function launchBrowser(): Promise<Browser> {
+	const launchOptions = process.env.CI ? {} : { channel: 'chrome' as const };
 	return chromium.launch({
-		channel: 'chrome',
+		...launchOptions,
 		headless: true
 	});
 }

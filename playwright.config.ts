@@ -1,4 +1,4 @@
-import { defineConfig, devices } from '@playwright/test';
+import { defineConfig } from '@playwright/test';
 import path from 'node:path';
 
 const PORT = 3100;
@@ -32,7 +32,9 @@ export default defineConfig({
         {
             name: 'chromium',
             use: {
-                ...devices['Desktop Chrome']
+                browserName: 'chromium',
+                viewport: { width: 1440, height: 960 },
+                ...(process.env.CI ? {} : { channel: 'chrome' as const })
             }
         }
     ]
