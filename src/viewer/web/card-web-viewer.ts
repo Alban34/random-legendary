@@ -11,11 +11,11 @@ export class CardWebViewer {
 
     public getDisplayableCards(cardList: CardCatalog): string {
         let cardsView = '<div class="cards-container">';
-        cardsView += this.buildCategoryView('Masterminds', cardList.masterminds, 'bg-danger');
+        cardsView += this.buildCategoryView('Masterminds', cardList.masterminds, 'bg-danger text-white');
         cardsView += this.buildCategoryView('Schemes', cardList.schemes, 'text-white bg-dark');
-        cardsView += this.buildCategoryView('Villains', cardList.villains, 'bg-warning');
-        cardsView += this.buildCategoryView('Henchmen', cardList.henchmen, 'bg-secondary');
-        cardsView += this.buildCategoryView('Heroes', cardList.heroes, 'bg-info');
+        cardsView += this.buildCategoryView('Villains', cardList.villains, 'bg-warning text-dark');
+        cardsView += this.buildCategoryView('Henchmen', cardList.henchmen, 'bg-secondary text-white');
+        cardsView += this.buildCategoryView('Heroes', cardList.heroes, 'bg-info text-dark');
         cardsView += '</div>';
         return cardsView;
     }
@@ -26,27 +26,39 @@ export class CardWebViewer {
         let view = '';
         extensions.forEach(extension => {
             const cardList = cardManager.filterAllCards(allCardList, [extension]);
-            view += `<h3>${extension}</h3>${this.getDisplayableCards(cardList)}<hr>`;
+            view += `
+                <section class="card-group-section">
+                    <div class="page-section__header">
+                        <div>
+                            <h3 class="card-group-section__title">${extension}</h3>
+                            <p class="page-section__subtitle">Explore the cards currently available from this extension.</p>
+                        </div>
+                    </div>
+                    ${this.getDisplayableCards(cardList)}
+                </section>`;
         });
         return view;
     }
 
     private buildCardView(card: Card, categoryName?: string): string {
         let cardLabel = `
-                <label for="${card.name + card.extension}">
-                    ${card.name}<br />
+                <label for="${card.name + card.extension}" class="d-block">
+                    <span class="card-name">${card.name}</span><br />
                 </label><br>
-                <small>${card.extension}</small>
+                <small class="text-body-secondary">${card.extension}</small>
         `;
         if (!card.count) {
-            cardLabel += '<small>(not played yet)</small>'
+            cardLabel += '<small class="text-info-emphasis d-block">Not played yet</small>'
         }
 
         if (this.forSelection) {
-            cardLabel = `<input type="checkbox" 
-                            id="${card.name + card.extension}" 
-                            name="${categoryName}|${card.name}|${card.extension}">
-                        ${cardLabel}`;
+            cardLabel = `<div class="d-flex gap-2 align-items-start">
+                            <input type="checkbox" 
+                                class="form-check-input mt-1"
+                                id="${card.name + card.extension}" 
+                                name="${categoryName}|${card.name}|${card.extension}">
+                            <div>${cardLabel}</div>
+                        </div>`;
         }
         return `<li class="list-group-item">${cardLabel}</li>`;
     }
@@ -59,7 +71,10 @@ export class CardWebViewer {
         let categoryView = `
         <div class="card ${style}">
             <div class="card-header">
-                ${categoryName} (${cards.length}) ${statsView}
+                <div class="d-flex justify-content-between align-items-center gap-3 flex-wrap">
+                    <span>${categoryName} (${cards.length})</span>
+                    <small>${statsView}</small>
+                </div>
             </div>
             <ul class="list-group list-group-flush">`;
 

@@ -45,7 +45,7 @@ export async function readSavedGames(): Promise<Record<string, unknown>> {
 
 export async function goToHome(page: Page): Promise<void> {
 	await page.goto(`${baseUrl}/`);
-	await expect(page.getByText('Legendary Marvel Randomizer')).toBeVisible();
+	await expect(page.getByRole('link', { name: 'Legendary Marvel Randomizer' })).toBeVisible();
 	await expect(page.getByText('Welcome to this Legendary: Marvel randomizer.')).toBeVisible();
 }
 
@@ -59,8 +59,7 @@ export async function startSoloGame(page: Page): Promise<StartedGame> {
 	await expect(scenarioCard).toBeVisible();
 	await expect(heroesCard).toBeVisible();
 
-	const gameIdLine = await page.locator('p', { hasText: 'Game ID:' }).textContent();
-	const gameId = gameIdLine?.replace('Game ID:', '').trim();
+	const gameId = (await page.locator('.summary-item').filter({ hasText: 'Game ID' }).locator('.summary-item__value').textContent())?.trim();
 	if (!gameId) {
 		throw new Error('Expected a generated game id on the game setup page.');
 	}
