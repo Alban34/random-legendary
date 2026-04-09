@@ -1,6 +1,6 @@
 const parseMultiTeams = (value) => {
     const searchFor = 'Microbadge: Legendary fan - ';
-    const regEscape = v => v.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
+    const regEscape = v => v.replaceAll(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
 
     return value.split(new RegExp(regEscape(searchFor), "ig")).filter(v => v !== '').map(v => {
         if (v.indexOf(' Team') > -1) {
@@ -15,7 +15,7 @@ const parseMultiTeams = (value) => {
 
 const flattenHeroTeams = (heroes) => {
     let flatHeroes = '';
-    heroes.forEach(e => flatHeroes += '\n\'' + e.replace(/'/g, '\\\'') + '\',');
+    heroes.forEach(e => flatHeroes += '\n\'' + e.replaceAll("'", '\\\'') + '\',');
     flatHeroes = flatHeroes.substring(0, flatHeroes.length -1) + '\n';
     return flatHeroes;
 }
@@ -1401,31 +1401,31 @@ const printAll = () => {
 
     console.log(`export const ALL_CARDS =\n{'masterminds': [`);
     allEntries.masterminds.forEach(v => {
-        console.log(`{\n'name':'${v.name.replace(/'/g, '\\\'')}', \n'extension': '${v.extension}', \n'alwaysLead': '', \n'alwaysLeadCategory': 'villains'},`);
+        console.log(`{\n'name':'${v.name.replaceAll("'", '\\\'')}', \n'extension': '${v.extension}', \n'alwaysLead': '', \n'alwaysLeadCategory': 'villains'},`);
     });
     console.log('],');
 
     console.log(`'schemes': [`);
     allEntries.schemes.forEach(v => {
-        console.log(`{\n'name':'${v.name.replace(/'/g, '\\\'')}', \n'extension': '${v.extension}'},`);
+        console.log(`{\n'name':'${v.name.replaceAll("'", '\\\'')}', \n'extension': '${v.extension}'},`);
     });
     console.log('],');
 
     console.log(`'villains': [`);
     allEntries.villains.forEach(v => {
-        console.log(`{\n'name':'${v.name.replace(/'/g, '\\\'')}', \n'extension': '${v.extension}'},`);
+        console.log(`{\n'name':'${v.name.replaceAll("'", '\\\'')}', \n'extension': '${v.extension}'},`);
     });
     console.log('],');
 
     console.log(`'henchmen': [`);
     allEntries.henchmen.forEach(v => {
-        console.log(`{\n'name':'${v.name.replace(/'/g, '\\\'')}', \n'extension': '${v.extension}'},`);
+        console.log(`{\n'name':'${v.name.replaceAll("'", '\\\'')}', \n'extension': '${v.extension}'},`);
     });
     console.log('],');
 
     console.log(`'heroes': [`);
     allEntries.heroes.forEach(v => {
-        console.log(`{\n'name':'${v.name.replace(/'/g, '\\\'')}', \n'extension': '${v.extension}', \n'teams':[${flattenHeroTeams(v.teams)}]},`);
+        console.log(`{\n'name':'${v.name.replaceAll("'", '\\\'')}', \n'extension': '${v.extension}', \n'teams':[${flattenHeroTeams(v.teams)}]},`);
     });
     console.log(']};');
 }

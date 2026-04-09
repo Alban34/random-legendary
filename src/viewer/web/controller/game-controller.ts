@@ -34,7 +34,7 @@ export class GameController extends AbstractController {
 
     @httpGet('/new/:playerCount')
     public get(request: Request): string {
-        const gameMode = parseInt(request['params'].playerCount);
+        const gameMode = Number.parseInt(request['params'].playerCount, 10);
         return this.writeHTMLResponse(this.startGame(gameMode));
     }
 
@@ -69,7 +69,7 @@ export class GameController extends AbstractController {
                         @requestBody() body: any) {
         const gameCustomParser = new GameCustomParser();
         const predefinedGame = gameCustomParser.parse(body);
-        const gameMode = parseInt(body.gameMode);
+        const gameMode = Number.parseInt(body.gameMode, 10);
         return this.writeHTMLResponse(this.startGame(gameMode, predefinedGame));
     }
 
