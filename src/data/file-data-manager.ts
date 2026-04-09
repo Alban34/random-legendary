@@ -12,11 +12,13 @@ export class FileDataManager implements DataManager {
     private readonly randomLegendaryHome: string;
 
     constructor() {
-        this.randomLegendaryHome = os.homedir() + path.sep + 'random-legendary';
-        if (!fs.existsSync(this.randomLegendaryHome)) {
-            fs.mkdirs(this.randomLegendaryHome).then(() => console.log(`Data folder created in ${this.randomLegendaryHome}`));
-        } else {
+        this.randomLegendaryHome = process.env.RANDOM_LEGENDARY_HOME || path.join(os.homedir(), 'random-legendary');
+        const dataFolderAlreadyExists = fs.existsSync(this.randomLegendaryHome);
+        fs.ensureDirSync(this.randomLegendaryHome);
+        if (dataFolderAlreadyExists) {
             console.log(`Using data folder found in ${this.randomLegendaryHome}`);
+        } else {
+            console.log(`Data folder created in ${this.randomLegendaryHome}`);
         }
         this.migrateDataFiles();
     }
