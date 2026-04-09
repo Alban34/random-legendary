@@ -5,9 +5,9 @@ export class CardManager {
     public getAvailableExtensions(cardList: { masterminds: Array<Pick<Card, 'extension'>> }): string[] {
         return cardList.masterminds
             .flatMap((m) => m.extension)
-            .sort()
+            .sort((a, b) => a.localeCompare(b))
             .reduce<string[]>((a, b) => {
-                if (a.slice(-1)[0] !== b) {
+                if (a[a.length - 1] !== b) {
                     a.push(b);
                 }
                 return a;

@@ -69,11 +69,13 @@ export class GameBuilder {
     private getCard(predefinedGame: PredefinedGame | undefined, allCards: CardCatalog, cardType: SingleCardType, cardGroup: SingleCardGroup, playerConfig: PlayerConfig): Card {
         let card: Card;
         if (predefinedGame?.[cardType]) {
-            card = allCards[cardGroup].filter((c) => c.name === predefinedGame[cardType]?.name && c.extension === predefinedGame[cardType]?.extension)[0];
-            if (!card.count) {
-                card.count = 0;
+            card = allCards[cardGroup].find((c) => c.name === predefinedGame[cardType]?.name && c.extension === predefinedGame[cardType]?.extension);
+            if (card) {
+                if (!card.count) {
+                    card.count = 0;
+                }
+                card.count++;
             }
-            card.count++;
         }
         if (!card) {
             const cardsToChoseFrom = allCards[cardGroup].filter((card) => !card.minimumPlayerCount || playerConfig.playerCount >= card.minimumPlayerCount);

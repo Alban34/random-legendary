@@ -46,9 +46,7 @@ export class GameCustomParser {
     }
 
     private getArray(game: PredefinedGame, category: 'villains' | 'henchmen' | 'heroes'): CardIdentifier[] {
-        if (!game[category]) {
-            game[category] = [];
-        }
-        return game[category] as CardIdentifier[];
+        game[category] ??= [];
+        return game[category];
     }
 }

@@ -1,13 +1,13 @@
 import { Game } from './model/game';
 import { injectable } from 'inversify';
-import { Card, CardCatalog } from '../card/card.module';
+import { Card, CardCatalog, CatalogCard } from '../card/card.module';
 
 @injectable()
 export class GameLoader {
 
     public load(cardList: CardCatalog, gameId: string): Game {
-        const mastermind = cardList.masterminds.filter(this.cardFilter(gameId))[0] as Game['mastermind'];
-        const scheme = cardList.schemes.filter(this.cardFilter(gameId))[0] as Game['scheme'];
+        const mastermind = this.getRequiredCard(cardList.masterminds, gameId) as Game['mastermind'];
+        const scheme = this.getRequiredCard(cardList.schemes, gameId);
         const villains = cardList.villains.filter(this.cardFilter(gameId));
         const henchmen = cardList.henchmen.filter(this.cardFilter(gameId));
         const heroes = cardList.heroes.filter(this.cardFilter(gameId));
@@ -29,5 +29,13 @@ export class GameLoader {
             }
             return false;
         }
+    }
+
+    private getRequiredCard(cards: CatalogCard[], gameId: string): CatalogCard {
+        const card = cards.find(this.cardFilter(gameId));
+        if (!card) {
+            throw new Error(`Unable to find a saved card for game '${gameId}'`);
+        }
+        return card;
     }
 }

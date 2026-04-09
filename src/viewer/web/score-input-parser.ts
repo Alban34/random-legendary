@@ -20,10 +20,16 @@ export class ScoreInputParser {
                 }
 
                 if (key.substring(key.indexOf(':') + 1).startsWith('score')) {
-                    scoreToSet.score = parseInt(String(value), 10);
+                    const parsedScore = this.toNumber(value);
+                    if (!Number.isNaN(parsedScore)) {
+                        scoreToSet.score = parsedScore;
+                    }
                 }
                 if (key.substring(key.indexOf(':') + 1).startsWith('player')) {
-                    scoreToSet.player = String(value);
+                    const playerName = this.toText(value);
+                    if (playerName !== undefined) {
+                        scoreToSet.player = playerName;
+                    }
                 }
             }
         }
@@ -51,6 +57,26 @@ export class ScoreInputParser {
             }
         }
         scoresToRemove.forEach((key) => delete scores[key]);
+    }
+
+    private toNumber(value: unknown): number {
+        if (typeof value === 'number') {
+            return value;
+        }
+        if (typeof value === 'string') {
+            return parseInt(value, 10);
+        }
+        return Number.NaN;
+    }
+
+    private toText(value: unknown): string | undefined {
+        if (typeof value === 'string') {
+            return value;
+        }
+        if (typeof value === 'number') {
+            return `${value}`;
+        }
+        return undefined;
     }
 
 }
