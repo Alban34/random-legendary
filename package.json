@@ -11,7 +11,7 @@
     "package": "npm run build:clean && webpack --config webpack.config.js",
     "package:electron": "npm run build:clean && electron-forge package",
     "start:console": "ts-node ./src/index.ts",
-    "start:web": "ts-node ./src/server.ts",
+    "start:web": "ts-node scripts/build-static-assets.ts && ts-node ./src/server.ts",
     "start:client": "npm run build:clean && electron-forge start",
     "test": "jest --coverage=true",
     "test:watch": "jest --watch",
