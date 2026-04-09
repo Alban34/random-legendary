@@ -52,21 +52,44 @@ export class ScoreController extends AbstractController {
         }
 
         let webView = `
-                <form action="/scores" method="post" class="col-lg-6 col-md-8 col-sm-12">`;
+                <section class="page-stack">
+                    <section class="page-section">
+                        <div class="page-section__header">
+                            <div>
+                                <span class="eyebrow">Scoreboard</span>
+                                <h2 class="page-section__title">Enter a score</h2>
+                                <p class="page-section__subtitle">Wrap up your latest game, mark wins and losses, and keep your campaign history beautifully organized.</p>
+                            </div>
+                        </div>
+                        <form action="/scores" method="post" class="page-stack">`;
         allAvailableGamesForScore.forEach(gameId => {
             const game = this.gameLoader.load(allCardList, gameId);
             webView += `
-                        <div class="card">
+                        <div class="card score-game-card">
                             <div class="card-header">
-                                Game ID: ${gameId}<br/>
-                                Mastermind: ${game.mastermind.name}<br/>
-                                Scheme: ${game.scheme.name}<br/>
+                                <span class="eyebrow mb-2">Awaiting score</span>
+                                <div class="summary-grid">
+                                    <div class="summary-item">
+                                        <span class="summary-item__label">Game ID</span>
+                                        <span class="summary-item__value">${gameId}</span>
+                                    </div>
+                                    <div class="summary-item">
+                                        <span class="summary-item__label">Mastermind</span>
+                                        <span class="summary-item__value">${game.mastermind.name}</span>
+                                    </div>
+                                    <div class="summary-item">
+                                        <span class="summary-item__label">Scheme</span>
+                                        <span class="summary-item__value">${game.scheme.name}</span>
+                                    </div>
+                                </div>
                                 ${this.showMultiple(game.villains, 'Villains')}
                                 ${this.showMultiple(game.henchmen, 'Henchmen')}
                                 ${this.showMultiple(game.heroes, 'Heroes')}
                             </div>
                             <div class="card-body">
-                                ${this.getPlayersView(gameId)}
+                                <div class="score-form-grid">
+                                    ${this.getPlayersView(gameId)}
+                                </div>
                                 <div class="form-check form-switch">
                                     <input class="form-check-input" 
                                         type="checkbox" 
@@ -75,14 +98,16 @@ export class ScoreController extends AbstractController {
                                         name="${gameId}:won" 
                                         checked>
                                     <label class="form-check-label" for="${gameId}:won">Game won</label>
+                                </div>
                             </div>
                         </div>
-                    </div>
             `;
         });
         webView += `
-                    <button type="submit" class="btn btn-primary">Save</button>
-                </form>`;
+                            <button type="submit" class="btn btn-primary btn-lg align-self-start">Save</button>
+                        </form>
+                    </section>
+                </section>`;
         return webView;
     }
 
@@ -107,9 +132,15 @@ export class ScoreController extends AbstractController {
         let view = '';
         for (let i = 0; i < playerCount; i++) {
             view += `
-                <div>
-                    Player: <input name="${gameId}:player_${i}" type="text" value="Player ${i + 1}">
-                    Score: ${this.getInputsScore(gameMode, gameId, i)}
+                <div class="score-input-group">
+                    <label>
+                        <span class="summary-item__label">Player</span>
+                        <input class="form-control" name="${gameId}:player_${i}" type="text" value="Player ${i + 1}">
+                    </label>
+                    <div>
+                        <span class="summary-item__label">Score</span>
+                        ${this.getInputsScore(gameMode, gameId, i)}
+                    </div>
                 </div>
             `;
         }
@@ -130,7 +161,7 @@ export class ScoreController extends AbstractController {
         }
         let scoreInputs = '';
         for (let i = 0; i < scoreInputCount; i++) {
-            scoreInputs += `<input name="${gameId}:score_${playerIndex + i}" type="number">`;
+            scoreInputs += `<input class="form-control mt-2" name="${gameId}:score_${playerIndex + i}" type="number">`;
         }
         return scoreInputs;
     }

@@ -46,19 +46,34 @@ export class GameController extends AbstractController {
         const extensions = this.cardLoader.loadExtensions();
 
         const view = `
-            <h3>Select the cards for the game</h3>
-            <form method="post" action="/game/custom/create">
-                ${cardViewer.showCardsByGroup(allCardList, extensions)}
-                <select name="gameMode">
-                    <option value="0">Solo</option>
-                    <option value="1">Advanced Solo</option>
-                    <option value="2">2 players</option>
-                    <option value="3">3 players</option>
-                    <option value="4">4 players</option>
-                    <option value="5">5 players</option>
-                </select>
-                <button type="submit" class="btn btn-primary">Start game with selected cards</button>
-            </form>
+            <section class="page-stack">
+                <section class="page-section">
+                    <div class="page-section__header">
+                        <div>
+                            <span class="eyebrow">Curated encounter</span>
+                            <h2 class="page-section__title">Select the cards for the game</h2>
+                            <p class="page-section__subtitle">Compose a dream matchup with your own hand-picked mastermind, scheme, villains, henchmen, and heroes.</p>
+                        </div>
+                    </div>
+                    <form method="post" action="/game/custom/create" class="page-stack">
+                        <div class="hero-panel">
+                            <label class="summary-item d-inline-flex flex-column gap-2">
+                                <span class="summary-item__label">Game mode</span>
+                                <select class="form-select" name="gameMode">
+                                    <option value="0">Solo</option>
+                                    <option value="1">Advanced Solo</option>
+                                    <option value="2">2 players</option>
+                                    <option value="3">3 players</option>
+                                    <option value="4">4 players</option>
+                                    <option value="5">5 players</option>
+                                </select>
+                            </label>
+                        </div>
+                        ${cardViewer.showCardsByGroup(allCardList, extensions)}
+                        <button type="submit" class="btn btn-primary btn-lg align-self-start">Start game with selected cards</button>
+                    </form>
+                </section>
+            </section>
         `;
 
         return this.writeHTMLResponse(view);
@@ -144,18 +159,34 @@ export class GameController extends AbstractController {
         }
 
         let view = `
-            <table class="table table-striped table-hover">
-                <thead class="table-light">
-                    <tr>
-                        <th scope="col">Mastermind</th>
-                        <th scope="col">Scheme</th>
-                        <th scope="col">Villains</th>
-                        <th scope="col">Henchmen</th>
-                        <th scope="col">Heroes</th>
-                        <th scope="col">Scores</th>
-                    </tr>
-                </thead>
-                <tbody>`;
+            <section class="page-stack">
+                <section class="page-section">
+                    <div class="page-section__header">
+                        <div>
+                            <span class="eyebrow">Archive</span>
+                            <h2 class="page-section__title">Show my history</h2>
+                            <p class="page-section__subtitle">Review every generated setup, revisit your heroes, and compare the outcome of previous sessions.</p>
+                        </div>
+                    </div>
+                    <div class="summary-grid mb-3">
+                        <div class="summary-item">
+                            <span class="summary-item__label">Recorded games</span>
+                            <span class="summary-item__value">${allGames.length}</span>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover align-middle">
+                            <thead class="table-light">
+                                <tr>
+                                    <th scope="col">Mastermind</th>
+                                    <th scope="col">Scheme</th>
+                                    <th scope="col">Villains</th>
+                                    <th scope="col">Henchmen</th>
+                                    <th scope="col">Heroes</th>
+                                    <th scope="col">Scores</th>
+                                </tr>
+                            </thead>
+                            <tbody>`;
         allGames.forEach(gameId => {
             const game = this.gameLoader.load(allCardList, gameId);
             const score = this.getScores(allScores, gameId);
@@ -182,8 +213,11 @@ export class GameController extends AbstractController {
             `;
         });
         view += `
-                </tbody>
-            </table>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </section>
         `;
         return view;
     }

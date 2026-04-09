@@ -39,35 +39,57 @@ export class ExtensionController extends AbstractController {
 
         const availableExtensionsAsWeb = allExtensions.map((ext) => {
             return `
-                <div class="input-group mb-2">
-                    <div class="input-group-text">
-                        <input class="form-check-input mt-0" 
-                                type="checkbox" 
-                                id="${ext}" 
-                                name="ext"
-                                value="${ext}"
-                                ${selectedExtensions.indexOf(ext) !== -1 ? 'checked' : ''}>
-                        <label style="margin-left: 10px" for="${ext}">${ext}</label>
-                    </div>
-                </div>
+                <label class="extension-card" for="${ext}">
+                    <input class="form-check-input mt-0" 
+                            type="checkbox" 
+                            id="${ext}" 
+                            name="ext"
+                            value="${ext}"
+                            ${selectedExtensions.indexOf(ext) !== -1 ? 'checked' : ''}>
+                    <span>
+                        <strong>${ext}</strong>
+                        <small class="d-block text-secondary-emphasis">Add this expansion to your active randomizer pool.</small>
+                    </span>
+                </label>
             `;
         });
         return `
-            <div class="btn-group" role="group">
-                <button class="btn btn-secondary" onclick="Array.from(document.getElementsByTagName('input')).forEach(item => item.checked = true)">
-                    Check all</button>
-                <button class="btn btn-secondary" onclick="Array.from(document.getElementsByTagName('input')).forEach(item => item.checked = false)">
-                    Uncheck all</button>
-                <button class="btn btn-secondary" onclick="Array.from(document.getElementsByTagName('input')).forEach(item => item.checked = !item.checked)">
-                    Inverse selection</button>
-            </div>
-            <button class="btn btn-primary" onclick="document.getElementById('extForm').submit()">Save</button>
-            <form action="/extensions" method="post" id="extForm">
-                <div class="extensions-list">
-                    ${availableExtensionsAsWeb.join('')}
-                </div>
-            </form>
-        `;
+            <section class="page-stack">
+                <section class="page-section">
+                    <div class="page-section__header">
+                        <div>
+                            <span class="eyebrow">Collection manager</span>
+                            <h2 class="page-section__title">Select my extensions</h2>
+                            <p class="page-section__subtitle">Choose the sets you own so the randomizer only serves matchups you can actually build.</p>
+                        </div>
+                    </div>
+                    <div class="extension-toolbar">
+                        <button class="btn btn-secondary" onclick="Array.from(document.getElementsByTagName('input')).forEach(item => item.checked = true)">
+                            Check all</button>
+                        <button class="btn btn-secondary" onclick="Array.from(document.getElementsByTagName('input')).forEach(item => item.checked = false)">
+                            Uncheck all</button>
+                        <button class="btn btn-secondary" onclick="Array.from(document.getElementsByTagName('input')).forEach(item => item.checked = !item.checked)">
+                            Inverse selection</button>
+                        <button class="btn btn-primary" onclick="document.getElementById('extForm').submit()">Save</button>
+                    </div>
+                    <form action="/extensions" method="post" id="extForm" class="extension-panel p-4">
+                        <div class="summary-grid mb-3">
+                            <div class="summary-item">
+                                <span class="summary-item__label">Available extensions</span>
+                                <span class="summary-item__value">${allExtensions.length}</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="summary-item__label">Currently selected</span>
+                                <span class="summary-item__value">${selectedExtensions.length}</span>
+                            </div>
+                        </div>
+                        <div class="extensions-list">
+                            ${availableExtensionsAsWeb.join('')}
+                        </div>
+                    </form>
+                </section>
+            </section>
+            `;
     }
 
 }

@@ -5,51 +5,82 @@ export class GameWebViewer {
     public buildView(playerCount: number, game: Game): string {
 
         return `
-            <div class="col-lg-6 col-md-8 col-sm-12">
-                <div class="card">
-                    <div class="card-header bg-info">
-                        Game setup
+            <section class="page-stack game-layout">
+                <section class="hero-panel">
+                    <span class="eyebrow">Scenario deployed</span>
+                    <div class="page-section__header">
+                        <div>
+                            <h2 class="page-section__title">Game setup</h2>
+                            <p class="page-section__subtitle">A premium overview of your next Legendary Marvel showdown.</p>
+                        </div>
                     </div>
-                    <div class="card-body">
-                        <p>Number of players: ${playerCount}</p>
-                        <p>Game ID: ${game.gameId}</p>
+                    <div class="summary-grid">
+                        <div class="summary-item">
+                            <span class="summary-item__label">Number of players</span>
+                            <span class="summary-item__value">${playerCount}</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-item__label">Game ID</span>
+                            <span class="summary-item__value">${game.gameId}</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-item__label">Bystanders</span>
+                            <span class="summary-item__value">${game.bystanders}</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-item__label">Master strikes</span>
+                            <span class="summary-item__value">${game.masterStrike}</span>
+                        </div>
                     </div>
-                </div>
+                </section>
                 <div class="card">
-                    <div class="card-header bg-danger">
+                    <div class="card-header bg-danger text-white">
                         Scenario setup
                     </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <span class="col-4">Mastermind:</span>
-                            ${this.displayCard(game.mastermind)}
+                    <div class="card-body scenario-meta">
+                        <div class="scenario-meta__item">
+                            <strong>Mastermind</strong>
+                            <div class="mt-2 row align-items-start">
+                                ${this.displayCard(game.mastermind)}
+                            </div>
                         </div>
-                        <div class="row">
-                            <span class="col-4">Scheme:</span>
-                            ${this.displayCard(game.scheme)}
+                        <div class="scenario-meta__item">
+                            <strong>Scheme</strong>
+                            <div class="mt-2 row align-items-start">
+                                ${this.displayCard(game.scheme)}
+                            </div>
                         </div>
-                        <p>Bystanders: ${game.bystanders}</p>
-                        <p>Master strikes: ${game.masterStrike}</p>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-header bg-warning">
+                    <div class="card-header bg-warning text-dark">
                         Adversaries setup
                     </div>
                     <div class="card-body">
-                        <p>Villains: ${this.getMultipleToDisplay(game.villains)}</p>
-                        <p>Henchmen: ${this.getMultipleToDisplay(game.henchmen, game.henchmenCardsCount)}</p>
+                        <div class="game-meta-list">
+                            <div class="game-meta-item">
+                                <strong>Villains</strong>
+                                ${this.getMultipleToDisplay(game.villains)}
+                            </div>
+                            <div class="game-meta-item">
+                                <strong>Henchmen</strong>
+                                ${this.getMultipleToDisplay(game.henchmen, game.henchmenCardsCount)}
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="card">
-                    <div class="card-header bg-success">
+                    <div class="card-header bg-success text-white">
                         Heroes setup
                     </div>
                     <div class="card-body">
-                        <p>Heroes: ${this.getMultipleToDisplay(game.heroes)}</p>
+                        <div class="game-meta-item">
+                            <strong>Heroes</strong>
+                            ${this.getMultipleToDisplay(game.heroes)}
+                        </div>
                     </div>
                 </div>
-            </div>
+            </section>
         `;
     }
 

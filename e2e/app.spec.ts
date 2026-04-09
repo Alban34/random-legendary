@@ -8,8 +8,8 @@ test.beforeEach(async () => {
 test('loads the application successfully', async () => {
     await withPage(async (page) => {
         await goToHome(page);
-        await expect(page.getByText('Start new game')).toBeVisible();
-        await expect(page.getByText('Games')).toBeVisible();
+        await expect(page.getByRole('button', { name: 'Start new game' })).toBeVisible();
+        await expect(page.getByRole('button', { name: 'Games' })).toBeVisible();
         await expect(page.getByRole('button', { name: 'Cards' })).toBeVisible();
     });
 });
@@ -39,11 +39,11 @@ test('lets the user start a new game', async () => {
     await withPage(async (page) => {
         const startedGame = await startSoloGame(page);
 
-        await expect(page.getByText(`Game ID: ${startedGame.gameId}`)).toBeVisible();
-        await expect(page.getByText(`Mastermind:`)).toBeVisible();
-        await expect(page.getByText(`Scheme:`)).toBeVisible();
-        await expect(page.locator('.card-name', { hasText: startedGame.mastermind }).first()).toBeVisible();
-        await expect(page.locator('.card-name', { hasText: startedGame.scheme }).first()).toBeVisible();
+        await expect(page.getByText(startedGame.gameId, { exact: true })).toBeVisible();
+        await expect(page.getByText('Mastermind', { exact: true })).toBeVisible();
+        await expect(page.getByText('Scheme', { exact: true })).toBeVisible();
+        await expect(page.getByText(startedGame.mastermind, { exact: true }).first()).toBeVisible();
+        await expect(page.getByText(startedGame.scheme, { exact: true }).first()).toBeVisible();
     });
 });
 
