@@ -4,7 +4,7 @@ import fs from 'fs-extra';
 const copyContentToTS = (filePathSrc, fileNameDst) => {
     const fileContent = fs.readFileSync(filePathSrc);
 
-    const cssAsTS = `export const ${fileNameDst.toUpperCase().replace(/\./g, '_')} = \`
+    const cssAsTS = `export const ${fileNameDst.toUpperCase().replaceAll('.', '_')} = \`
     ${fileContent.toString('base64')}
 \`;`;
 

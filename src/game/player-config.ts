@@ -116,10 +116,10 @@ export class PlayerConfig {
 
     /**
      * Try to guess the amount of human players based on game stats
-     * @param villains 
-     * @param henchmen 
-     * @param heroes 
-     * @returns 
+     * @param villains
+     * @param henchmen
+     * @param heroes
+     * @returns
      */
     static guessPlayerCount(villains: number, henchmen: number, heroes: number): number {
         if (heroes === 3) {
@@ -134,8 +134,8 @@ export class PlayerConfig {
 
     /**
      * Returns the number of human players corresponding to the game mode (i.e.: only 1 human on a 2 handed solo mode)
-     * @param gameMode 
-     * @returns 
+     * @param gameMode
+     * @returns
      */
     static getHumanPlayerCount(gameMode: number) {
         switch (gameMode) {
@@ -151,11 +151,11 @@ export class PlayerConfig {
 
     /**
      * Extract the PlayerConfig object from the id of a given game
-     * @param gameId 
-     * @returns 
+     * @param gameId
+     * @returns
      */
     static extractPlayerConfigFromGameId(gameId: string): PlayerConfig {
-        const gameMode = parseInt(gameId.substring(gameId.indexOf('|') + 1));
+        const gameMode = Number.parseInt(gameId.substring(gameId.indexOf('|') + 1), 10);
         return new PlayerConfig(gameMode);
     }
 }

@@ -105,12 +105,12 @@ export class CardDrawer {
         if (filter) {
             cardList = cardList.filter(filter);
         }
+        if (cardList.length === 0) {
+            throw new Error('Cannot draw a random card from an empty list');
+        }
         const lowestCount = cardList.reduce((prev, curr) => {
-            if (!prev.count) {
-                return prev;
-            }
-            return prev.count < curr.count ? prev : curr;
-        }).count;
+            return (prev.count ?? 0) < (curr.count ?? 0) ? prev : curr;
+        }, cardList[0]).count;
 
         const filteredCardList = cardList.filter((value) => this.filterList(value, lowestCount));
         const choice = filteredCardList[this.getRandomInt(filteredCardList.length)];
